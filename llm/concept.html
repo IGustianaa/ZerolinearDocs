@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+ <title>Konsep Teknis &mdash; HermesGuide</title>
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="../../assets/css/style.css?v=hermes-guide-v3">
+</head>
+<body>
+ <nav class="nav">
+ <div class="nav-left">
+ <a href="../index.html" class="nav-brand">
+ <div class="nav-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg></div>
+ <span class="nav-logo-text">Mftrferdinand<span>Docs</span></span>
+ </a>
+ </div>
+ <div class="nav-center"><a href="../index.html" class="nav-link"><span class="lang-id-inline">Beranda</span><span class="lang-en-inline">Home</span></a><a href="../konsep/index.html" class="nav-link"><span class="lang-id-inline">Konsep</span><span class="lang-en-inline">Concept</span></a><a href="../pilar/index.html" class="nav-link"><span class="lang-id-inline">Pilar</span><span class="lang-en-inline">Pillars</span></a><a href="../praktik/index.html" class="nav-link"><span class="lang-id-inline">Praktik</span><span class="lang-en-inline">Practice</span></a><a href="../tutorial/index.html" class="nav-link"><span class="lang-id-inline">Tutorial</span><span class="lang-en-inline">Tutorial</span></a><a href="../backend/index.html" class="nav-link"><span class="lang-id-inline">Backend</span><span class="lang-en-inline">Backend</span></a><a href="../agents/index.html" class="nav-link"><span class="lang-id-inline">AI Agents</span><span class="lang-en-inline">AI Agents</span></a><a href="../llm/index.html" class="nav-link active"><span class="lang-id-inline">LLM</span><span class="lang-en-inline">LLM</span></a><a href="../prompt/index.html" class="nav-link"><span class="lang-id-inline">Prompt</span><span class="lang-en-inline">Prompt</span></a><a href="../automation/index.html" class="nav-link"><span class="lang-id-inline">Automation</span><span class="lang-en-inline">Automation</span></a><a href="../api/index.html" class="nav-link"><span class="lang-id-inline">API</span><span class="lang-en-inline">API</span></a><a href="../coding/index.html" class="nav-link"><span class="lang-id-inline">Coding</span><span class="lang-en-inline">Coding</span></a><a href="../hermes/index.html" class="nav-link"><span class="lang-id-inline">Hermes</span><span class="lang-en-inline">Hermes</span></a><a href="../lampiran/index.html" class="nav-link"><span class="lang-id-inline">Lampiran</span><span class="lang-en-inline">Appendix</span></a></div>
+ <div class="nav-right">
+ <div class="nav-search" aria-label="Search">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span class="lang-id-inline">Cari</span><span class="lang-en-inline">Search</span>
+ <kbd>Ctrl K</kbd>
+ </div>
+ <button id="translate-btn" class="nav-toggle-btn" aria-label="Translate">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="lang-label" style="font-size:.7rem;font-weight:700;margin-left:.15rem;">EN</span>
+ </button>
+ <button id="theme-btn" class="nav-toggle-btn" aria-label="Theme">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+ </button>
+ <button class="nav-menu-btn" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+ </div>
+ </nav>
+ <div class="mega-menu">
+ <button class="mega-menu-close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+ <div class="mega-menu-grid"><div class="mega-menu-section"><h4>Dasar</h4><a href="../index.html">Beranda<span class="desc">Hero & overview</span></a><a href="../konsep/index.html">Konsep<span class="desc">Dasar-dasar AI & AI Agent</span></a><a href="../pilar/index.html">Pilar<span class="desc">5 pilar inti agent</span></a><a href="../praktik/index.html">Praktik<span class="desc">Studi kasus & implementasi</span></a></div><div class="mega-menu-section"><h4>Panduan</h4><a href="../tutorial/index.html">Tutorial<span class="desc">Panduan step-by-step</span></a><a href="../backend/index.html">Backend<span class="desc">Arsitektur server & integrasi</span></a><a href="../hermes/index.html">Hermes<span class="desc">Setup, config, Termux, Windows</span></a><a href="../lampiran/index.html">Lampiran<span class="desc">FAQ, changelog, resource</span></a></div><div class="mega-menu-section"><h4>AI & LLM</h4><a href="../agents/index.html">AI Agents<span class="desc">Penjelasan mendalam agent</span></a><a href="../llm/index.html">LLM<span class="desc">Dasar Large Language Model</span></a><a href="../prompt/index.html">Prompt<span class="desc">Teknik & strategi prompting</span></a><a href="../automation/index.html">Automation<span class="desc">Otomatisasi workflow</span></a></div><div class="mega-menu-section"><h4>Developer</h4><a href="../api/index.html">API<span class="desc">Dokumentasi referensi API</span></a><a href="../coding/index.html">Coding<span class="desc">Contoh & snippet implementasi</span></a></div></div>
+ </div>
+ <div class="search-overlay">
+ <div class="search-box">
+ <input type="text" placeholder="Cari dokumentasi..." />
+ <div class="search-results"></div>
+ </div>
+ </div>
+ <div class="page-title-bar"><h2><span class="lang-id-inline">Konsep Teknis</span><span class="lang-en-inline">Technical Concepts</span></h2><div class="breadcrumb"><a href="../index.html"><span class="lang-id-inline">Beranda</span><span class="lang-en-inline">Home</span></a> / <a href="index.html"><span class="lang-id-inline">Konsep Teknis</span><span class="lang-en-inline">Technical Concepts</span></a> / Konsep Teknis</div></div>
+ 
+ <div class="content-wrap"><div class="container container-narrow">
+ <div class="page-header"><h1><span class="lang-id-inline">Konsep Teknis</span><span class="lang-en-inline">Technical Concepts</span></h1><div class="breadcrumb"><a href="../index.html"><span class="lang-id-inline">Beranda</span><span class="lang-en-inline">Home</span></a> / <a href="index.html"><span class="lang-id-inline">Konsep Teknis</span><span class="lang-en-inline">Technical Concepts</span></a> / Konsep Teknis</div></div>
+ <div class="prose">
+<h2>Token</h2>
+
+<p>Token adalah unit terkecil yang diproses LLM. Satu token kira-kira 0.75 kata dalam bahasa Inggris, atau sekitar 4 karakter. Token menentukan biaya API, kecepatan inference, dan batas context window.</p>
+
+<h3>Kalkulasi Token</h3>
+
+<div class="code-block"><pre><code>import tiktoken
+
+encoder = tiktoken.encoding_for_model(&quot;gpt-4o&quot;)
+
+text = &quot;Large Language Models are transforming how we interact with technology.&quot;
+tokens = encoder.encode(text)
+print(f&quot;Text: {text}&quot;)
+print(f&quot;Token count: {len(tokens)}&quot;)
+print(f&quot;Tokens: {tokens}&quot;)
+# Token count: 14
+# Tokens: [43, 2278, 6868, 10417, 527, 44575, 1268, 586, 8474, 926, 4364, 13]</code></pre><button class="copy-btn"></button></div>
+
+<p>Estimasi cepat: 1 token = ~4 karakter = ~0.75 kata (English). 1.000 token = ~750 kata = ~2.5 halaman. Untuk bahasa Indonesia, rasio token per kata lebih tinggi (~1.3-1.5 token per kata) karena tokenizer tidak dioptimalkan untuk bahasa non-English.</p>
+
+<h3>Implikasi Praktis</h3>
+
+<ul><li><strong>Biaya</strong> — API charge per 1M token. Input dan output dihitung terpisah.</li><li><strong>Context window</strong> — Total token (input + output) tidak boleh melebihi context window model.</li><li><strong>Speed</strong> — Lebih banyak output token = lebih lama generasi. Output 1.000 token pada 80 TPS = 12.5 detik.</li></ul>
+
+<h2>Context Window</h2>
+
+<p>Context window adalah jumlah maksimum token yang dapat diproses LLM dalam satu request (input + output combined). Model dengan context 128K dapat menerima ~96.000 kata input — setara buku 300 halaman.</p>
+
+<h3>Strategi Manajemen Context</h3>
+
+<p><strong>Summarization</strong> — Saat percakapan panjang mendekati limit, sumarisasi bagian lama dan ganti dengan ringkasan. Menjaga konteks penting sambil menghemat token.</p>
+
+<p><strong>Chunking</strong> — Untuk dokumen besar, pecah menjadi chunk (500-2000 token), proses satu per satu, agregat hasil. Kombinasikan dengan RAG untuk retrieval selektif.</p>
+
+<p><strong>Sliding Window</strong> — Hanya pertahankan N pesan terakhir dalam context. Pesan lama di-drop. Cocok untuk chatbot di mana konteks jauh jarang relevan.</p>
+
+<p><strong>Vector Retrieval (RAG)</strong> — Simpan dokumen di vector database. Saat user bertanya, retrieve hanya chunk yang paling relevan (top-k) dan sertakan dalam context. Menghemat token secara dramatis.</p>
+
+<div class="code-block"><pre><code># RAG pattern: retrieve relevant context
+from chromadb import Client
+
+collection = Client().create_collection(&quot;docs&quot;)
+collection.add(documents=all_documents, ids=doc_ids)
+
+def answer_question(question):
+ # Retrieve top 3 most relevant chunks
+ results = collection.query(query_texts=[question], n_results=3)
+ context = &quot;\n&quot;.join(results[&quot;documents&quot;][0])
+ 
+ prompt = f&quot;Context: {context}\n\nQuestion: {question}\nAnswer:&quot;
+ response = llm.chat([{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: prompt}])
+ return response</code></pre><button class="copy-btn"></button></div>
+
+<h2>Temperature</h2>
+
+<p>Temperature mengontrol randomness dalam pemilihan token. Nilai rendah = deterministik, nilai tinggi = kreatif/random.</p>
+
+<h3>Mekanisme</h3>
+
+<p>LLM menghasilkan distribusi probabilitas untuk token berikutnya. Temperature menskalakan distribusi ini sebelum sampling:</p>
+<ul><li><strong>Temperature = 0</strong> — Selalu pilih token dengan probabilitas tertinggi (greedy). Output deterministik.</li><li><strong>Temperature = 1</strong> — Sampling sesuai distribusi asli. Output bervariasi tetapi masih masuk akal.</li><li><strong>Temperature &gt; 1</strong> — Distribusi diratakan, token low-probability lebih sering dipilih. Output menjadi aneh.</li></ul>
+
+<h3>Contoh Output pada Berbagai Temperature</h3>
+
+<p>Prompt: &quot;The meaning of life is&quot;</p>
+
+<div class="code-block"><pre><code>[Temperature 0.0]
+&quot;The meaning of life is to find purpose and meaning in your existence.&quot;
+
+[Temperature 0.7]
+&quot;The meaning of life is a deeply personal question that each person must answer for themselves.&quot;
+
+[Temperature 1.0]
+&quot;The meaning of life is like a river flowing through mountains, sometimes calm, sometimes wild.&quot;
+
+[Temperature 1.5]
+&quot;The meaning of life is purple octagons dancing in quantum soup.&quot;</code></pre><button class="copy-btn"></button></div>
+
+<h3>Panduan Pemilihan Temperature</h3>
+
+<table><tr><th>Use Case</th><th>Temperature</th><th>Alasan</th></tr><tr><td>Code generation</td><td>0.0 - 0.2</td><td>Deterministik, precise</td></tr><tr><td>Data extraction</td><td>0.0</td><td>Consistent format</td></tr><tr><td>Q&amp;A / Factual</td><td>0.0 - 0.3</td><td>Akurat, tidak kreatif</td></tr><tr><td>Summarization</td><td>0.3 - 0.5</td><td>Sedikit variasi</td></tr><tr><td>Translation</td><td>0.3</td><td>Setia ke sumber</td></tr><tr><td>Creative writing</td><td>0.7 - 0.9</td><td>Kreatif tetapi koheren</td></tr><tr><td>Brainstorming</td><td>0.9 - 1.2</td><td>Maksimal kreativitas</td></tr></table>
+
+<h2>Top-P dan Top-K</h2>
+
+<div class="code-block"><pre><code>Selain temperature, dua parameter lain mengontrol sampling:
+Best practice: gunakan salah satu (temperature atau top-p), bukan keduanya. Atau set temperature=1 dan kontrol via top-p. Default umum: temperature=0.7, top-p=1.0.</code></pre><button class="copy-btn">Copy</button></div>
+
+<h2>Fine-Tuning</h2>
+
+<p>Fine-tuning menyesuaikan model pre-trained untuk domain atau tugas spesifik. Diperlukan ketika prompt engineering dan few-shot tidak cukup.</p>
+
+<h3>LoRA (Low-Rank Adaptation)</h3>
+
+<p>LoRA membekukan parameter model asli dan menambahkan lapisan adapter kecil yang dilatih. Hanya adapter (biasanya &lt;1% dari total parameter) yang di-update. Efisien, cepat, dan tidak merusak kemampuan asli model.</p>
+
+<div class="code-block"><pre><code>from peft import LoraConfig, get_peft_model
+from transformers import AutoModelForCausalLM
+
+model = AutoModelForCausalLM.from_pretrained(&quot;meta-llama/Llama-3.1-8B&quot;)
+
+lora_config = LoraConfig(
+ r=16, # rank of adapter
+ lora_alpha=32,
+ target_modules=[&quot;q_proj&quot;, &quot;v_proj&quot;, &quot;k_proj&quot;, &quot;o_proj&quot;],
+ lora_dropout=0.05,
+ task_type=&quot;CAUSAL_LM&quot;
+)
+
+model = get_peft_model(model, lora_config)
+model.print_trainable_parameters()
+# trainable params: 13.6M || all params: 8.07B || trainable%: 0.17%
+
+# Train only the adapter
+trainer.train(dataset) # 500-5000 examples, 3-5 epochs
+model.save_pretrained(&quot;./lora-adapter&quot;) # save ~50MB (just adapter)</code></pre><button class="copy-btn"></button></div>
+
+<p>QLoRA adalah variant LoRA dengan model base di-quantize ke 4-bit, memungkinkan fine-tuning model 70B pada single GPU 24GB (RTX 4090). Standar untuk fine-tuning modern.</p>
+
+<h3>RLHF (Reinforcement Learning from Human Feedback)</h3>
+
+<p>RLHF menyelaraskan model dengan preferensi manusia melalui tiga tahap:</p>
+<ol><li><strong>Reward model training</strong> — Annotator membandingkan pasangan respons, reward model dilatih memprediksi preferensi</li><li><strong>Policy optimization</strong> — Model utama dioptimasi (via PPO) untuk memaksimalkan reward</li><li><strong>Iteration</strong> — Ulangi dengan data preferensi baru</li></ol>
+
+<p>RLHF kompleks, mahal, dan tidak stabil. Tetapi menghasilkan model yang lebih &quot;aligned&quot; — helpful, harmless, honest.</p>
+
+<h3>DPO (Direct Preference Optimization)</h3>
+
+<p>DPO menyederhanakan RLHF: langsung optimasi model dari preference data tanpa reward model terpisah. Lebih stabil, lebih cepat, dan hasil setara atau lebih baik dari RLHF pada banyak task. Formula:</p>
+
+<div class="code-block"><pre><code>L_DPO = -log(sigma(beta * (log_ratio(preferred) - log_ratio(dispreferred))))</code></pre><button class="copy-btn"></button></div>
+
+<p>Mayoritas model modern (Llama 3, Mistral, Zephyr) menggunakan DPO atau variant.</p>
+
+<h2>Quantization</h2>
+
+<p>Quantization mengurangi presisi numerik parameter model untuk menghemat memori dan mempercepat inference. Trade-off: sedikit penurunan kualitas, penghematan dramatis dalam ukuran dan kecepatan.</p>
+
+<table><tr><th>Format</th><th>Precision</th><th>Size (70B model)</th><th>Quality Loss</th><th>GPU Memory</th><th>Use Case</th></tr><tr><td>FP32</td><td>32-bit</td><td>280 GB</td><td>Baseline</td><td>280 GB</td><td>Training</td></tr><tr><td>FP16/BF16</td><td>16-bit</td><td>140 GB</td><td>~0%</td><td>140 GB</td><td>Standard inference</td></tr><tr><td>INT8</td><td>8-bit</td><td>70 GB</td><td>~1-2%</td><td>70 GB</td><td>Production inference</td></tr><tr><td>INT4</td><td>4-bit</td><td>35 GB</td><td>~2-5%</td><td>35 GB</td><td>Consumer GPU</td></tr><tr><td>GGUF Q4_K_M</td><td>4-bit</td><td>40 GB</td><td>~3-5%</td><td>20 GB (CPU)</td><td>CPU inference, local</td></tr><tr><td>GGUF Q2_K</td><td>2-bit</td><td>18 GB</td><td>~10%+</td><td>18 GB</td><td>Extreme compression</td></tr></table>
+
+<h3>GGUF untuk CPU Inference</h3>
+
+<p>GGUF (GPT-Generated Unified Format) adalah format yang dioptimalkan untuk CPU inference dengan llama.cpp. Memungkinkan menjalankan model 70B pada laptop biasa (8-16GB RAM):</p>
+
+<div class="code-block"><pre><code># Download quantized model
+wget https://huggingface.co/.../llama-3.1-8b-q4_k_m.gguf
+
+# Run with llama.cpp
+./llama-server -m llama-3.1-8b-q4_k_m.gguf -c 4096 --port 8080
+
+# atau dengan Ollama
+ollama run llama3.1:8b</code></pre><button class="copy-btn"></button></div>
+
+<h2>Inference Optimization</h2>
+
+<h3>KV Cache</h3>
+
+<p>LLM menyimpan key-value pairs dari token yang sudah diproses untuk menghindari recomputation. Saat generating token ke-N, hanya token ke-N yang dihitung — token 1 hingga N-1 diambil dari cache. Ini mengubah kompleksitas dari O(n^2) ke O(n) untuk autoregressive generation.</p>
+
+<h3>Speculative Decoding</h3>
+
+<p>Model kecil (draft model) generate kandidat token, model besar verify secara batched. Jika kandidat benar, skip sequential generation. Speedup 2-3x tanpa loss kualitas.</p>
+
+<h3>Batching</h3>
+
+<p>Multiple request di-batch secara paralel melalui GPU. Throughput naik linearly dengan batch size hingga GPU memory penuh. Serving framework (vLLM, TGI) mengelola batching otomatis.</p>
+
+<h3>Flash Attention</h3>
+
+<p>Optimasi algoritma attention yang mengurangi memory access pattern. Speedup 2-4x dan memory reduction untuk long context. Didukung native di mayoritas model modern.</p>
+
+<p>Memahami konsep-konsep teknis ini memungkinkan keputusan yang informed tentang konfigurasi model, optimasi biaya, dan strategi deployment. Setiap parameter — temperature, top-p, quantization level — memiliki trade-off yang harus dipahami dalam konteks use case spesifik.</p>
+</div></div></div>
+ <div class="feedback-widget">
+ <p>Apakah halaman ini membantu?</p>
+ <div class="feedback-btns">
+ <button class="feedback-btn yes">Ya, membantu</button>
+ <button class="feedback-btn no">Tidak</button>
+ </div>
+ </div>
+ <footer class="footer">
+ <div class="container">
+ <div class="footer-links"><a href="index.html">Beranda</a><a href="konsep/index.html">Konsep</a><a href="pilar/index.html">Pilar</a><a href="praktik/index.html">Praktik</a><a href="tutorial/index.html">Tutorial</a><a href="backend/index.html">Backend</a><a href="agents/index.html">AI Agents</a><a href="llm/index.html">LLM</a></div>
+ <div class="footer-social">
+ <a href="https://github.com/Mftrferdinand" target="_blank" class="github" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.5.5.09.66-.22.66-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02.8-.22 1.65-.33 2.5-.33.85 0 1.7.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.16.58.67.48A10.01 10.01 0 0022 12c0-5.52-4.48-10-10-10z"/></svg></a>
+ <a href="https://twitter.com" target="_blank" class="twitter" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+ <a href="https://instagram.com" target="_blank" class="instagram" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+ <a href="https://t.me/v1aesbot" target="_blank" class="telegram" aria-label="Telegram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.94 4.5l-3.2 15.07c-.24 1.06-.87 1.32-1.76.82l-4.87-3.59-2.35 2.26c-.26.26-.48.48-.98.48l.35-4.96 9.03-8.16c.39-.35-.09-.55-.61-.2L6.7 13.12l-4.8-1.5c-1.04-.32-1.06-1.04.22-1.54l18.77-7.24c.87-.32 1.63.2 1.35 1.66z"/></svg></a>
+ </div>
+ <p>HermesGuide &mdash; Panduan Hermes Agent</p>
+ </div>
+ </footer>
+ <script src="../../assets/js/main.js"></script>
+</body>
+</html>

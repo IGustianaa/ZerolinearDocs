@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+ <title>Contoh Prompt &mdash; HermesGuide</title>
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="../../assets/css/style.css?v=hermes-guide-v3">
+</head>
+<body>
+ <div class="bg-canvas"></div>
+ <div class="bg-grid"></div>
+ <div class="particles"></div>
+ <nav class="nav">
+ <div class="nav-left">
+ <a href="../index.html" class="nav-brand">
+ <div class="nav-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg></div>
+ <span class="nav-logo-text">Mftrferdinand<span>Docs</span></span>
+ </a>
+ <div class="nav-links"><a href="../index.html" class="nav-link"><span class="lang-id-inline">Beranda</span><span class="lang-en-inline">Home</span></a><a href="../agents/index.html" class="nav-link"><span class="lang-id-inline">AI Agents</span><span class="lang-en-inline">AI Agents</span></a><a href="../llm/index.html" class="nav-link"><span class="lang-id-inline">LLM</span><span class="lang-en-inline">LLM</span></a><a href="../prompt/index.html" class="nav-link active"><span class="lang-id-inline">Prompt</span><span class="lang-en-inline">Prompt</span></a><a href="../automation/index.html" class="nav-link"><span class="lang-id-inline">Automation</span><span class="lang-en-inline">Automation</span></a><a href="../api/index.html" class="nav-link"><span class="lang-id-inline">API Providers</span><span class="lang-en-inline">API Providers</span></a><a href="../coding/index.html" class="nav-link"><span class="lang-id-inline">Coding</span><span class="lang-en-inline">Coding</span></a><a href="../hermes/index.html" class="nav-link"><span class="lang-id-inline">Hermes</span><span class="lang-en-inline">Hermes</span></a></div>
+ </div>
+ <div class="nav-right">
+ <button id="translate-btn" class="nav-translate" aria-label="Translate">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+ <span class="lang-label">EN</span>
+ </button>
+ <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+ </div>
+ </nav>
+ <div class="page-title-bar">
+ <h2><span class="lang-id-inline">Contoh Prompt</span><span class="lang-en-inline">Prompt Examples</span></h2>
+ <div class="breadcrumb"><a href="../index.html"><span class="lang-id-inline">Beranda</span><span class="lang-en-inline">Home</span></a> / <a href="index.html"><span class="lang-id-inline">Contoh Prompt</span><span class="lang-en-inline">Prompt Examples</span></a> / Contoh Prompt</div>
+ </div>
+ 
+ <div class="content-wrap">
+ <div class="container container-narrow">
+ <div class="page-header">
+ <h1><span class="lang-id-inline">Contoh Prompt</span><span class="lang-en-inline">Prompt Examples</span></h1>
+ <div class="breadcrumb"><a href="../index.html"><span class="lang-id-inline">Beranda</span><span class="lang-en-inline">Home</span></a> / <a href="index.html"><span class="lang-id-inline">Contoh Prompt</span><span class="lang-en-inline">Prompt Examples</span></a> / Contoh Prompt</div>
+ </div>
+ <div class="prose">
+ 
+<h2>Koleksi Template Prompt Siap Pakai</h2>
+
+<p>Berikut 8+ template prompt yang dapat langsung digunakan dan diadaptasi. Setiap template dilengkapi dengan full prompt text dan expected output format.</p>
+
+<p>---</p>
+
+<h2>1. Code Review</h2>
+
+<p><strong>Prompt:</strong></p>
+<div class="code-block"><pre><code>Anda adalah senior software engineer dengan spesialisasi 
+code review. Review kode berikut dengan fokus pada:
+
+1. BUGS: Logika yang salah, edge case tidak tertangani, 
+ race condition, memory leak
+2. SECURITY: Injection, XSS, CSRF, data exposure
+3. PERFORMANCE: N+1 query, unnecessary allocation, 
+ blocking I/O
+4. READABILITY: Naming, complexity, duplication
+5. BEST PRACTICES: Pattern adherence, SOLID principles
+
+Untuk setiap issue, berikan:
+- Severity: CRITICAL / HIGH / MEDIUM / LOW
+- Category: BUG / SECURITY / PERFORMANCE / STYLE
+- Description: Jelaskan masalah
+- Suggestion: Code fix dengan penjelasan
+
+Kode untuk review:</code></pre><button class="copy-btn"></button></div>
+<p>{code}</p>
+<div class="code-block"><pre><code>
+Format output sebagai JSON array.</code></pre><button class="copy-btn"></button></div>
+
+<p><strong>Expected Output:</strong></p>
+<div class="code-block"><pre><code>[
+ {
+ &quot;severity&quot;: &quot;HIGH&quot;,
+ &quot;category&quot;: &quot;SECURITY&quot;,
+ &quot;line&quot;: 42,
+ &quot;description&quot;: &quot;SQL query menggunakan string concatenation, rentan SQL injection&quot;,
+ &quot;suggestion&quot;: &quot;Gunakan parameterized query: db.query(&#x27;SELECT * FROM users WHERE id = ?&#x27;, [userId])&quot;
+ },
+ {
+ &quot;severity&quot;: &quot;MEDIUM&quot;,
+ &quot;category&quot;: &quot;PERFORMANCE&quot;,
+ &quot;line&quot;: 15,
+ &quot;description&quot;: &quot;Loop dalam loop menyebabkan O(n^2) complexity&quot;,
+ &quot;suggestion&quot;: &quot;Gunakan Map untuk lookup O(1): const userMap = new Map(users.map(u =&gt; [u.id, u]))&quot;
+ }
+]</code></pre><button class="copy-btn"></button></div>
+
+<p>---</p>
+
+<h2>2. Data Extraction</h2>
+
+<p><strong>Prompt:</strong></p>
+<div class="code-block"><pre><code>Ekstrak informasi struktural dari teks berikut. 
+Isi field yang tidak disebutkan dengan null.
+
+Schema:
+{
+ &quot;person&quot;: {
+ &quot;name&quot;: &quot;string|null&quot;,
+ &quot;title&quot;: &quot;string|null&quot;,
+ &quot;organization&quot;: &quot;string|null&quot;
+ },
+ &quot;contact&quot;: {
+ &quot;email&quot;: &quot;string|null&quot;,
+ &quot;phone&quot;: &quot;string|null&quot;,
+ &quot;address&quot;: &quot;string|null&quot;
+ },
+ &quot;event&quot;: {
+ &quot;date&quot;: &quot;YYYY-MM-DD|null&quot;,
+ &quot;type&quot;: &quot;meeting|deadline|other|null&quot;,
+ &quot;description&quot;: &quot;string&quot;
+ }
+}
+
+Teks:
+---
+{raw_text}
+---
+
+Hanya kembalikan JSON, tanpa teks tambahan.</code></pre><button class="copy-btn"></button></div>
+
+<p><strong>Expected Output:</strong></p>
+<div class="code-block"><pre><code>{
+ &quot;person&quot;: {
+ &quot;name&quot;: &quot;Dr. Sarah Wijaya&quot;,
+ &quot;title&quot;: &quot;Head of Research&quot;,
+ &quot;organization&quot;: &quot;Tech Innovate Inc.&quot;
+ },
+ &quot;contact&quot;: {
+ &quot;email&quot;: &quot;s.wijaya@techinnovate.com&quot;,
+ &quot;phone&quot;: &quot;+62-21-555-0142&quot;,
+ &quot;address&quot;: null
+ },
+ &quot;event&quot;: {
+ &quot;date&quot;: &quot;2025-02-15&quot;,
+ &quot;type&quot;: &quot;meeting&quot;,
+ &quot;description&quot;: &quot;Quarterly review meeting with product team&quot;
+ }
+}</code></pre><button class="copy-btn"></button></div>
+
+<p>---</p>
+
+<h2>3. Summarization</h2>
+
+<p><strong>Prompt:</strong></p>
+<div class="code-block"><pre><code>Rangkas dokumen berikut dalam format yang terstruktur.
+
+&lt;DOKUMEN&gt;
+{document_text}
+&lt;/DOKUMEN&gt;
+
+Output format:
+
+## Executive Summary
+[3 kalimat yang merangkum poin utama]
+
+## Key Points
+- [Poin 1: maksimal 1 kalimat]
+- [Poin 2]
+- [Poin 3]
+- [Max 7 poin total]
+
+## Action Items
+- [Siapa] harus [melakukan apa] pada [kapan]
+- [Jika tidak ada action item, tulis &quot;Tidak ada&quot;]
+
+## Open Questions
+- [Pertanyaan yang belum terjawab dalam dokumen]
+- [Jika tidak ada, tulis &quot;Tidak ada&quot;]
+
+## Key Metrics / Numbers
+- [Setiap angka, persentase, atau metrik penting]
+
+Batasan:
+- Pertahankan akurasi faktual, jangan menambahkan informasi
+- Jika informasi tidak ada dalam dokumen, jangan mengarang
+- Max 400 kata total</code></pre><button class="copy-btn"></button></div>
+
+<p>---</p>
+
+<h2>4. Translation</h2>
+
+<p><strong>Prompt:</strong></p>
+<div class="code-block"><pre><code>Anda adalah penerjemah profesional bersertifikasi.
+
+Terjemahkan teks berikut dari {source_lang} ke {target_lang}.
+
+Aturan:
+1. Pertahankan nuansa dan tone asli
+2. Untuk istilah teknis, berikan terjemahan lalu 
+ istilah asli dalam kurung pada first mention
+3. Untuk idiom, gunakan ekspresi yang setara di 
+ bahasa target, bukan terjemahan literal
+4. Pertahankan format: paragraf, bullet points, 
+ heading, numbering
+5. Jika ada kata yang ambigu, berikan catatan 
+ dengan format: [CATATAN: ...]
+
+&lt;TEKS_ASLI&gt;
+{source_text}
+&lt;/TEKS_ASLI&gt;
+
+Output hanya terjemahan, dimulai langsung tanpa pembuka.</code></pre><button class="copy-btn"></button></div>
+
+<p><strong>Expected Output:</strong></p>
+<div class="code-block"><pre><code>Laporan Kinerja Triwulanan Q4 2024
+
+Pendapatan total mencapai Rp 45.2 miliar, meningkat 
+23% year-over-year (YoY). Segmen enterprise (B2B) 
+menyumbang 68% dari total pendapatan.
+
+[CATATAN: &quot;enterprise&quot; dipertahankan karena istilah 
+standar industri di Indonesia]
+
+Poin kinerja utama:
+- Akuisisi 1,240 pelanggan baru
+- Churn rate turun ke 4.2% (dari 6.1% di Q3)
+- Net Revenue Retention (NRR) mencapai 115%</code></pre><button class="copy-btn"></button></div>
+
+<p>---</p>
+
+<h2>5. Code Generation</h2>
+
+<p><strong>Prompt:</strong></p>
+<div class="code-block"><pre><code>Anda adalah senior engineer. Tulis fungsi {language} 
+yang memenuhi spesifikasi berikut:
+
+FUNGSI: {function_name}
+DESKRIPSI: {description}
+
+INPUT:
+- {param1}: {type} - {description}
+- {param2}: {type} - {description}
+
+OUTPUT:
+- Return type: {return_type}
+- {description_of_return}
+
+EDGE CASES yang HARUS ditangani:
+1. Input null/empty -&gt; return {expected}
+2. {edge_case_2}
+3. {edge_case_3}
+
+REQUIREMENTS:
+- Type hints wajib
+- Docstring dalam format Google style
+- Logging untuk error cases (level: WARNING)
+- Tidak boleh ada dependency eksternal selain stdlib
+- Cyclomatic complexity &lt; 10
+
+Sertakan 3 unit test cases (1 normal, 1 edge case, 
+1 error case) menggunakan {test_framework}.</code></pre><button class="copy-btn"></button></div>
+
+<p><strong>Expected Output:</strong></p>
+<div class="code-block"><pre><code>from typing import List, Optional
+import logging
+
+logger = logging.getLogger(__name__)
+
+def parse_csv_line(
+ line: str, 
+ delimiter: str = &quot;,&quot;,
+ quote_char: str = &#x27;&quot;&#x27;
+) -&gt; List[str]:
+ &#x27;&#x27;&#x27;Parse a single CSV line into fields.
+ 
+ Args:
+ line: Raw CSV line string.
+ delimiter: Field delimiter character.
+ quote_char: Quote character for escaping.
+ 
+ Returns:
+ List of parsed field values.
+ 
+ Raises:
+ ValueError: If line is empty or malformed.
+ &#x27;&#x27;&#x27;
+ if not line or not line.strip():
+ logger.warning(&quot;Empty CSV line received&quot;)
+ return []
+ 
+ # ... implementation ...
+ return fields
+
+# Tests
+import pytest
+
+class TestParseCsvLine:
+ def test_normal(self):
+ assert parse_csv_line(&#x27;a,b,c&#x27;) == [&#x27;a&#x27;, &#x27;b&#x27;, &#x27;c&#x27;]
+ 
+ def test_quoted_field(self):
+ assert parse_csv_line(&#x27;&quot;hello, world&quot;,b&#x27;) == [&#x27;hello, world&#x27;, &#x27;b&#x27;]
+ 
+ def test_empty_line(self):
+ assert parse_csv_line(&#x27;&#x27;) == []</code></pre><button class="copy-btn"></button></div>
+
+<p>---</p>
+
+<h2>6. Debugging</h2>
+
+<p><strong>Prompt:</strong></p>
+<div class="code-block"><pre><code>Anda adalah debugging expert. Analisis error berikut 
+dan bantu menyelesaikannya.
+
+BAHASA: {language}
+FRAMEWORK: {framework}
+
+ERROR MESSAGE:</code></pre><button class="copy-btn"></button></div>
+<div class="code-block"><pre><code>{error_message}
+{stack_trace}
+{code_snippet}</code></pre><button class="copy-btn">Copy</button></div>
+<div class="code-block"><pre><code>
+CONTEXT:
+- Apa yang sedang dilakukan: {user_action}
+- Terakhir yang berfungsi: {last_working_state}
+- Perubahan terbaru: {recent_changes}
+
+Analisis dengan struktur:
+1. ROOT CAUSE: Penjelasan teknis mengapa error terjadi
+2. WHY: Mengapa kondisi ini terjadi (bukan hanya gejala)
+3. FIX: Code solution lengkap dengan penjelasan
+4. PREVENTION: Cara mencegah di masa depan
+5. RELATED: Issue terkait yang mungkin perlu dicek
+
+Jika informasi tidak cukup untuk diagnosis, tanyakan 
+pertanyaan klarifikasi sebelum memberikan solusi.</code></pre><button class="copy-btn"></button></div>
+
+<p>---</p>
+
+<h2>7. Documentation Generation</h2>
+
+<p><strong>Prompt:</strong></p>
+<div class="code-block"><pre><code>Anda adalah technical writer. Untuk dokumentasi API 
+dari kode berikut.
+
+KODE:</code></pre><button class="copy-btn"></button></div>
+<p>{code}</p>
+<div class="code-block"><pre><code>
+Untuk dokumentasi dalam format:
+
+## {Function/Class/Endpoint Name}
+
+### Description
+[1-2 kalimat menjelaskan purpose]
+
+### Parameters
+<table><tr><th>Item</th></tr><tr><td>Name | Type | Required | Description |</td></tr><tr><td>------|------|----------|-------------|</td></tr><tr><td>... | ... | ... | ... |</td></tr></table>### Returns
+[Type dan description]
+
+### Raises
+<table><tr><th>Item</th></tr><tr><td>Exception | Condition |</td></tr><tr><td>-----------|-----------|</td></tr><tr><td>... | ... |</td></tr></table>### Example</code></pre><button class="copy-btn"></button></div>
+<p>// Usage example</p>
+<div class="code-block"><pre><code>
+### Notes
+- [Important caveats, performance notes]
+
+Aturan:
+- Untuk fungsi private (_prefix), tetap dokumentasikan 
+ tapi tandai sebagai internal
+- Sertakan example yang realistis, bukan placeholder
+- Jika ada side effects (DB write, file I/O, network), 
+ sebutkan eksplisit</code></pre><button class="copy-btn"></button></div>
+
+<p>---</p>
+
+<h2>8. Email Drafting</h2>
+
+<p><strong>Prompt:</strong></p>
+<div class="code-block"><pre><code>Tulis email profesional berdasarkan parameter berikut.
+
+KEPADA: {recipient_role}
+DARI: {sender_role}
+KONTEKS: {situation_description}
+TUJUAN: {desired_outcome}
+TONE: {formal|sopan|tegas|persuasif}
+BAHASA: {language}
+
+POIN YANG HARUS DISAMPAIKAN:
+1. {point_1}
+2. {point_2}
+3. {point_3}
+
+BATASAN:
+- Max 200 kata
+- Subject line: actionable dan spesifik (max 8 kata)
+- Opening: langsung ke konteks, bukan small talk
+- Closing: clear call-to-action dengan deadline
+- Jangan minta maaf berlebihan
+- Hindari jargon yang tidak perlu
+
+Output format:
+Subject: [subject line]
+
+[email body]</code></pre><button class="copy-btn"></button></div>
+
+<p><strong>Expected Output:</strong></p>
+<div class="code-block"><pre><code>Subject: Review dan Approval Q1 Budget Proposal
+
+Bapak Direktur,
+
+Mengikup diskusi 10 Januari, berikut proposal anggaran Q1 
+untuk divisi Engineering yang memerlukan review dan 
+approval Bapak sebelum 20 Januari.
+
+Total pengajuan: Rp 2.4 miliar (peningkatan 12% dari Q4), 
+dengan alokasi: infrastructure migration (40%), talent 
+acquisition (35%), dan R&amp;D tooling (25%). Detail lengkap 
+terlampir.
+
+Mohon konfirmasi jadwal review atau pertanyaan tambahan.
+
+Hormat saya,
+[Name]
+Head of Engineering</code></pre><button class="copy-btn"></button></div>
+
+<p>---</p>
+
+<h2>Tips Adaptasi Template</h2>
+
+<ol><li><strong>Mulai dengan template yang paling dekat</strong> dengan use case Anda</li><li><strong>Modifikasi few-shot examples</strong> dengan data real dari domain Anda</li><li><strong>Sesuaikan format output</strong> ke schema yang dibutuhkan sistem downstream</li><li><strong>Uji dengan minimal 20 contoh</strong> sebelum production deployment</li><li><strong>Iterasi berdasarkan failure cases</strong> — tambahkan instruksi khusus untuk kasus yang gagal</li><li><strong>Simpan versi yang bekerja</strong> sebagai baseline sebelum eksperimen</li></ol>
+
+ </div>
+ </div>
+ </div>
+
+ <footer class="footer">
+ <div class="container">
+ <div class="footer-social">
+ <a href="https://github.com/Mftrferdinand" target="_blank" class="github" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.5.5.09.66-.22.66-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02.8-.22 1.65-.33 2.5-.33.85 0 1.7.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.16.58.67.48A10.01 10.01 0 0022 12c0-5.52-4.48-10-10-10z"/></svg></a>
+ <a href="https://twitter.com" target="_blank" class="twitter" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+ <a href="https://instagram.com" target="_blank" class="instagram" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+ <a href="https://t.me/v1aesbot" target="_blank" class="telegram" aria-label="Telegram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.94 4.5l-3.2 15.07c-.24 1.06-.87 1.32-1.76.82l-4.87-3.59-2.35 2.26c-.26.26-.48.48-.98.48l.35-4.96 9.03-8.16c.39-.35-.09-.55-.61-.2L6.7 13.12l-4.8-1.5c-1.04-.32-1.06-1.04.22-1.54l18.77-7.24c.87-.32 1.63.2 1.35 1.66z"/></svg></a>
+ </div>
+ <p>HermesGuide &mdash; AI Insight &mdash; v6.0</p>
+ </div>
+ </footer>
+ <script src="../../assets/js/main.js"></script>
+</body>
+</html>

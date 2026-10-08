@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+ <title>Daftar Vendor LLM &mdash; HermesGuide</title>
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="../../assets/css/style.css?v=hermes-guide-v3">
+</head>
+<body>
+ <nav class="nav">
+ <div class="nav-left">
+ <a href="../index.html" class="nav-brand">
+ <div class="nav-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg></div>
+ <span class="nav-logo-text">Mftrferdinand<span>Docs</span></span>
+ </a>
+ </div>
+ <div class="nav-center"><a href="../index.html" class="nav-link"><span class="lang-id-inline">Beranda</span><span class="lang-en-inline">Home</span></a><a href="../konsep/index.html" class="nav-link"><span class="lang-id-inline">Konsep</span><span class="lang-en-inline">Concept</span></a><a href="../pilar/index.html" class="nav-link"><span class="lang-id-inline">Pilar</span><span class="lang-en-inline">Pillars</span></a><a href="../praktik/index.html" class="nav-link"><span class="lang-id-inline">Praktik</span><span class="lang-en-inline">Practice</span></a><a href="../tutorial/index.html" class="nav-link"><span class="lang-id-inline">Tutorial</span><span class="lang-en-inline">Tutorial</span></a><a href="../backend/index.html" class="nav-link"><span class="lang-id-inline">Backend</span><span class="lang-en-inline">Backend</span></a><a href="../agents/index.html" class="nav-link"><span class="lang-id-inline">AI Agents</span><span class="lang-en-inline">AI Agents</span></a><a href="../llm/index.html" class="nav-link"><span class="lang-id-inline">LLM</span><span class="lang-en-inline">LLM</span></a><a href="../prompt/index.html" class="nav-link"><span class="lang-id-inline">Prompt</span><span class="lang-en-inline">Prompt</span></a><a href="../automation/index.html" class="nav-link"><span class="lang-id-inline">Automation</span><span class="lang-en-inline">Automation</span></a><a href="../api/index.html" class="nav-link active"><span class="lang-id-inline">API</span><span class="lang-en-inline">API</span></a><a href="../coding/index.html" class="nav-link"><span class="lang-id-inline">Coding</span><span class="lang-en-inline">Coding</span></a><a href="../hermes/index.html" class="nav-link"><span class="lang-id-inline">Hermes</span><span class="lang-en-inline">Hermes</span></a><a href="../lampiran/index.html" class="nav-link"><span class="lang-id-inline">Lampiran</span><span class="lang-en-inline">Appendix</span></a></div>
+ <div class="nav-right">
+ <div class="nav-search" aria-label="Search">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span class="lang-id-inline">Cari</span><span class="lang-en-inline">Search</span>
+ <kbd>Ctrl K</kbd>
+ </div>
+ <button id="translate-btn" class="nav-toggle-btn" aria-label="Translate">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="lang-label" style="font-size:.7rem;font-weight:700;margin-left:.15rem;">EN</span>
+ </button>
+ <button id="theme-btn" class="nav-toggle-btn" aria-label="Theme">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+ </button>
+ <button class="nav-menu-btn" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+ </div>
+ </nav>
+ <div class="mega-menu">
+ <button class="mega-menu-close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+ <div class="mega-menu-grid"><div class="mega-menu-section"><h4>Dasar</h4><a href="../index.html">Beranda<span class="desc">Hero & overview</span></a><a href="../konsep/index.html">Konsep<span class="desc">Dasar-dasar AI & AI Agent</span></a><a href="../pilar/index.html">Pilar<span class="desc">5 pilar inti agent</span></a><a href="../praktik/index.html">Praktik<span class="desc">Studi kasus & implementasi</span></a></div><div class="mega-menu-section"><h4>Panduan</h4><a href="../tutorial/index.html">Tutorial<span class="desc">Panduan step-by-step</span></a><a href="../backend/index.html">Backend<span class="desc">Arsitektur server & integrasi</span></a><a href="../hermes/index.html">Hermes<span class="desc">Setup, config, Termux, Windows</span></a><a href="../lampiran/index.html">Lampiran<span class="desc">FAQ, changelog, resource</span></a></div><div class="mega-menu-section"><h4>AI & LLM</h4><a href="../agents/index.html">AI Agents<span class="desc">Penjelasan mendalam agent</span></a><a href="../llm/index.html">LLM<span class="desc">Dasar Large Language Model</span></a><a href="../prompt/index.html">Prompt<span class="desc">Teknik & strategi prompting</span></a><a href="../automation/index.html">Automation<span class="desc">Otomatisasi workflow</span></a></div><div class="mega-menu-section"><h4>Developer</h4><a href="../api/index.html">API<span class="desc">Dokumentasi referensi API</span></a><a href="../coding/index.html">Coding<span class="desc">Contoh & snippet implementasi</span></a></div></div>
+ </div>
+ <div class="search-overlay">
+ <div class="search-box">
+ <input type="text" placeholder="Cari dokumentasi..." />
+ <div class="search-results"></div>
+ </div>
+ </div>
+ <div class="page-title-bar"><h2><span class="lang-id-inline">Daftar Vendor LLM</span><span class="lang-en-inline">LLM Vendors</span></h2><div class="breadcrumb"><a href="../index.html"><span class="lang-id-inline">Beranda</span><span class="lang-en-inline">Home</span></a> / <a href="index.html"><span class="lang-id-inline">Daftar Vendor LLM</span><span class="lang-en-inline">LLM Vendors</span></a> / Daftar Vendor LLM</div></div>
+ 
+ <div class="content-wrap"><div class="container container-narrow">
+ <div class="page-header"><h1><span class="lang-id-inline">Daftar Vendor LLM</span><span class="lang-en-inline">LLM Vendors</span></h1><div class="breadcrumb"><a href="../index.html"><span class="lang-id-inline">Beranda</span><span class="lang-en-inline">Home</span></a> / <a href="index.html"><span class="lang-id-inline">Daftar Vendor LLM</span><span class="lang-en-inline">LLM Vendors</span></a> / Daftar Vendor LLM</div></div>
+ <div class="prose">
+<h2>Vendor LLM Lengkap</h2>
+
+<p>Lanskap vendor LLM berkembang pesat. Berikut analisis mendalam setiap vendor utama.</p>
+
+<h3>OpenAI</h3>
+
+<p>OpenAI adalah pelopor API LLM komersial. Didirikan 2015, perusahaan ini meluncurkan GPT-3 API pada 2020 dan sejak itu menjadi standar industri. Model unggulan: GPT-4o (multimodal, 128K context), GPT-4o-mini (ringan dan murah), o1 (reasoning), o3-mini (reasoning hemat). Endpoint: <code>https://api.openai.com/v1</code>. Keunggulan utama adalah ekosistem matang, dokumentasi excellent, function calling paling reliable, dan dukungan vision native. Harga: $0.15-15 per 1M token tergantung model. OpenAI tidak open-weight; semua model proprietary. Cocok untuk: aplikasi production yang butuh reliability tertinggi, ekosistem tool yang luas, dan fitur terbaru seperti structured output.</p>
+
+<h3>Anthropic</h3>
+
+<p>Anthropic didirikan oleh mantan peneliti OpenAI pada 2021 dengan fokus pada AI safety. Model Claude 3.5 Sonnet menjadi salah satu model terbaik untuk coding dan analisis. Claude 3.5 Sonnet menawarkan context window 200K, vision capability, dan tool use. Endpoint: <code>https://api.anthropic.com</code>. Harga: Claude 3.5 Sonnet $3/$15 per 1M token (input/output), Claude 3 Opus $15/$75, Claude 3 Haiku $0.25/$1.25. Anthropic unggul dalam reasoning panjang, analisis dokumen, dan adherence ke system prompt. Fitur unik: prompt caching yang mengurangi biaya untuk konteks berulang hingga 90%. Tidak open-weight. Cocok untuk: analisis dokumen panjang, coding assistant, aplikasi yang memprioritaskan safety.</p>
+
+<h3>Google (DeepMind)</h3>
+
+<p>Google memasuki API LLM dengan Gemini, model multimodal native yang dikembangkan dari awal untuk memproses teks, gambar, audio, dan video. Gemini 1.5 Pro menawarkan context window hingga 2M token &mdash; terbesar di industri. Endpoint: <code>https://generativelanguage.googleapis.com</code>. Via Vertex AI: <code>https://{region}-aiplatform.googleapis.com</code>. Harga: Gemini 1.5 Flash $0.075/$0.30 (sangat murah), Gemini 1.5 Pro $1.25/$5. Keunggulan: context window raksasa, multimodal native, integrasi Google Cloud. Tidak open-weight. Cocok untuk: aplikasi yang memproses dokumen sangat panjang, analisis video, integrasi Google Cloud.</p>
+
+<h3>Meta</h3>
+
+<p>Meta berbeda dari vendor lain karena model Llama bersifat open-weight. Siapa pun dapat mengunduh bobot model dan meng-host sendiri. Llama 3.1 tersedia dalam ukuran 8B, 70B, dan 405B. Llama 3.2 hadir dalam 1B dan 3B untuk perangkat mobile. Karena open-weight, harga hosting tergantung provider: Together AI mengenakan $0.18-0.88 per 1M token. Self-hosting hanya menanggung biaya GPU. Endpoint bergantung provider yang dipilih. Keunggulan: tidak ada vendor lock-in, transparansi penuh, custom fine-tuning dimungkinkan. Cocok untuk: organisasi yang butuh kontrol penuh, fine-tuning kustom, deployment on-premise.</p>
+
+<h3>Mistral AI</h3>
+
+<p>Startup Prancis yang fokus pada model efisien. Mistral Large 2 menyaingi GPT-4 dalam banyak benchmark. Mixtral 8x22B menggunakan arsitektur Mixture of Experts (MoE) untuk efisiensi. Sebagian model open-weight (Mixtral, Mistral 7B), sebagian proprietary (Mistral Large). Endpoint: <code>https://api.mistral.ai/v1</code>. Harga: Mistral Large $2/$6 per 1M token. Keunggulan: efisiensi tinggi, open-weight option, kepatuhan GDPR (server Eropa). Cocok untuk: kebutuhan GDPR, deployment Eropa, model efisien.</p>
+
+<h3>Zhipu AI</h3>
+
+<p>Zhipu AI adalah perusahaan AI Tiongkok yang mengembangkan keluarga model GLM (General Language Model). GLM-5.2 adalah model unggulan terbaru dengan kemampuan reasoning dan multimodal. Zhipu menawarkan harga sangat kompetitif dibanding vendor Barat. Endpoint: <code>https://open.bigmodel.cn/api/paas/v4</code>. Model: GLM-5.2, GLM-5.1, GLM-4-Plus. Keunggulan: multilingual kuat (termasuk Indonesia), harga kompetitif, context window 128K. Cocok untuk: pasar Asia, aplikasi multilingual, alternatif hemat.</p>
+
+<h3>MiniMax</h3>
+
+<p>MiniMax adalah startup AI Tiongkok yang fokus pada model cepat dan ekonomis. MiniMax-M3 menawarkan throughput tinggi dengan harga sangat rendah. Endpoint via 9Router atau platform MiniMax. Keunggulan: kecepatan inference cepat, harga paling kompetitif di kelasnya, cocok untuk volume tinggi. Cocok untuk: chatbot high-volume, klasifikasi massal, tugas yang butuh throughput tinggi.</p>
+
+<h3>DeepSeek</h3>
+
+<p>DeepSeek menawarkan model open-weight dengan kualitas reasoning yang menyaingi model proprietary. DeepSeek V4 Pro dan Flash tersedia. Model ini mendapat perhatian karena kualitas yang tinggi dengan biaya rendah. Sebagian open-weight. Endpoint: <code>https://api.deepseek.com</code>. Harga: sangat kompetitif ($0.14-0.28 per 1M token). Keunggulan: reasoning kuat, open-weight option, biaya rendah. Cocok untuk: reasoning tasks, budget-constrained project, fine-tuning.</p>
+
+<h3>Cohere</h3>
+
+<p>Cohere fokus pada enterprise dengan fitur RAG native. Model Command R+ dirancang khusus untuk retrieval-augmented generation. Endpoint: <code>https://api.cohere.ai/v1</code>. Harga: Command R+ $2.50/$10 per 1M token. Keunggulan: RAG native, fine-tuning mudah, embeddings berkualitas tinggi. Cocok untuk: enterprise search, RAG application, knowledge management.</p>
+
+<h3>xAI</h3>
+
+<p>Perusahaan AI Elon Musk. Model Grok-3 terintegrasi dengan platform X (Twitter) untuk akses informasi real-time. Endpoint: <code>https://api.x.ai/v1</code>. Harga: Grok-3 $5/$15 per 1M token. Keunggulan: akses data real-time dari X, konteks berita terkini. Cocok untuk: aplikasi yang butuh informasi real-time, analisis tren sosial.</p>
+
+<h3>Together AI</h3>
+
+<p>Together AI adalah provider yang meng-host model open-weight (Llama, Mistral, DeepSeek, dll) dengan API OpenAI-compatible. Endpoint: <code>https://api.together.xyz/v1</code>. Mereka juga menawarkan fine-tuning serverless. Harga: $0.18-5.60 per 1M token tergantung model. Keunggulan: banyak pilihan model, harga kompetitif, OpenAI-compatible. Cocok untuk: akses multiple open-weight model tanpa self-hosting.</p>
+
+<h3>Fireworks AI</h3>
+
+<p>Fireworks AI fokus pada inference cepat untuk model open-weight. Mendukung banyak model termasuk Llama, Mixtral, dan model fine-tuned kustom. Endpoint: <code>https://api.fireworks.ai/inference/v1</code>. Harga: $0.20-3.00 per 1M token. Keunggulan: latency rendah, fine-tuning support, banyak model. Cocok untuk: aplikasi latency-sensitive, custom fine-tuned model.</p>
+
+<h2>Tabel Perbandingan Lengkap</h2>
+
+<table><tr><th>Vendor</th><th>Model</th><th>Open Weight</th><th>Max Context</th><th>Multimodal</th><th>Input $/1M</th><th>Output $/1M</th><th>Self-Host</th><th>API Endpoint</th><th>Best For</th></tr><tr><td>OpenAI</td><td>GPT-4o</td><td>Tidak</td><td>128K</td><td>Ya</td><td>$2.50</td><td>$10.00</td><td>Tidak</td><td>api.openai.com/v1</td><td>Production, function calling</td></tr><tr><td>OpenAI</td><td>GPT-4o-mini</td><td>Tidak</td><td>128K</td><td>Ya</td><td>$0.15</td><td>$0.60</td><td>Tidak</td><td>api.openai.com/v1</td><td>High-volume, hemat</td></tr><tr><td>Anthropic</td><td>Claude 3.5 Sonnet</td><td>Tidak</td><td>200K</td><td>Ya</td><td>$3.00</td><td>$15.00</td><td>Tidak</td><td>api.anthropic.com</td><td>Coding, analisis dokumen</td></tr><tr><td>Anthropic</td><td>Claude 3 Haiku</td><td>Tidak</td><td>200K</td><td>Ya</td><td>$0.25</td><td>$1.25</td><td>Tidak</td><td>api.anthropic.com</td><td>Cepat, hemat</td></tr><tr><td>Google</td><td>Gemini 1.5 Pro</td><td>Tidak</td><td>2M</td><td>Ya</td><td>$1.25</td><td>$5.00</td><td>Tidak</td><td>googleapis.com</td><td>Context sangat panjang</td></tr><tr><td>Google</td><td>Gemini 1.5 Flash</td><td>Tidak</td><td>1M</td><td>Ya</td><td>$0.075</td><td>$0.30</td><td>Tidak</td><td>googleapis.com</td><td>Murah, multimodal</td></tr><tr><td>Meta</td><td>Llama 3.1 405B</td><td>Ya</td><td>128K</td><td>Tidak</td><td>Variabel</td><td>Variabel</td><td>Ya</td><td>Bergantung provider</td><td>Self-host, kontrol penuh</td></tr><tr><td>Meta</td><td>Llama 3.1 70B</td><td>Ya</td><td>128K</td><td>Tidak</td><td>$0.88</td><td>$0.88</td><td>Ya</td><td>Bergantung provider</td><td>Open-weight, self-host</td></tr><tr><td>Mistral</td><td>Mistral Large 2</td><td>Tidak</td><td>128K</td><td>Ya</td><td>$2.00</td><td>$6.00</td><td>Tidak</td><td>api.mistral.ai</td><td>GDPR, server Eropa</td></tr><tr><td>Mistral</td><td>Mixtral 8x22B</td><td>Ya</td><td>64K</td><td>Tidak</td><td>$0.90</td><td>$0.90</td><td>Ya</td><td>api.mistral.ai</td><td>Efisien, MoE</td></tr><tr><td>Zhipu AI</td><td>GLM-5.2</td><td>Tidak</td><td>128K</td><td>Ya</td><td>$0.14</td><td>$0.28</td><td>Tidak</td><td>bigmodel.cn</td><td>Multilingual, hemat</td></tr><tr><td>MiniMax</td><td>MiniMax-M3</td><td>Tidak</td><td>245K</td><td>Ya</td><td>$0.11</td><td>$0.28</td><td>Tidak</td><td>9Router / MiniMax</td><td>Volume tinggi, cepat</td></tr><tr><td>DeepSeek</td><td>DeepSeek V4 Pro</td><td>Partial</td><td>128K</td><td>Tidak</td><td>$0.14</td><td>$0.28</td><td>Partial</td><td>api.deepseek.com</td><td>Reasoning, hemat</td></tr><tr><td>Cohere</td><td>Command R+</td><td>Tidak</td><td>128K</td><td>Tidak</td><td>$2.50</td><td>$10.00</td><td>Tidak</td><td>api.cohere.ai</td><td>Enterprise, RAG</td></tr><tr><td>xAI</td><td>Grok-3</td><td>Tidak</td><td>131K</td><td>Ya</td><td>$5.00</td><td>$15.00</td><td>Tidak</td><td>api.x.ai</td><td>Real-time, info X</td></tr><tr><td>Together</td><td>Llama 3.1 70B</td><td>Ya</td><td>128K</td><td>Tidak</td><td>$0.88</td><td>$0.88</td><td>Tidak</td><td>api.together.xyz</td><td>Open-weight hosting</td></tr><tr><td>Fireworks</td><td>Llama 3.1 70B</td><td>Ya</td><td>128K</td><td>Tidak</td><td>$0.90</td><td>$0.90</td><td>Tidak</td><td>api.fireworks.ai</td><td>Latency rendah</td></tr></table>
+
+<p>Pemilihan vendor bergantung pada use case. Untuk production dengan reliability tertinggi, OpenAI atau Anthropic adalah pilihan aman. Untuk budget terbatas, DeepSeek atau Zhipu AI menawarkan kualitas baik dengan biaya rendah. Untuk kontrol penuh, Meta Llama dengan self-hosting adalah jawabannya.</p>
+</div></div></div>
+ <div class="feedback-widget">
+ <p>Apakah halaman ini membantu?</p>
+ <div class="feedback-btns">
+ <button class="feedback-btn yes">Ya, membantu</button>
+ <button class="feedback-btn no">Tidak</button>
+ </div>
+ </div>
+ <footer class="footer">
+ <div class="container">
+ <div class="footer-links"><a href="index.html">Beranda</a><a href="konsep/index.html">Konsep</a><a href="pilar/index.html">Pilar</a><a href="praktik/index.html">Praktik</a><a href="tutorial/index.html">Tutorial</a><a href="backend/index.html">Backend</a><a href="agents/index.html">AI Agents</a><a href="llm/index.html">LLM</a></div>
+ <div class="footer-social">
+ <a href="https://github.com/Mftrferdinand" target="_blank" class="github" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.5.5.09.66-.22.66-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02.8-.22 1.65-.33 2.5-.33.85 0 1.7.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.16.58.67.48A10.01 10.01 0 0022 12c0-5.52-4.48-10-10-10z"/></svg></a>
+ <a href="https://twitter.com" target="_blank" class="twitter" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+ <a href="https://instagram.com" target="_blank" class="instagram" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+ <a href="https://t.me/v1aesbot" target="_blank" class="telegram" aria-label="Telegram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.94 4.5l-3.2 15.07c-.24 1.06-.87 1.32-1.76.82l-4.87-3.59-2.35 2.26c-.26.26-.48.48-.98.48l.35-4.96 9.03-8.16c.39-.35-.09-.55-.61-.2L6.7 13.12l-4.8-1.5c-1.04-.32-1.06-1.04.22-1.54l18.77-7.24c.87-.32 1.63.2 1.35 1.66z"/></svg></a>
+ </div>
+ <p>HermesGuide &mdash; Panduan Hermes Agent</p>
+ </div>
+ </footer>
+ <script src="../../assets/js/main.js"></script>
+</body>
+</html>

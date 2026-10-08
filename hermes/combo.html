@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+ <title>Combo & Strategy &mdash; HermesGuide</title>
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="../../assets/css/style.css?v=hermes-guide-v3">
+</head>
+<body>
+ <nav class="nav">
+ <div class="nav-left">
+ <a href="../index.html" class="nav-brand">
+ <div class="nav-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg></div>
+ <span class="nav-logo-text">Mftrferdinand<span>Docs</span></span>
+ </a>
+ </div>
+ <div class="nav-center"><a href="../index.html" class="nav-link"><span class="lang-id-inline">Beranda</span><span class="lang-en-inline">Home</span></a><a href="../konsep/index.html" class="nav-link"><span class="lang-id-inline">Konsep</span><span class="lang-en-inline">Concept</span></a><a href="../pilar/index.html" class="nav-link"><span class="lang-id-inline">Pilar</span><span class="lang-en-inline">Pillars</span></a><a href="../praktik/index.html" class="nav-link"><span class="lang-id-inline">Praktik</span><span class="lang-en-inline">Practice</span></a><a href="../tutorial/index.html" class="nav-link"><span class="lang-id-inline">Tutorial</span><span class="lang-en-inline">Tutorial</span></a><a href="../backend/index.html" class="nav-link"><span class="lang-id-inline">Backend</span><span class="lang-en-inline">Backend</span></a><a href="../agents/index.html" class="nav-link"><span class="lang-id-inline">AI Agents</span><span class="lang-en-inline">AI Agents</span></a><a href="../llm/index.html" class="nav-link"><span class="lang-id-inline">LLM</span><span class="lang-en-inline">LLM</span></a><a href="../prompt/index.html" class="nav-link"><span class="lang-id-inline">Prompt</span><span class="lang-en-inline">Prompt</span></a><a href="../automation/index.html" class="nav-link"><span class="lang-id-inline">Automation</span><span class="lang-en-inline">Automation</span></a><a href="../api/index.html" class="nav-link"><span class="lang-id-inline">API</span><span class="lang-en-inline">API</span></a><a href="../coding/index.html" class="nav-link"><span class="lang-id-inline">Coding</span><span class="lang-en-inline">Coding</span></a><a href="../hermes/index.html" class="nav-link active"><span class="lang-id-inline">Hermes</span><span class="lang-en-inline">Hermes</span></a><a href="../lampiran/index.html" class="nav-link"><span class="lang-id-inline">Lampiran</span><span class="lang-en-inline">Appendix</span></a></div>
+ <div class="nav-right">
+ <div class="nav-search" aria-label="Search">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span class="lang-id-inline">Cari</span><span class="lang-en-inline">Search</span>
+ <kbd>Ctrl K</kbd>
+ </div>
+ <button id="translate-btn" class="nav-toggle-btn" aria-label="Translate">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="lang-label" style="font-size:.7rem;font-weight:700;margin-left:.15rem;">EN</span>
+ </button>
+ <button id="theme-btn" class="nav-toggle-btn" aria-label="Theme">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+ </button>
+ <button class="nav-menu-btn" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+ </div>
+ </nav>
+ <div class="mega-menu">
+ <button class="mega-menu-close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+ <div class="mega-menu-grid"><div class="mega-menu-section"><h4>Dasar</h4><a href="../index.html">Beranda<span class="desc">Hero & overview</span></a><a href="../konsep/index.html">Konsep<span class="desc">Dasar-dasar AI & AI Agent</span></a><a href="../pilar/index.html">Pilar<span class="desc">5 pilar inti agent</span></a><a href="../praktik/index.html">Praktik<span class="desc">Studi kasus & implementasi</span></a></div><div class="mega-menu-section"><h4>Panduan</h4><a href="../tutorial/index.html">Tutorial<span class="desc">Panduan step-by-step</span></a><a href="../backend/index.html">Backend<span class="desc">Arsitektur server & integrasi</span></a><a href="../hermes/index.html">Hermes<span class="desc">Setup, config, Termux, Windows</span></a><a href="../lampiran/index.html">Lampiran<span class="desc">FAQ, changelog, resource</span></a></div><div class="mega-menu-section"><h4>AI & LLM</h4><a href="../agents/index.html">AI Agents<span class="desc">Penjelasan mendalam agent</span></a><a href="../llm/index.html">LLM<span class="desc">Dasar Large Language Model</span></a><a href="../prompt/index.html">Prompt<span class="desc">Teknik & strategi prompting</span></a><a href="../automation/index.html">Automation<span class="desc">Otomatisasi workflow</span></a></div><div class="mega-menu-section"><h4>Developer</h4><a href="../api/index.html">API<span class="desc">Dokumentasi referensi API</span></a><a href="../coding/index.html">Coding<span class="desc">Contoh & snippet implementasi</span></a></div></div>
+ </div>
+ <div class="search-overlay">
+ <div class="search-box">
+ <input type="text" placeholder="Cari dokumentasi..." />
+ <div class="search-results"></div>
+ </div>
+ </div>
+ <div class="page-title-bar"><h2><span class="lang-id-inline">Combo & Strategy</span><span class="lang-en-inline">Combo & Strategy</span></h2><div class="breadcrumb"><a href="../index.html"><span class="lang-id-inline">Beranda</span><span class="lang-en-inline">Home</span></a> / <a href="index.html"><span class="lang-id-inline">Combo & Strategy</span><span class="lang-en-inline">Combo & Strategy</span></a> / Combo & Strategy</div></div>
+ 
+ <div class="content-wrap"><div class="container container-narrow">
+ <div class="page-header"><h1><span class="lang-id-inline">Combo & Strategy</span><span class="lang-en-inline">Combo & Strategy</span></h1><div class="breadcrumb"><a href="../index.html"><span class="lang-id-inline">Beranda</span><span class="lang-en-inline">Home</span></a> / <a href="index.html"><span class="lang-id-inline">Combo & Strategy</span><span class="lang-en-inline">Combo & Strategy</span></a> / Combo & Strategy</div></div>
+ <div class="prose">
+<h2>Konsep Combo</h2>
+
+<p>Combo adalah fitur unggulan 9Router yang menggabungkan beberapa model LLM menjadi satu nama. Saat aplikasi mengirim request dengan nama combo, 9Router memilih model mana yang dipakai berdasarkan strategi yang dikonfigurasi. Aplikasi tidak perlu tahu model mana yang digunakan &mdash; 9Router menangani pemilihan, routing, dan fallback secara transparan.</p>
+
+<p><strong>Manfaat combo:</strong></p>
+
+<ol><li><strong>Reliability</strong> &mdash; Jika satu model/provider gagal, combo otomatis beralih ke model lain</li><li><strong>Cost optimization</strong> &mdash; Strategi round_robin atau priority dapat menggunakan model murah lebih sering</li><li><strong>Load balancing</strong> &mdash; Distribusi request ke multiple provider untuk menghindari rate limit</li><li><strong>Quality</strong> &mdash; Fusion mode dapat query multiple model dan pilih response terbaik</li><li><strong>Simplicity</strong> &mdash; Aplikasi hanya perlu tahu nama combo, bukan model individual</li></ol>
+
+<h2>4 Strategi Combo</h2>
+
+<h3>1. Priority</h3>
+
+<p>Model dicoba berdasarkan urutan priority. Jika model pertama gagal (error, timeout, rate limit), 9Router mencoba model kedua, dan seterusnya.</p>
+
+<div class="code-block"><pre><code>Combo: Skil1Ulti (strategy: priority)
+ Priority 1: nvidia/z-ai/glm-5.2 &lt;- Dicoba pertama
+ Priority 2: aiand/zai-org/glm-5.2 &lt;- Fallback jika #1 gagal
+ Priority 3: bai/minimax-m3 &lt;- Fallback jika #2 gagal
+ Priority 4: deepseek/deepseek-chat-v4 &lt;- Fallback jika #3 gagal
+ Priority 5: minimax/minimax-m3 &lt;- Fallback jika #4 gagal
+
+Request flow:
+ User -&gt; 9Router -&gt; Try #1 (nvidia/z-ai/glm-5.2)
+ <table><tr><th>Aspek</th><th>Deskripsi</th></tr><tr><td>-- Success -&gt; Return response</td><td>-- Fail -&gt; Try #2 (aiand/zai-org/glm-5.2)</td></tr><tr><td>-- Success -&gt; Return response</td><td>-- Fail -&gt; Try #3 ... (continue)</td></tr></table></code></pre><button class="copy-btn"></button></div>
+
+<p><strong>Cocok untuk:</strong> Production yang butuh reliability maksimum. Primary model dengan fallback chain.</p>
+
+<h3>2. Round Robin</h3>
+
+<p>Request didistribusikan secara bergantian (rotation) ke semua model dalam combo. Setiap request mendapat model berikutnya dalam antrian.</p>
+
+<div class="code-block"><pre><code>Combo: Skil1Hemat (strategy: round_robin)
+ Model A: bai/minimax-m3 (weight: 1)
+ Model B: deepseek/deepseek-chat-v4 (weight: 1)
+ Model C: zhipu/glm-5.2 (weight: 1)
+
+Request 1 -&gt; Model A
+Request 2 -&gt; Model B
+Request 3 -&gt; Model C
+Request 4 -&gt; Model A (kembali ke awal)
+Request 5 -&gt; Model B
+...
+
+Jika salah satu gagal, 9Router skip ke model berikutnya dan coba lagi nanti.</code></pre><button class="copy-btn"></button></div>
+
+<p>Weight dapat menentukan rasio: weight 2 berarti model tersebut mendapat 2x lebih banyak request.</p>
+
+<p><strong>Cocok untuk:</strong> Distribusi beban, menghindari rate limit, penggunaan kuota yang merata.</p>
+
+<h3>3. Failover</h3>
+
+<p>Model &quot;sticky&quot; &mdash; 9Router tetap menggunakan model terakhir yang berhasil sampai gagal, lalu pindah ke model berikutnya dan tetap di sana.</p>
+
+<div class="code-block"><pre><code>Combo: Skil1Backup (strategy: failover)
+ Primary: nvidia/z-ai/glm-5.2
+ Backup: aiand/zai-org/glm-5.2
+ Last: bai/minimax-m3
+
+Timeline:
+ Request 1-100 -&gt; nvidia/z-ai/glm-5.2 (success, sticky)
+ Request 101 -&gt; nvidia/z-ai/glm-5.2 (FAIL)
+ -&gt; Switch to aiand/zai-org/glm-5.2
+ Request 102-200 -&gt; aiand/zai-org/glm-5.2 (sticky)
+ Request 201 -&gt; aiand/zai-org/glm-5.2 (FAIL)
+ -&gt; Switch to bai/minimax-m3
+ Request 202+ -&gt; bai/minimax-m3 (sticky)</code></pre><button class="copy-btn"></button></div>
+
+<p>Berbeda dari priority (yang selalu mencoba model pertama dulu), failover tetap di model fallback sampai model itu juga gagal.</p>
+
+<p><strong>Cocok untuk:</strong> Mengurangi overhead. Tidak perlu retry ke primary setiap request. Primary hanya dicoba ulang setelah cooldown.</p>
+
+<h3>4. Fusion</h3>
+
+<p>Semua model dalam combo di-query secara paralel. Judge model mengevaluasi semua response dan memilih yang terbaik.</p>
+
+<div class="code-block"><pre><code>Combo: Skil1Fusion (strategy: fusion)
+ Models: nvidia/z-ai/glm-5.2, bai/minimax-m3, deepseek/deepseek-chat-v4
+ Judge: aiand/zai-org/glm-5.2
+
+Request flow:
+ User -&gt; 9Router
+ <table><tr><th>Item</th></tr><tr><td>-&gt; Model A (nvidia/z-ai/glm-5.2) -&gt; Response A</td></tr><tr><td>-&gt; Model B (bai/minimax-m3) -&gt; Response B (parallel)</td></tr><tr><td>-&gt; Model C (deepseek/deepseek-chat-v4) -&gt; Response C</td></tr></table>v
+ Judge Model: &quot;Pilih response terbaik dari A, B, C&quot;
+ -&gt; Evaluate quality, accuracy, completeness
+ -&gt; Select best response
+ -&gt; Return to user</code></pre><button class="copy-btn"></button></div>
+
+<p><strong>Cocok untuk:</strong> Tugas kritis yang butuh kualitas tertinggi. Trade-off: biaya 3-4x lebih mahal (query semua model + judge).</p>
+
+<h2>Setup Guide dengan Dashboard</h2>
+
+<h3>Step-by-step: Membuat Combo Priority</h3>
+
+<ol><li>Buka dashboard: <code>http://localhost:20128</code></li><li>Navigasi ke &quot;Combos&quot; -&gt; &quot;Create New&quot;</li><li>Isi:</li></ol>
+<p> - <strong>Name:</strong> <code>Skil1Ulti</code></p>
+<p> - <strong>Strategy:</strong> <code>priority</code></p>
+<p> - <strong>Kind:</strong> <code>chat</code> (atau <code>completion</code>)</p>
+<ol><li>Tambahkan models:</li></ol>
+<p> - Model 1: <code>nvidia/z-ai/glm-5.2</code> (priority 1)</p>
+<p> - Model 2: <code>aiand/zai-org/glm-5.2</code> (priority 2)</p>
+<p> - Model 3: <code>bai/minimax-m3</code> (priority 3)</p>
+<p> - Model 4: <code>deepseek/deepseek-chat-v4</code> (priority 4)</p>
+<p> - Model 5: <code>minimax/minimax-m3</code> (priority 5)</p>
+<ol><li>Klik &quot;Save&quot;</li><li>Test combo:</li></ol>
+
+<div class="code-block"><pre><code>curl -X POST http://localhost:20128/v1/chat/completions -H &quot;Authorization: Bearer your-key&quot; -H &quot;Content-Type: application/json&quot; -d &#x27;{
+ &quot;model&quot;: &quot;Skil1Ulti&quot;,
+ &quot;messages&quot;: [{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;Hello!&quot;}]
+ }&#x27;</code></pre><button class="copy-btn"></button></div>
+
+<h3>Step-by-step: Membuat Combo Round Robin</h3>
+
+<ol><li>Dashboard -&gt; Combos -&gt; Create New</li><li>Isi:</li></ol>
+<p> - <strong>Name:</strong> <code>Skil1Hemat</code></p>
+<p> - <strong>Strategy:</strong> <code>round_robin</code></p>
+<p> - <strong>Kind:</strong> <code>chat</code></p>
+<ol><li>Tambahkan models (semua weight 1 untuk distribusi merata):</li></ol>
+<p> - <code>bai/minimax-m3</code> (weight 1)</p>
+<p> - <code>deepseek/deepseek-chat-v4</code> (weight 1)</p>
+<p> - <code>zhipu/glm-5.2</code> (weight 1)</p>
+<ol><li>Save</li><li>Setiap request akan bergantian: minimax -&gt; deepseek -&gt; zhipu -&gt; minimax -&gt; ...</li></ol>
+
+<h3>Step-by-step: Membuat Combo Fusion</h3>
+
+<ol><li>Dashboard -&gt; Combos -&gt; Create New</li><li>Isi:</li></ol>
+<p> - <strong>Name:</strong> <code>Skil1Fusion</code></p>
+<p> - <strong>Strategy:</strong> <code>fusion</code></p>
+<p> - <strong>Kind:</strong> <code>chat</code></p>
+<p> - <strong>Judge Model:</strong> <code>aiand/zai-org/glm-5.2</code> (model yang mengevaluasi)</p>
+<ol><li>Tambahkan models (2-4 model untuk fusion):</li></ol>
+<p> - <code>nvidia/z-ai/glm-5.2</code></p>
+<p> - <code>bai/minimax-m3</code></p>
+<p> - <code>deepseek/deepseek-chat-v4</code></p>
+<ol><li>Save</li></ol>
+
+<h2>Model ID Format</h2>
+
+<p>Di combo, model ID wajib menggunakan prefix provider:</p>
+
+<div class="code-block"><pre><code>nvidia/z-ai/glm-5.2 &lt;- Valid (provider: nvidia)
+aiand/zai-org/glm-5.2 &lt;- Valid (provider: aiand)
+bai/minimax-m3 &lt;- Valid (provider: bai)
+deepseek/deepseek-chat-v4 &lt;- Valid (provider: deepseek)
+zhipu/glm-5.2 &lt;- Valid (provider: zhipu)
+
+z-ai/glm-5.2 &lt;- ERROR (tidak ada prefix provider)
+glm-5.2 &lt;- ERROR (tidak ada prefix provider)</code></pre><button class="copy-btn"></button></div>
+
+<p>Nama combo sendiri (mis. <code>Skil1Ulti</code>) tidak memerlukan prefix &mdash; 9Router mengenalinya sebagai combo name.</p>
+
+<h2>Judge Model Concept</h2>
+
+<p>Dalam strategi fusion, judge model adalah model yang mengevaluasi dan memilih response terbaik dari multiple model. Judge model menerima:</p>
+
+<ol><li>Original prompt/request dari user</li><li>Response dari setiap model dalam combo</li><li>Instruksi untuk mengevaluasi dan memilih</li></ol>
+
+<p>Judge model idealnya adalah model dengan reasoning kuat:</p>
+<ul><li><code>aiand/zai-org/glm-5.2</code> &mdash; Reasoning baik, harga wajar</li><li><code>nvidia/z-ai/glm-5.2</code> &mdash; Reasoning kuat</li><li><code>openai/gpt-4o</code> &mdash; Premium, biaya tinggi</li></ul>
+
+<p>Judge model menambah biaya (satu request tambahan untuk evaluasi), tetapi meningkatkan kualitas response secara signifikan.</p>
+
+<h2>Fusion Mode Detailed</h2>
+
+<p>Fusion mode adalah strategi paling advanced. Alur lengkap:</p>
+
+<div class="code-block"><pre><code>1. User request masuk ke combo &quot;Skil1Fusion&quot;
+2. 9Router kirim request ke SEMUA model dalam combo (paralel)
+ - Model A: nvidia/z-ai/glm-5.2 -&gt; Response A (1.2s, 500 token)
+ - Model B: bai/minimax-m3 -&gt; Response B (0.8s, 450 token)
+ - Model C: deepseek/deepseek-chat-v4 -&gt; Response C (1.5s, 520 token)
+3. 9Router kirim ke Judge Model:
+ &quot;Berikut adalah 3 response untuk prompt: [original prompt]
+ Response A: [response A]
+ Response B: [response B]
+ Response C: [response C]
+ Pilih response terbaik berdasarkan akurasi, kelengkapan, dan kualitas.
+ Return hanya response yang dipilih, tanpa penjelasan.&quot;
+4. Judge Model mengevaluasi dan return response terbaik
+5. 9Router return response terbaik ke user</code></pre><button class="copy-btn"></button></div>
+
+<p><strong>Biaya fusion:</strong> 3 model + 1 judge = 4 request. Tetapi token saver dapat mengoptimasi ini.</p>
+
+<h2>Pitfall Section</h2>
+
+<h3>Pitfall 1: Model ID Tanpa Prefix Provider</h3>
+
+<p><strong>Masalah:</strong> Jika model ID tidak memiliki prefix provider (mis. <code>glm-5.2</code> bukan <code>nvidia/z-ai/glm-5.2</code>), 9Router tidak dapat menemukan provider yang tepat dan mengembalikan error.</p>
+
+<p><strong>Solusi:</strong> Selalu gunakan format <code>{provider}/{model}</code>. Cek di dashboard -&gt; Providers untuk melihat model ID yang benar.</p>
+
+<h3>Pitfall 2: Field <code>kind</code> Bernilai null</h3>
+
+<p><strong>Masalah:</strong> Jika field <code>kind</code> pada combo bernilai <code>null</code> atau kosong, combo tidak akan berfungsi. 9Router tidak tahu apakah combo untuk chat completion atau text completion.</p>
+
+<p><strong>Solusi:</strong> Set <code>kind</code> ke <code>chat</code> (untuk chat completion) atau <code>completion</code> (untuk text completion). Via dashboard atau API:</p>
+
+<div class="code-block"><pre><code>curl -X PUT http://localhost:20128/api/combos/Skil1Ulti -H &quot;Authorization: Bearer admin-key&quot; -d &#x27;{&quot;kind&quot;: &quot;chat&quot;}&#x27;</code></pre><button class="copy-btn"></button></div>
+
+<h3>Pitfall 3: Tidak Perlu Restart Setelah Update Combo</h3>
+
+<p><strong>Salah kaprah:</strong> Banyak yang mengira setelah mengubah combo (tambah/hapus model, ubah strategi), 9Router perlu di-restart.</p>
+
+<p><strong>Fakta:</strong> 9Router membaca konfigurasi combo dari database secara real-time. Perubahan di dashboard atau via API langsung berlaku tanpa restart. Request berikutnya akan menggunakan konfigurasi baru.</p>
+
+<h3>Pitfall 4: Fusion Tanpa Judge Model</h3>
+
+<p><strong>Masalah:</strong> Combo dengan strategi <code>fusion</code> tetapi tanpa <code>judge_model</code> yang dikonfigurasi akan error. 9Router tidak tahu model mana yang akan mengevaluasi response.</p>
+
+<p><strong>Solusi:</strong> Selalu set <code>judge_model</code> saat menggunakan fusion.</p>
+
+<h3>Pitfall 5: Rate Limit Saat Round Robin</h3>
+
+<p><strong>Masalah:</strong> Jika semua model dalam round_robin combo berasal dari provider yang sama, rate limit tetap berlaku karena provider yang sama membatasi total request.</p>
+
+<p><strong>Solusi:</strong> Gunakan model dari provider berbeda dalam round_robin combo untuk distribusi yang efektif.</p>
+
+<h2>Real Config Example</h2>
+
+<p>Berikut contoh konfigurasi lengkap 9Router combo yang digunakan di produksi:</p>
+
+<div class="code-block"><pre><code># Combo 1: Skil1Ulti (Priority - Production)
+name: Skil1Ulti
+strategy: priority
+kind: chat
+models:
+ - model_id: &quot;nvidia/z-ai/glm-5.2&quot;
+ priority: 1
+ - model_id: &quot;aiand/zai-org/glm-5.2&quot;
+ priority: 2
+ - model_id: &quot;bai/minimax-m3&quot;
+ priority: 3
+ - model_id: &quot;deepseek/deepseek-chat-v4&quot;
+ priority: 4
+ - model_id: &quot;minimax/minimax-m3&quot;
+ priority: 5
+token_saver: true
+token_saver_threshold: 0.7
+
+# Combo 2: Skil1Hemat (Round Robin - Hemat)
+name: Skil1Hemat
+strategy: round_robin
+kind: chat
+models:
+ - model_id: &quot;bai/minimax-m3&quot;
+ weight: 1
+ - model_id: &quot;deepseek/deepseek-chat-v4&quot;
+ weight: 1
+ - model_id: &quot;zhipu/glm-5.2&quot;
+ weight: 1
+
+# Combo 3: Skil1Backup (Failover - Backup)
+name: Skil1Backup
+strategy: failover
+kind: chat
+models:
+ - model_id: &quot;nvidia/z-ai/glm-5.2&quot;
+ priority: 1
+ - model_id: &quot;aiand/zai-org/glm-5.2&quot;
+ priority: 2
+ - model_id: &quot;bai/minimax-m3&quot;
+ priority: 3
+
+# Combo 4: Skil1Fusion (Fusion - Premium Quality)
+name: Skil1Fusion
+strategy: fusion
+kind: chat
+judge_model: &quot;aiand/zai-org/glm-5.2&quot;
+models:
+ - model_id: &quot;nvidia/z-ai/glm-5.2&quot;
+ - model_id: &quot;bai/minimax-m3&quot;
+ - model_id: &quot;deepseek/deepseek-chat-v4&quot;
+token_saver: true</code></pre><button class="copy-btn"></button></div>
+
+<h3>Konfigurasi di Hermes</h3>
+
+<div class="code-block"><pre><code># ~/.hermes/config.yaml
+model:
+ default: &quot;Skil1Ulti&quot; # Default: combo priority
+ provider: &quot;custom:9router&quot;
+
+custom_providers:
+ 9router:
+ base_url: &quot;http://localhost:20128/v1&quot;
+ api_key: &quot;9r-sk-your-key&quot;
+ models:
+ - &quot;Skil1Ulti&quot; # Combo: priority
+ - &quot;Skil1Hemat&quot; # Combo: round_robin
+ - &quot;Skil1Backup&quot; # Combo: failover
+ - &quot;Skil1Fusion&quot; # Combo: fusion
+ # Individual models (fallback)
+ - &quot;nvidia/z-ai/glm-5.2&quot;
+ - &quot;bai/minimax-m3&quot;
+
+# Fallback ke direct provider jika 9Router down
+fallback_providers:
+ - provider: &quot;custom:openai-direct&quot;
+ model: &quot;gpt-4o-mini&quot;
+ condition: &quot;all&quot;</code></pre><button class="copy-btn"></button></div>
+
+<p>Dengan setup ini, Hermes menggunakan combo <code>Skil1Ulti</code> secara default. Jika semua model dalam combo gagal, fallback ke GPT-4o-mini langsung. Untuk tugas yang butuh hemat, switch ke <code>Skil1Hemat</code>. Untuk tugas kritis, gunakan <code>Skil1Fusion</code>.</p>
+</div></div></div>
+ <div class="feedback-widget">
+ <p>Apakah halaman ini membantu?</p>
+ <div class="feedback-btns">
+ <button class="feedback-btn yes">Ya, membantu</button>
+ <button class="feedback-btn no">Tidak</button>
+ </div>
+ </div>
+ <footer class="footer">
+ <div class="container">
+ <div class="footer-links"><a href="index.html">Beranda</a><a href="konsep/index.html">Konsep</a><a href="pilar/index.html">Pilar</a><a href="praktik/index.html">Praktik</a><a href="tutorial/index.html">Tutorial</a><a href="backend/index.html">Backend</a><a href="agents/index.html">AI Agents</a><a href="llm/index.html">LLM</a></div>
+ <div class="footer-social">
+ <a href="https://github.com/Mftrferdinand" target="_blank" class="github" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.5.5.09.66-.22.66-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02.8-.22 1.65-.33 2.5-.33.85 0 1.7.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.16.58.67.48A10.01 10.01 0 0022 12c0-5.52-4.48-10-10-10z"/></svg></a>
+ <a href="https://twitter.com" target="_blank" class="twitter" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+ <a href="https://instagram.com" target="_blank" class="instagram" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+ <a href="https://t.me/v1aesbot" target="_blank" class="telegram" aria-label="Telegram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.94 4.5l-3.2 15.07c-.24 1.06-.87 1.32-1.76.82l-4.87-3.59-2.35 2.26c-.26.26-.48.48-.98.48l.35-4.96 9.03-8.16c.39-.35-.09-.55-.61-.2L6.7 13.12l-4.8-1.5c-1.04-.32-1.06-1.04.22-1.54l18.77-7.24c.87-.32 1.63.2 1.35 1.66z"/></svg></a>
+ </div>
+ <p>HermesGuide &mdash; Panduan Hermes Agent</p>
+ </div>
+ </footer>
+ <script src="../../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+ <title>Termux Setup &mdash; HermesGuide</title>
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="../../assets/css/style.css?v=hermes-guide-v3">
+</head>
+<body>
+ <nav class="nav">
+ <div class="nav-left">
+ <a href="../index.html" class="nav-brand">
+ <div class="nav-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg></div>
+ <span class="nav-logo-text">Mftrferdinand<span>Docs</span></span>
+ </a>
+ </div>
+ <div class="nav-center"><a href="../index.html" class="nav-link"><span class="lang-id-inline">Beranda</span><span class="lang-en-inline">Home</span></a><a href="../konsep/index.html" class="nav-link"><span class="lang-id-inline">Konsep</span><span class="lang-en-inline">Concept</span></a><a href="../pilar/index.html" class="nav-link"><span class="lang-id-inline">Pilar</span><span class="lang-en-inline">Pillars</span></a><a href="../praktik/index.html" class="nav-link"><span class="lang-id-inline">Praktik</span><span class="lang-en-inline">Practice</span></a><a href="../tutorial/index.html" class="nav-link"><span class="lang-id-inline">Tutorial</span><span class="lang-en-inline">Tutorial</span></a><a href="../backend/index.html" class="nav-link"><span class="lang-id-inline">Backend</span><span class="lang-en-inline">Backend</span></a><a href="../agents/index.html" class="nav-link"><span class="lang-id-inline">AI Agents</span><span class="lang-en-inline">AI Agents</span></a><a href="../llm/index.html" class="nav-link"><span class="lang-id-inline">LLM</span><span class="lang-en-inline">LLM</span></a><a href="../prompt/index.html" class="nav-link"><span class="lang-id-inline">Prompt</span><span class="lang-en-inline">Prompt</span></a><a href="../automation/index.html" class="nav-link"><span class="lang-id-inline">Automation</span><span class="lang-en-inline">Automation</span></a><a href="../api/index.html" class="nav-link"><span class="lang-id-inline">API</span><span class="lang-en-inline">API</span></a><a href="../coding/index.html" class="nav-link"><span class="lang-id-inline">Coding</span><span class="lang-en-inline">Coding</span></a><a href="../hermes/index.html" class="nav-link active"><span class="lang-id-inline">Hermes</span><span class="lang-en-inline">Hermes</span></a><a href="../lampiran/index.html" class="nav-link"><span class="lang-id-inline">Lampiran</span><span class="lang-en-inline">Appendix</span></a></div>
+ <div class="nav-right">
+ <div class="nav-search" aria-label="Search">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span class="lang-id-inline">Cari</span><span class="lang-en-inline">Search</span>
+ <kbd>Ctrl K</kbd>
+ </div>
+ <button id="translate-btn" class="nav-toggle-btn" aria-label="Translate">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="lang-label" style="font-size:.7rem;font-weight:700;margin-left:.15rem;">EN</span>
+ </button>
+ <button id="theme-btn" class="nav-toggle-btn" aria-label="Theme">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+ </button>
+ <button class="nav-menu-btn" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+ </div>
+ </nav>
+ <div class="mega-menu">
+ <button class="mega-menu-close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+ <div class="mega-menu-grid"><div class="mega-menu-section"><h4>Dasar</h4><a href="../index.html">Beranda<span class="desc">Hero & overview</span></a><a href="../konsep/index.html">Konsep<span class="desc">Dasar-dasar AI & AI Agent</span></a><a href="../pilar/index.html">Pilar<span class="desc">5 pilar inti agent</span></a><a href="../praktik/index.html">Praktik<span class="desc">Studi kasus & implementasi</span></a></div><div class="mega-menu-section"><h4>Panduan</h4><a href="../tutorial/index.html">Tutorial<span class="desc">Panduan step-by-step</span></a><a href="../backend/index.html">Backend<span class="desc">Arsitektur server & integrasi</span></a><a href="../hermes/index.html">Hermes<span class="desc">Setup, config, Termux, Windows</span></a><a href="../lampiran/index.html">Lampiran<span class="desc">FAQ, changelog, resource</span></a></div><div class="mega-menu-section"><h4>AI & LLM</h4><a href="../agents/index.html">AI Agents<span class="desc">Penjelasan mendalam agent</span></a><a href="../llm/index.html">LLM<span class="desc">Dasar Large Language Model</span></a><a href="../prompt/index.html">Prompt<span class="desc">Teknik & strategi prompting</span></a><a href="../automation/index.html">Automation<span class="desc">Otomatisasi workflow</span></a></div><div class="mega-menu-section"><h4>Developer</h4><a href="../api/index.html">API<span class="desc">Dokumentasi referensi API</span></a><a href="../coding/index.html">Coding<span class="desc">Contoh & snippet implementasi</span></a></div></div>
+ </div>
+ <div class="search-overlay">
+ <div class="search-box">
+ <input type="text" placeholder="Cari dokumentasi..." />
+ <div class="search-results"></div>
+ </div>
+ </div>
+ <div class="page-title-bar"><h2><span class="lang-id-inline">Termux Setup</span><span class="lang-en-inline">Termux Setup</span></h2><div class="breadcrumb"><a href="../index.html"><span class="lang-id-inline">Beranda</span><span class="lang-en-inline">Home</span></a> / <a href="index.html"><span class="lang-id-inline">Termux Setup</span><span class="lang-en-inline">Termux Setup</span></a> / Termux Setup</div></div>
+ 
+ <div class="content-wrap"><div class="container container-narrow">
+ <div class="page-header"><h1><span class="lang-id-inline">Termux Setup</span><span class="lang-en-inline">Termux Setup</span></h1><div class="breadcrumb"><a href="../index.html"><span class="lang-id-inline">Beranda</span><span class="lang-en-inline">Home</span></a> / <a href="index.html"><span class="lang-id-inline">Termux Setup</span><span class="lang-en-inline">Termux Setup</span></a> / Termux Setup</div></div>
+ <div class="prose">
+<h2>Prasyarat</h2>
+
+<ul><li>Android 14+ (recommended)</li><li>Termux dari F-Droid (BUKAN Play Store version yang outdated)</li><li>Storage permission: <code>termux-setup-storage</code></li><li>Koneksi internet stabil</li><li>Minimal 2GB free storage</li></ul>
+
+<h2>Bootstrap</h2>
+
+<div class="code-block"><pre><code># Update package list
+pkg update &amp;&amp; pkg upgrade -y
+
+# Install dependencies
+pkg install -y python git nodejs curl jq nano
+
+# Verify versions
+node --version # v18+
+npm --version # v9+
+python --version # v3.10+
+git --version
+
+# Setup storage access
+termux-setup-storage
+
+# Set working directory
+mkdir -p ~/hermes-work
+cd ~/hermes-work</code></pre><button class="copy-btn"></button></div>
+
+<h2>Install Hermes</h2>
+
+<div class="code-block"><pre><code># Install via npm
+npm install -g hermes-agent
+
+# Inisialisasi Hermes
+hermes setup
+
+# Setup akan:
+# 1. Membuat ~/.hermes/ directory structure
+# 2. Generate config.yaml
+# 3. Membuat profile default
+# 4. Prompt untuk API key / provider
+
+# Verifikasi
+hermes --version
+hermes config show</code></pre><button class="copy-btn"></button></div>
+
+<h2>Install 9Router</h2>
+
+<p>9Router adalah gateway yang menyediakan akses ke multiple LLM provider dengan combo, fallback, dan token saver.</p>
+
+<div class="code-block"><pre><code># Install 9Router
+npm install -g 9router
+
+# Start 9Router (default port: 20128)
+9r
+
+# 9Router akan:
+# 1. Membuat ~/.9router/ directory
+# 2. Init SQLite database
+# 3. Start server di http://localhost:20128
+# 4. Buka dashboard di browser</code></pre><button class="copy-btn"></button></div>
+
+<p>Konfigurasi 9Router di Hermes config:</p>
+
+<div class="code-block"><pre><code># Edit config.yaml
+nano ~/.hermes/config.yaml</code></pre><button class="copy-btn"></button></div>
+
+<div class="code-block"><pre><code>model:
+ default: &quot;bai/minimax-m3&quot;
+ provider: &quot;custom:9router&quot;
+
+custom_providers:
+ 9router:
+ base_url: &quot;http://localhost:20128/v1&quot;
+ api_key: &quot;your-9router-key&quot;
+ models:
+ - &quot;nvidia/z-ai/glm-5.2&quot;
+ - &quot;aiand/zai-org/glm-5.2&quot;
+ - &quot;bai/minimax-m3&quot;
+ - &quot;deepseek/deepseek-chat-v4&quot;</code></pre><button class="copy-btn"></button></div>
+
+<div class="code-block"><pre><code># Test koneksi
+hermes test</code></pre><button class="copy-btn"></button></div>
+
+<h2>Boot Sequence</h2>
+
+<p>Urutan startup yang benar di Termux:</p>
+
+<div class="code-block"><pre><code>1. Termux boot
+ |
+2. 9Router start (localhost:20128)
+ |
+3. Hermes Agent start
+ |
+4. Gateway connect (Telegram/Discord)
+ |
+5. Agent siap menerima perintah</code></pre><button class="copy-btn"></button></div>
+
+<h3>Manual Boot</h3>
+
+<div class="code-block"><pre><code># Terminal 1: Start 9Router
+9r
+# Tunggu hingga: &quot;9Router running on port 20128&quot;
+
+# Terminal 2: Start Hermes
+hermes gateway start
+# Tunggu hingga: &quot;Gateway connected to Telegram&quot;</code></pre><button class="copy-btn"></button></div>
+
+<h3>Automated Boot (Boot Script)</h3>
+
+<div class="code-block"><pre><code># Untuk boot script
+cat &gt; ~/start-hermes.sh &lt;&lt; &#x27;SCRIPT&#x27;
+#!/bin/bash
+echo &quot;Starting 9Router...&quot;
+nohup 9r &gt; ~/.9router/9router.log 2&gt;&amp;1 &amp;
+9R_PID=$!
+sleep 3
+
+echo &quot;Starting Hermes Agent...&quot;
+nohup hermes gateway start &gt; ~/.hermes/logs/gateway.log 2&gt;&amp;1 &amp;
+HR_PID=$!
+sleep 2
+
+echo &quot;9Router PID: $9R_PID&quot;
+echo &quot;Hermes PID: $HR_PID&quot;
+echo &quot;Logs: ~/.9router/9router.log and ~/.hermes/logs/gateway.log&quot;
+SCRIPT
+
+chmod +x ~/start-hermes.sh</code></pre><button class="copy-btn"></button></div>
+
+<h2>systemd Alternative (nohup)</h2>
+
+<p>Termux tidak mendukung systemd. Gunakan <code>nohup</code> atau <code>termux-services</code>:</p>
+
+<h3>nohup Method</h3>
+
+<div class="code-block"><pre><code># Start 9Router di background
+nohup 9r &gt; ~/.9router/9router.log 2&gt;&amp;1 &amp;
+echo $! # Save PID
+
+# Start Hermes di background
+nohup hermes gateway start &gt; ~/.hermes/logs/gateway.log 2&gt;&amp;1 &amp;
+echo $! # Save PID
+
+# Cek status
+ps aux | grep -E &quot;9r|hermes&quot;
+
+# Stop
+kill -9 &lt;PID&gt;</code></pre><button class="copy-btn"></button></div>
+
+<h3>Termux:Boot (Auto-start saat device boot)</h3>
+
+<div class="code-block"><pre><code># Install Termux:Boot dari F-Droid
+# Buka Termux:Boot sekali untuk initialize
+
+# Untuk boot script
+mkdir -p ~/.termux/boot
+cat &gt; ~/.termux/boot/start-services &lt;&lt; &#x27;EOF&#x27;
+#!/bin/bash
+termux-wake-lock
+sleep 5
+nohup 9r &gt; ~/.9router/9router.log 2&gt;&amp;1 &amp;
+sleep 3
+nohup hermes gateway start &gt; ~/.hermes/logs/gateway.log 2&gt;&amp;1 &amp;
+EOF
+
+chmod +x ~/.termux/boot/start-services</code></pre><button class="copy-btn"></button></div>
+
+<h2>Pitfall Section</h2>
+
+<h3>Pitfall 1: Gateway Restart Kena SIGTERM</h3>
+
+<p><strong>Masalah:</strong> <code>hermes gateway restart</code> atau <code>hermes gateway stop</code> terkadang tidak berfungsi dengan baik di Termux. Proses mendapat SIGTERM tetapi tidak mati, meninggalkan zombie process yang mengikat port.</p>
+
+<p><strong>Solusi:</strong></p>
+<div class="code-block"><pre><code># JANGAN pakai: hermes gateway restart
+
+# GUNAKAN: kill manual + restart
+# 1. Cari PID
+ps aux | grep hermes
+
+# 2. Kill dengan SIGKILL (force)
+kill -9 &lt;PID&gt;
+
+# 3. Pastikan port bebas
+# 4. Start ulang
+nohup hermes gateway start &gt; ~/.hermes/logs/gateway.log 2&gt;&amp;1 &amp;</code></pre><button class="copy-btn"></button></div>
+
+<h3>Pitfall 2: config.yaml Patch Blocked</h3>
+
+<p><strong>Masalah:</strong> Hermes patch tool tidak dapat mengedit <code>config.yaml</code> saat agen sedang berjalan. File dikunci oleh proses aktif.</p>
+
+<p><strong>Solusi:</strong></p>
+<div class="code-block"><pre><code># 1. Stop Hermes dulu
+kill -9 $(ps aux | grep hermes | grep -v grep | awk &#x27;{print $2}&#x27;)
+
+# 2. Edit config.yaml
+nano ~/.hermes/config.yaml
+
+# 3. Start ulang
+nohup hermes gateway start &gt; ~/.hermes/logs/gateway.log 2&gt;&amp;1 &amp;</code></pre><button class="copy-btn"></button></div>
+
+<h3>Pitfall 3: Port Conflict</h3>
+
+<p><strong>Masalah:</strong> Port 20128 (9Router) atau port gateway sudah digunakan oleh proses lain.</p>
+
+<p><strong>Solusi:</strong></p>
+<div class="code-block"><pre><code># Cek apa yang menggunakan port
+ss -tlnp | grep 20128
+# atau
+netstat -tlnp | grep 20128
+
+# Kill proses yang konflik
+kill -9 &lt;PID&gt;
+
+# Atau ganti port 9Router
+9r --port 20129</code></pre><button class="copy-btn"></button></div>
+
+<h3>Pitfall 4: Node.js Out of Memory</h3>
+
+<p><strong>Masalah:</strong> Termux memiliki memory terbatas. Hermes + 9Router dapat OOM (Out of Memory) pada device dengan RAM &lt; 4GB.</p>
+
+<p><strong>Solusi:</strong></p>
+<div class="code-block"><pre><code># Increase Node.js memory limit
+export NODE_OPTIONS=&quot;--max-old-space-size=512&quot;
+
+# Atau di boot script
+nohup env NODE_OPTIONS=&quot;--max-old-space-size=512&quot; hermes gateway start ...</code></pre><button class="copy-btn"></button></div>
+
+<h2>Troubleshooting Table</h2>
+
+<table><tr><th>Masalah</th><th>Penyebab</th><th>Solusi</th></tr><tr><td><code>hermes: command not found</code></td><td>npm global path tidak di PATH</td><td><code>export PATH=&quot;$PATH:$(npm config get prefix)/bin&quot;</code></td></tr><tr><td><code>9r: command not found</code></td><td>9Router belum install</td><td><code>npm install -g 9router</code></td></tr><tr><td><code>EADDRINUSE: port 20128</code></td><td>Port sudah dipakai</td><td><code>kill -9 $(lsof -t -i:20128)</code></td></tr><tr><td><code>connect ECONNREFUSED 127.0.0.1:20128</code></td><td>9Router belum start</td><td>Jalankan <code>9r</code> dulu</td></tr><tr><td><code>SIGTERM received</code></td><td>Proses di-kill oleh system</td><td>Pakai <code>nohup</code> dan <code>termux-wake-lock</code></td></tr><tr><td>Bot Telegram tidak respond</td><td>Token salah / user tidak di allow list</td><td>Cek <code>bot_token</code> dan <code>allowed_users</code> di config</td></tr><tr><td><code>config.yaml: Permission denied</code></td><td>File dikunci proses aktif</td><td>Stop Hermes, edit, restart</td></tr><tr><td>Memory leak / OOM</td><td>Node.js memory limit</td><td>Set <code>NODE_OPTIONS=--max-old-space-size=512</code></td></tr><tr><td>9Router dashboard tidak bisa diakses</td><td>Firewall / wrong port</td><td>Cek <code>http://localhost:20128</code> dari browser device</td></tr><tr><td>Hermes lambat / timeout</td><td>Model terlalu berat untuk device</td><td>Gunakan model ringan: MiniMax-M3 atau GPT-4o-mini</td></tr><tr><td><code>EPIPE</code> error saat streaming</td><td>Koneksi tidak stabil</td><td>Disable streaming: <code>stream: false</code> di config</td></tr><tr><td>Cron job tidak jalan</td><td>Termux sleep / doze mode</td><td><code>termux-wake-lock</code> di boot script</td></tr></table>
+</div></div></div>
+ <div class="feedback-widget">
+ <p>Apakah halaman ini membantu?</p>
+ <div class="feedback-btns">
+ <button class="feedback-btn yes">Ya, membantu</button>
+ <button class="feedback-btn no">Tidak</button>
+ </div>
+ </div>
+ <footer class="footer">
+ <div class="container">
+ <div class="footer-links"><a href="index.html">Beranda</a><a href="konsep/index.html">Konsep</a><a href="pilar/index.html">Pilar</a><a href="praktik/index.html">Praktik</a><a href="tutorial/index.html">Tutorial</a><a href="backend/index.html">Backend</a><a href="agents/index.html">AI Agents</a><a href="llm/index.html">LLM</a></div>
+ <div class="footer-social">
+ <a href="https://github.com/Mftrferdinand" target="_blank" class="github" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.5.5.09.66-.22.66-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02.8-.22 1.65-.33 2.5-.33.85 0 1.7.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.16.58.67.48A10.01 10.01 0 0022 12c0-5.52-4.48-10-10-10z"/></svg></a>
+ <a href="https://twitter.com" target="_blank" class="twitter" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+ <a href="https://instagram.com" target="_blank" class="instagram" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+ <a href="https://t.me/v1aesbot" target="_blank" class="telegram" aria-label="Telegram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.94 4.5l-3.2 15.07c-.24 1.06-.87 1.32-1.76.82l-4.87-3.59-2.35 2.26c-.26.26-.48.48-.98.48l.35-4.96 9.03-8.16c.39-.35-.09-.55-.61-.2L6.7 13.12l-4.8-1.5c-1.04-.32-1.06-1.04.22-1.54l18.77-7.24c.87-.32 1.63.2 1.35 1.66z"/></svg></a>
+ </div>
+ <p>HermesGuide &mdash; Panduan Hermes Agent</p>
+ </div>
+ </footer>
+ <script src="../../assets/js/main.js"></script>
+</body>
+</html>

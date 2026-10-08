@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+ <title>Arsitektur Agent &mdash; HermesGuide</title>
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="../../assets/css/style.css?v=hermes-guide-v3">
+</head>
+<body>
+ <nav class="nav">
+ <div class="nav-left">
+ <a href="../index.html" class="nav-brand">
+ <div class="nav-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg></div>
+ <span class="nav-logo-text">Mftrferdinand<span>Docs</span></span>
+ </a>
+ </div>
+ <div class="nav-center"><a href="../index.html" class="nav-link"><span class="lang-id-inline">Beranda</span><span class="lang-en-inline">Home</span></a><a href="../konsep/index.html" class="nav-link active"><span class="lang-id-inline">Konsep</span><span class="lang-en-inline">Concept</span></a><a href="../pilar/index.html" class="nav-link"><span class="lang-id-inline">Pilar</span><span class="lang-en-inline">Pillars</span></a><a href="../praktik/index.html" class="nav-link"><span class="lang-id-inline">Praktik</span><span class="lang-en-inline">Practice</span></a><a href="../tutorial/index.html" class="nav-link"><span class="lang-id-inline">Tutorial</span><span class="lang-en-inline">Tutorial</span></a><a href="../backend/index.html" class="nav-link"><span class="lang-id-inline">Backend</span><span class="lang-en-inline">Backend</span></a><a href="../agents/index.html" class="nav-link"><span class="lang-id-inline">AI Agents</span><span class="lang-en-inline">AI Agents</span></a><a href="../llm/index.html" class="nav-link"><span class="lang-id-inline">LLM</span><span class="lang-en-inline">LLM</span></a><a href="../prompt/index.html" class="nav-link"><span class="lang-id-inline">Prompt</span><span class="lang-en-inline">Prompt</span></a><a href="../automation/index.html" class="nav-link"><span class="lang-id-inline">Automation</span><span class="lang-en-inline">Automation</span></a><a href="../api/index.html" class="nav-link"><span class="lang-id-inline">API</span><span class="lang-en-inline">API</span></a><a href="../coding/index.html" class="nav-link"><span class="lang-id-inline">Coding</span><span class="lang-en-inline">Coding</span></a><a href="../hermes/index.html" class="nav-link"><span class="lang-id-inline">Hermes</span><span class="lang-en-inline">Hermes</span></a><a href="../lampiran/index.html" class="nav-link"><span class="lang-id-inline">Lampiran</span><span class="lang-en-inline">Appendix</span></a></div>
+ <div class="nav-right">
+ <div class="nav-search" aria-label="Search">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span class="lang-id-inline">Cari</span><span class="lang-en-inline">Search</span>
+ <kbd>Ctrl K</kbd>
+ </div>
+ <button id="translate-btn" class="nav-toggle-btn" aria-label="Translate">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="lang-label" style="font-size:.7rem;font-weight:700;margin-left:.15rem;">EN</span>
+ </button>
+ <button id="theme-btn" class="nav-toggle-btn" aria-label="Theme">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+ </button>
+ <button class="nav-menu-btn" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+ </div>
+ </nav>
+ <div class="mega-menu">
+ <button class="mega-menu-close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+ <div class="mega-menu-grid"><div class="mega-menu-section"><h4>Dasar</h4><a href="../index.html">Beranda<span class="desc">Hero & overview</span></a><a href="../konsep/index.html">Konsep<span class="desc">Dasar-dasar AI & AI Agent</span></a><a href="../pilar/index.html">Pilar<span class="desc">5 pilar inti agent</span></a><a href="../praktik/index.html">Praktik<span class="desc">Studi kasus & implementasi</span></a></div><div class="mega-menu-section"><h4>Panduan</h4><a href="../tutorial/index.html">Tutorial<span class="desc">Panduan step-by-step</span></a><a href="../backend/index.html">Backend<span class="desc">Arsitektur server & integrasi</span></a><a href="../hermes/index.html">Hermes<span class="desc">Setup, config, Termux, Windows</span></a><a href="../lampiran/index.html">Lampiran<span class="desc">FAQ, changelog, resource</span></a></div><div class="mega-menu-section"><h4>AI & LLM</h4><a href="../agents/index.html">AI Agents<span class="desc">Penjelasan mendalam agent</span></a><a href="../llm/index.html">LLM<span class="desc">Dasar Large Language Model</span></a><a href="../prompt/index.html">Prompt<span class="desc">Teknik & strategi prompting</span></a><a href="../automation/index.html">Automation<span class="desc">Otomatisasi workflow</span></a></div><div class="mega-menu-section"><h4>Developer</h4><a href="../api/index.html">API<span class="desc">Dokumentasi referensi API</span></a><a href="../coding/index.html">Coding<span class="desc">Contoh & snippet implementasi</span></a></div></div>
+ </div>
+ <div class="search-overlay">
+ <div class="search-box">
+ <input type="text" placeholder="Cari dokumentasi..." />
+ <div class="search-results"></div>
+ </div>
+ </div>
+ <div class="page-title-bar"><h2><span class="lang-id-inline">Arsitektur Agent</span><span class="lang-en-inline">Agent Architecture</span></h2><div class="breadcrumb"><a href="../index.html"><span class="lang-id-inline">Beranda</span><span class="lang-en-inline">Home</span></a> / <a href="index.html"><span class="lang-id-inline">Arsitektur Agent</span><span class="lang-en-inline">Agent Architecture</span></a> / Arsitektur Agent</div></div>
+ 
+ <div class="content-wrap"><div class="container container-narrow">
+ <div class="page-header"><h1>Arsitektur Agent</h1><div class="breadcrumb"><a href="../index.html"><span class="lang-id-inline">Beranda</span><span class="lang-en-inline">Home</span></a> / <a href="index.html"><span class="lang-id-inline">Arsitektur Agent</span><span class="lang-en-inline">Agent Architecture</span></a> / Arsitektur Agent</div></div>
+ <div class="prose"><h1>Arsitektur Agent</h1>
+
+<p>Sebelum anda bisa apply 10 pilar SOUL, anda perlu arsitektur kode yang ngedukung. Ini blueprint minimal yang sistem pake di Aes.</p>
+
+<div class="code-block"><pre><code>## Komponen utama</code></pre><button class="copy-btn"></button></div>
+
+<p>agent/</p>
+<div class="code-block"><pre><code>├── main.py # Entry point: Telegram handler, command router</code></pre><button class="copy-btn">Copy</button></div>
+<div class="code-block"><pre><code>├── soul.md # File konstitusi (dibaca tiap call)</code></pre><button class="copy-btn"></button></div>
+
+<div class="code-block"><pre><code>├── data/
+│ ├── memory.json # User preferences, koreksi, fakta stabil
+│ └── history/
+│ └── &amp;lt;user_id&amp;gt;.json # Per-user chat history
+├── credentials/
+│ ├── github.env # chmod 600</code></pre><button class="copy-btn">Copy</button></div><div class="code-block"><pre><code>│ ├── wallet.env # chmod 600</code></pre><button class="copy-btn"></button></div>
+
+<div class="code-block"><pre><code>│ └── README.txt
+└── .env # TELEGRAM_BOT_TOKEN, OPENAI_API_KEY</code></pre><button class="copy-btn">Copy</button></div><p></p>
+
+<h2>Flow: dari pesan user sampai respon</h2>
+
+<p>1. User kirim pesan via Telegram</p>
+<div class="code-block"><pre><code>↓
+↓</code></pre><button class="copy-btn">Copy</button></div>
+<ol><li>Build system prompt:</li></ol>
+<p> - Baca SOUL.md</p>
+<p> - Append memory notes</p>
+<p> - Append credential file list (nama saja, BUKAN isi)</p>
+<p> - Append konteks ekstra (tanggal, dll)</p>
+<div class="code-block"><pre><code>↓
+↓
+↓
+- Kalau ada → cek risk field
+- low/medium → auto-execute, hasil dikirim balik ke LLM
+- high → simpen ke pending_commands, minta konfirmasi user
+- Kalau tidak ada tool_use → reply final ke user
+↓
+- Setelah tool_use dieksekusi → loop ke step 4 (dengan history yang udah ditambah tool result)</code></pre><button class="copy-btn">Copy</button></div>
+<p> - Max iterasi (misalnya 12 step) biar tidak infinite loop</p>
+<div class="code-block"><pre><code>↓</code></pre><button class="copy-btn">Copy</button></div>
+<ol><li>Save history (dengan secret redaction)</li></ol>
+<p></p>
+
+<div class="code-block"><pre><code>## Komponen 1: Build system prompt
+
+def build_system_prompt():</code></pre><button class="copy-btn"></button></div>
+
+<p> memory = load_memory()</p>
+<p> soul = load_soul() # Read SOUL.md from disk every time</p>
+<p> creds = list_credentials() # Cuma nama file</p>
+<p> today = datetime.now().strftime(&quot;%A, %d %B %Y %H:%M&quot;)</p>
+
+<div class="code-block"><pre><code>memory_text = &amp;quot;&amp;quot;</code></pre><button class="copy-btn">Copy</button></div>
+<p> if memory.get(&quot;notes&quot;):</p>
+<div class="code-block"><pre><code>memory_text = &amp;quot;\n\nYang anda ingat tentang user:\n&amp;quot; + \</code></pre><button class="copy-btn">Copy</button></div>
+<p> &quot;\n&quot;.join(f&quot;- {n}&quot; for n in memory[&quot;notes&quot;][-20:])</p>
+
+<div class="code-block"><pre><code>creds_text = &amp;quot;&amp;quot;</code></pre><button class="copy-btn">Copy</button></div>
+<p> if creds:</p>
+<div class="code-block"><pre><code>creds_text = &amp;quot;\n\nCredential available:\n&amp;quot; + \</code></pre><button class="copy-btn">Copy</button></div>
+<div class="code-block"><pre><code>&amp;quot;\n&amp;quot;.join(f&amp;quot;- {f}&amp;quot; for f in creds)
+return f&amp;quot;{soul}\n\nHari ini: {today}{creds_text}{memory_text}&amp;quot;</code></pre><button class="copy-btn">Copy</button></div>
+<p></p>
+<p>Kuncinya: <strong><code>load_soul()</code> baca file tiap call</strong>. Jadi anda bisa edit <code>SOUL.md</code> kapan aja tanpa restart bot.</p>
+
+<div class="code-block"><pre><code>## Komponen 2: Tool use parser</code></pre><button class="copy-btn"></button></div>
+
+<p>Sistem pakai format <code>&lt;tool_use&gt;{...}&lt;/tool_use&gt;</code> dengan JSON di dalamnya:</p>
+<div class="code-block"><pre><code>import re, json
+
+def extract_tool_calls(text: str) -&gt; list:</code></pre><button class="copy-btn"></button></div>
+
+<p> results = []</p>
+<div class="code-block"><pre><code>pattern = re.compile(r&amp;#x27;&amp;lt;tool_use&amp;gt;(.*?)&amp;lt;/tool_use&amp;gt;&amp;#x27;, re.DOTALL)</code></pre><button class="copy-btn">Copy</button></div>
+<div class="code-block"><pre><code>for m in pattern.finditer(text):
+pass</code></pre><button class="copy-btn">Copy</button></div>
+<div class="code-block"><pre><code>return results</code></pre><button class="copy-btn">Copy</button></div>
+<p></p>
+<p>Format yang model harus output:</p>
+<p>&lt;tool_use&gt;{&quot;name&quot;:&quot;run_in_terminal&quot;,&quot;arguments&quot;:{&quot;command&quot;:&quot;ls -la&quot;,&quot;risk&quot;:&quot;low&quot;,&quot;explanation&quot;:&quot;cek isi folder&quot;}}&lt;/tool_use&gt;</p>
+<p></p>
+<p>Detail di <a href="../../praktik/tool-use/" target="_blank">Format Tool Use</a>.</p>
+
+<div class="code-block"><pre><code>## Komponen 3: Risk-gating
+
+def execute_with_gating(call, chat_id, context):</code></pre><button class="copy-btn"></button></div>
+
+<p> cmd = call[&quot;arguments&quot;][&quot;command&quot;]</p>
+<p> risk = call[&quot;arguments&quot;].get(&quot;risk&quot;, &quot;high&quot;) # default high if missing</p>
+
+<p> if risk in (&quot;low&quot;, &quot;medium&quot;):</p>
+<div class="code-block"><pre><code>return run_command(cmd) # auto-execute</code></pre><button class="copy-btn">Copy</button></div>
+<div class="code-block"><pre><code>elif risk == &amp;quot;high&amp;quot;:
+history = load_history(chat_id)</code></pre><button class="copy-btn">Copy</button></div>
+<div class="code-block"><pre><code>messages = [</code></pre><button class="copy-btn">Copy</button></div>
+<p> {&quot;role&quot;: &quot;system&quot;, &quot;content&quot;: build_system_prompt()},</p>
+<p> *history,</p>
+<div class="code-block"><pre><code>{&amp;quot;role&amp;quot;: &amp;quot;user&amp;quot;, &amp;quot;content&amp;quot;: user_text}
+for step in range(max_steps):</code></pre><button class="copy-btn">Copy</button></div>
+<div class="code-block"><pre><code>response = llm.chat(messages=messages)
+answer = response.content
+calls = extract_tool_calls(answer)</code></pre><button class="copy-btn">Copy</button></div><p> if not calls:</p>
+<p> # Final answer</p>
+<div class="code-block"><pre><code>history.append({&amp;quot;role&amp;quot;: &amp;quot;assistant&amp;quot;, &amp;quot;content&amp;quot;: answer})
+messages.append({&amp;quot;role&amp;quot;: &amp;quot;assistant&amp;quot;, &amp;quot;content&amp;quot;: answer})
+for call in calls:
+result = execute_with_gating(call, chat_id)</code></pre><button class="copy-btn">Copy</button></div>
+<p> if result is None:</p>
+<div class="code-block"><pre><code>return f&amp;quot;Mau jalanin command high-risk: {call[&amp;#x27;arguments&amp;#x27;][&amp;#x27;command&amp;#x27;]}\nBalas &amp;#x27;ya&amp;#x27; untuk lanjut.&amp;quot;
+messages.append({&amp;quot;role&amp;quot;: &amp;quot;user&amp;quot;, &amp;quot;content&amp;quot;: f&amp;quot;Tool result: {result}&amp;quot;})</code></pre><button class="copy-btn">Copy</button></div>
+
+<div class="code-block"><pre><code>return &quot;Max steps tercapai. Belum kelar.&quot;
+
+## Komponen 5: Secret redaction</code></pre><button class="copy-btn"></button></div>
+
+<p>History harus sanitize sebelum di-save, biar credential tidak ke-log:</p>
+<p>SECRET_PATTERNS = [</p>
+<div class="code-block"><pre><code>(re.compile(r&amp;#x27;ghp_[A-Za-z0-9]{36}&amp;#x27;), &amp;#x27;[REDACTED_GITHUB_PAT]&amp;#x27;),
+(re.compile(r&amp;#x27;0x[a-fA-F0-9]{64}&amp;#x27;), &amp;#x27;[REDACTED_PRIVATE_KEY]&amp;#x27;),
+(re.compile(r&amp;#x27;AKIA[0-9A-Z]{16}&amp;#x27;), &amp;#x27;[REDACTED_AWS_KEY]&amp;#x27;),
+(re.compile(r&amp;#x27;sk-[A-Za-z0-9]{40,}&amp;#x27;), &amp;#x27;[REDACTED_OPENAI_KEY]&amp;#x27;),
+(re.compile(r&amp;#x27;xox[bp]-[0-9-A-Za-z]+&amp;#x27;), &amp;#x27;[REDACTED_SLACK_TOKEN]&amp;#x27;),
+(re.compile(r&amp;#x27;-----BEGIN [A-Z ]+PRIVATE KEY-----.*?-----END [A-Z ]+PRIVATE KEY-----&amp;#x27;, re.DOTALL), &amp;#x27;[REDACTED_PEM]&amp;#x27;),</code></pre><button class="copy-btn">Copy</button></div>
+<p>]</p>
+
+<div class="code-block"><pre><code>def redact_secrets(text: str) -&gt; str:
+for pattern, replacement in SECRET_PATTERNS:</code></pre><button class="copy-btn"></button></div>
+
+<div class="code-block"><pre><code>text = pattern.sub(replacement, text)</code></pre><button class="copy-btn">Copy</button></div>
+<div class="code-block"><pre><code>return text</code></pre><button class="copy-btn">Copy</button></div>
+<p></p>
+<p>Apply ini di <code>save_history()</code> sebelum write ke disk.</p>
+
+<div class="code-block"><pre><code>## Komponen 6: Per-user lock &amp; cancel</code></pre><button class="copy-btn"></button></div>
+
+<p>Biar user tidak bisa spam pesan yang membuat race condition:</p>
+<div class="code-block"><pre><code>chat_locks = {} # chat_id -&amp;gt; asyncio.Lock</code></pre><button class="copy-btn">Copy</button></div>
+<div class="code-block"><pre><code>chat_busy = {} # chat_id -&gt; {&quot;desc&quot;: ..., &quot;start_time&quot;: ...}
+chat_cancel = {} # chat_id -&gt; bool
+
+async def handle_message(update, context):</code></pre><button class="copy-btn"></button></div>
+
+<div class="code-block"><pre><code>chat_id = update.effective_chat.id
+lock = chat_locks.setdefault(chat_id, asyncio.Lock())</code></pre><button class="copy-btn">Copy</button></div><div class="code-block"><pre><code># Fast path: kalo lagi busy + user bertanya status
+if chat_busy.get(chat_id) and is_status_query(update.message.text):
+busy = chat_busy[chat_id]</code></pre><button class="copy-btn"></button></div>
+
+<p> elapsed = int(time.time() - busy[&quot;start_time&quot;])</p>
+<div class="code-block"><pre><code>await update.message.reply_text(f&amp;quot;Lagi proses: {busy[&amp;#x27;desc&amp;#x27;]} ({elapsed}s)&amp;quot;)
+return
+finally:
+chat_busy.pop(chat_id, None)</code></pre><button class="copy-btn">Copy</button></div>
+<p></p>
+
+<div class="code-block"><pre><code>## Komponen 7: Konfirmasi flow</code></pre><button class="copy-btn"></button></div>
+
+<p>Kalau ada pending_command (high-risk), pesan user berikutnya di-check apakah &quot;ya&quot; atau bukan:</p>
+<div class="code-block"><pre><code>async def handle_message(update, context):
+chat_id = update.effective_chat.id</code></pre><button class="copy-btn">Copy</button></div><div class="code-block"><pre><code>text = update.message.text.strip().lower()</code></pre><button class="copy-btn">Copy</button></div>
+
+<div class="code-block"><pre><code>if chat_id in pending_commands:</code></pre><button class="copy-btn"></button></div>
+
+<p> if text in (&quot;ya&quot;, &quot;y&quot;, &quot;yes&quot;, &quot;ok&quot;, &quot;go&quot;):</p>
+<div class="code-block"><pre><code>cmd = pending_commands.pop(chat_id)
+result = run_command(cmd)
+await update.message.reply_text(f&amp;quot;Done. Result: {result[:500]}&amp;quot;)</code></pre><button class="copy-btn">Copy</button></div><div class="code-block"><pre><code>return
+else:
+pending_commands.pop(chat_id)
+return</code></pre><button class="copy-btn">Copy</button></div>
+
+<div class="code-block"><pre><code># ... normal flow
+
+## Pola yang harus diikuti</code></pre><button class="copy-btn"></button></div>
+
+<ul><li><strong>SOUL.md file di luar kode</strong> — biar bisa edit tanpa restart</li></ul>
+
+<ul><li><strong>Credential di folder terpisah</strong> — chmod 700/600, tidak commit ke git</li></ul>
+
+<ul><li><strong>History per-user</strong> — file <code>&lt;user_id&gt;.json</code>, dengan secret redaction</li></ul>
+
+<ul><li><strong>Tool use format yang konsisten</strong> — <code>&lt;tool_use&gt;{...}&lt;/tool_use&gt;</code> JSON</li></ul>
+
+<ul><li><strong>Risk field wajib di setiap tool_use</strong> — biar gating jalan</li></ul>
+
+<ul><li><strong>Per-user lock</strong> — biar serialize, tidak race</li></ul>
+
+<ul><li><strong>Multi-step max iter</strong> — biar tidak infinite loop</li></ul>
+
+<ul><li><strong>Fast path untuk status query</strong> — biar user tidak di-block</li></ul>
+
+<p>Detail per komponen ada di <a href="../../praktik/tool-use/" target="_blank">bagian Praktik</a>.</p></div></div></div>
+ <div class="feedback-widget">
+ <p>Apakah halaman ini membantu?</p>
+ <div class="feedback-btns">
+ <button class="feedback-btn yes">Ya, membantu</button>
+ <button class="feedback-btn no">Tidak</button>
+ </div>
+ </div>
+ <footer class="footer">
+ <div class="container">
+ <div class="footer-links"><a href="index.html">Beranda</a><a href="konsep/index.html">Konsep</a><a href="pilar/index.html">Pilar</a><a href="praktik/index.html">Praktik</a><a href="tutorial/index.html">Tutorial</a><a href="backend/index.html">Backend</a><a href="agents/index.html">AI Agents</a><a href="llm/index.html">LLM</a></div>
+ <div class="footer-social">
+ <a href="https://github.com/Mftrferdinand" target="_blank" class="github" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.5.5.09.66-.22.66-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02.8-.22 1.65-.33 2.5-.33.85 0 1.7.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.16.58.67.48A10.01 10.01 0 0022 12c0-5.52-4.48-10-10-10z"/></svg></a>
+ <a href="https://twitter.com" target="_blank" class="twitter" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+ <a href="https://instagram.com" target="_blank" class="instagram" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+ <a href="https://t.me/v1aesbot" target="_blank" class="telegram" aria-label="Telegram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.94 4.5l-3.2 15.07c-.24 1.06-.87 1.32-1.76.82l-4.87-3.59-2.35 2.26c-.26.26-.48.48-.98.48l.35-4.96 9.03-8.16c.39-.35-.09-.55-.61-.2L6.7 13.12l-4.8-1.5c-1.04-.32-1.06-1.04.22-1.54l18.77-7.24c.87-.32 1.63.2 1.35 1.66z"/></svg></a>
+ </div>
+ <p>HermesGuide &mdash; Panduan Hermes Agent</p>
+ </div>
+ </footer>
+ <script src="../../assets/js/main.js"></script>
+</body>
+</html>

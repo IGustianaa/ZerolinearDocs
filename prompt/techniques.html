@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+ <title>Teknik Prompting &mdash; HermesGuide</title>
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="../../assets/css/style.css?v=hermes-guide-v3">
+</head>
+<body>
+ <div class="bg-canvas"></div>
+ <div class="bg-grid"></div>
+ <div class="particles"></div>
+ <nav class="nav">
+ <div class="nav-left">
+ <a href="../index.html" class="nav-brand">
+ <div class="nav-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg></div>
+ <span class="nav-logo-text">Mftrferdinand<span>Docs</span></span>
+ </a>
+ <div class="nav-links"><a href="../index.html" class="nav-link"><span class="lang-id-inline">Beranda</span><span class="lang-en-inline">Home</span></a><a href="../agents/index.html" class="nav-link"><span class="lang-id-inline">AI Agents</span><span class="lang-en-inline">AI Agents</span></a><a href="../llm/index.html" class="nav-link"><span class="lang-id-inline">LLM</span><span class="lang-en-inline">LLM</span></a><a href="../prompt/index.html" class="nav-link active"><span class="lang-id-inline">Prompt</span><span class="lang-en-inline">Prompt</span></a><a href="../automation/index.html" class="nav-link"><span class="lang-id-inline">Automation</span><span class="lang-en-inline">Automation</span></a><a href="../api/index.html" class="nav-link"><span class="lang-id-inline">API Providers</span><span class="lang-en-inline">API Providers</span></a><a href="../coding/index.html" class="nav-link"><span class="lang-id-inline">Coding</span><span class="lang-en-inline">Coding</span></a><a href="../hermes/index.html" class="nav-link"><span class="lang-id-inline">Hermes</span><span class="lang-en-inline">Hermes</span></a></div>
+ </div>
+ <div class="nav-right">
+ <button id="translate-btn" class="nav-translate" aria-label="Translate">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+ <span class="lang-label">EN</span>
+ </button>
+ <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+ </div>
+ </nav>
+ <div class="page-title-bar">
+ <h2><span class="lang-id-inline">Teknik Prompting</span><span class="lang-en-inline">Prompting Techniques</span></h2>
+ <div class="breadcrumb"><a href="../index.html"><span class="lang-id-inline">Beranda</span><span class="lang-en-inline">Home</span></a> / <a href="index.html"><span class="lang-id-inline">Teknik Prompting</span><span class="lang-en-inline">Prompting Techniques</span></a> / Teknik Prompting</div>
+ </div>
+ 
+ <div class="content-wrap">
+ <div class="container container-narrow">
+ <div class="page-header">
+ <h1><span class="lang-id-inline">Teknik Prompting</span><span class="lang-en-inline">Prompting Techniques</span></h1>
+ <div class="breadcrumb"><a href="../index.html"><span class="lang-id-inline">Beranda</span><span class="lang-en-inline">Home</span></a> / <a href="index.html"><span class="lang-id-inline">Teknik Prompting</span><span class="lang-en-inline">Prompting Techniques</span></a> / Teknik Prompting</div>
+ </div>
+ <div class="prose">
+ 
+<h2>Zero-Shot Prompting</h2>
+
+<p>Teknik paling mendasar: memberikan instruksi langsung tanpa contoh. Model mengandalkan pengetahuan dari training untuk memahami dan mengeksekusi tugas. Zero-shot efektif untuk tugas yang model sudah familiar: klasifikasi sentimen, ringkasan, translasi dasar, dan format konversi.</p>
+
+<p><strong>Kapan efektif:</strong> Tugas sederhana yang terdefinisi dengan jelas, model yang cukup besar (7B+), dan ketika biaya token harus diminimalkan.</p>
+
+<div class="code-block"><pre><code>Klasifikasikan sentimen review berikut sebagai 
+&quot;positif&quot;, &quot;negatif&quot;, atau &quot;netral&quot;. Hanya kembalikan 
+label, tanpa penjelasan.
+
+Review: &quot;Pelayanan cepat tapi makanan biasa-biasa saja.
+Lokasi strategis namun parkir sulit.&quot;
+
+Output: netral</code></pre><button class="copy-btn"></button></div>
+
+<p><strong>Kelebihan:</strong> Token efisien, cepat, biaya rendah. <strong>Kekurangan:</strong> Akurasi menurun pada tugas kompleks atau format yang tidak standar. Jika model salah memahami format output, tidak ada koreksi.</p>
+
+<h2>Few-Shot Prompting</h2>
+
+<p>Memberikan beberapa contoh input-output untuk menunjukkan pola yang diinginkan. Few-shot adalah salah satu teknik paling efektif untuk mengontrol format output, menetapkan tone, dan mengajarkan pola klasifikasi yang kustom.</p>
+
+<p><strong>Prinsip pemilihan contoh:</strong> Pilih contoh yang representatif, seimbang antar kelas, dan mendemonstrasikan edge case. Urutan contoh memengaruhi output — model cenderung memberi bobot lebih tinggi pada contoh terakhir.</p>
+
+<div class="code-block"><pre><code>Klasifikasikan sentimen:
+
+Review: &quot;Luar biasa! Pengalaman tak terlupakan.&quot; -&gt; positif
+Review: &quot;Mengecewakan total, tidak akan kembali.&quot; -&gt; negatif 
+Review: &quot;Harga standar, pelayanan standar.&quot; -&gt; netral
+Review: &quot;Tempatnya nyaman tapi makanan hambar.&quot; -&gt; netral
+Review: &quot;Wah, presentasinya keren banget!&quot; -&gt; positif
+Review: &quot;Lambat sekali, 45 menit untuk secangkir kopi.&quot; -&gt; negatif
+
+Review: &quot;Desain interior bagus, tapi AC mati.&quot; -&gt; </code></pre><button class="copy-btn"></button></div>
+
+<p><strong>Optimisasi few-shot:</strong></p>
+<ul><li>Gunakan 3-7 contoh (lebih dari itu, diminishing returns)</li><li>Acak urutan contoh antar run untuk mengurangi position bias</li><li>Pertimbangkan dynamic few-shot: pilih contoh berdasarkan kemiripan dengan input (retrieval)</li></ul>
+
+<h2>Chain-of-Thought (CoT)</h2>
+
+<p>Meminta model menalar langkah demi langkah sebelum memberikan jawaban akhir. CoT secara dramatis meningkatkan akurasi pada tugas reasoning, matematika, logika multi-step, dan analisis kompleks.</p>
+
+<p><strong>Mengapa efektif:</strong> LLM adalah next-token predictor. Tanpa CoT, model harus &quot;menahan&quot; seluruh reasoning dalam bobot tersembunyi dan menghasilkan jawaban langsung. Dengan CoT, setiap langkah reasoning menjadi token yang tersedia sebagai konteks untuk langkah berikutnya, secara efektif memberikan model &quot;scratchpad&quot;.</p>
+
+<div class="code-block"><pre><code>Soal: Sebuah toko menjual apel Rp 3.000/buah. 
+Diskon 20% jika beli lebih dari 10 buah. Pajak 11%.
+Berapa total harga 15 buah apel?
+
+Pikirkan langkah demi langkah:
+
+Langkah 1: 15 buah &gt; 10, jadi dapat diskon 20%
+Langkah 2: Harga sebelum diskon = 15 x 3000 = 45.000
+Langkah 3: Diskon = 20% x 45.000 = 9.000 
+Langkah 4: Harga setelah diskon = 45.000 - 9.000 = 36.000
+Langkah 5: Pajak = 11% x 36.000 = 3.960
+Langkah 6: Total = 36.000 + 3.960 = 39.960
+
+Jawaban: Rp 39.960</code></pre><button class="copy-btn"></button></div>
+
+<p><strong>CoT otomatis (zero-shot CoT):</strong> Cukup tambahkan &quot;Mari pikirkan langkah demi langkah&quot; di akhir prompt. Sederhana namun efektif untuk banyak kasus.</p>
+
+<h2>Self-Consistency</h2>
+
+<p>Teknik yang menjalankan CoT multiple kali dengan temperature tinggi, lalu memilih jawaban mayoritas. Self-consistency mengurangi variance dan meningkatkan akurasi pada tugas di mana hanya ada satu jawaban benar (matematika, logika, klasifikasi).</p>
+
+<p><strong>Implementasi:</strong></p>
+
+<div class="code-block"><pre><code>import openai
+
+def self_consistent_answer(question, n=5):
+ answers = []
+ for _ in range(n):
+ response = openai.chat.completions.create(
+ model=&quot;gpt-4o&quot;,
+ messages=[{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: 
+ f&quot;{question}\n\nPikirkan langkah demi langkah.&quot;}],
+ temperature=0.7, # High temp for diversity
+ )
+ answers.append(response.choices[0].message.content)
+ 
+ # Extract final answer from each, vote
+ final_answers = [extract_answer(a) for a in answers]
+ from collections import Counter
+ return Counter(final_answers).most_common(1)[0][0]</code></pre><button class="copy-btn"></button></div>
+
+<p><strong>Trade-off:</strong> Membutuhkan n-kali biaya API. Gunakan untuk tugas kritis di mana akurasi lebih penting daripada biaya. Untuk tugas klasifikasi, n=5 biasanya optimal.</p>
+
+<h2>ReAct (Reason + Act)</h2>
+
+<p>Pola yang menggabungkan reasoning dengan tool use. Model menalar, memutuskan tindakan, mengamati hasil, lalu menalar lagi dalam loop hingga mencapai jawaban. ReAct adalah dasar dari hampir semua AI agent modern.</p>
+
+<p><strong>Struktur loop:</strong> Thought -&gt; Action -&gt; Observation -&gt; Thought -&gt; Action -&gt; ... -&gt; Final Answer</p>
+
+<div class="code-block"><pre><code>Pertanyaan: Berapa populasi ibu kota negara dengan 
+GDP tertinggi di Asia Tenggara?
+
+Thought: Saya perlu mencari negara Asia Tenggara 
+dengan GDP tertinggi.
+Action: search(&quot;GDP tertinggi Asia Tenggara 2024&quot;)
+Observation: Indonesia memiliki GDP tertinggi di 
+Asia Tenggara, sekitar $1.3 triliun.
+
+Thought: Ibukota Indonesia adalah Jakarta. Saya 
+perlu populasi Jakarta.
+Action: search(&quot;populasi Jakarta 2024&quot;)
+Observation: Populasi Jakarta diperkirakan 10.6 
+juta jiwa (2024).
+
+Thought: Saya memiliki jawabannya.
+Final Answer: Ibukota negara dengan GDP tertinggi 
+di Asia Tenggara adalah Jakarta (Indonesia), dengan 
+populasi sekitar 10.6 juta jiwa.</code></pre><button class="copy-btn"></button></div>
+
+<p><strong>Implementasi code:</strong></p>
+
+<div class="code-block"><pre><code>def react_loop(question, max_steps=5):
+ context = f&quot;Pertanyaan: {question}\n&quot;
+ for step in range(max_steps):
+ response = llm.complete(
+ f&quot;{context}\n\nThought: &quot;
+ )
+ thought, action = parse_thought_action(response)
+ if action == &quot;FINAL_ANSWER&quot;:
+ return parse_final_answer(response)
+ observation = execute_tool(action)
+ context += f&quot;Thought: {thought}\n&quot;
+ context += f&quot;Action: {action}\n&quot;
+ context += f&quot;Observation: {observation}\n&quot;
+ return &quot;Max steps reached&quot;</code></pre><button class="copy-btn"></button></div>
+
+<h2>Tree of Thoughts (ToT)</h2>
+
+<p>Generalisasi CoT yang menjelajahi multiple jalur reasoning secara paralel, mengevaluasi setiap cabang, dan memilih jalur terbaik. ToT efektif untuk masalah dengan banyak solusi yang mungkin: game tree, perencanaan strategis, dan optimisasi.</p>
+
+<p><strong>Proses:</strong></p>
+<ol><li>Generate N kandidat langkah reasoning awal</li><li>Evaluasi setiap kandidat (LLM sebagai evaluator atau heuristic)</li><li>Prune kandidat dengan skor rendah</li><li>Expand kandidat tersisa (BFS atau DFS)</li><li>Ulangi hingga solusi ditemukan atau kedalaman maksimum tercapai</li></ol>
+
+<p><strong>Contoh use case:</strong> &quot;Susun jadwal 5 meeting untuk 10 orang dengan constraint: 3 orang hanya bisa pagi, 2 orang zona waktu berbeda, hindari bentrokan.&quot;</p>
+
+<p>ToT mengeksplorasi multiple konfigurasi paralel, mengevaluasi feasibility setiap cabang, dan backtrack jika menemui deadlock. Jauh lebih kuat dari CoT linear untuk masalah constraint satisfaction.</p>
+
+<h2>Role Prompting</h2>
+
+<p>Memberikan peran atau persona spesifik untuk mengaktifkan pengetahuan domain dan mengatur tone output. Role prompting bukan sekadar dekorasi — studi menunjukkan bahwa model benar-benar menyesuaikan distribusi output berdasarkan persona yang diberikan.</p>
+
+<div class="code-block"><pre><code>Anda adalah arsitek software dengan 20 tahun pengalaman 
+di sistem terdistribusi. Review design berikut dengan 
+fokus pada:
+1. Scalability bottlenecks
+2. Single points of failure 
+3. Data consistency trade-offs (CAP theorem)
+4. Operational complexity
+
+Berikan assessment dalam format: risk level (high/med/low), 
+description, recommendation.
+
+[DESIGN DOC]</code></pre><button class="copy-btn"></button></div>
+
+<p><strong>Tips:</strong> Kombinasikan role dengan constraint yang spesifik. &quot;Anda adalah arsitek software&quot; kurang efektif dibanding &quot;Anda adalah arsitek software di perusahaan fintech yang menjalankan 1000+ microservices dengan SLA 99.99%.&quot;</p>
+
+<h2>Meta-Prompting</h2>
+
+<p>Menggunakan LLM untuk menghasilkan, mengevaluasi, atau mengoptimalkan prompt itu sendiri. Berguna ketika sulit merumuskan prompt manual, atau ketika Anda ingin mengeksplorasi ruang prompt secara sistematis.</p>
+
+<p><strong>Pattern 1: Prompt Generation</strong></p>
+<div class="code-block"><pre><code>Saya butuh prompt untuk tugas: [DESKRIPSI TUGAS]
+Target model: GPT-4o
+Output yang diinginkan: [DESKRIPSI OUTPUT]
+Buatkan prompt yang akan menghasilkan output optimal.
+Sertakan: system prompt, instruction, format spec.</code></pre><button class="copy-btn"></button></div>
+
+<p><strong>Pattern 2: Prompt Critique</strong></p>
+<div class="code-block"><pre><code>Berikut adalah prompt dan output yang dihasilkannya:
+
+PROMPT: [PROMPT]
+OUTPUT: [OUTPUT]
+
+Analisis: Apa yang salah dengan prompt ini? 
+Bagaimana cara memperbaikinya? Berikan versi revisi.</code></pre><button class="copy-btn"></button></div>
+
+<p><strong>Pattern 3: Automatic Prompt Engineering (APE)</strong></p>
+<p>Generate N variasi prompt, jalankan pada test set, dan pilih prompt dengan performa terbaik. Ini adalah dasar dari tool seperti DSPy yang secara otomatis mengoptimalkan prompt berdasarkan metrik evaluasi.</p>
+
+<h2>Kapan Menggunakan Teknik Mana</h2>
+
+<table><tr><th>Teknik</th><th>Use Case</th><th>Token Cost</th><th>Akurasi</th><th>Kompleksitas</th></tr><tr><td>Zero-shot</td><td>Tugas sederhana, familiar</td><td>Rendah</td><td>Sedang</td><td>Rendah</td></tr><tr><td>Few-shot</td><td>Format kustom, klasifikasi</td><td>Sedang</td><td>Tinggi</td><td>Rendah</td></tr><tr><td>CoT</td><td>Reasoning, matematika</td><td>Sedang</td><td>Tinggi</td><td>Sedang</td></tr><tr><td>Self-consistency</td><td>Akurasi kritis, single answer</td><td>Tinggi (Nx)</td><td>Sangat Tinggi</td><td>Sedang</td></tr><tr><td>ReAct</td><td>Multi-step dengan tools</td><td>Tinggi</td><td>Tinggi</td><td>Tinggi</td></tr><tr><td>ToT</td><td>Constraint satisfaction, planning</td><td>Sangat Tinggi</td><td>Tinggi</td><td>Sangat Tinggi</td></tr><tr><td>Role prompting</td><td>Domain expertise, tone</td><td>Rendah</td><td>Sedang+</td><td>Rendah</td></tr><tr><td>Meta-prompting</td><td>Prompt optimization</td><td>Variabel</td><td>Variabel</td><td>Tinggi</td></tr></table>
+
+<p><strong>Aturan praktis:</strong> Mulai dengan zero-shot. Jika output tidak konsisten, tambahkan few-shot. Jika reasoning kurang, gunakan CoT. Jika akurasi masih kurang, naikkan ke self-consistency. Jika butuh tools, implementasikan ReAct.</p>
+
+ </div>
+ </div>
+ </div>
+
+ <footer class="footer">
+ <div class="container">
+ <div class="footer-social">
+ <a href="https://github.com/Mftrferdinand" target="_blank" class="github" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.5.5.09.66-.22.66-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02.8-.22 1.65-.33 2.5-.33.85 0 1.7.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.16.58.67.48A10.01 10.01 0 0022 12c0-5.52-4.48-10-10-10z"/></svg></a>
+ <a href="https://twitter.com" target="_blank" class="twitter" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+ <a href="https://instagram.com" target="_blank" class="instagram" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+ <a href="https://t.me/v1aesbot" target="_blank" class="telegram" aria-label="Telegram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.94 4.5l-3.2 15.07c-.24 1.06-.87 1.32-1.76.82l-4.87-3.59-2.35 2.26c-.26.26-.48.48-.98.48l.35-4.96 9.03-8.16c.39-.35-.09-.55-.61-.2L6.7 13.12l-4.8-1.5c-1.04-.32-1.06-1.04.22-1.54l18.77-7.24c.87-.32 1.63.2 1.35 1.66z"/></svg></a>
+ </div>
+ <p>HermesGuide &mdash; AI Insight &mdash; v6.0</p>
+ </div>
+ </footer>
+ <script src="../../assets/js/main.js"></script>
+</body>
+</html>

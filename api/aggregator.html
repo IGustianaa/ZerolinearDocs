@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+ <title>Aggregator Platform &mdash; HermesGuide</title>
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="../../assets/css/style.css?v=hermes-guide-v3">
+</head>
+<body>
+ <nav class="nav">
+ <div class="nav-left">
+ <a href="../index.html" class="nav-brand">
+ <div class="nav-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg></div>
+ <span class="nav-logo-text">Mftrferdinand<span>Docs</span></span>
+ </a>
+ </div>
+ <div class="nav-center"><a href="../index.html" class="nav-link"><span class="lang-id-inline">Beranda</span><span class="lang-en-inline">Home</span></a><a href="../konsep/index.html" class="nav-link"><span class="lang-id-inline">Konsep</span><span class="lang-en-inline">Concept</span></a><a href="../pilar/index.html" class="nav-link"><span class="lang-id-inline">Pilar</span><span class="lang-en-inline">Pillars</span></a><a href="../praktik/index.html" class="nav-link"><span class="lang-id-inline">Praktik</span><span class="lang-en-inline">Practice</span></a><a href="../tutorial/index.html" class="nav-link"><span class="lang-id-inline">Tutorial</span><span class="lang-en-inline">Tutorial</span></a><a href="../backend/index.html" class="nav-link"><span class="lang-id-inline">Backend</span><span class="lang-en-inline">Backend</span></a><a href="../agents/index.html" class="nav-link"><span class="lang-id-inline">AI Agents</span><span class="lang-en-inline">AI Agents</span></a><a href="../llm/index.html" class="nav-link"><span class="lang-id-inline">LLM</span><span class="lang-en-inline">LLM</span></a><a href="../prompt/index.html" class="nav-link"><span class="lang-id-inline">Prompt</span><span class="lang-en-inline">Prompt</span></a><a href="../automation/index.html" class="nav-link"><span class="lang-id-inline">Automation</span><span class="lang-en-inline">Automation</span></a><a href="../api/index.html" class="nav-link active"><span class="lang-id-inline">API</span><span class="lang-en-inline">API</span></a><a href="../coding/index.html" class="nav-link"><span class="lang-id-inline">Coding</span><span class="lang-en-inline">Coding</span></a><a href="../hermes/index.html" class="nav-link"><span class="lang-id-inline">Hermes</span><span class="lang-en-inline">Hermes</span></a><a href="../lampiran/index.html" class="nav-link"><span class="lang-id-inline">Lampiran</span><span class="lang-en-inline">Appendix</span></a></div>
+ <div class="nav-right">
+ <div class="nav-search" aria-label="Search">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span class="lang-id-inline">Cari</span><span class="lang-en-inline">Search</span>
+ <kbd>Ctrl K</kbd>
+ </div>
+ <button id="translate-btn" class="nav-toggle-btn" aria-label="Translate">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="lang-label" style="font-size:.7rem;font-weight:700;margin-left:.15rem;">EN</span>
+ </button>
+ <button id="theme-btn" class="nav-toggle-btn" aria-label="Theme">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+ </button>
+ <button class="nav-menu-btn" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+ </div>
+ </nav>
+ <div class="mega-menu">
+ <button class="mega-menu-close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+ <div class="mega-menu-grid"><div class="mega-menu-section"><h4>Dasar</h4><a href="../index.html">Beranda<span class="desc">Hero & overview</span></a><a href="../konsep/index.html">Konsep<span class="desc">Dasar-dasar AI & AI Agent</span></a><a href="../pilar/index.html">Pilar<span class="desc">5 pilar inti agent</span></a><a href="../praktik/index.html">Praktik<span class="desc">Studi kasus & implementasi</span></a></div><div class="mega-menu-section"><h4>Panduan</h4><a href="../tutorial/index.html">Tutorial<span class="desc">Panduan step-by-step</span></a><a href="../backend/index.html">Backend<span class="desc">Arsitektur server & integrasi</span></a><a href="../hermes/index.html">Hermes<span class="desc">Setup, config, Termux, Windows</span></a><a href="../lampiran/index.html">Lampiran<span class="desc">FAQ, changelog, resource</span></a></div><div class="mega-menu-section"><h4>AI & LLM</h4><a href="../agents/index.html">AI Agents<span class="desc">Penjelasan mendalam agent</span></a><a href="../llm/index.html">LLM<span class="desc">Dasar Large Language Model</span></a><a href="../prompt/index.html">Prompt<span class="desc">Teknik & strategi prompting</span></a><a href="../automation/index.html">Automation<span class="desc">Otomatisasi workflow</span></a></div><div class="mega-menu-section"><h4>Developer</h4><a href="../api/index.html">API<span class="desc">Dokumentasi referensi API</span></a><a href="../coding/index.html">Coding<span class="desc">Contoh & snippet implementasi</span></a></div></div>
+ </div>
+ <div class="search-overlay">
+ <div class="search-box">
+ <input type="text" placeholder="Cari dokumentasi..." />
+ <div class="search-results"></div>
+ </div>
+ </div>
+ <div class="page-title-bar"><h2><span class="lang-id-inline">Aggregator Platform</span><span class="lang-en-inline">Aggregator Platforms</span></h2><div class="breadcrumb"><a href="../index.html"><span class="lang-id-inline">Beranda</span><span class="lang-en-inline">Home</span></a> / <a href="index.html"><span class="lang-id-inline">Aggregator Platform</span><span class="lang-en-inline">Aggregator Platforms</span></a> / Aggregator Platform</div></div>
+ 
+ <div class="content-wrap"><div class="container container-narrow">
+ <div class="page-header"><h1><span class="lang-id-inline">Aggregator Platform</span><span class="lang-en-inline">Aggregator Platforms</span></h1><div class="breadcrumb"><a href="../index.html"><span class="lang-id-inline">Beranda</span><span class="lang-en-inline">Home</span></a> / <a href="index.html"><span class="lang-id-inline">Aggregator Platform</span><span class="lang-en-inline">Aggregator Platforms</span></a> / Aggregator Platform</div></div>
+ <div class="prose">
+<h2>Apa itu Aggregator</h2>
+
+<p>Aggregator adalah platform perantara yang menyatukan akses ke banyak LLM provider dalam satu endpoint API. Alih-alih mendaftar ke setiap vendor secara terpisah, developer cukup mendaftar ke satu aggregator dan mendapatkan akses ke ratusan model. Manfaat utama: satu API key, satu base URL, satu format request, fallback otomatis antar provider, dan perbandingan harga yang transparan.</p>
+
+<h2>OpenRouter</h2>
+
+<p>OpenRouter adalah aggregator cloud-based paling populer. Dengan satu API key, developer mendapat akses ke 300+ model dari puluhan vendor termasuk OpenAI, Anthropic, Google, Meta, Mistral, dan banyak lagi. OpenRouter menggunakan format API OpenAI-compatible sehingga library standar dapat digunakan langsung.</p>
+
+<p><strong>Fitur unggulan OpenRouter:</strong></p>
+
+<ol><li><strong>Multi-provider dalam satu endpoint</strong> &mdash; Beralih dari GPT-4o ke Claude 3.5 Sonnet hanya dengan mengubah nama model. Tidak perlu API key terpisah atau base URL berbeda.</li><li><strong>Pricing transparan</strong> &mdash; OpenRouter menampilkan harga setiap model termasuk markup kecil (biasanya 5-10% di atas harga vendor asli). Developer melihat biaya real-time per request.</li><li><strong>Fallback otomatis</strong> &mdash; Konfigurasikan fallback chain: jika provider A gagal, OpenRouter otomatis mencoba provider B untuk model yang sama.</li><li><strong>Ranking dan preferensi</strong> &mdash; OpenRouter melacak performa setiap provider dan dapat merute request ke provider tercepat atau termurah untuk model tertentu.</li><li><strong>Free tier</strong> &mdash; Beberapa model tersedia gratis dengan rate limit ketat, cocok untuk eksperimen.</li></ol>
+
+<div class="code-block"><pre><code>from openai import OpenAI
+
+client = OpenAI(
+ api_key=&quot;sk-or-v1-...&quot;,
+ base_url=&quot;https://openrouter.ai/api/v1&quot;
+)
+
+# Akses model dari vendor berbeda dengan kode yang sama
+models = [&quot;openai/gpt-4o&quot;, &quot;anthropic/claude-3.5-sonnet&quot;, &quot;google/gemini-1.5-pro&quot;]
+for model in models:
+ response = client.chat.completions.create(
+ model=model,
+ messages=[{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;Hello&quot;}],
+ )
+ print(f&quot;{model}: {response.choices[0].message.content}&quot;)</code></pre><button class="copy-btn"></button></div>
+
+<p>OpenRouter cocok untuk: prototyping cepat, A/B testing antar model, aplikasi yang butuh fleksibilitas multi-provider tanpa overhead manajemen API key. Kerugian: ada overhead latency 50-100ms, markup harga, dan tidak ada SLA guaranteed.</p>
+
+<h2>9Router</h2>
+
+<p>9Router adalah self-hosted LLM gateway yang memberikan kontrol penuh atas routing, fallback, dan optimasi biaya. Berbeda dari OpenRouter yang cloud-based, 9Router berjalan di server sendiri (localhost, VPS, atau Termux) dengan database SQLite lokal untuk tracking.</p>
+
+<p><strong>Fitur unggulan 9Router:</strong></p>
+
+<ol><li><strong>Combo system</strong> &mdash; Gabungkan beberapa model menjadi satu nama. Contoh: combo <code>Skil1Ulti</code> dapat berisi 5 model dari 5 provider berbeda. Saat request masuk, 9Router memilih model mana yang dipakai berdasarkan strategi (priority, round_robin, failover, atau fusion).</li><li><strong>Token saver (RTK)</strong> &mdash; Fitur unik yang mengoptimasi penggunaan token dengan menggabungkan response dari beberapa model dan memilih yang terbaik, menghemat token hingga 40% dibanding request paralel penuh.</li><li><strong>Key pool management</strong> &mdash; Kelola multiple API key per provider. Saat satu key mencapai rate limit, 9Router otomatis beralih ke key berikutnya. Mendukung subscription provider dan free tier dalam satu pool.</li><li><strong>Auto-fallback</strong> &mdash; Jika provider gagal (timeout, 5xx error, rate limit), 9Router otomatis mencoba provider berikutnya dalam combo. Aplikasi tidak pernah melihat error.</li><li><strong>Monitoring dashboard</strong> &mdash; Web UI di <code>http://localhost:20128</code> menampilkan statistik real-time: request count, token usage, cost, latency per provider, dan error rate.</li><li><strong>SQLite database</strong> &mdash; Semua konfigurasi dan log disimpan di <code>~/.9router/db/data.sqlite</code> dengan tabel <code>providerConnections</code>, <code>combos</code>, dan <code>requestDetails</code>.</li><li><strong>OpenAI-compatible</strong> &mdash; Endpoint <code>http://localhost:20128/v1/chat/completions</code> kompatibel dengan library OpenAI standar.</li></ol>
+
+<div class="code-block"><pre><code># Konfigurasi 9Router di Hermes atau aplikasi apa pun
+from openai import OpenAI
+
+client = OpenAI(
+ api_key=&quot;your-9router-key&quot;,
+ base_url=&quot;http://localhost:20128/v1&quot;
+)
+
+# Pakai combo name sebagai model
+response = client.chat.completions.create(
+ model=&quot;Skil1Ulti&quot;, # Combo: rotasi 5 model otomatis
+ messages=[{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;Tulis kode Python untuk sorting&quot;}],
+)</code></pre><button class="copy-btn"></button></div>
+
+<p>9Router cocok untuk: production deployment yang butuh reliability maksimum, optimasi biaya melalui combo, self-hosted privacy, dan integrasi dengan Hermes Agent.</p>
+
+<h2>Together AI dan Fireworks AI</h2>
+
+<p>Together AI dan Fireworks AI berfungsi sebagai provider sekaligus aggregator untuk model open-weight. Together meng-host Llama, Mistral, DeepSeek, dan model lain dengan API OpenAI-compatible. Fireworks fokus pada latency rendah dengan inference engine yang dioptimasi. Keduanya menawarkan fine-tuning serverless.</p>
+
+<h2>Cloud Provider: Bedrock, Vertex, Azure</h2>
+
+<h3>AWS Bedrock</h3>
+
+<p>AWS Bedrock menyediakan akses ke Claude, Llama, Titan, dan model lain melalui API AWS. Keunggulan: integrasi dengan ekosistem AWS (IAM, CloudWatch, Lambda), compliance enterprise, dan SLA. Endpoint: <code>https://bedrock-runtime.{region}.amazonaws.com</code>.</p>
+
+<h3>Google Vertex AI</h3>
+
+<p>Vertex AI adalah platform Google Cloud untuk LLM. Menyediakan Gemini dan model open. Keunggulan: integrasi Google Cloud, auto-scaling, dan Model Garden dengan ratusan model. Endpoint: <code>https://{region}-aiplatform.googleapis.com</code>.</p>
+
+<h3>Azure OpenAI</h3>
+
+<p>Azure OpenAI menyediakan model OpenAI (GPT-4, GPT-4o) di infrastruktur Azure. Keunggulan: compliance enterprise, data residency, private networking, dan Content Filtering yang dapat dikustomisasi.</p>
+
+<h2>Self-Hosted Gateway</h2>
+
+<h3>vLLM</h3>
+
+<p>vLLM adalah inference server high-throughput untuk model open-weight. Mendukung PagedAttention untuk efisiensi memori tinggi. Cocok untuk produksi dengan GPU.</p>
+
+<h3>Ollama</h3>
+
+<p>Ollama menyederhanakan menjalankan model lokal. Satu command untuk download dan serve: <code>ollama run llama3.1:70b</code>. Cocok untuk development dan testing.</p>
+
+<h3>llama.cpp</h3>
+
+<p>Engine C++ untuk inference di CPU/GPU. Mendukung format GGUF dengan quantization. Cocok untuk perangkat terbatas (Raspberry Pi, laptop tanpa GPU).</p>
+
+<h2>Tabel Perbandingan Aggregator</h2>
+
+<table><tr><th>Platform</th><th>Tipe</th><th>Provider Count</th><th>Self-Host</th><th>Combo</th><th>Token Saver</th><th>Key Pool</th><th>Pricing</th></tr><tr><td>OpenRouter</td><td>Cloud</td><td>300+</td><td>Tidak</td><td>Tidak</td><td>Tidak</td><td>Tidak</td><td>Markup 5-10%</td></tr><tr><td>9Router</td><td>Self-host</td><td>40+</td><td>Ya</td><td>Ya</td><td>Ya (RTK)</td><td>Ya</td><td>Gratis (sw-host)</td></tr><tr><td>Together AI</td><td>Cloud</td><td>20+</td><td>Tidak</td><td>Tidak</td><td>Tidak</td><td>Tidak</td><td>Vendor price</td></tr><tr><td>Fireworks AI</td><td>Cloud</td><td>30+</td><td>Tidak</td><td>Tidak</td><td>Tidak</td><td>Tidak</td><td>Vendor price</td></tr><tr><td>AWS Bedrock</td><td>Cloud</td><td>15+</td><td>Tidak</td><td>Tidak</td><td>Tidak</td><td>Tidak</td><td>AWS pricing</td></tr><tr><td>Vertex AI</td><td>Cloud</td><td>50+</td><td>Tidak</td><td>Tidak</td><td>Tidak</td><td>Tidak</td><td>GCP pricing</td></tr><tr><td>Azure OpenAI</td><td>Cloud</td><td>5+</td><td>Tidak</td><td>Tidak</td><td>Tidak</td><td>Tidak</td><td>Azure pricing</td></tr><tr><td>vLLM</td><td>Self-host</td><td>Open weight</td><td>Ya</td><td>Tidak</td><td>Tidak</td><td>Tidak</td><td>Compute only</td></tr><tr><td>Ollama</td><td>Self-host</td><td>Open weight</td><td>Ya</td><td>Tidak</td><td>Tidak</td><td>Tidak</td><td>Compute only</td></tr><tr><td>LiteLLM</td><td>Self-host</td><td>100+</td><td>Ya</td><td>Partial</td><td>Tidak</td><td>Tidak</td><td>Open source</td></tr></table>
+
+<h2>Kapan Pakai Aggregator vs Vendor Direct</h2>
+
+<p><strong>Pilih vendor direct jika:</strong></p>
+<ul><li>Butuh latency terendah (setiap ms penting)</li><li>Hanya butuh satu model dari satu vendor</li><li>Butuh fitur proprietary (mis. prompt caching Anthropic)</li><li>Penggunaan rendah, tidak perlu multi-key</li></ul>
+
+<p><strong>Pilih aggregator jika:</strong></p>
+<ul><li>Butuh akses ke banyak model dari vendor berbeda</li><li>Ingin fallback otomatis untuk reliability</li><li>Ingin membandingkan kualitas dan harga antar provider</li><li>Butuh key pool untuk menghindari rate limit</li><li>Ingin satu endpoint untuk staging dan production</li><li>Menggunakan combo strategy (9Router)</li></ul>
+</div></div></div>
+ <div class="feedback-widget">
+ <p>Apakah halaman ini membantu?</p>
+ <div class="feedback-btns">
+ <button class="feedback-btn yes">Ya, membantu</button>
+ <button class="feedback-btn no">Tidak</button>
+ </div>
+ </div>
+ <footer class="footer">
+ <div class="container">
+ <div class="footer-links"><a href="index.html">Beranda</a><a href="konsep/index.html">Konsep</a><a href="pilar/index.html">Pilar</a><a href="praktik/index.html">Praktik</a><a href="tutorial/index.html">Tutorial</a><a href="backend/index.html">Backend</a><a href="agents/index.html">AI Agents</a><a href="llm/index.html">LLM</a></div>
+ <div class="footer-social">
+ <a href="https://github.com/Mftrferdinand" target="_blank" class="github" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.5.5.09.66-.22.66-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02.8-.22 1.65-.33 2.5-.33.85 0 1.7.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.16.58.67.48A10.01 10.01 0 0022 12c0-5.52-4.48-10-10-10z"/></svg></a>
+ <a href="https://twitter.com" target="_blank" class="twitter" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+ <a href="https://instagram.com" target="_blank" class="instagram" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+ <a href="https://t.me/v1aesbot" target="_blank" class="telegram" aria-label="Telegram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.94 4.5l-3.2 15.07c-.24 1.06-.87 1.32-1.76.82l-4.87-3.59-2.35 2.26c-.26.26-.48.48-.98.48l.35-4.96 9.03-8.16c.39-.35-.09-.55-.61-.2L6.7 13.12l-4.8-1.5c-1.04-.32-1.06-1.04.22-1.54l18.77-7.24c.87-.32 1.63.2 1.35 1.66z"/></svg></a>
+ </div>
+ <p>HermesGuide &mdash; Panduan Hermes Agent</p>
+ </div>
+ </footer>
+ <script src="../../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+ <title>Config & Provider &mdash; HermesGuide</title>
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="../../assets/css/style.css?v=hermes-guide-v3">
+</head>
+<body>
+ <nav class="nav">
+ <div class="nav-left">
+ <a href="../index.html" class="nav-brand">
+ <div class="nav-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg></div>
+ <span class="nav-logo-text">Mftrferdinand<span>Docs</span></span>
+ </a>
+ </div>
+ <div class="nav-center"><a href="../index.html" class="nav-link"><span class="lang-id-inline">Beranda</span><span class="lang-en-inline">Home</span></a><a href="../konsep/index.html" class="nav-link"><span class="lang-id-inline">Konsep</span><span class="lang-en-inline">Concept</span></a><a href="../pilar/index.html" class="nav-link"><span class="lang-id-inline">Pilar</span><span class="lang-en-inline">Pillars</span></a><a href="../praktik/index.html" class="nav-link"><span class="lang-id-inline">Praktik</span><span class="lang-en-inline">Practice</span></a><a href="../tutorial/index.html" class="nav-link"><span class="lang-id-inline">Tutorial</span><span class="lang-en-inline">Tutorial</span></a><a href="../backend/index.html" class="nav-link"><span class="lang-id-inline">Backend</span><span class="lang-en-inline">Backend</span></a><a href="../agents/index.html" class="nav-link"><span class="lang-id-inline">AI Agents</span><span class="lang-en-inline">AI Agents</span></a><a href="../llm/index.html" class="nav-link"><span class="lang-id-inline">LLM</span><span class="lang-en-inline">LLM</span></a><a href="../prompt/index.html" class="nav-link"><span class="lang-id-inline">Prompt</span><span class="lang-en-inline">Prompt</span></a><a href="../automation/index.html" class="nav-link"><span class="lang-id-inline">Automation</span><span class="lang-en-inline">Automation</span></a><a href="../api/index.html" class="nav-link"><span class="lang-id-inline">API</span><span class="lang-en-inline">API</span></a><a href="../coding/index.html" class="nav-link"><span class="lang-id-inline">Coding</span><span class="lang-en-inline">Coding</span></a><a href="../hermes/index.html" class="nav-link active"><span class="lang-id-inline">Hermes</span><span class="lang-en-inline">Hermes</span></a><a href="../lampiran/index.html" class="nav-link"><span class="lang-id-inline">Lampiran</span><span class="lang-en-inline">Appendix</span></a></div>
+ <div class="nav-right">
+ <div class="nav-search" aria-label="Search">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span class="lang-id-inline">Cari</span><span class="lang-en-inline">Search</span>
+ <kbd>Ctrl K</kbd>
+ </div>
+ <button id="translate-btn" class="nav-toggle-btn" aria-label="Translate">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="lang-label" style="font-size:.7rem;font-weight:700;margin-left:.15rem;">EN</span>
+ </button>
+ <button id="theme-btn" class="nav-toggle-btn" aria-label="Theme">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+ </button>
+ <button class="nav-menu-btn" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+ </div>
+ </nav>
+ <div class="mega-menu">
+ <button class="mega-menu-close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+ <div class="mega-menu-grid"><div class="mega-menu-section"><h4>Dasar</h4><a href="../index.html">Beranda<span class="desc">Hero & overview</span></a><a href="../konsep/index.html">Konsep<span class="desc">Dasar-dasar AI & AI Agent</span></a><a href="../pilar/index.html">Pilar<span class="desc">5 pilar inti agent</span></a><a href="../praktik/index.html">Praktik<span class="desc">Studi kasus & implementasi</span></a></div><div class="mega-menu-section"><h4>Panduan</h4><a href="../tutorial/index.html">Tutorial<span class="desc">Panduan step-by-step</span></a><a href="../backend/index.html">Backend<span class="desc">Arsitektur server & integrasi</span></a><a href="../hermes/index.html">Hermes<span class="desc">Setup, config, Termux, Windows</span></a><a href="../lampiran/index.html">Lampiran<span class="desc">FAQ, changelog, resource</span></a></div><div class="mega-menu-section"><h4>AI & LLM</h4><a href="../agents/index.html">AI Agents<span class="desc">Penjelasan mendalam agent</span></a><a href="../llm/index.html">LLM<span class="desc">Dasar Large Language Model</span></a><a href="../prompt/index.html">Prompt<span class="desc">Teknik & strategi prompting</span></a><a href="../automation/index.html">Automation<span class="desc">Otomatisasi workflow</span></a></div><div class="mega-menu-section"><h4>Developer</h4><a href="../api/index.html">API<span class="desc">Dokumentasi referensi API</span></a><a href="../coding/index.html">Coding<span class="desc">Contoh & snippet implementasi</span></a></div></div>
+ </div>
+ <div class="search-overlay">
+ <div class="search-box">
+ <input type="text" placeholder="Cari dokumentasi..." />
+ <div class="search-results"></div>
+ </div>
+ </div>
+ <div class="page-title-bar"><h2><span class="lang-id-inline">Config & Provider</span><span class="lang-en-inline">Config & Provider</span></h2><div class="breadcrumb"><a href="../index.html"><span class="lang-id-inline">Beranda</span><span class="lang-en-inline">Home</span></a> / <a href="index.html"><span class="lang-id-inline">Config & Provider</span><span class="lang-en-inline">Config & Provider</span></a> / Config & Provider</div></div>
+ 
+ <div class="content-wrap"><div class="container container-narrow">
+ <div class="page-header"><h1><span class="lang-id-inline">Config & Provider</span><span class="lang-en-inline">Config & Provider</span></h1><div class="breadcrumb"><a href="../index.html"><span class="lang-id-inline">Beranda</span><span class="lang-en-inline">Home</span></a> / <a href="index.html"><span class="lang-id-inline">Config & Provider</span><span class="lang-en-inline">Config & Provider</span></a> / Config & Provider</div></div>
+ <div class="prose">
+<h2>config.yaml Full Reference</h2>
+
+<p>File <code>~/.hermes/config.yaml</code> adalah pusat konfigurasi Hermes. Berikut referensi lengkap setiap section:</p>
+
+<div class="code-block"><pre><code># ============================================
+# COMPLETE CONFIG REFERENCE
+# ============================================
+
+# --- Model ---
+model:
+ default: &quot;bai/minimax-m3&quot; # Model ID default
+ provider: &quot;custom:9router&quot; # Provider: openai, anthropic, google, custom:{name}
+ # Jika pakai provider built-in:
+ # provider: &quot;openai&quot;
+ # api_key: &quot;${OPENAI_API_KEY}&quot;
+ # base_url: &quot;https://api.openai.com/v1&quot; # optional override
+
+# --- Custom Providers ---
+# Multiple provider dapat didefinisikan
+custom_providers:
+ 9router:
+ base_url: &quot;http://localhost:20128/v1&quot;
+ api_key: &quot;9r-sk-your-key&quot;
+ models: # Daftar model yang tersedia
+ - &quot;nvidia/z-ai/glm-5.2&quot;
+ - &quot;aiand/zai-org/glm-5.2&quot;
+ - &quot;bai/minimax-m3&quot;
+ - &quot;deepseek/deepseek-chat-v4&quot;
+
+ openrouter:
+ base_url: &quot;https://openrouter.ai/api/v1&quot;
+ api_key: &quot;${OPENROUTER_API_KEY}&quot;
+ models:
+ - &quot;openai/gpt-4o&quot;
+ - &quot;anthropic/claude-3.5-sonnet&quot;
+ - &quot;google/gemini-1.5-pro&quot;
+
+ local-ollama:
+ base_url: &quot;http://localhost:11434/v1&quot;
+ api_key: &quot;ollama&quot;
+ models:
+ - &quot;llama3.1:70b&quot;
+ - &quot;mistral:7b&quot;
+
+# --- Fallback Providers ---
+# Dicoba berurutan jika primary gagal
+fallback_providers:
+ - provider: &quot;custom:openrouter&quot;
+ model: &quot;openai/gpt-4o-mini&quot;
+ condition: &quot;timeout&quot; # timeout, error, rate_limit, all
+ - provider: &quot;custom:local-ollama&quot;
+ model: &quot;llama3.1:70b&quot;
+ condition: &quot;all&quot; # Fallback untuk semua error
+
+# --- Profile ---
+active_profile: &quot;default&quot; # Profile aktif
+# Untuk profile: hermes profile create &lt;name&gt;
+# Switch: hermes profile switch &lt;name&gt;
+
+# --- Agent Settings ---
+max_tokens: 4096 # Max output token
+temperature: 0.7 # 0.0=deterministic, 1.0=creative
+top_p: 1.0 # Nucleus sampling
+stream: true # Stream response
+
+# --- System Prompt ---
+system_prompt: |
+ Anda adalah Hermes Agent.
+ Gunakan tools untuk menyelesaikan tugas.
+ Berikan respons yang akurat dan efisien.
+
+# --- Gateway ---
+gateway:
+ telegram:
+ enabled: true
+ bot_token: &quot;${TELEGRAM_BOT_TOKEN}&quot;
+ allowed_users: [&quot;123456789&quot;]
+ command_prefix: &quot;/&quot; # Prefix untuk command
+ 
+ discord:
+ enabled: false
+ bot_token: &quot;${DISCORD_BOT_TOKEN}&quot;
+ allowed_channels: [&quot;channel-id&quot;]
+
+# --- Memory ---
+memory:
+ enabled: true
+ max_entries: 1000 # Max memory entries
+ auto_save: true # Auto-save conversation facts
+
+# --- Tools ---
+tools:
+ terminal:
+ enabled: true
+ timeout: 30 # Command timeout (seconds)
+ filesystem:
+ enabled: true
+ allowed_paths: [&quot;~&quot;, &quot;/tmp&quot;] # Restrict access
+ network:
+ enabled: true
+ timeout: 10
+ code_execution:
+ enabled: true
+ sandbox: true # Run in sandbox
+ vision:
+ enabled: false # Enable jika butuh image analysis
+
+# --- Logging ---
+logging:
+ level: &quot;info&quot; # debug, info, warn, error
+ file: &quot;~/.hermes/logs/hermes.log&quot;
+ max_size: &quot;10MB&quot; # Rotate when exceed
+ max_files: 5 # Keep N rotated files
+
+# --- Delegation ---
+delegation:
+ enabled: true
+ max_subagents: 3 # Max concurrent subagents
+ subagent_timeout: 300 # Seconds</code></pre><button class="copy-btn"></button></div>
+
+<h2>Custom Providers: Multiple Examples</h2>
+
+<h3>Contoh 1: 9Router dengan Combo</h3>
+
+<div class="code-block"><pre><code>custom_providers:
+ 9router:
+ base_url: &quot;http://localhost:20128/v1&quot;
+ api_key: &quot;9r-sk-xxxxx&quot;
+ models:
+ # Combo names (lihat halaman combo.html)
+ - &quot;Skil1Ulti&quot; # Combo: rotasi 5 model
+ - &quot;Skil1Hemat&quot; # Combo: model hemat
+ # Individual models
+ - &quot;nvidia/z-ai/glm-5.2&quot;
+ - &quot;bai/minimax-m3&quot;</code></pre><button class="copy-btn"></button></div>
+
+<h3>Contoh 2: Multi-Provider tanpa Gateway</h3>
+
+<div class="code-block"><pre><code>custom_providers:
+ openai:
+ base_url: &quot;https://api.openai.com/v1&quot;
+ api_key: &quot;${OPENAI_API_KEY}&quot;
+ models: [&quot;gpt-4o&quot;, &quot;gpt-4o-mini&quot;]
+
+ anthropic:
+ base_url: &quot;https://api.anthropic.com/v1&quot;
+ api_key: &quot;${ANTHROPIC_API_KEY}&quot;
+ models: [&quot;claude-3-5-sonnet&quot;, &quot;claude-3-haiku&quot;]
+
+ together:
+ base_url: &quot;https://api.together.xyz/v1&quot;
+ api_key: &quot;${TOGETHER_API_KEY}&quot;
+ models: [&quot;meta-llama/Llama-3.1-70B-Instruct-Turbo&quot;]</code></pre><button class="copy-btn"></button></div>
+
+<h3>Contoh 3: Local + Cloud Hybrid</h3>
+
+<div class="code-block"><pre><code>custom_providers:
+ local:
+ base_url: &quot;http://localhost:11434/v1&quot;
+ api_key: &quot;ollama&quot;
+ models: [&quot;llama3.1:70b&quot;, &quot;qwen2.5:32b&quot;]
+
+ cloud:
+ base_url: &quot;https://api.openai.com/v1&quot;
+ api_key: &quot;${OPENAI_API_KEY}&quot;
+ models: [&quot;gpt-4o&quot;, &quot;gpt-4o-mini&quot;]
+
+model:
+ default: &quot;llama3.1:70b&quot;
+ provider: &quot;custom:local&quot; # Default: local (free)
+
+fallback_providers: # Fallback: cloud jika local down
+ - provider: &quot;custom:cloud&quot;
+ model: &quot;gpt-4o-mini&quot;
+ condition: &quot;all&quot;</code></pre><button class="copy-btn"></button></div>
+
+<h2>Fallback Providers</h2>
+
+<p>Fallback chain dicoba berurutan saat primary gagal:</p>
+
+<div class="code-block"><pre><code>fallback_providers:
+ # Priority 1: Coba provider lain dengan model sama
+ - provider: &quot;custom:openrouter&quot;
+ model: &quot;openai/gpt-4o-mini&quot;
+ condition: &quot;rate_limit&quot; # Hanya saat rate limit
+
+ # Priority 2: Coba model lokal
+ - provider: &quot;custom:local&quot;
+ model: &quot;llama3.1:70b&quot;
+ condition: &quot;all&quot; # Semua jenis error
+
+ # Priority 3: Coba provider lebih murah
+ - provider: &quot;custom:9router&quot;
+ model: &quot;bai/minimax-m3&quot;
+ condition: &quot;timeout&quot; # Hanya saat timeout</code></pre><button class="copy-btn"></button></div>
+
+<h2>Model ID Format Rules</h2>
+
+<p>Di 9Router, model ID <strong>wajib</strong> menggunakan prefix nama provider:</p>
+
+<table><tr><th>Format</th><th>Status</th><th>Keterangan</th></tr><tr><td><code>nvidia/z-ai/glm-5.2</code></td><td>Valid</td><td>Provider <code>nvidia</code>, model <code>z-ai/glm-5.2</code></td></tr><tr><td><code>aiand/zai-org/glm-5.2</code></td><td>Valid</td><td>Provider <code>aiand</code>, model <code>zai-org/glm-5.2</code></td></tr><tr><td><code>bai/minimax-m3</code></td><td>Valid</td><td>Provider <code>bai</code>, model <code>minimax-m3</code></td></tr><tr><td><code>deepseek/deepseek-chat-v4</code></td><td>Valid</td><td>Provider <code>deepseek</code>, model <code>deepseek-chat-v4</code></td></tr><tr><td><code>z-ai/glm-5.2</code></td><td>ERROR</td><td>Tidak ada prefix provider</td></tr><tr><td><code>glm-5.2</code></td><td>ERROR</td><td>Tidak ada prefix provider</td></tr><tr><td><code>Skil1Ulti</code></td><td>Valid</td><td>Combo name (tanpa prefix, diakui khusus)</td></tr></table>
+
+<h2>9Router Integration Config</h2>
+
+<p>Konfigurasi lengkap untuk integrasi Hermes + 9Router:</p>
+
+<div class="code-block"><pre><code># config.yaml
+model:
+ default: &quot;Skil1Ulti&quot; # Pakai combo sebagai default
+ provider: &quot;custom:9router&quot;
+
+custom_providers:
+ 9router:
+ base_url: &quot;http://localhost:20128/v1&quot;
+ api_key: &quot;9r-sk-your-api-key&quot;
+ models:
+ # Combos
+ - &quot;Skil1Ulti&quot; # Rotasi 5 model premium
+ - &quot;Skil1Hemat&quot; # Rotasi model hemat
+ - &quot;Skil1Backup&quot; # Fallback chain
+ # Individual models
+ - &quot;nvidia/z-ai/glm-5.2&quot;
+ - &quot;aiand/zai-org/glm-5.2&quot;
+ - &quot;bai/minimax-m3&quot;
+ - &quot;deepseek/deepseek-chat-v4&quot;
+
+# Fallback ke OpenAI jika 9Router down
+fallback_providers:
+ - provider: &quot;openai&quot;
+ model: &quot;gpt-4o-mini&quot;
+ api_key: &quot;${OPENAI_API_KEY}&quot;
+ condition: &quot;all&quot;</code></pre><button class="copy-btn"></button></div>
+
+<h2>Environment Variables</h2>
+
+<p>Hermes mendukung environment variable dengan sintaks <code>${VAR_NAME}</code>:</p>
+
+<div class="code-block"><pre><code># ~/.bashrc atau ~/.zshrc
+export OPENAI_API_KEY=&quot;sk-...&quot;
+export ANTHROPIC_API_KEY=&quot;sk-ant-...&quot;
+export TELEGRAM_BOT_TOKEN=&quot;123456:ABC...&quot;
+export DISCORD_BOT_TOKEN=&quot;...&quot;
+export OPENROUTER_API_KEY=&quot;sk-or-v1-...&quot;
+export TOGETHER_API_KEY=&quot;...&quot;
+export 9ROUTER_API_KEY=&quot;9r-sk-...&quot;</code></pre><button class="copy-btn"></button></div>
+
+<div class="code-block"><pre><code># config.yaml menggunakan env vars
+custom_providers:
+ 9router:
+ base_url: &quot;http://localhost:20128/v1&quot;
+ api_key: &quot;${9ROUTER_API_KEY}&quot; # Akan di-resolve dari environment</code></pre><button class="copy-btn"></button></div>
+
+<h2>Profile System</h2>
+
+<div class="code-block"><pre><code># Untuk profile baru
+hermes profile create work
+
+# List profiles
+hermes profile list
+# default (active)
+# work
+# coding
+
+# Switch profile
+hermes profile switch work
+
+# Set config per profile
+hermes config set work.model.default &quot;nvidia/z-ai/glm-5.2&quot;
+hermes config set work.system_prompt &quot;Anda asisten kerja...&quot;
+
+# Set provider per profile
+hermes config set coding.model.provider &quot;custom:9router&quot;
+hermes config set coding.model.default &quot;Skil1Ulti&quot;</code></pre><button class="copy-btn"></button></div>
+
+<p>Setiap profile memiliki direktori sendiri:</p>
+<div class="code-block"><pre><code>~/.hermes/profiles/
+├── default/
+│ ├── skills/ # Skill khusus profile ini
+│ ├── plugins/
+│ ├── cron/
+│ └── memories/
+├── work/
+│ ├── skills/
+│ ├── plugins/
+│ ├── cron/
+│ └── memories/
+└── coding/
+ ├── skills/
+ ├── plugins/
+ ├── cron/
+ └── memories/</code></pre><button class="copy-btn"></button></div>
+
+<h2>Skill Management</h2>
+
+<div class="code-block"><pre><code># List skills
+hermes skills list
+
+# Create skill
+hermes skill create my-skill
+# Edit di ~/.hermes/profiles/default/skills/my-skill.md
+
+# Test skill loading
+hermes skill test my-skill
+
+# Simulate skill trigger
+hermes simulate &quot;tolong deploy aplikasi&quot; --skills deployment-runbook
+
+# Enable/disable skill
+hermes skill enable my-skill
+hermes skill disable my-skill
+
+# Delete skill
+hermes skill delete my-skill</code></pre><button class="copy-btn"></button></div>
+
+<div class="code-block"><pre><code>Skill file format:</code></pre><button class="copy-btn">Copy</button></div>
+<div class="code-block"><pre><code>---
+name: My Skill
+description: Deskripsi singkat
+trigger: ketika user minta [tugas]
+priority: normal # high, normal, low
+---
+
+## Prosedur
+1. Langkah pertama
+2. Langkah kedua
+3. ...</code></pre><button class="copy-btn"></button></div>
+</div></div></div>
+ <div class="feedback-widget">
+ <p>Apakah halaman ini membantu?</p>
+ <div class="feedback-btns">
+ <button class="feedback-btn yes">Ya, membantu</button>
+ <button class="feedback-btn no">Tidak</button>
+ </div>
+ </div>
+ <footer class="footer">
+ <div class="container">
+ <div class="footer-links"><a href="index.html">Beranda</a><a href="konsep/index.html">Konsep</a><a href="pilar/index.html">Pilar</a><a href="praktik/index.html">Praktik</a><a href="tutorial/index.html">Tutorial</a><a href="backend/index.html">Backend</a><a href="agents/index.html">AI Agents</a><a href="llm/index.html">LLM</a></div>
+ <div class="footer-social">
+ <a href="https://github.com/Mftrferdinand" target="_blank" class="github" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.5.5.09.66-.22.66-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02.8-.22 1.65-.33 2.5-.33.85 0 1.7.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.16.58.67.48A10.01 10.01 0 0022 12c0-5.52-4.48-10-10-10z"/></svg></a>
+ <a href="https://twitter.com" target="_blank" class="twitter" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+ <a href="https://instagram.com" target="_blank" class="instagram" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+ <a href="https://t.me/v1aesbot" target="_blank" class="telegram" aria-label="Telegram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.94 4.5l-3.2 15.07c-.24 1.06-.87 1.32-1.76.82l-4.87-3.59-2.35 2.26c-.26.26-.48.48-.98.48l.35-4.96 9.03-8.16c.39-.35-.09-.55-.61-.2L6.7 13.12l-4.8-1.5c-1.04-.32-1.06-1.04.22-1.54l18.77-7.24c.87-.32 1.63.2 1.35 1.66z"/></svg></a>
+ </div>
+ <p>HermesGuide &mdash; Panduan Hermes Agent</p>
+ </div>
+ </footer>
+ <script src="../../assets/js/main.js"></script>
+</body>
+</html>

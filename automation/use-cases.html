@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+ <title>Use Cases &mdash; HermesGuide</title>
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="../../assets/css/style.css?v=hermes-guide-v3">
+</head>
+<body>
+ <div class="bg-canvas"></div>
+ <div class="bg-grid"></div>
+ <div class="particles"></div>
+ <nav class="nav">
+ <div class="nav-left">
+ <a href="../index.html" class="nav-brand">
+ <div class="nav-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg></div>
+ <span class="nav-logo-text">Mftrferdinand<span>Docs</span></span>
+ </a>
+ <div class="nav-links"><a href="../index.html" class="nav-link"><span class="lang-id-inline">Beranda</span><span class="lang-en-inline">Home</span></a><a href="../agents/index.html" class="nav-link"><span class="lang-id-inline">AI Agents</span><span class="lang-en-inline">AI Agents</span></a><a href="../llm/index.html" class="nav-link"><span class="lang-id-inline">LLM</span><span class="lang-en-inline">LLM</span></a><a href="../prompt/index.html" class="nav-link"><span class="lang-id-inline">Prompt</span><span class="lang-en-inline">Prompt</span></a><a href="../automation/index.html" class="nav-link active"><span class="lang-id-inline">Automation</span><span class="lang-en-inline">Automation</span></a><a href="../api/index.html" class="nav-link"><span class="lang-id-inline">API Providers</span><span class="lang-en-inline">API Providers</span></a><a href="../coding/index.html" class="nav-link"><span class="lang-id-inline">Coding</span><span class="lang-en-inline">Coding</span></a><a href="../hermes/index.html" class="nav-link"><span class="lang-id-inline">Hermes</span><span class="lang-en-inline">Hermes</span></a></div>
+ </div>
+ <div class="nav-right">
+ <button id="translate-btn" class="nav-translate" aria-label="Translate">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+ <span class="lang-label">EN</span>
+ </button>
+ <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+ </div>
+ </nav>
+ <div class="page-title-bar">
+ <h2><span class="lang-id-inline">Use Cases</span><span class="lang-en-inline">Use Cases</span></h2>
+ <div class="breadcrumb"><a href="../index.html"><span class="lang-id-inline">Beranda</span><span class="lang-en-inline">Home</span></a> / <a href="index.html"><span class="lang-id-inline">Use Cases</span><span class="lang-en-inline">Use Cases</span></a> / Use Cases</div>
+ </div>
+ 
+ <div class="content-wrap">
+ <div class="container container-narrow">
+ <div class="page-header">
+ <h1><span class="lang-id-inline">Use Cases</span><span class="lang-en-inline">Use Cases</span></h1>
+ <div class="breadcrumb"><a href="../index.html"><span class="lang-id-inline">Beranda</span><span class="lang-en-inline">Home</span></a> / <a href="index.html"><span class="lang-id-inline">Use Cases</span><span class="lang-en-inline">Use Cases</span></a> / Use Cases</div>
+ </div>
+ <div class="prose">
+ 
+<h2>6 Studi Kasus Automation</h2>
+
+<h3>1. Content Pipeline</h3>
+
+<p>Pipeline otomatis untuk produksi konten dari riset hingga publikasi, menggabungkan AI research, writing, SEO optimization, dan multi-platform publishing.</p>
+
+<p><strong>Arsitektur:</strong></p>
+<div class="code-block"><pre><code>[Schedule 9AM] 
+ -&gt; [RSS Feed Fetch trending topics]
+ -&gt; [AI: Filter &amp; rank by relevance]
+ -&gt; [AI: Research topik terpilih]
+ -&gt; [AI: Draft artikel 800 kata]
+ -&gt; [Human: Review &amp; approve]
+ -&gt; [AI: SEO optimize (meta, tags, headings)]
+ -&gt; [AI: Generate social media posts (3 variants)]
+ -&gt; [CMS: Publish article]
+ -&gt; [Social API: Schedule posts]
+ -&gt; [Slack: Notify team]</code></pre><button class="copy-btn"></button></div>
+
+<p><strong>Code Implementation (Python + Hermes):</strong></p>
+
+<div class="code-block"><pre><code>import schedule
+import time
+
+def content_pipeline():
+ # Step 1: Fetch trending topics from RSS
+ feeds = fetch_rss([
+ &quot;https://techcrunch.com/feed&quot;,
+ &quot;https://www.theverge.com/rss/index.xml&quot;,
+ ])
+ 
+ # Step 2: AI filter and rank
+ ranked = hermes.run_skill(&quot;rank-topics&quot;, {
+ &quot;topics&quot;: feeds,
+ &quot;criteria&quot;: &quot;relevance to AI/tech, freshness, uniqueness&quot;,
+ &quot;top_n&quot;: 3
+ })
+ 
+ selected = ranked[0] # Top topic
+ 
+ # Step 3: AI research
+ research = hermes.run_skill(&quot;research-topic&quot;, {
+ &quot;topic&quot;: selected,
+ &quot;depth&quot;: &quot;comprehensive&quot;,
+ &quot;sources&quot;: &quot;web_search&quot;
+ })
+ 
+ # Step 4: AI draft
+ draft = hermes.run_skill(&quot;write-article&quot;, {
+ &quot;topic&quot;: selected,
+ &quot;research&quot;: research,
+ &quot;word_count&quot;: 800,
+ &quot;tone&quot;: &quot;informative_professional&quot;,
+ &quot;format&quot;: &quot;markdown with H2/H3&quot;
+ })
+ 
+ # Step 5: Human review (create approval task)
+ review_id = create_review_task(
+ content=draft,
+ reviewer=&quot;editor@company.com&quot;,
+ deadline=&quot;4 hours&quot;
+ )
+ 
+ # Pipeline continues after approval via webhook
+ # See publish_after_approval() below
+
+def publish_after_approval(review_id, approved_content):
+ # Step 6: SEO optimize
+ seo = hermes.run_skill(&quot;seo-optimize&quot;, {
+ &quot;content&quot;: approved_content,
+ &quot;target_keywords&quot;: extract_keywords(approved_content),
+ &quot;generate&quot;: [&quot;meta_description&quot;, &quot;title_tag&quot;, &quot;slug&quot;]
+ })
+ 
+ # Step 7: Social media variants
+ social_posts = hermes.run_skill(&quot;social-variants&quot;, {
+ &quot;article&quot;: approved_content,
+ &quot;platforms&quot;: [&quot;twitter&quot;, &quot;linkedin&quot;, &quot;instagram&quot;],
+ &quot;variants_per_platform&quot;: 1
+ })
+ 
+ # Step 8: Publish to CMS
+ article_url = cms.publish(
+ title=seo[&quot;title&quot;],
+ content=approved_content,
+ meta=seo[&quot;meta&quot;],
+ tags=seo[&quot;tags&quot;]
+ )
+ 
+ # Step 9: Schedule social posts
+ for platform, post in social_posts.items():
+ social_scheduler.schedule(
+ platform=platform,
+ content=post,
+ post_time=&quot;2 hours after publish&quot;
+ )
+ 
+ # Step 10: Notify team
+ slack.notify(
+ channel=&quot;#content&quot;,
+ message=f&quot;Article published: {article_url}&quot;
+ )
+
+# Schedule
+schedule.every().day.at(&quot;09:00&quot;).do(content_pipeline)</code></pre><button class="copy-btn"></button></div>
+
+<p><strong>Tools:</strong> Hermes Agent (cron + skills), RSS parser, CMS API (WordPress/Ghost), Buffer/Hootsuite (social scheduling), Slack API.</p>
+
+<p>---</p>
+
+<h3>2. Monitoring &amp; Alerting</h3>
+
+<p>Sistem monitoring yang menggunakan AI untuk mendeteksi anomali, men-diagnosa root cause, dan mengirim alert dengan konteks yang actionable.</p>
+
+<p><strong>Workflow:</strong></p>
+<div class="code-block"><pre><code>[Metrics Stream] 
+ -&gt; [Threshold check: CPU &gt; 80%? Error rate &gt; 5%?]
+ -&gt; [AI: Analyze anomaly context]
+ -&gt; [AI: Diagnose root cause from logs]
+ -&gt; [AI: Generate actionable alert message]
+ -&gt; [Route: Slack for low, PagerDuty for high]
+ -&gt; [AI: Suggest remediation if known pattern]</code></pre><button class="copy-btn"></button></div>
+
+<p><strong>Code:</strong></p>
+
+<div class="code-block"><pre><code>async def monitor_and_alert(metrics):
+ alerts = []
+ 
+ for metric in metrics:
+ if metric.value &gt; metric.threshold:
+ # AI analyzes anomaly
+ analysis = await hermes.run_skill(&quot;analyze-anomaly&quot;, {
+ &quot;metric&quot;: metric.name,
+ &quot;value&quot;: metric.value,
+ &quot;threshold&quot;: metric.threshold,
+ &quot;historical_data&quot;: metric.history_7d,
+ &quot;recent_changes&quot;: metric.deployments_last_1h
+ })
+ 
+ # AI diagnoses root cause
+ diagnosis = await hermes.run_skill(&quot;diagnose-issue&quot;, {
+ &quot;anomaly&quot;: analysis,
+ &quot;logs&quot;: fetch_recent_logs(metric.service, minutes=30),
+ &quot;dependencies&quot;: metric.service_dependencies
+ })
+ 
+ # AI generates alert
+ alert = {
+ &quot;severity&quot;: analysis[&quot;severity&quot;],
+ &quot;service&quot;: metric.service,
+ &quot;metric&quot;: metric.name,
+ &quot;value&quot;: metric.value,
+ &quot;threshold&quot;: metric.threshold,
+ &quot;analysis&quot;: analysis[&quot;summary&quot;],
+ &quot;root_cause&quot;: diagnosis[&quot;root_cause&quot;],
+ &quot;suggested_fix&quot;: diagnosis.get(&quot;remediation&quot;),
+ &quot;dashboard_url&quot;: metric.grafana_url,
+ &quot;timestamp&quot;: datetime.utcnow().isoformat()
+ }
+ 
+ alerts.append(alert)
+ 
+ # Route alerts
+ for alert in alerts:
+ if alert[&quot;severity&quot;] in (&quot;critical&quot;, &quot;high&quot;):
+ pagerduty.trigger(
+ title=f&quot;{alert[&#x27;service&#x27;]}: {alert[&#x27;metric&#x27;]}&quot;,
+ description=alert[&quot;analysis&quot;],
+ urgency=alert[&quot;severity&quot;]
+ )
+ else:
+ slack.notify(
+ channel=&quot;#ops-alerts&quot;,
+ message=format_alert(alert)
+ )
+
+# Run every minute
+schedule.every(1).minutes.do(
+ lambda: monitor_and_alert(get_current_metrics())
+)</code></pre><button class="copy-btn"></button></div>
+
+<p><strong>Tools:</strong> Prometheus/Grafana (metrics), Hermes Agent (AI analysis), PagerDuty (escalation), Slack (notification), ELK stack (logs).</p>
+
+<p>---</p>
+
+<h3>3. Data Pipeline (ETL dengan AI Enrichment)</h3>
+
+<div class="code-block"><pre><code>Pipeline ETL yang menggunakan AI untuk enrichment: cleaning, klasifikasi, entity extraction, dan sentiment analysis pada data yang mengalir dari source ke warehouse.</code></pre><button class="copy-btn">Copy</button></div>
+
+<p><strong>Workflow:</strong></p>
+<div class="code-block"><pre><code>[Source: API/DB/Files]
+ -&gt; [Extract: Pull raw data]
+ -&gt; [Transform: Clean, normalize, validate]
+ -&gt; [AI Enrich: Classify, extract entities, sentiment]
+ -&gt; [AI Quality: Detect anomalies, flag suspicious]
+ -&gt; [Load: Write to warehouse]
+ -&gt; [Alert: Notify if data quality issues]</code></pre><button class="copy-btn"></button></div>
+
+<p><strong>Code:</strong></p>
+
+<div class="code-block"><pre><code>async def etl_with_ai_enrichment(source_config):
+ # Extract
+ raw_data = await extract_from_source(source_config)
+ logger.info(f&quot;Extracted {len(raw_data)} records&quot;)
+ 
+ # Transform: clean and normalize
+ cleaned = []
+ for record in raw_data:
+ cleaned_record = {
+ &quot;id&quot;: record[&quot;id&quot;],
+ &quot;raw_text&quot;: record[&quot;content&quot;],
+ &quot;timestamp&quot;: normalize_timestamp(record[&quot;date&quot;]),
+ &quot;source&quot;: source_config[&quot;name&quot;],
+ }
+ cleaned.append(cleaned_record)
+ 
+ # AI Enrichment (parallel batch processing)
+ BATCH_SIZE = 50
+ enriched = []
+ 
+ for i in range(0, len(cleaned), BATCH_SIZE):
+ batch = cleaned[i:i+BATCH_SIZE]
+ 
+ # Multiple AI enrichments in parallel
+ results = await asyncio.gather(
+ ai_classify(batch),
+ ai_extract_entities(batch),
+ ai_sentiment(batch),
+ ai_summarize(batch),
+ )
+ 
+ classifications, entities, sentiments, summaries = results
+ 
+ for j, record in enumerate(batch):
+ enriched_record = {
+ **record,
+ &quot;category&quot;: classifications[j][&quot;category&quot;],
+ &quot;confidence&quot;: classifications[j][&quot;confidence&quot;],
+ &quot;entities&quot;: entities[j],
+ &quot;sentiment&quot;: sentiments[j][&quot;score&quot;],
+ &quot;sentiment_label&quot;: sentiments[j][&quot;label&quot;],
+ &quot;summary&quot;: summaries[j],
+ }
+ enriched.append(enriched_record)
+ 
+ # AI Quality Check
+ quality_report = await ai_quality_check(enriched)
+ 
+ if quality_report[&quot;anomaly_count&quot;] &gt; len(enriched) * 0.1:
+ alert_data_team(quality_report)
+ 
+ # Load to warehouse
+ await load_to_warehouse(
+ table=&quot;enriched_data&quot;,
+ records=enriched,
+ mode=&quot;upsert&quot;
+ )
+ 
+ logger.info(f&quot;Loaded {len(enriched)} enriched records&quot;)
+
+# Schedule: every hour
+schedule.every().hour.do(
+ lambda: etl_with_ai_enrichment(get_source_config())
+)</code></pre><button class="copy-btn"></button></div>
+
+<p><strong>Tools:</strong> Airflow (orchestration), Hermes/LLM API (enrichment), Snowflake/BigQuery (warehouse), dbt (transform), Slack (alerting).</p>
+
+<p>---</p>
+
+<h3>4. Customer Support Automation</h3>
+
+<p>Sistem yang mengklasifikasi tiket, men-draft response untuk FAQ, dan meroute tiket kompleks ke tim yang tepat dengan context yang lengkap.</p>
+
+<p><strong>Workflow:</strong></p>
+<div class="code-block"><pre><code>[Ticket Created] 
+ -&gt; [AI: Classify category + severity]
+ -&gt; [Branch: FAQ or Complex?]
+ -&gt; [FAQ]: AI draft response -&gt; Auto-send if confidence high
+ -&gt; Human review if confidence low
+ -&gt; [Complex]: AI summarize context -&gt; Route to correct team
+ -&gt; [Update: Ticket status, tags, SLA timer]
+ -&gt; [Monitor: Track resolution time, CSAT]</code></pre><button class="copy-btn"></button></div>
+
+<p><strong>Code:</strong></p>
+
+<div class="code-block"><pre><code>async def handle_new_ticket(ticket):
+ # AI classification
+ classification = await llm.complete(
+ f&#x27;&#x27;&#x27;Klasifikasi tiket support:
+ Content: {ticket[&#x27;content&#x27;]}
+ 
+ Kembalikan JSON:
+ {{
+ &quot;category&quot;: &quot;technical|billing|feature_request|bug|other&quot;,
+ &quot;severity&quot;: &quot;low|medium|high|critical&quot;,
+ &quot;is_faq&quot;: true/false,
+ &quot;confidence&quot;: 0.0-1.0,
+ &quot;suggested_tags&quot;: [&quot;tag1&quot;, &quot;tag2&quot;]
+ }}&#x27;&#x27;&#x27;
+ )
+ 
+ cls = json.loads(classification)
+ 
+ # Update ticket metadata
+ update_ticket(ticket[&quot;id&quot;], {
+ &quot;category&quot;: cls[&quot;category&quot;],
+ &quot;severity&quot;: cls[&quot;severity&quot;],
+ &quot;tags&quot;: cls[&quot;suggested_tags&quot;],
+ })
+ 
+ if cls[&quot;is_faq&quot;] and cls[&quot;confidence&quot;] &gt; 0.85:
+ # FAQ: auto-draft response
+ response = await llm.complete(
+ f&#x27;&#x27;&#x27;Berdasarkan knowledge base berikut, 
+ jawab pertanyaan customer.
+ 
+ Knowledge Base: {search_kb(ticket[&#x27;content&#x27;])}
+ Customer message: {ticket[&#x27;content&#x27;]}
+ 
+ Aturan:
+ - Tone: helpful, professional
+ - Jika tidak yakin, katakan akan diteruskan ke tim
+ - Max 200 kata
+ - Sertakan link artikel KB jika relevan&#x27;&#x27;&#x27;
+ )
+ 
+ # Auto-send if confidence high, else queue for review
+ if cls[&quot;confidence&quot;] &gt; 0.92:
+ send_reply(ticket[&quot;id&quot;], response)
+ update_ticket(ticket[&quot;id&quot;], {
+ &quot;status&quot;: &quot;resolved&quot;,
+ &quot;resolved_by&quot;: &quot;ai_auto&quot;
+ })
+ else:
+ create_review_task(
+ ticket_id=ticket[&quot;id&quot;],
+ draft=response,
+ reviewer=&quot;support_agent&quot;
+ )
+ 
+ elif cls[&quot;severity&quot;] == &quot;critical&quot;:
+ # Critical: escalate immediately
+ escalate_ticket(ticket, cls)
+ notify_oncall(ticket, cls[&quot;category&quot;])
+ 
+ else:
+ # Complex: route to correct team with context
+ context = await llm.complete(
+ f&#x27;&#x27;&#x27;Summarize tiket untuk handoff ke tim:
+ {ticket[&#x27;content&#x27;]}
+ 
+ Format:
+ - Issue: [1 sentence summary]
+ - Category: {cls[&#x27;category&#x27;]}
+ - Key details: [bullet points]
+ - Suggested approach: [if apparent]&#x27;&#x27;&#x27;
+ )
+ 
+ route_to_team(
+ ticket_id=ticket[&quot;id&quot;],
+ team=cls[&quot;category&quot;],
+ handoff_context=context
+ )</code></pre><button class="copy-btn"></button></div>
+
+<p><strong>Tools:</strong> Freshdesk/Zendesk (ticketing), Hermes Agent (AI processing), Vector DB (knowledge base search), Slack (internal notification).</p>
+
+<p>---</p>
+
+<h3>5. DevOps Automation</h3>
+
+<p>Agent DevOps yang memantau infrastruktur, mendeteksi anomali, men-diagnosa root cause, dan mengeksekusi remediasi otomatis dengan guard rails.</p>
+
+<p><strong>Workflow:</strong></p>
+<div class="code-block"><pre><code>[Monitoring Alert] 
+ -&gt; [AI: Analyze alert context]
+ -&gt; [AI: Diagnose root cause]
+ -&gt; [Check: Known remediation pattern?]
+ -&gt; [Yes]: AI generates fix script -&gt; Execute with guard rails
+ -&gt; [No]: AI creates incident summary -&gt; Page on-call
+ -&gt; [AI: Write post-mortem draft]
+ -&gt; [Update: Runbook with new pattern]</code></pre><button class="copy-btn"></button></div>
+
+<p><strong>Code:</strong></p>
+
+<div class="code-block"><pre><code>async def devops_auto_remediation(alert):
+ # AI analyzes alert
+ analysis = await hermes.run_skill(&quot;analyze-alert&quot;, {
+ &quot;alert&quot;: alert,
+ &quot;context&quot;: {
+ &quot;service&quot;: alert.service,
+ &quot;recent_deploys&quot;: get_deploys(alert.service, hours=2),
+ &quot;current_metrics&quot;: get_metrics(alert.service),
+ &quot;recent_incidents&quot;: get_incidents(alert.service, days=7),
+ }
+ })
+ 
+ # AI diagnoses root cause
+ diagnosis = await hermes.run_skill(&quot;diagnose-incident&quot;, {
+ &quot;analysis&quot;: analysis,
+ &quot;logs&quot;: fetch_logs(alert.service, minutes=15),
+ &quot;infrastructure_state&quot;: get_infra_state(alert.service),
+ })
+ 
+ remediation = diagnosis.get(&quot;suggested_remediation&quot;)
+ 
+ if remediation and remediation[&quot;confidence&quot;] &gt; 0.8:
+ # Check if action is within safe list
+ if remediation[&quot;action&quot;] in SAFE_ACTIONS:
+ # Execute with guard rails
+ result = await execute_remediation(
+ action=remediation[&quot;action&quot;],
+ target=alert.service,
+ dry_run=False,
+ timeout=300,
+ rollback_on_failure=True
+ )
+ 
+ if result[&quot;success&quot;]:
+ slack.notify(&quot;#devops&quot;, format_success(alert, remediation, result))
+ # Auto-create post-mortem
+ await create_postmortem(alert, diagnosis, result)
+ else:
+ # Remediation failed, escalate
+ page_oncall(alert, diagnosis, result)
+ else:
+ # Action not in safe list, require human approval
+ create_approval_task(
+ alert=alert,
+ diagnosis=diagnosis,
+ proposed_action=remediation,
+ approver=&quot;oncall_engineer&quot;
+ )
+ else:
+ # No confident remediation, page human
+ page_oncall(alert, diagnosis)
+
+SAFE_ACTIONS = [
+ &quot;restart_service&quot;,
+ &quot;scale_up_replicas&quot;,
+ &quot;clear_cache&quot;,
+ &quot;rollback_deployment&quot;,
+ &quot;increase_memory_limit&quot;,
+]</code></pre><button class="copy-btn"></button></div>
+
+<p><strong>Tools:</strong> Prometheus (metrics), Hermes Agent (AI diagnosis), Kubernetes API (remediation), PagerDuty (escalation), GitHub (post-mortem).</p>
+
+<p>---</p>
+
+<h3>6. Personal Productivity</h3>
+
+<p>Automation personal untuk produktivitas harian: email triage, calendar management, daily briefing, dan task prioritization.</p>
+
+<p><strong>Workflow:</strong></p>
+<div class="code-block"><pre><code>[Every 8 AM] 
+ -&gt; [Fetch: Email, Calendar, Tasks, News]
+ -&gt; [AI: Triage emails (important, action needed, archive)]
+ -&gt; [AI: Prioritize tasks for today]
+ -&gt; [AI: Generate daily briefing]
+ -&gt; [Send: Summary to Telegram/Dashboard]
+[Every 6 PM]
+ -&gt; [AI: Review what was done]
+ -&gt; [AI: Plan tomorrow&#x27;s top 3 tasks]
+ -&gt; [Update: Task manager]</code></pre><button class="copy-btn"></button></div>
+
+<p><strong>Code:</strong></p>
+
+<div class="code-block"><pre><code>def morning_briefing():
+ # Fetch data sources
+ emails = gmail.fetch_unread()
+ events = calendar.get_events(today=True)
+ tasks = task_manager.get_pending()
+ news = rss.fetch(&quot;technology&quot;, limit=10)
+ weather = weather_api.get_forecast()
+ 
+ # AI triage emails
+ email_triage = hermes.run_skill(&quot;email-triage&quot;, {
+ &quot;emails&quot;: emails,
+ &quot;categories&quot;: [&quot;urgent&quot;, &quot;action_needed&quot;, &quot;fyi&quot;, &quot;archive&quot;],
+ &quot;max_per_category&quot;: 5
+ })
+ 
+ # AI prioritize tasks
+ priorities = hermes.run_skill(&quot;prioritize-tasks&quot;, {
+ &quot;tasks&quot;: tasks,
+ &quot;calendar&quot;: events,
+ &quot;criteria&quot;: &quot;deadline urgency, impact, effort estimate&quot;,
+ &quot;top_n&quot;: 5
+ })
+ 
+ # AI generate briefing
+ briefing = hermes.run_skill(&quot;daily-briefing&quot;, {
+ &quot;date&quot;: today(),
+ &quot;weather&quot;: weather,
+ &quot;calendar_events&quot;: events,
+ &quot;priority_tasks&quot;: priorities,
+ &quot;important_emails&quot;: email_triage[&quot;urgent&quot;] + email_triage[&quot;action_needed&quot;],
+ &quot;news_highlights&quot;: news[:3],
+ &quot;format&quot;: &quot;concise, scannable, max 300 words&quot;
+ })
+ 
+ # Send to Telegram
+ telegram.send(
+ chat_id=PERSONAL_CHAT_ID,
+ message=briefing,
+ parse_mode=&quot;markdown&quot;
+ )
+
+def evening_review():
+ # What was done today
+ completed = task_manager.get_completed(today=True)
+ remaining = task_manager.get_pending(today=True)
+ 
+ # AI review and plan
+ review = hermes.run_skill(&quot;evening-review&quot;, {
+ &quot;completed&quot;: completed,
+ &quot;remaining&quot;: remaining,
+ &quot;task&quot;: &quot;Review progress, plan top 3 tasks for tomorrow&quot;
+ })
+ 
+ # Update task manager
+ for task in review[&quot;tomorrow_top_3&quot;]:
+ task_manager.update(
+ task_id=task[&quot;id&quot;],
+ priority=task[&quot;priority&quot;],
+ scheduled_date=tomorrow()
+ )
+ 
+ telegram.send(
+ chat_id=PERSONAL_CHAT_ID,
+ message=review[&quot;summary&quot;]
+ )
+
+# Schedule
+schedule.every().day.at(&quot;08:00&quot;).do(morning_briefing)
+schedule.every().day.at(&quot;18:00&quot;).do(evening_review)</code></pre><button class="copy-btn"></button></div>
+
+<p><strong>Tools:</strong> Hermes Agent (cron + skills), Gmail API, Google Calendar API, Todoist/Notion (tasks), RSS feeds, OpenWeather API, Telegram Bot API.</p>
+
+<p>---</p>
+
+<h2>Pelajaran dari Implementasi</h2>
+
+<ul><li><strong>Mulai kecil:</strong> Satu workflow, validasi, lalu expand. Jangan bangun 10 workflow sekaligus.</li><li><strong>Observability first:</strong> Log everything sejak hari pertama. Tanpa logging, debugging tidak mungkin.</li><li><strong>Human fallback:</strong> Selalu memiliki jalur manual jika AI gagal. Graceful degradation.</li><li><strong>Iterative improvement:</strong> Monitor output, tune prompt, improve. Automation bukan set-and-forget.</li><li><strong>Cost monitoring:</strong> AI calls bisa mahal. Track dan budget. Set hard limits.</li><li><strong>Shadow mode:</strong> Jalankan automation tanpa action, bandingkan dengan manual, baru aktifkan.</li><li><strong>Documentation:</strong> Setiap workflow harus memiliki: diagram, runbook, owner, dan known issues.</li></ul>
+
+ </div>
+ </div>
+ </div>
+
+ <footer class="footer">
+ <div class="container">
+ <div class="footer-social">
+ <a href="https://github.com/Mftrferdinand" target="_blank" class="github" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.5.5.09.66-.22.66-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02.8-.22 1.65-.33 2.5-.33.85 0 1.7.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.16.58.67.48A10.01 10.01 0 0022 12c0-5.52-4.48-10-10-10z"/></svg></a>
+ <a href="https://twitter.com" target="_blank" class="twitter" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+ <a href="https://instagram.com" target="_blank" class="instagram" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+ <a href="https://t.me/v1aesbot" target="_blank" class="telegram" aria-label="Telegram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.94 4.5l-3.2 15.07c-.24 1.06-.87 1.32-1.76.82l-4.87-3.59-2.35 2.26c-.26.26-.48.48-.98.48l.35-4.96 9.03-8.16c.39-.35-.09-.55-.61-.2L6.7 13.12l-4.8-1.5c-1.04-.32-1.06-1.04.22-1.54l18.77-7.24c.87-.32 1.63.2 1.35 1.66z"/></svg></a>
+ </div>
+ <p>HermesGuide &mdash; AI Insight &mdash; v6.0</p>
+ </div>
+ </footer>
+ <script src="../../assets/js/main.js"></script>
+</body>
+</html>

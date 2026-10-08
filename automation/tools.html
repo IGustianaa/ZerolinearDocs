@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+ <title>Tools & Platform &mdash; HermesGuide</title>
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="../../assets/css/style.css?v=hermes-guide-v3">
+</head>
+<body>
+ <div class="bg-canvas"></div>
+ <div class="bg-grid"></div>
+ <div class="particles"></div>
+ <nav class="nav">
+ <div class="nav-left">
+ <a href="../index.html" class="nav-brand">
+ <div class="nav-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg></div>
+ <span class="nav-logo-text">Mftrferdinand<span>Docs</span></span>
+ </a>
+ <div class="nav-links"><a href="../index.html" class="nav-link"><span class="lang-id-inline">Beranda</span><span class="lang-en-inline">Home</span></a><a href="../agents/index.html" class="nav-link"><span class="lang-id-inline">AI Agents</span><span class="lang-en-inline">AI Agents</span></a><a href="../llm/index.html" class="nav-link"><span class="lang-id-inline">LLM</span><span class="lang-en-inline">LLM</span></a><a href="../prompt/index.html" class="nav-link"><span class="lang-id-inline">Prompt</span><span class="lang-en-inline">Prompt</span></a><a href="../automation/index.html" class="nav-link active"><span class="lang-id-inline">Automation</span><span class="lang-en-inline">Automation</span></a><a href="../api/index.html" class="nav-link"><span class="lang-id-inline">API Providers</span><span class="lang-en-inline">API Providers</span></a><a href="../coding/index.html" class="nav-link"><span class="lang-id-inline">Coding</span><span class="lang-en-inline">Coding</span></a><a href="../hermes/index.html" class="nav-link"><span class="lang-id-inline">Hermes</span><span class="lang-en-inline">Hermes</span></a></div>
+ </div>
+ <div class="nav-right">
+ <button id="translate-btn" class="nav-translate" aria-label="Translate">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+ <span class="lang-label">EN</span>
+ </button>
+ <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+ </div>
+ </nav>
+ <div class="page-title-bar">
+ <h2><span class="lang-id-inline">Tools & Platform</span><span class="lang-en-inline">Tools & Platforms</span></h2>
+ <div class="breadcrumb"><a href="../index.html"><span class="lang-id-inline">Beranda</span><span class="lang-en-inline">Home</span></a> / <a href="index.html"><span class="lang-id-inline">Tools & Platform</span><span class="lang-en-inline">Tools & Platforms</span></a> / Tools & Platform</div>
+ </div>
+ 
+ <div class="content-wrap">
+ <div class="container container-narrow">
+ <div class="page-header">
+ <h1><span class="lang-id-inline">Tools & Platform</span><span class="lang-en-inline">Tools & Platforms</span></h1>
+ <div class="breadcrumb"><a href="../index.html"><span class="lang-id-inline">Beranda</span><span class="lang-en-inline">Home</span></a> / <a href="index.html"><span class="lang-id-inline">Tools & Platform</span><span class="lang-en-inline">Tools & Platforms</span></a> / Tools & Platform</div>
+ </div>
+ <div class="prose">
+ 
+<h2>Platform Automation</h2>
+
+<h3>n8n</h3>
+
+<div class="code-block"><pre><code>n8n adalah platform workflow automation open-source yang self-hostable. Dibangun dengan Node.js, n8n menawarkan visual editor yang intuitif dengan kemampuan code customization untuk skenario kompleks.</code></pre><button class="copy-btn">Copy</button></div>
+
+<p><strong>Fitur Utama:</strong></p>
+<ul><li><strong>Visual workflow editor:</strong> Drag-and-drop nodes, real-time execution preview</li><li><strong>400+ integrations native:</strong> API connectors untuk Slack, Google, Airtable, Notion, dan lainnya</li><li><strong>AI/LangChain nodes:</strong> Native integration untuk LLM calls, vector stores, agents, dan chains. Mendukung OpenAI, Anthropic, dan model lokal via Ollama</li><li><strong>Self-hosted atau cloud:</strong> Full control dengan self-host, atau managed cloud untuk convenience</li><li><strong>Code nodes:</strong> JavaScript/Python untuk custom logic yang tidak cover oleh node standard</li><li><strong>Webhook triggers:</strong> HTTP endpoints sebagai trigger, cocok untuk event-driven workflows</li><li><strong>Credential management:</strong> Encrypted storage untuk API keys dan secrets</li><li><strong>Execution history:</strong> Full log setiap run dengan input/output, dapat replay dan debug</li></ul>
+
+<p><strong>Skenario ideal:</strong> Tim teknis yang ingin kontrol penuh, integrasi AI dalam workflow visual, dan self-hosting untuk data privacy. Pricing: community edition gratis, enterprise untuk SSO dan RBAC.</p>
+
+<div class="code-block"><pre><code>// Contoh n8n workflow node untuk AI classification
+{
+ &quot;nodes&quot;: [
+ {
+ &quot;type&quot;: &quot;n8n-nodes-base.webhook&quot;,
+ &quot;parameters&quot;: {
+ &quot;path&quot;: &quot;classify-ticket&quot;,
+ &quot;httpMethod&quot;: &quot;POST&quot;
+ }
+ },
+ {
+ &quot;type&quot;: &quot;@n8n/n8n-nodes-langchain.chainLlm&quot;,
+ &quot;parameters&quot;: {
+ &quot;prompt&quot;: &quot;Klasifikasi tiket: {{$json.body.content}}&quot;,
+ &quot;model&quot;: &quot;openAI&quot;,
+ &quot;options&quot;: { &quot;temperature&quot;: 0 }
+ }
+ },
+ {
+ &quot;type&quot;: &quot;n8n-nodes-base.httpRequest&quot;,
+ &quot;parameters&quot;: {
+ &quot;method&quot;: &quot;POST&quot;,
+ &quot;url&quot;: &quot;https://api.freshdesk.com/api/tickets&quot;,
+ &quot;body&quot;: { &quot;category&quot;: &quot;{{$json.text}}&quot; }
+ }
+ }
+ ]
+}</code></pre><button class="copy-btn"></button></div>
+
+<h3>Zapier</h3>
+
+<p>Zapier adalah platform SaaS automation paling populer dengan 7000+ integrasi. Target market: non-developer, quick wins, dan integration antar SaaS tools.</p>
+
+<p><strong>Kelebihan:</strong> Setup tercepat (5 menit dari zero ke running), ecosystem terluas, UI paling user-friendly. <strong>Kekurangan:</strong> Pricing berbasis task count (mahal di scale), limited custom logic, tidak ada self-host, AI features terbatas dibanding n8n.</p>
+
+<p><strong>Cocok untuk:</strong> Non-technical users, prototype cepat, integrasi SaaS yang straightforward. Tidak cocok untuk: high-volume processing, complex branching logic, atau kebutuhan self-host.</p>
+
+<h3>Make (Integromat)</h3>
+
+<p>Make adalah visual automation platform yang lebih powerful dari Zapier dalam hal logic complexity. Pricing mid-range, UI visual yang sangat detailed.</p>
+
+<p><strong>Kelebihan:</strong> Visual logic builder yang fleksibel (routing, filtering, iteration), pricing lebih kompetitif dari Zapier untuk volume tinggi, error handling yang lebih sophisticated. <strong>Kekurangan:</strong> Learning curve lebih tinggi dari Zapier, AI features masih terbatas.</p>
+
+<p><strong>Cocok untuk:</strong> Mid-complexity workflows yang membutuhkan branching logic, teams dengan budget menengah. Tidak cocok untuk: kebutuhan self-host atau full code control.</p>
+
+<h3>cron</h3>
+
+<p>cron adalah scheduler built-in pada sistem Unix/Linux. Bukan automation platform, melainkan tool scheduling yang menjadi fondasi banyak automation system. Hermes Agent menggunakan cron untuk scheduled tasks.</p>
+
+<p><strong>Kelebihan:</strong> Universal (tersedia di setiap Linux/Termux), zero cost, reliable, minimal overhead. <strong>Kekurangan:</strong> Hanya scheduling, bukan workflow engine. Tidak ada state management, retry, atau monitoring built-in.</p>
+
+<div class="code-block"><pre><code># Hermes cron examples
+# Every day at 9 AM: daily summary
+0 9 * * * /path/to/hermes run-task daily-summary
+
+# Every 5 minutes: health check 
+*/5 * * * * /path/to/hermes run-task health-check
+
+# Every Monday 8 AM: weekly report
+0 8 * * 1 /path/to/hermes run-task weekly-report</code></pre><button class="copy-btn"></button></div>
+
+<p><strong>Cocok untuk:</strong> Scheduled scripts, Hermes Agent tasks, simple recurring jobs. Tidak cocok untuk: complex workflows, event-driven triggers, atau stateful processing.</p>
+
+<h3>Hermes Agent</h3>
+
+<p>Hermes Agent oleh Nous Research adalah AI agent framework dengan fokus pada profil terpisah, plugin system, dan cron integration. Cocok untuk automation yang berjalan terus-menerus dengan kemampuan AI native.</p>
+
+<p><strong>Fitur automation:</strong></p>
+<ul><li><strong>Cron scheduling:</strong> Schedule tasks dengan cron syntax</li><li><strong>Skills system:</strong> Reusable prompt+tool bundles untuk tugas berulang</li><li><strong>Plugin architecture:</strong> Extend capability dengan custom plugins</li><li><strong>Profile separation:</strong> Isolasi antar use case (work, personal, experiment)</li><li><strong>Tool calling:</strong> Native ability untuk memanggil API, execute code, browse web</li><li><strong>Memory system:</strong> Persistent context antar runs untuk workflow multi-step</li></ul>
+
+<div class="code-block"><pre><code># Hermes cron + skill example
+cron:
+ - schedule: &quot;0 9 * * *&quot;
+ task: &quot;skill:content-pipeline&quot;
+ profile: &quot;content&quot;
+ - schedule: &quot;*/30 * * * *&quot;
+ task: &quot;skill:monitor-alerts&quot;
+ profile: &quot;ops&quot;</code></pre><button class="copy-btn"></button></div>
+
+<p><strong>Cocok untuk:</strong> AI-native automation, continuous monitoring, personal productivity automation. Tidak cocok untuk: visual workflow design (code/config based) atau non-AI integrations murni.</p>
+
+<h3>LangChain / LangGraph</h3>
+
+<p>LangChain adalah framework Python/JavaScript untuk membangun aplikasi LLM. LangGraph adalah extension untuk stateful, multi-actor applications dengan graph-based workflow.</p>
+
+<p><strong>Kelebihan:</strong> Full code control, ekosistem integrasi terluas untuk AI (vector stores, document loaders, tools), LangGraph untuk complex agent workflows dengan state. <strong>Kekurangan:</strong> Code-first (tidak ada visual editor), learning curve tinggi, overhead untuk workflow sederhana.</p>
+
+<p><strong>Cocok untuk:</strong> Custom AI agent, complex reasoning pipelines, RAG systems. Tidak cocok untuk: non-developer atau simple trigger-action workflows.</p>
+
+<h3>ComfyUI</h3>
+
+<p>ComfyUI adalah platform visual untuk image/video generation AI. Node-based interface untuk merancang pipeline generatif: text-to-image, image-to-image, upscaling, dan composition.</p>
+
+<p><strong>Kelebihan:</strong> Visual pipeline untuk generative AI, ekosistem model terluas (Stable Diffusion, Flux, SDXL), self-hostable, custom nodes untuk kontrol penuh. <strong>Kekurangan:</strong> Khusus generative media (bukan general automation), GPU intensive, kompleks untuk non-technical.</p>
+
+<p><strong>Cocok untuk:</strong> Content creation pipeline (image, video), batch image processing, creative automation. Tidak cocok untuk: text/data automation atau non-generative tasks.</p>
+
+<h3>Apache Airflow</h3>
+
+<p>Airflow adalah platform orchestration untuk data pipeline. Code-first (Python), scheduling powerful, dan ekosystem matang untuk data engineering.</p>
+
+<p><strong>Kelebihan:</strong> Industry standard untuk data pipeline, DAG-based workflow dengan rich UI, scalable ke ribuan tasks, extensive operator library. <strong>Kekurangan:</strong> Overkill untuk workflow sederhana, setup kompleks, tidak AI-native (butuh custom operators untuk LLM).</p>
+
+<p><strong>Cocok untuk:</strong> Data engineering pipeline, ETL/ELT, batch processing skala besar. Tidak cocok untuk: real-time event-driven atau AI agent workflows.</p>
+
+<h3>Temporal</h3>
+
+<p>Temporal adalah framework untuk durable workflow execution. Code-first, guaranteed execution, dan stateful by design.</p>
+
+<p><strong>Kelebihan:</strong> Workflow yang guaranteed complete (survive crashes), stateful long-running workflows, retry dan timeout built-in, support multiple languages (Go, Java, Python, TypeScript). <strong>Kekurangan:</strong> Learning curve tinggi, infrastruktur kompleks (butuh server cluster), overhead untuk workflow sederhana.</p>
+
+<div class="code-block"><pre><code># Temporal workflow example
+@workflow.defn
+class ContentPipeline:
+ @workflow.run
+ async def run(self, topic: str) -&gt; str:
+ research = await workflow.execute_activity(
+ research_topic, topic,
+ start_to_close_timeout=timedelta(minutes=5)
+ )
+ 
+ # Human-in-the-loop: wait for approval
+ approved = await workflow.execute_activity(
+ wait_for_approval, research,
+ start_to_close_timeout=timedelta(hours=24)
+ )
+ 
+ if not approved:
+ return &quot;rejected&quot;
+ 
+ article = await workflow.execute_activity(
+ write_article, research,
+ start_to_close_timeout=timedelta(minutes=10)
+ )
+ 
+ await workflow.execute_activity(
+ publish_article, article
+ )
+ return &quot;published&quot;</code></pre><button class="copy-btn"></button></div>
+
+<p><strong>Cocok untuk:</strong> Mission-critical workflows, long-running processes, systems yang butuh guaranteed execution. Tidak cocok untuk: prototyping atau workflow sederhana.</p>
+
+<h2>Comparison Table</h2>
+
+<table><tr><th>Platform</th><th>Hosting</th><th>Coding</th><th>AI Native</th><th>Visual</th><th>Scale</th><th>Cost</th></tr><tr><td>n8n</td><td>Self/SaaS</td><td>Low</td><td>Ya</td><td>Ya</td><td>Mid</td><td>Low</td></tr><tr><td>Zapier</td><td>SaaS</td><td>No</td><td>Partial</td><td>Ya</td><td>Low-Mid</td><td>Mid-High</td></tr><tr><td>Make</td><td>SaaS</td><td>Low</td><td>Partial</td><td>Ya</td><td>Mid</td><td>Mid</td></tr><tr><td>cron</td><td>Self</td><td>Shell</td><td>No</td><td>No</td><td>Any</td><td>Free</td></tr><tr><td>Hermes</td><td>Self</td><td>Config</td><td>Ya</td><td>No</td><td>Mid</td><td>Free</td></tr><tr><td>LangChain</td><td>Self</td><td>Yes</td><td>Ya</td><td>No</td><td>Any</td><td>Free</td></tr><tr><td>ComfyUI</td><td>Self</td><td>Low</td><td>Ya (GenAI)</td><td>Ya</td><td>Low</td><td>Free</td></tr><tr><td>Airflow</td><td>Self</td><td>Yes (Py)</td><td>No</td><td>Partial</td><td>High</td><td>Low</td></tr><tr><td>Temporal</td><td>Self</td><td>Yes</td><td>No</td><td>No</td><td>High</td><td>Low</td></tr></table>
+
+<h2>Kapan Menggunakan Apa</h2>
+
+<h3>Non-technical user, quick integration</h3>
+<p><strong>Pilih:</strong> Zapier atau Make. Setup dalam menit, tidak perlu coding, 7000+ integrasi. Mulai dengan free tier, upgrade saat volume tumbuh.</p>
+
+<h3>AI-native workflow dengan self-host</h3>
+<p><strong>Pilih:</strong> n8n. Visual editor + AI nodes, self-hostable, credential management. Ideal untuk tim yang ingin kontrol penuh dengan kemudahan visual.</p>
+
+<h3>AI agent dengan scheduling</h3>
+<p><strong>Pilih:</strong> Hermes Agent. Cron + skills + plugin system. Cocok untuk automation yang berjalan 24/7 dengan AI reasoning.</p>
+
+<h3>Custom AI pipeline dengan code control</h3>
+<p><strong>Pilih:</strong> LangChain/LangGraph. Full kontrol, ekosistem AI terluas, code-first. Butuh developer, tapi fleksibilitas maksimal.</p>
+
+<h3>Data engineering skala besar</h3>
+<p><strong>Pilih:</strong> Apache Airflow. Industry standard, DAG scheduling, scalable. Tapi tidak AI-native, butuh custom operator untuk LLM.</p>
+
+<h3>Mission-critical, guaranteed execution</h3>
+<p><strong>Pilih:</strong> Temporal. Workflow yang survive crash, stateful, retry built-in. Investasi infrastruktur tinggi tapi reliability maksimal.</p>
+
+<h3>Generative media pipeline</h3>
+<p><strong>Pilih:</strong> ComfyUI. Visual node editor untuk Stable Diffusion dan model generatif. Khusus image/video, bukan general automation.</p>
+
+<h3>Simple scheduled scripts</h3>
+<p><strong>Pilih:</strong> cron + Hermes Agent. Zero cost, universal, reliable untuk tugas sederhana yang berjalan pada interval tetap.</p>
+
+ </div>
+ </div>
+ </div>
+
+ <footer class="footer">
+ <div class="container">
+ <div class="footer-social">
+ <a href="https://github.com/Mftrferdinand" target="_blank" class="github" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.5.5.09.66-.22.66-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02.8-.22 1.65-.33 2.5-.33.85 0 1.7.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.16.58.67.48A10.01 10.01 0 0022 12c0-5.52-4.48-10-10-10z"/></svg></a>
+ <a href="https://twitter.com" target="_blank" class="twitter" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+ <a href="https://instagram.com" target="_blank" class="instagram" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+ <a href="https://t.me/v1aesbot" target="_blank" class="telegram" aria-label="Telegram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.94 4.5l-3.2 15.07c-.24 1.06-.87 1.32-1.76.82l-4.87-3.59-2.35 2.26c-.26.26-.48.48-.98.48l.35-4.96 9.03-8.16c.39-.35-.09-.55-.61-.2L6.7 13.12l-4.8-1.5c-1.04-.32-1.06-1.04.22-1.54l18.77-7.24c.87-.32 1.63.2 1.35 1.66z"/></svg></a>
+ </div>
+ <p>HermesGuide &mdash; AI Insight &mdash; v6.0</p>
+ </div>
+ </footer>
+ <script src="../../assets/js/main.js"></script>
+</body>
+</html>

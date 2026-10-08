@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+ <title>Tech Stack AI &mdash; HermesGuide</title>
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="../../assets/css/style.css?v=hermes-guide-v3">
+</head>
+<body>
+ <nav class="nav">
+ <div class="nav-left">
+ <a href="../index.html" class="nav-brand">
+ <div class="nav-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg></div>
+ <span class="nav-logo-text">Mftrferdinand<span>Docs</span></span>
+ </a>
+ </div>
+ <div class="nav-center"><a href="../index.html" class="nav-link"><span class="lang-id-inline">Beranda</span><span class="lang-en-inline">Home</span></a><a href="../konsep/index.html" class="nav-link"><span class="lang-id-inline">Konsep</span><span class="lang-en-inline">Concept</span></a><a href="../pilar/index.html" class="nav-link"><span class="lang-id-inline">Pilar</span><span class="lang-en-inline">Pillars</span></a><a href="../praktik/index.html" class="nav-link"><span class="lang-id-inline">Praktik</span><span class="lang-en-inline">Practice</span></a><a href="../tutorial/index.html" class="nav-link"><span class="lang-id-inline">Tutorial</span><span class="lang-en-inline">Tutorial</span></a><a href="../backend/index.html" class="nav-link"><span class="lang-id-inline">Backend</span><span class="lang-en-inline">Backend</span></a><a href="../agents/index.html" class="nav-link"><span class="lang-id-inline">AI Agents</span><span class="lang-en-inline">AI Agents</span></a><a href="../llm/index.html" class="nav-link"><span class="lang-id-inline">LLM</span><span class="lang-en-inline">LLM</span></a><a href="../prompt/index.html" class="nav-link"><span class="lang-id-inline">Prompt</span><span class="lang-en-inline">Prompt</span></a><a href="../automation/index.html" class="nav-link"><span class="lang-id-inline">Automation</span><span class="lang-en-inline">Automation</span></a><a href="../api/index.html" class="nav-link"><span class="lang-id-inline">API</span><span class="lang-en-inline">API</span></a><a href="../coding/index.html" class="nav-link active"><span class="lang-id-inline">Coding</span><span class="lang-en-inline">Coding</span></a><a href="../hermes/index.html" class="nav-link"><span class="lang-id-inline">Hermes</span><span class="lang-en-inline">Hermes</span></a><a href="../lampiran/index.html" class="nav-link"><span class="lang-id-inline">Lampiran</span><span class="lang-en-inline">Appendix</span></a></div>
+ <div class="nav-right">
+ <div class="nav-search" aria-label="Search">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span class="lang-id-inline">Cari</span><span class="lang-en-inline">Search</span>
+ <kbd>Ctrl K</kbd>
+ </div>
+ <button id="translate-btn" class="nav-toggle-btn" aria-label="Translate">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="lang-label" style="font-size:.7rem;font-weight:700;margin-left:.15rem;">EN</span>
+ </button>
+ <button id="theme-btn" class="nav-toggle-btn" aria-label="Theme">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+ </button>
+ <button class="nav-menu-btn" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+ </div>
+ </nav>
+ <div class="mega-menu">
+ <button class="mega-menu-close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+ <div class="mega-menu-grid"><div class="mega-menu-section"><h4>Dasar</h4><a href="../index.html">Beranda<span class="desc">Hero & overview</span></a><a href="../konsep/index.html">Konsep<span class="desc">Dasar-dasar AI & AI Agent</span></a><a href="../pilar/index.html">Pilar<span class="desc">5 pilar inti agent</span></a><a href="../praktik/index.html">Praktik<span class="desc">Studi kasus & implementasi</span></a></div><div class="mega-menu-section"><h4>Panduan</h4><a href="../tutorial/index.html">Tutorial<span class="desc">Panduan step-by-step</span></a><a href="../backend/index.html">Backend<span class="desc">Arsitektur server & integrasi</span></a><a href="../hermes/index.html">Hermes<span class="desc">Setup, config, Termux, Windows</span></a><a href="../lampiran/index.html">Lampiran<span class="desc">FAQ, changelog, resource</span></a></div><div class="mega-menu-section"><h4>AI & LLM</h4><a href="../agents/index.html">AI Agents<span class="desc">Penjelasan mendalam agent</span></a><a href="../llm/index.html">LLM<span class="desc">Dasar Large Language Model</span></a><a href="../prompt/index.html">Prompt<span class="desc">Teknik & strategi prompting</span></a><a href="../automation/index.html">Automation<span class="desc">Otomatisasi workflow</span></a></div><div class="mega-menu-section"><h4>Developer</h4><a href="../api/index.html">API<span class="desc">Dokumentasi referensi API</span></a><a href="../coding/index.html">Coding<span class="desc">Contoh & snippet implementasi</span></a></div></div>
+ </div>
+ <div class="search-overlay">
+ <div class="search-box">
+ <input type="text" placeholder="Cari dokumentasi..." />
+ <div class="search-results"></div>
+ </div>
+ </div>
+ <div class="page-title-bar"><h2><span class="lang-id-inline">Tech Stack AI</span><span class="lang-en-inline">AI Tech Stack</span></h2><div class="breadcrumb"><a href="../index.html"><span class="lang-id-inline">Beranda</span><span class="lang-en-inline">Home</span></a> / <a href="index.html"><span class="lang-id-inline">Tech Stack AI</span><span class="lang-en-inline">AI Tech Stack</span></a> / Tech Stack AI</div></div>
+ 
+ <div class="content-wrap"><div class="container container-narrow">
+ <div class="page-header"><h1><span class="lang-id-inline">Tech Stack AI</span><span class="lang-en-inline">AI Tech Stack</span></h1><div class="breadcrumb"><a href="../index.html"><span class="lang-id-inline">Beranda</span><span class="lang-en-inline">Home</span></a> / <a href="index.html"><span class="lang-id-inline">Tech Stack AI</span><span class="lang-en-inline">AI Tech Stack</span></a> / Tech Stack AI</div></div>
+ <div class="prose">
+<h2>Overview Tech Stack</h2>
+
+<p>Membangun aplikasi AI memerlukan stack teknologi yang tepat di setiap lapisan. Pilihan stack mempengaruhi kecepatan development, performa, scalability, dan maintainability. Berikut panduan mendalam untuk setiap lapisan.</p>
+
+<h2>Frontend</h2>
+
+<h3>React / Next.js</h3>
+
+<p>React adalah library UI paling populer. Next.js menambahkan SSR, routing, dan optimisasi. Pilihan default untuk aplikasi web modern.</p>
+
+<div class="code-block"><pre><code>// Next.js dengan AI streaming
+&#x27;use client&#x27;;
+import { useState } from &#x27;react&#x27;;
+
+export default function ChatPage() {
+ const [messages, setMessages] = useState([]);
+ const [input, setInput] = useState(&#x27;&#x27;);
+
+ async function send() {
+ const res = await fetch(&#x27;/api/chat&#x27;, {
+ method: &#x27;POST&#x27;,
+ body: JSON.stringify({ message: input }),
+ });
+ const data = await res.json();
+ setMessages([...messages, { user: input, ai: data.reply }]);
+ setInput(&#x27;&#x27;);
+ }
+
+ return (
+ &lt;div&gt;
+ {messages.map((m, i) =&gt; (
+ &lt;div key={i}&gt;
+ &lt;p&gt;User: {m.user}&lt;/p&gt;
+ &lt;p&gt;AI: {m.ai}&lt;/p&gt;
+ &lt;/div&gt;
+ ))}
+ &lt;input value={input} onChange={e =&gt; setInput(e.target.value)} /&gt;
+ &lt;button onClick={send}&gt;Send&lt;/button&gt;
+ &lt;/div&gt;
+ );
+}</code></pre><button class="copy-btn"></button></div>
+
+<p><strong>Kapan pakai:</strong> Aplikasi web kompleks, butuh SEO (Next.js), ekosistem matang, tim familiar React.</p>
+
+<h3>Vue / Nuxt</h3>
+
+<p>Vue menawarkan developer experience yang lebih halus dengan reactivity system yang intuitif. Nuxt adalah framework full-stack seperti Next.js.</p>
+
+<div class="code-block"><pre><code>&lt;template&gt;
+ &lt;div&gt;
+ &lt;div v-for=&quot;msg in messages&quot; :key=&quot;msg.id&quot;&gt;
+ &lt;p&gt;{{ msg.role }}: {{ msg.content }}&lt;/p&gt;
+ &lt;/div&gt;
+ &lt;input v-model=&quot;input&quot; @keyup.enter=&quot;send&quot; /&gt;
+ &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script setup&gt;
+import { ref } from &#x27;vue&#x27;;
+const messages = ref([]);
+const input = ref(&#x27;&#x27;);
+async function send() {
+ const res = await fetch(&#x27;/api/chat&#x27;, {
+ method: &#x27;POST&#x27;, body: JSON.stringify({ message: input.value })
+ });
+ const data = await res.json();
+ messages.value.push({ role: &#x27;user&#x27;, content: input.value });
+ messages.value.push({ role: &#x27;ai&#x27;, content: data.reply });
+ input.value = &#x27;&#x27;;
+}
+&lt;/script&gt;</code></pre><button class="copy-btn"></button></div>
+
+<p><strong>Kapan pakai:</strong> Prefer sintaks yang clean, tim kecil, butuh reactivity yang simpel.</p>
+
+<h3>Svelte / SvelteKit</h3>
+
+<p>Svelte adalah compiler, bukan runtime. Bundle size kecil, performance tinggi. SvelteKit adalah framework full-stack.</p>
+
+<div class="code-block"><pre><code>&lt;script&gt;
+ let messages = [];
+ let input = &#x27;&#x27;;
+ async function send() {
+ const res = await fetch(&#x27;/api/chat&#x27;, {
+ method: &#x27;POST&#x27;, body: JSON.stringify({ message: input })
+ });
+ const data = await res.json();
+ messages = [...messages, { role: &#x27;user&#x27;, content: input }, { role: &#x27;ai&#x27;, content: data.reply }];
+ input = &#x27;&#x27;;
+ }
+&lt;/script&gt;
+
+{#each messages as msg}
+ &lt;p&gt;{msg.role}: {msg.content}&lt;/p&gt;
+{/each}
+&lt;input bind:value={input} on:keydown={(e) =&gt; e.key === &#x27;Enter&#x27; &amp;&amp; send()} /&gt;</code></pre><button class="copy-btn"></button></div>
+
+<p><strong>Kapan pakai:</strong> Performance critical, bundle size kecil, prefer simplicity.</p>
+
+<h3>Astro</h3>
+
+<p>Astro fokus pada content-driven site dengan partial hydration. Cocok untuk blog, dokumentasi, landing page.</p>
+
+<p><strong>Kapan pakai:</strong> Content site, blog, dokumentasi. Tidak untuk aplikasi interaktif kompleks.</p>
+
+<h3>Tailwind CSS</h3>
+
+<p>Utility-first CSS framework. Bukan framework UI tetapi memungkinkan styling cepat tanpa context switching.</p>
+
+<div class="code-block"><pre><code>// Tailwind dengan React
+&lt;button className=&quot;bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded-lg transition-colors&quot;&gt;
+ Send
+&lt;/button&gt;</code></pre><button class="copy-btn"></button></div>
+
+<p><strong>Kapan pakai:</strong> Semua project. Tailwind cocok dengan AI coding karena utility class adalah pattern yang konsisten dan mudah dipelajari model.</p>
+
+<h2>Backend</h2>
+
+<h3>Python (FastAPI)</h3>
+
+<p>Python adalah bahasa paling populer untuk AI karena ekosistem library (LangChain, transformers, openai). FastAPI menawarkan performance tinggi dengan type hints.</p>
+
+<div class="code-block"><pre><code>from fastapi import FastAPI
+from pydantic import BaseModel
+from openai import OpenAI
+
+app = FastAPI()
+client = OpenAI(api_key=&quot;...&quot;, base_url=&quot;http://localhost:20128/v1&quot;)
+
+class ChatRequest(BaseModel):
+ message: str
+ model: str = &quot;bai/minimax-m3&quot;
+
+@app.post(&quot;/api/chat&quot;)
+async def chat(req: ChatRequest):
+ response = client.chat.completions.create(
+ model=req.model,
+ messages=[{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: req.message}],
+ )
+ return {&quot;reply&quot;: response.choices[0].message.content}
+
+@app.get(&quot;/health&quot;)
+async def health():
+ return {&quot;status&quot;: &quot;ok&quot;}</code></pre><button class="copy-btn"></button></div>
+
+<p><strong>Kapan pakai:</strong> AI-heavy backend, butuh Python library (NumPy, Pandas, scikit-learn), tim Python.</p>
+
+<h3>Node.js (Express / Fastify)</h3>
+
+<p>Node.js cocok untuk aplikasi real-time (WebSocket, streaming) dan full-stack JavaScript.</p>
+
+<div class="code-block"><pre><code>import Fastify from &#x27;fastify&#x27;;
+import OpenAI from &#x27;openai&#x27;;
+
+const fastify = Fastify({ logger: true });
+const client = new OpenAI({ apiKey: &#x27;...&#x27;, baseURL: &#x27;http://localhost:20128/v1&#x27; });
+
+fastify.post(&#x27;/api/chat&#x27;, async (request, reply) =&gt; {
+ const { message, model = &#x27;bai/minimax-m3&#x27; } = request.body;
+ const response = await client.chat.completions.create({
+ model,
+ messages: [{ role: &#x27;user&#x27;, content: message }],
+ stream: true,
+ });
+ 
+ reply.raw.setHeader(&#x27;Content-Type&#x27;, &#x27;text/event-stream&#x27;);
+ for await (const chunk of response) {
+ const text = chunk.choices[0]?.delta?.content || &#x27;&#x27;;
+ reply.raw.write(`data: ${JSON.stringify({ text })}
+
+`);
+ }
+ reply.raw.end();
+});
+
+await fastify.listen({ port: 3000 });</code></pre><button class="copy-btn"></button></div>
+
+<p><strong>Kapan pakai:</strong> Real-time app, streaming response, full-stack JS, tim JavaScript.</p>
+
+<h3>Go</h3>
+
+<p>Go unggul untuk microservice dengan throughput tinggi dan concurrency native.</p>
+
+<div class="code-block"><pre><code>package main
+
+import (
+ &quot;encoding/json&quot;
+ &quot;net/http&quot;
+ &quot;bytes&quot;
+ &quot;io&quot;
+)
+
+func chatHandler(w http.ResponseWriter, r *http.Request) {
+ var req struct {
+ Message string `json:&quot;message&quot;`
+ }
+ json.NewDecoder(r.Body).Decode(&amp;req)
+ 
+ body, _ := json.Marshal(map[string]interface{}{
+ &quot;model&quot;: &quot;bai/minimax-m3&quot;,
+ &quot;messages&quot;: []map[string]string{
+ {&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: req.Message},
+ },
+ })
+ 
+ resp, _ := http.Post(
+ &quot;http://localhost:20128/v1/chat/completions&quot;,
+ &quot;application/json&quot;,
+ bytes.NewBuffer(body),
+ )
+ defer resp.Body.Close()
+ 
+ w.Header().Set(&quot;Content-Type&quot;, &quot;application/json&quot;)
+ io.Copy(w, resp.Body)
+}
+
+func main() {
+ http.HandleFunc(&quot;/api/chat&quot;, chatHandler)
+ http.ListenAndServe(&quot;:8080&quot;, nil)
+}</code></pre><button class="copy-btn"></button></div>
+
+<p><strong>Kapan pakai:</strong> High-throughput microservice, CLI tool, infrastruktur.</p>
+
+<h3>Rust</h3>
+
+<p>Rust untuk performance critical dan system programming. Axum adalah web framework populer.</p>
+
+<p><strong>Kapan pakai:</strong> Performance critical, system tool, WebAssembly. Learning curve tinggi.</p>
+
+<h2>Database</h2>
+
+<h3>PostgreSQL</h3>
+
+<p>Database relasional pilihan untuk produksi. Mendukung pgvector untuk vector search (RAG).</p>
+
+<div class="code-block"><pre><code>-- Enable pgvector
+CREATE EXTENSION vector;
+
+-- Table untuk document embeddings
+CREATE TABLE documents (
+ id SERIAL PRIMARY KEY,
+ content TEXT,
+ embedding VECTOR(1536),
+ metadata JSONB
+);
+
+-- Index untuk vector search
+CREATE INDEX ON documents USING ivfflat (embedding vector_cosine_ops);
+
+-- Vector search (RAG)
+SELECT content, metadata
+FROM documents
+ORDER BY embedding &lt;=&gt; &#x27;[0.1, 0.2, ...]&#x27;::vector
+LIMIT 5;</code></pre><button class="copy-btn"></button></div>
+
+<p><strong>Kapan pakai:</strong> Data terstruktur, RAG dengan pgvector, transactional app.</p>
+
+<h3>Redis</h3>
+
+<p>In-memory store untuk caching, rate limiting, dan session management.</p>
+
+<div class="code-block"><pre><code>import redis
+r = redis.Redis(host=&#x27;localhost&#x27;, port=6379, db=0)
+
+# Cache LLM response
+def get_cached_response(query):
+ cached = r.get(f&quot;llm:{hash(query)}&quot;)
+ if cached:
+ return cached.decode()
+ 
+ response = call_llm(query)
+ r.setex(f&quot;llm:{hash(query)}&quot;, 3600, response) # TTL 1 jam
+ return response
+
+# Rate limiting
+def check_rate_limit(user_id):
+ key = f&quot;rate:{user_id}&quot;
+ count = r.incr(key)
+ if count == 1:
+ r.expire(key, 60) # Window 1 menit
+ return count &lt;= 60 # 60 request/menit</code></pre><button class="copy-btn"></button></div>
+
+<p><strong>Kapan pakai:</strong> Caching, rate limiting, session, queue, pub/sub.</p>
+
+<h3>Vector Database</h3>
+
+<p>Untuk RAG dan semantic search. Pilihan: Pinecone (managed), Weaviate (self-host), Qdrant (Rust-based, cepat).</p>
+
+<div class="code-block"><pre><code># Qdrant untuk RAG
+from qdrant_client import QdrantClient
+from openai import OpenAI
+
+qdrant = QdrantClient(host=&quot;localhost&quot;, port=6333)
+client = OpenAI(api_key=&quot;...&quot;)
+
+# Store document
+def store_document(text, metadata):
+ embedding = client.embeddings.create(
+ model=&quot;text-embedding-3-small&quot;,
+ input=text,
+ ).data[0].embedding
+ 
+ qdrant.upsert(
+ collection_name=&quot;docs&quot;,
+ points=[{
+ &quot;id&quot;: hash(text),
+ &quot;vector&quot;: embedding,
+ &quot;payload&quot;: {&quot;text&quot;: text, **metadata}
+ }]
+ )
+
+# Search
+def search_documents(query, limit=5):
+ embedding = client.embeddings.create(
+ model=&quot;text-embedding-3-small&quot;,
+ input=query,
+ ).data[0].embedding
+ 
+ results = qdrant.search(
+ collection_name=&quot;docs&quot;,
+ query_vector=embedding,
+ limit=limit,
+ )
+ return [r.payload for r in results]</code></pre><button class="copy-btn"></button></div>
+
+<p><strong>Kapan pakai:</strong> RAG, semantic search, recommendation system.</p>
+
+<h2>AI Layer</h2>
+
+<h3>LangChain / LangGraph</h3>
+
+<p>Framework untuk membangun LLM application dengan chain, agent, dan memory.</p>
+
+<div class="code-block"><pre><code>from langchain_openai import ChatOpenAI
+from langchain_core.prompts import ChatPromptTemplate
+from langchain_core.output_parsers import StrOutputParser
+
+llm = ChatOpenAI(
+ model=&quot;bai/minimax-m3&quot;,
+ base_url=&quot;http://localhost:20128/v1&quot;,
+ api_key=&quot;...&quot;,
+)
+
+prompt = ChatPromptTemplate.from_messages([
+ (&quot;system&quot;, &quot;Anda asisten coding yang expert.&quot;),
+ (&quot;user&quot;, &quot;{input}&quot;),
+])
+
+chain = prompt | llm | StrOutputParser()
+result = chain.invoke({&quot;input&quot;: &quot;Jelaskan async/await di Python&quot;})</code></pre><button class="copy-btn"></button></div>
+
+<h3>9Router (Self-hosted Gateway)</h3>
+
+<p>Gateway yang menyatukan multiple LLM provider dengan combo, fallback, dan token saver.</p>
+
+<h3>vLLM (Inference Server)</h3>
+
+<p>High-throughput inference untuk model open-weight. Mendukung PagedAttention.</p>
+
+<div class="code-block"><pre><code># Serve Llama 3.1 70B dengan vLLM
+python -m vllm.entrypoints.openai.api_server --model meta-llama/Llama-3.1-70B-Instruct --port 8000 --tensor-parallel-size 2
+
+# Sekarang tersedia di http://localhost:8000/v1/chat/completions</code></pre><button class="copy-btn"></button></div>
+
+<h3>LiteLLM</h3>
+
+<p>Proxy yang menyatukan 100+ LLM provider ke dalam satu API OpenAI-compatible.</p>
+
+<div class="code-block"><pre><code>import litellm
+
+# Panggil model dari provider berbeda dengan API yang sama
+response = litellm.completion(
+ model=&quot;anthropic/claude-3.5-sonnet&quot;,
+ messages=[{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;Hello&quot;}],
+)</code></pre><button class="copy-btn"></button></div>
+
+<h2>DevOps</h2>
+
+<h3>Docker</h3>
+
+<p>Containerization untuk deployment yang konsisten.</p>
+
+<div class="code-block"><pre><code># Dockerfile untuk AI app
+FROM python:3.12-slim
+WORKDIR /app
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+COPY . .
+EXPOSE 8000
+CMD [&quot;uvicorn&quot;, &quot;main:app&quot;, &quot;--host&quot;, &quot;0.0.0.0&quot;, &quot;--port&quot;, &quot;8000&quot;]</code></pre><button class="copy-btn"></button></div>
+
+<h3>CI/CD</h3>
+
+<p>GitHub Actions untuk automated testing dan deployment.</p>
+
+<div class="code-block"><pre><code># .github/workflows/ci.yml
+name: CI
+on: [push, pull_request]
+jobs:
+ test:
+ runs-on: ubuntu-latest
+ steps:
+ - uses: actions/checkout@v4
+ - uses: actions/setup-python@v5
+ with: { python-version: &#x27;3.12&#x27; }
+ - run: pip install -r requirements.txt
+ - run: pytest --cov=src --cov-report=xml
+ - run: ruff check src/
+ - run: mypy src/</code></pre><button class="copy-btn"></button></div>
+
+<h2>Tabel Ringkasan Stack</h2>
+
+<table><tr><th>Lapisan</th><th>Pilihan Default</th><th>Alternatif</th><th>Kapan Alternatif</th></tr><tr><td>Frontend</td><td>React/Next.js + Tailwind</td><td>Vue, Svelte</td><td>Prefer simplicity, performance critical</td></tr><tr><td>Backend</td><td>Python/FastAPI</td><td>Node.js, Go</td><td>Real-time (Node), high-throughput (Go)</td></tr><tr><td>Database</td><td>PostgreSQL + Redis</td><td>MongoDB, DynamoDB</td><td>Document data, serverless</td></tr><tr><td>Vector DB</td><td>Qdrant (self-host)</td><td>Pinecone, Weaviate</td><td>Managed service, enterprise</td></tr><tr><td>AI Layer</td><td>LangChain + 9Router</td><td>LiteLLM, raw SDK</td><td>Simple proxy, lightweight</td></tr><tr><td>Inference</td><td>vLLM</td><td>Ollama, llama.cpp</td><td>Dev/testing, CPU-only</td></tr><tr><td>DevOps</td><td>Docker + GitHub Actions</td><td>GitLab CI, Jenkins</td><td>GitLab ecosystem, on-premise</td></tr></table>
+</div></div></div>
+ <div class="feedback-widget">
+ <p>Apakah halaman ini membantu?</p>
+ <div class="feedback-btns">
+ <button class="feedback-btn yes">Ya, membantu</button>
+ <button class="feedback-btn no">Tidak</button>
+ </div>
+ </div>
+ <footer class="footer">
+ <div class="container">
+ <div class="footer-links"><a href="index.html">Beranda</a><a href="konsep/index.html">Konsep</a><a href="pilar/index.html">Pilar</a><a href="praktik/index.html">Praktik</a><a href="tutorial/index.html">Tutorial</a><a href="backend/index.html">Backend</a><a href="agents/index.html">AI Agents</a><a href="llm/index.html">LLM</a></div>
+ <div class="footer-social">
+ <a href="https://github.com/Mftrferdinand" target="_blank" class="github" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.5.5.09.66-.22.66-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02.8-.22 1.65-.33 2.5-.33.85 0 1.7.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.16.58.67.48A10.01 10.01 0 0022 12c0-5.52-4.48-10-10-10z"/></svg></a>
+ <a href="https://twitter.com" target="_blank" class="twitter" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+ <a href="https://instagram.com" target="_blank" class="instagram" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+ <a href="https://t.me/v1aesbot" target="_blank" class="telegram" aria-label="Telegram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.94 4.5l-3.2 15.07c-.24 1.06-.87 1.32-1.76.82l-4.87-3.59-2.35 2.26c-.26.26-.48.48-.98.48l.35-4.96 9.03-8.16c.39-.35-.09-.55-.61-.2L6.7 13.12l-4.8-1.5c-1.04-.32-1.06-1.04.22-1.54l18.77-7.24c.87-.32 1.63.2 1.35 1.66z"/></svg></a>
+ </div>
+ <p>HermesGuide &mdash; Panduan Hermes Agent</p>
+ </div>
+ </footer>
+ <script src="../../assets/js/main.js"></script>
+</body>
+</html>

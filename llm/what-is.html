@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+ <title>Apa itu LLM &mdash; HermesGuide</title>
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="../../assets/css/style.css?v=hermes-guide-v3">
+</head>
+<body>
+ <nav class="nav">
+ <div class="nav-left">
+ <a href="../index.html" class="nav-brand">
+ <div class="nav-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg></div>
+ <span class="nav-logo-text">Mftrferdinand<span>Docs</span></span>
+ </a>
+ </div>
+ <div class="nav-center"><a href="../index.html" class="nav-link"><span class="lang-id-inline">Beranda</span><span class="lang-en-inline">Home</span></a><a href="../konsep/index.html" class="nav-link"><span class="lang-id-inline">Konsep</span><span class="lang-en-inline">Concept</span></a><a href="../pilar/index.html" class="nav-link"><span class="lang-id-inline">Pilar</span><span class="lang-en-inline">Pillars</span></a><a href="../praktik/index.html" class="nav-link"><span class="lang-id-inline">Praktik</span><span class="lang-en-inline">Practice</span></a><a href="../tutorial/index.html" class="nav-link"><span class="lang-id-inline">Tutorial</span><span class="lang-en-inline">Tutorial</span></a><a href="../backend/index.html" class="nav-link"><span class="lang-id-inline">Backend</span><span class="lang-en-inline">Backend</span></a><a href="../agents/index.html" class="nav-link"><span class="lang-id-inline">AI Agents</span><span class="lang-en-inline">AI Agents</span></a><a href="../llm/index.html" class="nav-link active"><span class="lang-id-inline">LLM</span><span class="lang-en-inline">LLM</span></a><a href="../prompt/index.html" class="nav-link"><span class="lang-id-inline">Prompt</span><span class="lang-en-inline">Prompt</span></a><a href="../automation/index.html" class="nav-link"><span class="lang-id-inline">Automation</span><span class="lang-en-inline">Automation</span></a><a href="../api/index.html" class="nav-link"><span class="lang-id-inline">API</span><span class="lang-en-inline">API</span></a><a href="../coding/index.html" class="nav-link"><span class="lang-id-inline">Coding</span><span class="lang-en-inline">Coding</span></a><a href="../hermes/index.html" class="nav-link"><span class="lang-id-inline">Hermes</span><span class="lang-en-inline">Hermes</span></a><a href="../lampiran/index.html" class="nav-link"><span class="lang-id-inline">Lampiran</span><span class="lang-en-inline">Appendix</span></a></div>
+ <div class="nav-right">
+ <div class="nav-search" aria-label="Search">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span class="lang-id-inline">Cari</span><span class="lang-en-inline">Search</span>
+ <kbd>Ctrl K</kbd>
+ </div>
+ <button id="translate-btn" class="nav-toggle-btn" aria-label="Translate">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="lang-label" style="font-size:.7rem;font-weight:700;margin-left:.15rem;">EN</span>
+ </button>
+ <button id="theme-btn" class="nav-toggle-btn" aria-label="Theme">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+ </button>
+ <button class="nav-menu-btn" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+ </div>
+ </nav>
+ <div class="mega-menu">
+ <button class="mega-menu-close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+ <div class="mega-menu-grid"><div class="mega-menu-section"><h4>Dasar</h4><a href="../index.html">Beranda<span class="desc">Hero & overview</span></a><a href="../konsep/index.html">Konsep<span class="desc">Dasar-dasar AI & AI Agent</span></a><a href="../pilar/index.html">Pilar<span class="desc">5 pilar inti agent</span></a><a href="../praktik/index.html">Praktik<span class="desc">Studi kasus & implementasi</span></a></div><div class="mega-menu-section"><h4>Panduan</h4><a href="../tutorial/index.html">Tutorial<span class="desc">Panduan step-by-step</span></a><a href="../backend/index.html">Backend<span class="desc">Arsitektur server & integrasi</span></a><a href="../hermes/index.html">Hermes<span class="desc">Setup, config, Termux, Windows</span></a><a href="../lampiran/index.html">Lampiran<span class="desc">FAQ, changelog, resource</span></a></div><div class="mega-menu-section"><h4>AI & LLM</h4><a href="../agents/index.html">AI Agents<span class="desc">Penjelasan mendalam agent</span></a><a href="../llm/index.html">LLM<span class="desc">Dasar Large Language Model</span></a><a href="../prompt/index.html">Prompt<span class="desc">Teknik & strategi prompting</span></a><a href="../automation/index.html">Automation<span class="desc">Otomatisasi workflow</span></a></div><div class="mega-menu-section"><h4>Developer</h4><a href="../api/index.html">API<span class="desc">Dokumentasi referensi API</span></a><a href="../coding/index.html">Coding<span class="desc">Contoh & snippet implementasi</span></a></div></div>
+ </div>
+ <div class="search-overlay">
+ <div class="search-box">
+ <input type="text" placeholder="Cari dokumentasi..." />
+ <div class="search-results"></div>
+ </div>
+ </div>
+ <div class="page-title-bar"><h2><span class="lang-id-inline">Apa itu LLM</span><span class="lang-en-inline">What is LLM</span></h2><div class="breadcrumb"><a href="../index.html"><span class="lang-id-inline">Beranda</span><span class="lang-en-inline">Home</span></a> / <a href="index.html"><span class="lang-id-inline">Apa itu LLM</span><span class="lang-en-inline">What is LLM</span></a> / Apa itu LLM</div></div>
+ 
+ <div class="content-wrap"><div class="container container-narrow">
+ <div class="page-header"><h1><span class="lang-id-inline">Apa itu LLM</span><span class="lang-en-inline">What is LLM</span></h1><div class="breadcrumb"><a href="../index.html"><span class="lang-id-inline">Beranda</span><span class="lang-en-inline">Home</span></a> / <a href="index.html"><span class="lang-id-inline">Apa itu LLM</span><span class="lang-en-inline">What is LLM</span></a> / Apa itu LLM</div></div>
+ <div class="prose">
+<h2>Definisi</h2>
+
+<p>Large Language Model (LLM) adalah model neural network yang dilatih pada volume teks berskala sangat besar (triliunan token) untuk memahami dan menghasilkan bahasa manusia. Inti dari LLM adalah kemampuan <strong>next-token prediction</strong>: diberikan urutan token, model memprediksi token berikutnya dengan probabilitas tertinggi. Ketika kemampuan ini di-scale ke miliaran parameter, muncul perilaku yang menyerupai pemahaman bahasa, reasoning, dan pengetahuan dunia.</p>
+
+<p>LLM bukan database. Model tidak &quot;menyimpan&quot; informasi secara eksplisit; pengetahuan terenkripsi dalam bobot parameter sebagai pola statistik. Ini menjelaskan mengapa LLM dapat &quot;tahu&quot; fakta tetapi juga dapat hallucinate — pola yang dipelajari tidak selalu akurat.</p>
+
+<h2>Arsitektur Transformer</h2>
+
+<p>LLM modern dibangun di atas arsitektur <strong>Transformer</strong>, diperkenalkan oleh Vaswani et al. dalam paper &quot;Attention Is All You Need&quot; (2017). Transformer menggantikan arsitektur sekuensial (RNN/LSTM) dengan paralelisasi penuh, memungkinkan training pada skala masif.</p>
+
+<h3>Komponen Utama Transformer</h3>
+
+<p><strong>Self-Attention Mechanism</strong> — Jantung dari transformer. Untuk setiap token dalam input, attention mechanism menghitung &quot;relevansi&quot; token tersebut terhadap semua token lain. Hasilnya: setiap token direpresentasikan sebagai kombinasi tertimbang dari semua token dalam konteks. Ini memungkinkan model menangkap hubungan jarak jauh (kata di awal kalimat mempengaruhi interpretasi kata di akhir kalimat).</p>
+
+<p>Formula attention: <code>Attention(Q, K, V) = softmax(Q <em> K^T / sqrt(d_k)) </em> V</code></p>
+
+<p>Di mana Q (Query), K (Key), V (Value) adalah matriks yang diturunkan dari input. Token &quot;bertanya&quot; (Query) ke semua token lain (Key), dan jawabannya adalah kombinasi nilai (Value) dari token yang relevan.</p>
+
+<p><strong>Multi-Head Attention</strong> — Alih-alih satu attention, transformer menggunakan multiple &quot;heads&quot; yang berjalan paralel. Setiap head belajar pola yang berbeda: satu mungkin fokus pada sintaks, yang lain pada semantik, yang lain lagi pada coreference. Output dari semua heads digabungkan dan diproyeksikan kembali.</p>
+
+<p><strong>Positional Encoding</strong> — Transformer memproses semua token secara paralel, tidak ada urutan inherent. Positional encoding menambahkan informasi posisi ke setiap token. Metode modern (RoPE - Rotary Position Embedding) memungkinkan generalisasi ke context length yang lebih panjang dari yang dilihat saat training.</p>
+
+<p><strong>Feed-Forward Network (FFN)</strong> — Setelah attention, setiap token melewati FFN dua lapis dengan aktivasi non-linear (biasanya GELU atau SwiGLU). FFN menyimpan sebagian besar &quot;pengetahuan&quot; model — di sinilah fakta dan asosiasi disimpan.</p>
+
+<p><strong>Layer Normalization dan Residual Connections</strong> — Menstabilkan training pada kedalaman puluhan hingga ratusan lapis. Residual connection (skip connection) memungkinkan gradien mengalir langsung, mencegah vanishing gradient.</p>
+
+<h3>Decoder-Only Architecture</h3>
+
+<p>Mayoritas LLM modern (GPT, Claude, Llama) menggunakan decoder-only architecture. Token input diproses secara autoregressive: model memprediksi token ke-n hanya dari token 1 hingga n-1 (causal masking). Ini sederhana, scalable, dan terbukti efektif untuk generation tasks.</p>
+
+<h2>Pipeline Training</h2>
+
+<p>LLM modern dilatih melalui pipeline multi-tahap, masing-masing menyempurnakan kemampuan dan perilaku model.</p>
+
+<h3>1. Pre-training</h3>
+
+<p>Model dilatih pada korpus teks berskala besar (1-15 triliun token) dari web, buku, kode, dan paper. Objective: next-token prediction. Model belajar grammar, fakta dunia, reasoning patterns, dan kode. Pre-training menggunakan ribuan GPU selama berbulan-bulan, biaya $10-100+ juta untuk model frontier.</p>
+
+<p>Output: <strong>base model</strong> — powerful tetapi tidak aligned. Base model akan &quot;menyelesaikan&quot; teks, bukan mengikuti instruksi. Berikan &quot;What is 2+2?&quot; dan model mungkin melanjutkan dengan &quot;What is 3+3?&quot; alih-alih menjawab.</p>
+
+<h3>2. Instruction Tuning (Supervised Fine-Tuning)</h3>
+
+<div class="code-block"><pre><code>Base model di-fine-tune pada pasangan instruksi-respons berkualitas tinggi (10K-1M contoh). Model belajar mengikuti format instruksi: diberi pertanyaan, berikan jawaban. Transformasi dari &amp;quot;text completion&amp;quot; ke &amp;quot;instruction following&amp;quot;.
+Annotator manusia membandingkan dua atau lebih respons dari model, menunjukkan mana yang lebih baik. Model reward dilatih untuk memprediksi preferensi manusia. Model utama kemudian dioptimasi menggunakan RL (biasanya PPO) untuk memaksimalkan reward. Hasil: respons lebih helpful, harmless, dan honest (HHH).</code></pre><button class="copy-btn">Copy</button></div>
+
+<h3>4. DPO (Direct Preference Optimization)</h3>
+
+<p>Alternatif RLHF yang lebih sederhana: langsung mengoptimasi model dari preference data tanpa melatih reward model terpisah. Lebih stabil, lebih cepat, dan menghindari kompleksitas RL. Banyak model modern (Llama 3, Mistral) menggunakan DPO atau variantnya.</p>
+
+<h2>Tokenization</h2>
+
+<p>Teks tidak diproses sebagai karakter atau kata, melainkan sebagai <strong>token</strong>. Tokenizer memetakan teks ke sequence of integers. Token dapat berupa kata, sub-kata, atau karakter, tergantung algoritma.</p>
+
+<p>Contoh tokenization (BPE - Byte Pair Encoding):</p>
+<div class="code-block"><pre><code>&quot;Hello world&quot; -&gt; [15496, 995] # 2 tokens
+&quot;Machine learning&quot; -&gt; [14881, 7563] # 2 tokens
+&quot;Tidak bisa&quot; -&gt; [29871, 9163, 1149] # 3 tokens (non-English lebih banyak)
+&quot;Artificial Intelligence&quot; -&gt; [5456, 11822] # 2 tokens
+&quot;AI&quot; -&gt; [9556] # 1 token</code></pre><button class="copy-btn"></button></div>
+
+<p>Token menentukan biaya API (dibayar per 1M token), kecepatan inference (lebih banyak token = lebih lambat), dan batas context window. Bahasa non-Inggris umumnya menggunakan lebih banyak token per kata karena tokenizer dioptimalkan untuk English.</p>
+
+<h2>Embedding</h2>
+
+<p>Embedding adalah representasi vektor numerik dari token atau teks. Setiap token dipetakan ke vektor berdimensi tinggi (768-12288 dimensi tergantung model). Token dengan makna serupa memiliki vektor yang berdekatan dalam ruang embedding.</p>
+
+<p>Embedding memungkinkan: semantic search (mencari dokumen berdasarkan makna, bukan keyword), clustering (mengelompokkan teks serupa), dan RAG (Retrieval-Augmented Generation — mencari konteks relevan dari knowledge base untuk diberikan ke LLM).</p>
+
+<h2>Parameter Scale</h2>
+
+<table><tr><th>Skala</th><th>Parameter</th><th>Context Window</th><th>Use Case</th><th>Contoh Model</th></tr><tr><td>Tiny</td><td>0.5-3B</td><td>4K-32K</td><td>Edge device, task spesifik</td><td>Phi-3 Mini, Llama 3.2 1B</td></tr><tr><td>Small</td><td>3-8B</td><td>8K-128K</td><td>API murah, real-time</td><td>Llama 3.1 8B, Gemma 2 9B</td></tr><tr><td>Medium</td><td>8-35B</td><td>32K-128K</td><td>General purpose, balanced</td><td>Mistral Large, Command R+</td></tr><tr><td>Large</td><td>35-100B</td><td>128K-200K</td><td>Complex reasoning, coding</td><td>Llama 3.1 70B, Claude Sonnet</td></tr><tr><td>Frontier</td><td>100B-1T+</td><td>128K-2M</td><td>State-of-the-art, research</td><td>GPT-4o, Claude Opus, Gemini Ultra</td></tr></table>
+
+<h3>Hukum Scaling</h3>
+
+<p>Performa LLM meningkat secara <strong>logaritmik</strong> dengan penambahan parameter, data, dan compute. Untuk mendapat peningkatan linier dalam kualitas, dibutuhkan peningkatan eksponensial dalam resource. Implikasi: doubling model size tidak doubling kualitas. Trade-off antara cost dan quality harus dianalisis per use case.</p>
+
+<h3>Cara Memilih Skala</h3>
+
+<ul><li><strong>Real-time chatbot</strong> — Small (3-8B) untuk latency rendah dan cost minim</li><li><strong>Coding assistant</strong> — Large (70B+) untuk reasoning kompleks</li><li><strong>Document analysis</strong> — Medium-Large dengan context window besar</li><li><strong>Edge/mobile</strong> — Tiny (1-3B) yang dapat berjalan lokal</li><li><strong>Research/frontier</strong> — Frontier models untuk kualitas terbaik</li></ul>
+
+<p>Pemahaman tentang arsitektur, training, dan scaling ini adalah fondasi untuk keputusan tentang vendor, model, dan strategi deployment yang akan dibahas di halaman berikutnya.</p>
+</div></div></div>
+ <div class="feedback-widget">
+ <p>Apakah halaman ini membantu?</p>
+ <div class="feedback-btns">
+ <button class="feedback-btn yes">Ya, membantu</button>
+ <button class="feedback-btn no">Tidak</button>
+ </div>
+ </div>
+ <footer class="footer">
+ <div class="container">
+ <div class="footer-links"><a href="index.html">Beranda</a><a href="konsep/index.html">Konsep</a><a href="pilar/index.html">Pilar</a><a href="praktik/index.html">Praktik</a><a href="tutorial/index.html">Tutorial</a><a href="backend/index.html">Backend</a><a href="agents/index.html">AI Agents</a><a href="llm/index.html">LLM</a></div>
+ <div class="footer-social">
+ <a href="https://github.com/Mftrferdinand" target="_blank" class="github" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.5.5.09.66-.22.66-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02.8-.22 1.65-.33 2.5-.33.85 0 1.7.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.16.58.67.48A10.01 10.01 0 0022 12c0-5.52-4.48-10-10-10z"/></svg></a>
+ <a href="https://twitter.com" target="_blank" class="twitter" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+ <a href="https://instagram.com" target="_blank" class="instagram" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+ <a href="https://t.me/v1aesbot" target="_blank" class="telegram" aria-label="Telegram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.94 4.5l-3.2 15.07c-.24 1.06-.87 1.32-1.76.82l-4.87-3.59-2.35 2.26c-.26.26-.48.48-.98.48l.35-4.96 9.03-8.16c.39-.35-.09-.55-.61-.2L6.7 13.12l-4.8-1.5c-1.04-.32-1.06-1.04.22-1.54l18.77-7.24c.87-.32 1.63.2 1.35 1.66z"/></svg></a>
+ </div>
+ <p>HermesGuide &mdash; Panduan Hermes Agent</p>
+ </div>
+ </footer>
+ <script src="../../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+ <title>Tools & IDE &mdash; HermesGuide</title>
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="../../assets/css/style.css?v=hermes-guide-v3">
+</head>
+<body>
+ <nav class="nav">
+ <div class="nav-left">
+ <a href="../index.html" class="nav-brand">
+ <div class="nav-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg></div>
+ <span class="nav-logo-text">Mftrferdinand<span>Docs</span></span>
+ </a>
+ </div>
+ <div class="nav-center"><a href="../index.html" class="nav-link"><span class="lang-id-inline">Beranda</span><span class="lang-en-inline">Home</span></a><a href="../konsep/index.html" class="nav-link"><span class="lang-id-inline">Konsep</span><span class="lang-en-inline">Concept</span></a><a href="../pilar/index.html" class="nav-link"><span class="lang-id-inline">Pilar</span><span class="lang-en-inline">Pillars</span></a><a href="../praktik/index.html" class="nav-link"><span class="lang-id-inline">Praktik</span><span class="lang-en-inline">Practice</span></a><a href="../tutorial/index.html" class="nav-link"><span class="lang-id-inline">Tutorial</span><span class="lang-en-inline">Tutorial</span></a><a href="../backend/index.html" class="nav-link"><span class="lang-id-inline">Backend</span><span class="lang-en-inline">Backend</span></a><a href="../agents/index.html" class="nav-link"><span class="lang-id-inline">AI Agents</span><span class="lang-en-inline">AI Agents</span></a><a href="../llm/index.html" class="nav-link"><span class="lang-id-inline">LLM</span><span class="lang-en-inline">LLM</span></a><a href="../prompt/index.html" class="nav-link"><span class="lang-id-inline">Prompt</span><span class="lang-en-inline">Prompt</span></a><a href="../automation/index.html" class="nav-link"><span class="lang-id-inline">Automation</span><span class="lang-en-inline">Automation</span></a><a href="../api/index.html" class="nav-link"><span class="lang-id-inline">API</span><span class="lang-en-inline">API</span></a><a href="../coding/index.html" class="nav-link active"><span class="lang-id-inline">Coding</span><span class="lang-en-inline">Coding</span></a><a href="../hermes/index.html" class="nav-link"><span class="lang-id-inline">Hermes</span><span class="lang-en-inline">Hermes</span></a><a href="../lampiran/index.html" class="nav-link"><span class="lang-id-inline">Lampiran</span><span class="lang-en-inline">Appendix</span></a></div>
+ <div class="nav-right">
+ <div class="nav-search" aria-label="Search">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span class="lang-id-inline">Cari</span><span class="lang-en-inline">Search</span>
+ <kbd>Ctrl K</kbd>
+ </div>
+ <button id="translate-btn" class="nav-toggle-btn" aria-label="Translate">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="lang-label" style="font-size:.7rem;font-weight:700;margin-left:.15rem;">EN</span>
+ </button>
+ <button id="theme-btn" class="nav-toggle-btn" aria-label="Theme">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+ </button>
+ <button class="nav-menu-btn" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+ </div>
+ </nav>
+ <div class="mega-menu">
+ <button class="mega-menu-close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+ <div class="mega-menu-grid"><div class="mega-menu-section"><h4>Dasar</h4><a href="../index.html">Beranda<span class="desc">Hero & overview</span></a><a href="../konsep/index.html">Konsep<span class="desc">Dasar-dasar AI & AI Agent</span></a><a href="../pilar/index.html">Pilar<span class="desc">5 pilar inti agent</span></a><a href="../praktik/index.html">Praktik<span class="desc">Studi kasus & implementasi</span></a></div><div class="mega-menu-section"><h4>Panduan</h4><a href="../tutorial/index.html">Tutorial<span class="desc">Panduan step-by-step</span></a><a href="../backend/index.html">Backend<span class="desc">Arsitektur server & integrasi</span></a><a href="../hermes/index.html">Hermes<span class="desc">Setup, config, Termux, Windows</span></a><a href="../lampiran/index.html">Lampiran<span class="desc">FAQ, changelog, resource</span></a></div><div class="mega-menu-section"><h4>AI & LLM</h4><a href="../agents/index.html">AI Agents<span class="desc">Penjelasan mendalam agent</span></a><a href="../llm/index.html">LLM<span class="desc">Dasar Large Language Model</span></a><a href="../prompt/index.html">Prompt<span class="desc">Teknik & strategi prompting</span></a><a href="../automation/index.html">Automation<span class="desc">Otomatisasi workflow</span></a></div><div class="mega-menu-section"><h4>Developer</h4><a href="../api/index.html">API<span class="desc">Dokumentasi referensi API</span></a><a href="../coding/index.html">Coding<span class="desc">Contoh & snippet implementasi</span></a></div></div>
+ </div>
+ <div class="search-overlay">
+ <div class="search-box">
+ <input type="text" placeholder="Cari dokumentasi..." />
+ <div class="search-results"></div>
+ </div>
+ </div>
+ <div class="page-title-bar"><h2><span class="lang-id-inline">Tools & IDE</span><span class="lang-en-inline">Tools & IDE</span></h2><div class="breadcrumb"><a href="../index.html"><span class="lang-id-inline">Beranda</span><span class="lang-en-inline">Home</span></a> / <a href="index.html"><span class="lang-id-inline">Tools & IDE</span><span class="lang-en-inline">Tools & IDE</span></a> / Tools & IDE</div></div>
+ 
+ <div class="content-wrap"><div class="container container-narrow">
+ <div class="page-header"><h1><span class="lang-id-inline">Tools & IDE</span><span class="lang-en-inline">Tools & IDE</span></h1><div class="breadcrumb"><a href="../index.html"><span class="lang-id-inline">Beranda</span><span class="lang-en-inline">Home</span></a> / <a href="index.html"><span class="lang-id-inline">Tools & IDE</span><span class="lang-en-inline">Tools & IDE</span></a> / Tools & IDE</div></div>
+ <div class="prose">
+<h2>Lanskap AI Coding Tools</h2>
+
+<p>Tool AI coding dibagi menjadi tiga kategori: IDE AI-native, extension/plugin, dan CLI agent. Setiap kategori memiliki trade-off antara integrasi, kontrol, dan otonomi.</p>
+
+<h2>Cursor</h2>
+
+<p>Cursor adalah IDE AI-native berbasis VS Code fork. Dibangun dari awal dengan AI sebagai inti, bukan tambangan belakangan.</p>
+
+<p><strong>Fitur unggulan Cursor:</strong></p>
+
+<ol><li><strong>Codebase context</strong> &mdash; Cursor mengindex seluruh project dan dapat menjawab pertanyaan tentang kode di file mana pun. Tidak terbatas pada file aktif.</li><li><strong>Inline edit (Cmd+K)</strong> &mdash; Pilih blok kode, ketik instruksi natural language, AI mengedit langsung. Diff view menunjukkan perubahan sebelum diapply.</li><li><strong>Composer</strong> &mdash; Multi-file edit simultan. AI dapat mengubah 5+ file sekaligus dengan konsistensi. Ideal untuk refactoring besar.</li><li><strong>Agent mode</strong> &mdash; AI dapat menjalankan command, membaca output, dan iterate. Autonomous problem-solving.</li><li><strong>Model selection</strong> &mdash; Pilih model backend: Claude 3.5 Sonnet (terbaik untuk kode), GPT-4o, atau model lain. Bisa pakai API key sendiri.</li><li><strong>Tab completion</strong> &mdash; Autocomplete yang tidak hanya melengkapi baris, tetapi menebak niat dan melengkapi seluruh blok logika.</li><li><strong>@-mentions</strong> &mdash; Reference file, symbol, atau doc spesifik dalam chat. <code>@utils.py</code>, <code>@schema</code>, <code>@docs</code>.</li></ol>
+
+<p><strong>Setup:</strong></p>
+
+<div class="code-block"><pre><code># Download Cursor
+# macOS: brew install --cask cursor
+# Linux/Windows: Download dari cursor.com
+
+# Buka project
+cursor ./my-project
+
+# Pilih model di Settings &gt; Models
+# Recommended: Claude 3.5 Sonnet untuk coding</code></pre><button class="copy-btn"></button></div>
+
+<h2>GitHub Copilot</h2>
+
+<p>Plugin AI untuk VS Code, JetBrains, dan Neovim. Produk pertama yang mempopulerkan AI coding.</p>
+
+<p><strong>Fitur:</strong></p>
+<ol><li><strong>Inline completion</strong> &mdash; Ghost text suggestion berbasis konteks file aktif dan file terkait</li><li><strong>Copilot Chat</strong> &mdash; Chat panel untuk pertanyaan tentang kode, debugging, penjelasan</li><li><strong>Copilot CLI</strong> &mdash; <code>gh copilot</code> untuk command-line assistance</li><li><strong>Copilot Workspace</strong> &mdash; Planned: autonomous issue resolution</li></ol>
+
+<p><strong>Setup:</strong></p>
+
+<div class="code-block"><pre><code># Install di VS Code
+# 1. Buka Extensions (Ctrl+Shift+X)
+# 2. Search &quot;GitHub Copilot&quot;
+# 3. Install dan sign in dengan GitHub account
+# 4. Subscription: $10/bulan atau free untuk student/OSS
+
+# CLI
+gh extension install github/gh-copilot
+gh copilot suggest &quot;git command to undo last commit&quot;</code></pre><button class="copy-btn"></button></div>
+
+<h2>Windsurf (Codeium)</h2>
+
+<p>IDE AI-native dari Codeium, kompetitor langsung Cursor. Fokus pada &quot;flow state&quot; dengan AI agent yang proaktif.</p>
+
+<p><strong>Fitur:</strong></p>
+<ol><li><strong>Cascade</strong> &mdash; Multi-step AI agent yang dapat menjalankan urutan tindakan: baca kode, tulis kode, jalankan test, perbaiki error</li><li><strong>Superautocomplete</strong> &mdash; Completion yang lebih agresif dari Copilot, menekap hingga 20+ baris</li><li><strong>Codebase indexing</strong> &mdash; Full project context untuk chat dan completion</li><li><strong>Flow mode</strong> &mdash; AI proaktif menyarankan perbaikan dan improvement tanpa diminta</li></ol>
+
+<p><strong>Setup:</strong></p>
+
+<div class="code-block"><pre><code># Download dari codeium.com/windsurf
+# Tersedia untuk macOS, Linux, Windows
+# Free tier tersedia dengan batasan</code></pre><button class="copy-btn"></button></div>
+
+<h2>Claude Code</h2>
+
+<p>CLI agent dari Anthropic yang berjalan di terminal. Agent-based: dapat menjalankan command, edit file, dan iterate hingga task selesai.</p>
+
+<p><strong>Fitur:</strong></p>
+<ol><li><strong>Terminal-native</strong> &mdash; Tidak butuh IDE. Bekerja di terminal mana pun.</li><li><strong>Filesystem access</strong> &mdash; Dapat membaca, menulis, dan mencari file di project</li><li><strong>Shell execution</strong> &mdash; Menjalankan command (npm test, git, build) dan membaca output</li><li><strong>Iterative</strong> &mdash; Jika ada error, AI memperbaiki dan mencoba lagi</li><li><strong>Tool use</strong> &mdash; Dapat memanggil API, query database, dan melakukan network request</li></ol>
+
+<p><strong>CLI example:</strong></p>
+
+<div class="code-block"><pre><code># Install
+npm install -g @anthropic-ai/claude-code
+
+# Run di project directory
+cd my-project
+claude-code
+
+# Interactive mode
+&gt; &quot;Add user authentication with JWT. Create middleware,
+ update routes, and write tests.&quot;
+
+# Claude Code akan:
+# 1. Membaca package.json dan struktur project
+# 2. Install jsonwebtoken dependency
+# 3. Membuat auth middleware
+# 4. Update route files
+# 5. Menulis test files
+# 6. Run npm test
+# 7. Fix errors if any
+# 8. Report completion dengan summary
+
+# One-shot mode
+claude-code --task &quot;Fix the failing test in auth.test.js&quot;</code></pre><button class="copy-btn"></button></div>
+
+<h2>OpenAI Codex</h2>
+
+<p>CLI agent dari OpenAI, konsep serupa dengan Claude Code tetapi menggunakan model OpenAI (GPT-4o, o1, o3-mini).</p>
+
+<p><strong>CLI example:</strong></p>
+
+<div class="code-block"><pre><code># Install
+npm install -g @openai/codex
+
+# Run
+cd my-project
+codex
+
+# Interactive
+&gt; &quot;Refactor the database layer to use connection pooling&quot;
+
+# Codex akan:
+# 1. Analyze current database code
+# 2. Identify connection patterns
+# 3. Implement pooling
+# 4. Update all queries
+# 5. Run tests
+# 6. Create commit
+
+# Dengan model tertentu
+codex --model o3-mini --task &quot;Optimize the React render performance&quot;</code></pre><button class="copy-btn"></button></div>
+
+<h2>Hermes Agent (Coding via Skills)</h2>
+
+<div class="code-block"><pre><code>Hermes Agent adalah framework yang mendukung coding melalui skill system. Skill adalah knowledge base yang dimuat saat dibutuhkan, memberi agen prosedur dan konvensi coding.</code></pre><button class="copy-btn">Copy</button></div>
+
+<p><strong>Fitur coding Hermes:</strong></p>
+
+<ol><li><strong>Coding skill</strong> &mdash; Skill berisi best practice, convention, dan prosedur untuk project spesifik</li><li><strong>Plugin tools</strong> &mdash; Plugin untuk akses filesystem, shell, dan code execution</li><li><strong>Multi-profile</strong> &mdash; Profil terpisah untuk project berbeda dengan skill dan config sendiri</li><li><strong>Cron jobs</strong> &mdash; Scheduled code review atau test runner</li><li><strong>Delegation</strong> &mdash; Spawn subagent untuk task kompleks (mis. satu untuk backend, satu untuk frontend)</li></ol>
+
+<p><strong>Setup coding dengan Hermes:</strong></p>
+
+<div class="code-block"><pre><code># Install Hermes
+npm install -g hermes-agent
+hermes setup
+
+# Untuk skill untuk coding convention
+cat &gt; ~/.hermes/profiles/default/skills/coding-convention.md &lt;&lt; &#x27;EOF&#x27;
+---
+name: Coding Convention
+description: Convention dan best practice untuk project ini
+trigger: ketika user minta coding, refactoring, atau code review
+---
+## Convention
+- Gunakan TypeScript strict mode
+- Naming: camelCase untuk variabel, PascalCase untuk class
+- Error handling: selalu try-catch dengan logger
+- Test coverage minimum 80%
+- Tidak ada `any` type
+EOF
+
+# Hermes akan otomatis load skill ini saat task coding
+hermes chat
+&gt; &quot;Buatkan REST API untuk todo app dengan TypeScript&quot;
+# Hermes load coding skill, generate code sesuai convention</code></pre><button class="copy-btn"></button></div>
+
+<h2>Tabel Perbandingan</h2>
+
+<table><tr><th>Tool</th><th>Tipe</th><th>Context</th><th>Autonomous</th><th>Multi-file</th><th>Local Model</th><th>CLI</th><th>Price</th></tr><tr><td>Cursor</td><td>IDE</td><td>Full codebase</td><td>Partial (agent mode)</td><td>Ya</td><td>Tidak</td><td>Tidak</td><td>$20/bulan</td></tr><tr><td>Copilot</td><td>Plugin</td><td>File aktif + related</td><td>Tidak</td><td>Tidak</td><td>Tidak</td><td>Ya (CLI)</td><td>$10/bulan</td></tr><tr><td>Windsurf</td><td>IDE</td><td>Full codebase</td><td>Ya (Cascade)</td><td>Ya</td><td>Tidak</td><td>Tidak</td><td>$15/bulan</td></tr><tr><td>Claude Code</td><td>CLI</td><td>Filesystem</td><td>Ya</td><td>Ya</td><td>Tidak</td><td>Ya</td><td>$20/bulan</td></tr><tr><td>Codex</td><td>CLI</td><td>Filesystem</td><td>Ya</td><td>Ya</td><td>Tidak</td><td>Ya</td><td>$20/bulan</td></tr><tr><td>Hermes Agent</td><td>Framework</td><td>Configurable</td><td>Ya</td><td>Ya</td><td>Ya</td><td>Ya</td><td>Open source</td></tr><tr><td>Continue</td><td>Plugin</td><td>Configurable</td><td>Tidak</td><td>Partial</td><td>Ya (Ollama)</td><td>Tidak</td><td>Free</td></tr><tr><td>Aider</td><td>CLI</td><td>Git repo</td><td>Partial</td><td>Ya</td><td>Ya</td><td>Ya</td><td>Free</td></tr></table>
+
+<h2>Panduan Setup per Tool</h2>
+
+<h3>Cursor</h3>
+<ol><li>Download dari cursor.com</li><li>Sign in (Google atau email)</li><li>Pilih model: Settings &gt; Models &gt; Claude 3.5 Sonnet</li><li>Buka project: <code>cursor ./project</code></li><li>Mulai dengan Cmd+K untuk inline edit</li></ol>
+
+<h3>Copilot</h3>
+<ol><li>Install extension di VS Code</li><li>Sign in dengan GitHub</li><li>Aktifkan subscription</li><li>Mulai mengetik, ghost text akan muncul</li><li>Tekan Tab untuk accept</li></ol>
+
+<h3>Hermes Agent</h3>
+<ol><li><code>npm install -g hermes-agent &amp;&amp; hermes setup</code></li><li>Edit <code>~/.hermes/config.yaml</code> dengan provider</li><li>Untuk skill untuk convention project</li><li><code>hermes chat</code> untuk mulai coding</li></ol>
+
+<p>Pemilihan tool bergantung pada workflow: untuk GUI preferensi, Cursor atau Windsurf. Untuk terminal, Claude Code atau Codex. Untuk automation dan kontrol penuh, Hermes Agent.</p>
+</div></div></div>
+ <div class="feedback-widget">
+ <p>Apakah halaman ini membantu?</p>
+ <div class="feedback-btns">
+ <button class="feedback-btn yes">Ya, membantu</button>
+ <button class="feedback-btn no">Tidak</button>
+ </div>
+ </div>
+ <footer class="footer">
+ <div class="container">
+ <div class="footer-links"><a href="index.html">Beranda</a><a href="konsep/index.html">Konsep</a><a href="pilar/index.html">Pilar</a><a href="praktik/index.html">Praktik</a><a href="tutorial/index.html">Tutorial</a><a href="backend/index.html">Backend</a><a href="agents/index.html">AI Agents</a><a href="llm/index.html">LLM</a></div>
+ <div class="footer-social">
+ <a href="https://github.com/Mftrferdinand" target="_blank" class="github" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.5.5.09.66-.22.66-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02.8-.22 1.65-.33 2.5-.33.85 0 1.7.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.16.58.67.48A10.01 10.01 0 0022 12c0-5.52-4.48-10-10-10z"/></svg></a>
+ <a href="https://twitter.com" target="_blank" class="twitter" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+ <a href="https://instagram.com" target="_blank" class="instagram" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+ <a href="https://t.me/v1aesbot" target="_blank" class="telegram" aria-label="Telegram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.94 4.5l-3.2 15.07c-.24 1.06-.87 1.32-1.76.82l-4.87-3.59-2.35 2.26c-.26.26-.48.48-.98.48l.35-4.96 9.03-8.16c.39-.35-.09-.55-.61-.2L6.7 13.12l-4.8-1.5c-1.04-.32-1.06-1.04.22-1.54l18.77-7.24c.87-.32 1.63.2 1.35 1.66z"/></svg></a>
+ </div>
+ <p>HermesGuide &mdash; Panduan Hermes Agent</p>
+ </div>
+ </footer>
+ <script src="../../assets/js/main.js"></script>
+</body>
+</html>

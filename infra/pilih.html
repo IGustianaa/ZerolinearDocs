@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+ <title>Pilih Infra &mdash; HermesGuide</title>
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="../../assets/css/style.css?v=hermes-guide-v3">
+</head>
+<body>
+ <nav class="nav">
+ <div class="nav-left">
+ <a href="../index.html" class="nav-brand">
+ <div class="nav-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg></div>
+ <span class="nav-logo-text">Mftrferdinand<span>Docs</span></span>
+ </a>
+ </div>
+ <div class="nav-center"><a href="../index.html" class="nav-link"><span class="lang-id-inline">Beranda</span><span class="lang-en-inline">Home</span></a><a href="../konsep/index.html" class="nav-link"><span class="lang-id-inline">Konsep</span><span class="lang-en-inline">Concept</span></a><a href="../pilar/index.html" class="nav-link"><span class="lang-id-inline">Pilar</span><span class="lang-en-inline">Pillars</span></a><a href="../praktik/index.html" class="nav-link"><span class="lang-id-inline">Praktik</span><span class="lang-en-inline">Practice</span></a><a href="../tutorial/index.html" class="nav-link"><span class="lang-id-inline">Tutorial</span><span class="lang-en-inline">Tutorial</span></a><a href="../backend/index.html" class="nav-link"><span class="lang-id-inline">Backend</span><span class="lang-en-inline">Backend</span></a><a href="../agents/index.html" class="nav-link"><span class="lang-id-inline">AI Agents</span><span class="lang-en-inline">AI Agents</span></a><a href="../llm/index.html" class="nav-link"><span class="lang-id-inline">LLM</span><span class="lang-en-inline">LLM</span></a><a href="../prompt/index.html" class="nav-link"><span class="lang-id-inline">Prompt</span><span class="lang-en-inline">Prompt</span></a><a href="../automation/index.html" class="nav-link"><span class="lang-id-inline">Automation</span><span class="lang-en-inline">Automation</span></a><a href="../api/index.html" class="nav-link"><span class="lang-id-inline">API</span><span class="lang-en-inline">API</span></a><a href="../coding/index.html" class="nav-link"><span class="lang-id-inline">Coding</span><span class="lang-en-inline">Coding</span></a><a href="../hermes/index.html" class="nav-link"><span class="lang-id-inline">Hermes</span><span class="lang-en-inline">Hermes</span></a><a href="../lampiran/index.html" class="nav-link"><span class="lang-id-inline">Lampiran</span><span class="lang-en-inline">Appendix</span></a></div>
+ <div class="nav-right">
+ <div class="nav-search" aria-label="Search">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span class="lang-id-inline">Cari</span><span class="lang-en-inline">Search</span>
+ <kbd>Ctrl K</kbd>
+ </div>
+ <button id="translate-btn" class="nav-toggle-btn" aria-label="Translate">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="lang-label" style="font-size:.7rem;font-weight:700;margin-left:.15rem;">EN</span>
+ </button>
+ <button id="theme-btn" class="nav-toggle-btn" aria-label="Theme">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+ </button>
+ <button class="nav-menu-btn" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+ </div>
+ </nav>
+ <div class="mega-menu">
+ <button class="mega-menu-close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+ <div class="mega-menu-grid"><div class="mega-menu-section"><h4>Dasar</h4><a href="../index.html">Beranda<span class="desc">Hero & overview</span></a><a href="../konsep/index.html">Konsep<span class="desc">Dasar-dasar AI & AI Agent</span></a><a href="../pilar/index.html">Pilar<span class="desc">5 pilar inti agent</span></a><a href="../praktik/index.html">Praktik<span class="desc">Studi kasus & implementasi</span></a></div><div class="mega-menu-section"><h4>Panduan</h4><a href="../tutorial/index.html">Tutorial<span class="desc">Panduan step-by-step</span></a><a href="../backend/index.html">Backend<span class="desc">Arsitektur server & integrasi</span></a><a href="../hermes/index.html">Hermes<span class="desc">Setup, config, Termux, Windows</span></a><a href="../lampiran/index.html">Lampiran<span class="desc">FAQ, changelog, resource</span></a></div><div class="mega-menu-section"><h4>AI & LLM</h4><a href="../agents/index.html">AI Agents<span class="desc">Penjelasan mendalam agent</span></a><a href="../llm/index.html">LLM<span class="desc">Dasar Large Language Model</span></a><a href="../prompt/index.html">Prompt<span class="desc">Teknik & strategi prompting</span></a><a href="../automation/index.html">Automation<span class="desc">Otomatisasi workflow</span></a></div><div class="mega-menu-section"><h4>Developer</h4><a href="../api/index.html">API<span class="desc">Dokumentasi referensi API</span></a><a href="../coding/index.html">Coding<span class="desc">Contoh & snippet implementasi</span></a></div></div>
+ </div>
+ <div class="search-overlay">
+ <div class="search-box">
+ <input type="text" placeholder="Cari dokumentasi..." />
+ <div class="search-results"></div>
+ </div>
+ </div>
+ <div class="page-title-bar"><h2><span class="lang-id-inline">Pilih Infra</span><span class="lang-en-inline">Choose Infrastructure</span></h2><div class="breadcrumb"><a href="../index.html"><span class="lang-id-inline">Beranda</span><span class="lang-en-inline">Home</span></a> / <a href="index.html"><span class="lang-id-inline">Pilih Infra</span><span class="lang-en-inline">Choose Infrastructure</span></a> / Pilih Infra</div></div>
+ 
+ <div class="content-wrap"><div class="container container-narrow">
+ <div class="page-header"><h1>Pilih Infra</h1><div class="breadcrumb"><a href="../index.html"><span class="lang-id-inline">Beranda</span><span class="lang-en-inline">Home</span></a> / <a href="index.html"><span class="lang-id-inline">Pilih Infra</span><span class="lang-en-inline">Choose Infrastructure</span></a> / Pilih Infra</div></div>
+ <div class="prose"><h1>Pilih yang Mana</h1>
+
+<blockquote></blockquote>
+<p>Decision tree untuk milih hosting.</p>
+
+<h2>Quick decision tree</h2>
+
+<p>Mau bayar?</p>
+<div class="code-block"><pre><code>├── Ya (&amp;gt;$10/bulan)
+│ └── DigitalOcean / Linode / Vultr — straightforward VPS</code></pre><button class="copy-btn">Copy</button></div><div class="code-block"><pre><code>│</code></pre><button class="copy-btn">Copy</button></div>
+<div class="code-block"><pre><code>├── Cheap ($3-5/bulan)
+│ ├── Hetzner CX11 (€3.79) — best value, EU region
+│ └── DO $4 droplet — US/SG region</code></pre><button class="copy-btn">Copy</button></div><div class="code-block"><pre><code>│</code></pre><button class="copy-btn">Copy</button></div>
+<div class="code-block"><pre><code>└── Mau gratis
+├── Comfortable risk (account decline / suspend)?
+│ └── Oracle Cloud Always Free (24GB RAM!)</code></pre><button class="copy-btn">Copy</button></div><div class="code-block"><pre><code>│ Sign up tips: card valid, no VPN</code></pre><button class="copy-btn">Copy</button></div>
+<div class="code-block"><pre><code>│</code></pre><button class="copy-btn">Copy</button></div>
+<div class="code-block"><pre><code>├── Mainstream, stabil, 12 bulan first
+│ └── AWS Free Tier (t3.micro, 12 bulan)</code></pre><button class="copy-btn">Copy</button></div><div class="code-block"><pre><code>│ Setelah itu ~$10/bulan</code></pre><button class="copy-btn">Copy</button></div>
+<div class="code-block"><pre><code>│</code></pre><button class="copy-btn">Copy</button></div>
+<div class="code-block"><pre><code>├── Forever free, low traffic OK?
+│ └── Google Cloud e2-micro (US region only)</code></pre><button class="copy-btn">Copy</button></div><div class="code-block"><pre><code>│</code></pre><button class="copy-btn">Copy</button></div>
+<div class="code-block"><pre><code>└── Tidak ingin urus server, push-to-deploy?
+├── Bot continuous → Fly.io (256MB x3, free)
+├── Bot trigger-based → Railway ($5 credit)
+└── Bot small + DB → Koyeb (256MB, free)</code></pre><button class="copy-btn">Copy</button></div><p></p>
+
+<div class="code-block"><pre><code>## Skenario-skenario umum
+
+### &quot;Sistem ingin membuat AI agent personal seperti Aes, ingin jalan 24/7, free&quot;</code></pre><button class="copy-btn"></button></div>
+
+<p><strong>Rekomendasi</strong> : Oracle Cloud Always Free</p>
+<p>Alasan: - 24 GB RAM cukup untuk bot Python + LLM proxy lokal (kalo ingin) - 200 GB disk = banyak ruang untuk memory, history, log - Forever free (kalo bisa lolos approval)</p>
+<p>Backup plan kalo Oracle decline: - AWS Free Tier 12 bulan, habis itu plan migrasi - atau langsung Hetzner CX11 €3.79</p>
+
+<h3>&quot;Sistem ingin bot Telegram simple, tidak butuh banyak resource, gratis&quot;</h3>
+
+<p><strong>Rekomendasi</strong> : Fly.io (atau Koyeb)</p>
+<p>Alasan: - 256 MB RAM cukup untuk bot Python sederhana (tanpa LLM lokal) - Persistent volume 3 GB - Free forever</p>
+<p>Setup: - Pakai Dockerfile + <code>flyctl deploy</code></p>
+
+<h3>&quot;Sistem baru belajar, tidak ingin ribet&quot;</h3>
+
+<p><strong>Rekomendasi</strong> : Railway atau Koyeb</p>
+<p>Alasan: - Push to deploy via GitHub - Dashboard UI bagus - $5 credit Railway cukup untuk hobby</p>
+
+<h3>&quot;Sistem udah memiliki VPS, ingin host agent di sini&quot;</h3>
+
+<p><strong>Rekomendasi</strong> : Jalan langsung di VPS, tidak perlu PaaS.</p>
+<p>Konsiderasi: - Pastikan VPS anda tidak over-utilized - Bot Python idle ~50-100 MB RAM - Disk ~500 MB (code + venv + history seiring waktu)</p>
+
+<h3>&quot;Sistem butuh GPU untuk LLM lokal&quot;</h3>
+
+<p><strong>Rekomendasi</strong> : - Vast.ai (spot GPU $0.20-1/jam, bayar) - RunPod ($0.20-2/jam, bayar) - Bukan free tier — GPU expensive - Atau pakai LLM API (OpenAI, Anthropic, Groq, Together) → bayar per token, biasanya lebih murah dari self-host GPU</p>
+
+<h3>&quot;Sistem butuh static IP / domain custom&quot;</h3>
+
+<p><strong>Rekomendasi</strong> : VPS (Oracle, AWS, Hetzner)</p>
+<p>PaaS biasanya kasih subdomain default. Custom domain support tergantung provider: - Fly.io: support custom domain free - Railway: free SSL untuk custom - Render: free SSL</p>
+
+<h3>&quot;Sistem ingin host multiple agent di 1 server&quot;</h3>
+
+<p><strong>Rekomendasi</strong> : VPS</p>
+<p>PaaS biasanya 1 deploy per project. VPS bisa run banyak service:</p>
+<p>~/agent-personal/</p>
+<p>~/agent-work/</p>
+<p>~/agent-research/</p>
+<p></p>
+<p>3 systemd service, 3 port, 1 nginx reverse proxy. Total RAM ~300 MB.</p>
+
+<h2>Comparison matrix</h2>
+
+<p>Oracle | AWS | GCP | Fly.io | Railway | Koyeb | Hetzner</p>
+
+<p>---|---|---|---|---|---|---|---</p>
+<p>RAM | 24GB | 1GB | 1GB | 256MB x3 | 1GB | 256MB | 4GB</p>
+<p>Disk | 200GB | 30GB | 30GB | 3GB | 1GB | shared | 40GB</p>
+<p>Bandwidth | 10TB | 100GB | 1GB | 160GB | shared | shared | 20TB</p>
+<p>Always free | ✅ | ❌ (12mo) | ✅ (limited) | ✅ | ❌ ($5/ingin) | ✅ | ❌ ($4.30/ingin)</p>
+<p>Region asia | SG, JP | SG, JP | (none free) | SIN | shared | SG | (none)</p>
+<p>Custom domain | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅</p>
+<p>SSH | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ✅</p>
+<p>Approval susah | ⚠️ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ </p>
+
+<h2>Cek list sebelum commit</h2>
+
+<p>Sebelum anda pilih, pastiin:</p>
+
+<ul><li>Region tersedia di Asia/Indonesia (latency)</li></ul>
+
+<ul><li>Credit card anda support (Oracle suka decline virtual card)</li></ul>
+
+<ul><li>Anda memiliki backup plan (kalo provider suspend, gimana?)</li></ul>
+
+<ul><li>Anda plan migrate kalo free tier habis</li></ul>
+
+<ul><li>Anda siap dengan resource limit (tidak over-engineer fitur)</li></ul>
+
+<ul><li>Anda backup data eksternal (data di VPS bisa hilang anytime)</li></ul>
+
+<h2>Pengalaman sistem nyetting Aes</h2>
+
+<p>Sistem deploy Aes di AWS EC2 t3.micro (Free Tier 12 bulan):</p>
+<p><strong>Pros yang sistem mendapat</strong> : - Stabil, approval gampang - 1 GB RAM cukup untuk bot + agentic loop - 30 GB disk cukup (saat ini pake 80%, butuh cleanup) - AWS console + CLI mature</p>
+<p><strong>Issues yang sistem hadapi</strong> : - RAM 1 GB sempit kalo agent multi-step + history numpuk - Disk 30 GB tight; harus rutin cleanup cache (npm, pip, apt) - IP berubah pas restart (kalo bukan Elastic IP — perlu config Elastic IP) - Setelah 12 bulan: ~$10/bulan ongoing</p>
+<p><strong>Plan migrasi</strong> : - Oracle Cloud (kalo bisa lolos approval) - atau Hetzner CX11 (kalo butuh stabil + sedikit upgrade)</p>
+
+<h2>Free tier survival tips</h2>
+
+<ul><li><strong>Backup eksternal</strong> : Selalu backup ke S3/R2/GitHub. Jangan rely on VPS persist.</li></ul>
+
+<ul><li><strong>Monitoring</strong> : Setup health check (UptimeRobot free 50 monitor) — kalo bot down, anda mendapat alert.</li></ul>
+
+<ul><li><strong>Cost alert</strong> : Aktifkan budget alert di provider — kalo accidentally over free tier limit, anda mendapat email.</li></ul>
+
+<ul><li><strong>Snapshot</strong> : Tiap minggu, snapshot disk. Recovery lebih cepat.</li></ul>
+
+<ul><li><strong>Documentation</strong> : Tulis deploy steps di README — biar bisa redeploy cepet kalo provider down.</li></ul>
+
+<ul><li><strong>Multi-region</strong> : Punya backup di region lain (kalo region utama down).</li></ul>
+
+<h2>Final advice</h2>
+
+<p><strong>Kalo anda mulai dari nol</strong> :</p>
+
+<ul><li>Bulan 1-3: AWS Free Tier (mainstream, gampang setup)</li></ul>
+
+<ul><li>Bulan 4: Coba Oracle Cloud (kalo bisa, mendapat upgrade besar)</li></ul>
+
+<ul><li>Bulan 12: Migrate ke Oracle (free forever) atau Hetzner ($4.30)</li></ul>
+
+<p><strong>Kalo anda udah ada VPS</strong> :</p>
+
+<ul><li>Host langsung di sana, tidak perlu pindah</li></ul>
+
+<p><strong>Jangan</strong> : - Bayar mahal di awal (DigitalOcean $20/bulan) kalo belum tahu scale anda - Pakai serverless (Lambda, Workers) untuk continuous bot — tidak cocok - Over-rely on 1 provider (always have backup)</p></div></div></div>
+ <div class="feedback-widget">
+ <p>Apakah halaman ini membantu?</p>
+ <div class="feedback-btns">
+ <button class="feedback-btn yes">Ya, membantu</button>
+ <button class="feedback-btn no">Tidak</button>
+ </div>
+ </div>
+ <footer class="footer">
+ <div class="container">
+ <div class="footer-links"><a href="index.html">Beranda</a><a href="konsep/index.html">Konsep</a><a href="pilar/index.html">Pilar</a><a href="praktik/index.html">Praktik</a><a href="tutorial/index.html">Tutorial</a><a href="backend/index.html">Backend</a><a href="agents/index.html">AI Agents</a><a href="llm/index.html">LLM</a></div>
+ <div class="footer-social">
+ <a href="https://github.com/Mftrferdinand" target="_blank" class="github" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.5.5.09.66-.22.66-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02.8-.22 1.65-.33 2.5-.33.85 0 1.7.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.16.58.67.48A10.01 10.01 0 0022 12c0-5.52-4.48-10-10-10z"/></svg></a>
+ <a href="https://twitter.com" target="_blank" class="twitter" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+ <a href="https://instagram.com" target="_blank" class="instagram" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+ <a href="https://t.me/v1aesbot" target="_blank" class="telegram" aria-label="Telegram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.94 4.5l-3.2 15.07c-.24 1.06-.87 1.32-1.76.82l-4.87-3.59-2.35 2.26c-.26.26-.48.48-.98.48l.35-4.96 9.03-8.16c.39-.35-.09-.55-.61-.2L6.7 13.12l-4.8-1.5c-1.04-.32-1.06-1.04.22-1.54l18.77-7.24c.87-.32 1.63.2 1.35 1.66z"/></svg></a>
+ </div>
+ <p>HermesGuide &mdash; Panduan Hermes Agent</p>
+ </div>
+ </footer>
+ <script src="../../assets/js/main.js"></script>
+</body>
+</html>

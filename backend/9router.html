@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+ <title>9Router &mdash; HermesGuide</title>
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="../../assets/css/style.css?v=hermes-guide-v3">
+</head>
+<body>
+ <nav class="nav">
+ <div class="nav-left">
+ <a href="../index.html" class="nav-brand">
+ <div class="nav-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg></div>
+ <span class="nav-logo-text">Mftrferdinand<span>Docs</span></span>
+ </a>
+ </div>
+ <div class="nav-center"><a href="../index.html" class="nav-link"><span class="lang-id-inline">Beranda</span><span class="lang-en-inline">Home</span></a><a href="../konsep/index.html" class="nav-link"><span class="lang-id-inline">Konsep</span><span class="lang-en-inline">Concept</span></a><a href="../pilar/index.html" class="nav-link"><span class="lang-id-inline">Pilar</span><span class="lang-en-inline">Pillars</span></a><a href="../praktik/index.html" class="nav-link"><span class="lang-id-inline">Praktik</span><span class="lang-en-inline">Practice</span></a><a href="../tutorial/index.html" class="nav-link"><span class="lang-id-inline">Tutorial</span><span class="lang-en-inline">Tutorial</span></a><a href="../backend/index.html" class="nav-link active"><span class="lang-id-inline">Backend</span><span class="lang-en-inline">Backend</span></a><a href="../agents/index.html" class="nav-link"><span class="lang-id-inline">AI Agents</span><span class="lang-en-inline">AI Agents</span></a><a href="../llm/index.html" class="nav-link"><span class="lang-id-inline">LLM</span><span class="lang-en-inline">LLM</span></a><a href="../prompt/index.html" class="nav-link"><span class="lang-id-inline">Prompt</span><span class="lang-en-inline">Prompt</span></a><a href="../automation/index.html" class="nav-link"><span class="lang-id-inline">Automation</span><span class="lang-en-inline">Automation</span></a><a href="../api/index.html" class="nav-link"><span class="lang-id-inline">API</span><span class="lang-en-inline">API</span></a><a href="../coding/index.html" class="nav-link"><span class="lang-id-inline">Coding</span><span class="lang-en-inline">Coding</span></a><a href="../hermes/index.html" class="nav-link"><span class="lang-id-inline">Hermes</span><span class="lang-en-inline">Hermes</span></a><a href="../lampiran/index.html" class="nav-link"><span class="lang-id-inline">Lampiran</span><span class="lang-en-inline">Appendix</span></a></div>
+ <div class="nav-right">
+ <div class="nav-search" aria-label="Search">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span class="lang-id-inline">Cari</span><span class="lang-en-inline">Search</span>
+ <kbd>Ctrl K</kbd>
+ </div>
+ <button id="translate-btn" class="nav-toggle-btn" aria-label="Translate">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="lang-label" style="font-size:.7rem;font-weight:700;margin-left:.15rem;">EN</span>
+ </button>
+ <button id="theme-btn" class="nav-toggle-btn" aria-label="Theme">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+ </button>
+ <button class="nav-menu-btn" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+ </div>
+ </nav>
+ <div class="mega-menu">
+ <button class="mega-menu-close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+ <div class="mega-menu-grid"><div class="mega-menu-section"><h4>Dasar</h4><a href="../index.html">Beranda<span class="desc">Hero & overview</span></a><a href="../konsep/index.html">Konsep<span class="desc">Dasar-dasar AI & AI Agent</span></a><a href="../pilar/index.html">Pilar<span class="desc">5 pilar inti agent</span></a><a href="../praktik/index.html">Praktik<span class="desc">Studi kasus & implementasi</span></a></div><div class="mega-menu-section"><h4>Panduan</h4><a href="../tutorial/index.html">Tutorial<span class="desc">Panduan step-by-step</span></a><a href="../backend/index.html">Backend<span class="desc">Arsitektur server & integrasi</span></a><a href="../hermes/index.html">Hermes<span class="desc">Setup, config, Termux, Windows</span></a><a href="../lampiran/index.html">Lampiran<span class="desc">FAQ, changelog, resource</span></a></div><div class="mega-menu-section"><h4>AI & LLM</h4><a href="../agents/index.html">AI Agents<span class="desc">Penjelasan mendalam agent</span></a><a href="../llm/index.html">LLM<span class="desc">Dasar Large Language Model</span></a><a href="../prompt/index.html">Prompt<span class="desc">Teknik & strategi prompting</span></a><a href="../automation/index.html">Automation<span class="desc">Otomatisasi workflow</span></a></div><div class="mega-menu-section"><h4>Developer</h4><a href="../api/index.html">API<span class="desc">Dokumentasi referensi API</span></a><a href="../coding/index.html">Coding<span class="desc">Contoh & snippet implementasi</span></a></div></div>
+ </div>
+ <div class="search-overlay">
+ <div class="search-box">
+ <input type="text" placeholder="Cari dokumentasi..." />
+ <div class="search-results"></div>
+ </div>
+ </div>
+ <div class="page-title-bar"><h2><span class="lang-id-inline">9Router</span><span class="lang-en-inline">9Router</span></h2><div class="breadcrumb"><a href="../index.html"><span class="lang-id-inline">Beranda</span><span class="lang-en-inline">Home</span></a> / <a href="index.html"><span class="lang-id-inline">9Router</span><span class="lang-en-inline">9Router</span></a> / 9Router</div></div>
+ 
+ <div class="content-wrap"><div class="container container-narrow">
+ <div class="page-header"><h1>9Router</h1><div class="breadcrumb"><a href="../index.html"><span class="lang-id-inline">Beranda</span><span class="lang-en-inline">Home</span></a> / <a href="index.html"><span class="lang-id-inline">9Router</span><span class="lang-en-inline">9Router</span></a> / 9Router</div></div>
+ <div class="prose"><h1>9Router — LLM Gateway</h1>
+
+<blockquote></blockquote>
+<p>1 endpoint, 40+ provider, support free tier seperti Kiro. Bot anda tinggal nunjuk ke 9router, tidak perlu daftar 5-10 API key.</p>
+
+<h2>Apa itu 9Router</h2>
+
+<p>9Router itu router/gateway untuk LLM. Konsep mirip OpenRouter, tapi lebih powerful karena:</p>
+
+<ul><li>Self-hosted (jalan di VPS anda sendiri, port 20128)</li></ul>
+
+<ul><li>Support subscription provider (Claude Code Pro, Codex Plus, GitHub Copilot) — quota subscription anda masih kepake</li></ul>
+
+<ul><li>Support free provider (Kiro AI, OpenCode Free, Vertex AI free credit) — Claude unlimited gratis lewat Kiro</li></ul>
+
+<ul><li>Auto-fallback tier: Subscription → Cheap → Free, zero downtime</li></ul>
+
+<ul><li>RTK Token Saver — kompres tool_result, hemat 20-40% token per request</li></ul>
+
+<ul><li>Multi-account round-robin per provider</li></ul>
+
+<ul><li>OpenAI-compatible API (gampang integrate ke kode apapun)</li></ul>
+
+<p>Hasil: bot anda bisa pake Claude Sonnet 4.5 / GLM-5 / Gemini / DeepSeek dari <strong>1 endpoint</strong> , tidak perlu melakukan juggle banyak API key.</p>
+
+<h2>Arsitektur</h2>
+
+<p>┌──────────────────┐</p>
+<div class="code-block"><pre><code>│ Aes (agent) │</code></pre><button class="copy-btn">Copy</button></div>
+<div class="code-block"><pre><code>│ main.py │</code></pre><button class="copy-btn">Copy</button></div>
+<div class="code-block"><pre><code>└────────┬─────────┘
+│ OPENAI_BASE_URL=http://127.0.0.1:20128/v1</code></pre><button class="copy-btn">Copy</button></div><div class="code-block"><pre><code>↓</code></pre><button class="copy-btn">Copy</button></div>
+<p>┌─────────────────────────────────────────┐</p>
+<div class="code-block"><pre><code>│ 9Router (di VPS anda, port 20128) │</code></pre><button class="copy-btn">Copy</button></div>
+<div class="code-block"><pre><code>│ • RTK Token Saver │</code></pre><button class="copy-btn">Copy</button></div>
+<div class="code-block"><pre><code>│ • Format translation (OpenAI ↔ Claude) │</code></pre><button class="copy-btn">Copy</button></div>
+<div class="code-block"><pre><code>│ • Quota tracking + auto fallback │</code></pre><button class="copy-btn">Copy</button></div>
+<div class="code-block"><pre><code>└────────┬────────────────────────────────┘</code></pre><button class="copy-btn">Copy</button></div>
+<div class="code-block"><pre><code>│</code></pre><button class="copy-btn">Copy</button></div>
+<div class="code-block"><pre><code>├─→ Tier 1 (SUBSCRIPTION)
+├─→ Tier 2 (CHEAP API key)
+└─→ Tier 3 (FREE)</code></pre><button class="copy-btn">Copy</button></div>
+<p> • Kiro AI (Claude 4.5 unlimited!)</p>
+<p> • OpenCode Free (no auth)</p>
+<p> • Vertex AI ($300 credit)</p>
+<p></p>
+
+<div class="code-block"><pre><code>## Install 9Router
+
+### Option A: npm global (paling gampang)
+
+npm install -g 9router</code></pre><button class="copy-btn"></button></div>
+
+<p>9router</p>
+<p></p>
+<p>Default jalan di port 20128. Dashboard di http://localhost:20128.</p>
+<p>Cocok untuk: testing cepat di laptop anda, atau VPS pribadi.</p>
+
+<div class="code-block"><pre><code>### Option B: Docker
+
+docker run -d \</code></pre><button class="copy-btn"></button></div>
+
+<p> --name 9router \</p>
+<p> -p 20128:20128 \</p>
+<p> -v ~/9router-data:/app/data \</p>
+<p> --restart unless-stopped \</p>
+<p> decolua/9router:latest</p>
+<p></p>
+<p>Cocok untuk: production di VPS, isolate dari host.</p>
+
+<div class="code-block"><pre><code>### Option C: Source code (kalo anda ingin hack)
+
+git clone https://github.com/decolua/9router.git
+cd 9router
+cp .env.example .env
+nano .env # set JWT_SECRET, INITIAL_PASSWORD, dll
+npm install</code></pre><button class="copy-btn"></button></div>
+
+<p>npm run build</p>
+<p>PORT=20128 HOSTNAME=0.0.0.0 NEXT_PUBLIC_BASE_URL=http://localhost:20128 npm run start</p>
+<p></p>
+<p>Cocok untuk: develop / customize 9router itu sendiri.</p>
+
+<div class="code-block"><pre><code>## First-time setup
+
+### 1. Buka dashboard</code></pre><button class="copy-btn"></button></div>
+
+<p>http://&lt;vps-ip&gt;:20128</p>
+<p></p>
+<p>Atau via SSH tunnel kalo VPS tidak expose port public:</p>
+<div class="code-block"><pre><code>ssh -L 20128:localhost:20128 ubuntu@&lt;vps-ip&gt;
+# Buka http://localhost:20128 di browser laptop anda
+
+### 2. Login
+
+Username: `admin` Password: dari `INITIAL_PASSWORD` di `.env</code></pre><button class="copy-btn"></button></div>
+
+<div class="code-block"><pre><code>Setelah login pertama, ganti password lewat dashboard → Settings → Account.
+Dashboard → API Keys → Create new key.
+FREEMODEL_API_KEY=fe_oa_xxxxxxxxxxxxxxxxxxxx
+Dashboard → Providers → Connect.</code></pre><button class="copy-btn">Copy</button></div>
+<p>Recommended starter (no signup needed):</p>
+
+<ul><li><strong>Kiro AI</strong> (free Claude unlimited) — login via AWS Builder ID / Google / GitHub</li></ul>
+
+<ul><li><strong>OpenCode Free</strong> (no auth, passthrough proxy)</li></ul>
+
+<p>Detail Kiro di <a href="../kiro/" target="_blank">halaman Kiro</a>. Detail alternatif di <a href="../alternatives/" target="_blank">halaman lainnya</a>.</p>
+
+<div class="code-block"><pre><code>## Integrate ke Aes
+
+Update `~/ai-agent/.env` (atau `~/agent/.env`):
+OPENAI_API_KEY=fe_oa_xxxxxxxxxxxxxxxxxxxx
+OPENAI_BASE_URL=http://127.0.0.1:20128/v1
+OPENAI_MODEL=kr/auto
+
+kr/auto` = auto-pick model. Atau pakai spesifik:
+OPENAI_MODEL=kr/claude-sonnet-4.5
+</code></pre><button class="copy-btn"></button></div>
+
+<p>Restart bot:</p>
+<div class="code-block"><pre><code>sudo systemctl restart aes-bot
+</code></pre><button class="copy-btn"></button></div>
+
+<p>Test chat. Anda harusnya mendapat response yang lebih cerdas (Claude Sonnet 4.5).</p>
+
+<h2>Naming convention model di 9Router</h2>
+
+<p>9Router pake prefix berdasarkan provider:</p>
+
+
+
+<p>Prefix </p>
+<table><tr><th>Aspek</th><th>Deskripsi</th></tr><tr><td>Provider</td><td>Contoh model</td></tr></table><p> <code>kr/</code> </p>
+<p>Kiro AI</p>
+<p> <code>kr/claude-sonnet-4.5</code>, <code>kr/glm-5</code>, <code>kr/auto</code> </p>
+
+
+<p> <code>cc/</code> </p>
+<p>Claude Code</p>
+<p> <code>cc/claude-opus-4-7</code>, <code>cc/claude-sonnet-4-6</code> </p>
+
+
+<p> <code>cx/</code> </p>
+<p>Codex</p>
+<p> <code>cx/gpt-5.5</code>, <code>cx/gpt-5.4</code> </p>
+
+
+<p> <code>gh/</code> </p>
+<p>GitHub Copilot</p>
+<p> <code>gh/gpt-5</code>, <code>gh/claude-sonnet-4</code> </p>
+
+
+<p> <code>or/</code> </p>
+<p>OpenRouter</p>
+<p> <code>or/anthropic/claude-3.5-sonnet</code>, <code>or/google/gemini-2.0</code> </p>
+
+
+<p> <code>oc/</code> </p>
+<p>OpenCode Free</p>
+<p> <code>oc/claude-3.5-sonnet</code>, <code>oc/gpt-4o</code> </p>
+
+
+<p> <code>vx/</code> </p>
+<p>Vertex AI</p>
+<p> <code>vx/gemini-3-pro</code>, <code>vx/claude-sonnet-4</code> </p>
+
+
+<p> <code>glm/</code> </p>
+<p>GLM (Zhipu)</p>
+<p> <code>glm/glm-5</code>, <code>glm/glm-4-plus</code> </p>
+
+
+<p> <code>ds/</code> </p>
+<p>DeepSeek</p>
+<p> <code>ds/deepseek-chat</code>, <code>ds/deepseek-coder</code> </p>
+
+
+<p>Special: <code>kr/auto</code> — auto pick best available model.</p>
+
+<h2>Quota tracking</h2>
+
+<div class="code-block"><pre><code>Dashboard → Quota tab:</code></pre><button class="copy-btn">Copy</button></div>
+
+<ul><li>Subscription tier: shows quota Claude Code / Codex / Copilot (5-hour + weekly)</li></ul>
+
+<ul><li>Cheap tier: shows credit balance per provider</li></ul>
+
+<ul><li>Free tier: usage counter</li></ul>
+
+<p>Bot anda otomatis switch ke tier berikutnya kalo subscription quota habis. Zero downtime.</p>
+
+<h2>RTK Token Saver</h2>
+
+<p>Auto-aktif. Yang dia lakukan:</p>
+
+<ul><li>Detect tool_result content di request (output dari <code>git diff</code>, <code>grep -r</code>, <code>ls -la</code>, dll)</li></ul>
+
+<ul><li>Kompres / truncate redundant info</li></ul>
+
+<ul><li>Save 20-40% token per multi-step agent call</li></ul>
+
+<p>Untuk agent seperti Aes yang banyak agentic loop, ini real saving.</p>
+
+<h2>Multi-account round-robin</h2>
+
+<p>Kalo anda memiliki 2+ akun Kiro (atau 2+ Claude Code Pro):</p>
+<div class="code-block"><pre><code>Dashboard → Providers → Kiro → Add Account.</code></pre><button class="copy-btn">Copy</button></div>
+<p>9Router auto round-robin antara akun. Effective doubling free quota.</p>
+
+<div class="code-block"><pre><code>## Setup systemd (jalan 24/7)
+
+sudo tee /etc/systemd/system/9router.service &gt; /dev/null &lt;&lt; &#x27;EOF&#x27;</code></pre><button class="copy-btn"></button></div>
+
+<div class="code-block"><pre><code>[Unit]
+Description=9Router LLM Gateway</code></pre><button class="copy-btn">Copy</button></div>
+<p>After=network.target</p>
+
+<div class="code-block"><pre><code>[Service]</code></pre><button class="copy-btn">Copy</button></div>
+<p>Type=simple</p>
+<p>User=ubuntu</p>
+<div class="code-block"><pre><code>WorkingDirectory=/home/ubuntu/9router
+EnvironmentFile=/home/ubuntu/9router/.env
+ExecStart=/usr/bin/npm run start
+Restart=on-failure</code></pre><button class="copy-btn">Copy</button></div>
+<p>RestartSec=5</p>
+
+<div class="code-block"><pre><code>[Install]
+WantedBy=multi-user.target</code></pre><button class="copy-btn">Copy</button></div>
+<div class="code-block"><pre><code>EOF</code></pre><button class="copy-btn">Copy</button></div>
+
+<div class="code-block"><pre><code>sudo systemctl daemon-reload
+sudo systemctl enable 9router
+sudo systemctl start 9router
+sudo systemctl status 9router
+
+## Verify integration</code></pre><button class="copy-btn"></button></div>
+
+<p>Test endpoint langsung:</p>
+<div class="code-block"><pre><code>curl -X POST http://127.0.0.1:20128/v1/chat/completions \</code></pre><button class="copy-btn"></button></div>
+
+<p> -H &quot;Authorization: Bearer fe_oa_xxxxxxxx&quot; \</p>
+<p> -H &quot;Content-Type: application/json&quot; \</p>
+<p> -d &#x27;{</p>
+<p> &quot;model&quot;: &quot;kr/auto&quot;,</p>
+<p> &quot;messages&quot;: [{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;halo&quot;}]</p>
+<p> }&#x27;</p>
+<p></p>
+<p>Expect respond dengan JSON <code>{&quot;choices&quot;: [...]}</code>. Kalo error 401 → API key salah. Kalo error 502 → 9router belum running.</p>
+
+<div class="code-block"><pre><code>## Anti-pattern
+
+### ❌ Hardcode 9router URL di kode
+
+client = OpenAI(base_url=&quot;http://127.0.0.1:20128/v1&quot;, api_key=&quot;fe_oa_xxx&quot;)
+</code></pre><button class="copy-btn"></button></div>
+
+<p>Hardcode = tidak bisa switch ke OpenAI langsung kalo 9router down. Pakai env var:</p>
+<div class="code-block"><pre><code>client = OpenAI(</code></pre><button class="copy-btn">Copy</button></div>
+<div class="code-block"><pre><code>base_url=os.environ.get(&quot;OPENAI_BASE_URL&quot;, &quot;https://api.openai.com/v1&quot;),
+api_key=os.environ[&quot;OPENAI_API_KEY&quot;]</code></pre><button class="copy-btn"></button></div>
+
+<p>)</p>
+<p></p>
+
+<div class="code-block"><pre><code>### ❌ Expose port 20128 ke public
+
+# DON&#x27;T:
+sudo ufw allow 20128
+</code></pre><button class="copy-btn"></button></div>
+
+<p>Bot anda connect via localhost. Public expose = orang lain bisa pake quota anda + akses dashboard.</p>
+<p>Solusi: expose lewat Cloudflare Tunnel atau Tailscale kalo anda butuh akses remote.</p>
+
+<div class="code-block"><pre><code>### ❌ Run 9router as root
+
+sudo 9router # NO
+</code></pre><button class="copy-btn"></button></div>
+
+<p>Pake user biasa (ubuntu / agent). systemd <code>User=ubuntu</code>. Kalo error permission, fix folder ownership, bukan jalanin as root.</p>
+
+<h2>Pricing &amp; limit (per Mei 2026)</h2>
+
+
+
+<p>Tier </p>
+<table><tr><th>Aspek</th><th>Deskripsi</th></tr><tr><td>Cost</td><td>Note</td></tr><tr><td>Kiro AI</td><td>FREE</td></tr><tr><td>Unlimited Claude Sonnet 4.5 + GLM-5 + MiniMax</td><td>OpenCode Free</td></tr><tr><td>FREE</td><td>No auth, models auto-fetched</td></tr><tr><td>Vertex AI</td><td>FREE</td></tr><tr><td>$300 credit untuk akun GCP baru</td><td>GLM</td></tr><tr><td>$0.6 / 1M tokens</td><td>Cheap, decent quality</td></tr><tr><td>MiniMax</td><td>$0.2 / 1M tokens</td></tr><tr><td>Cheapest cheap tier</td><td>OpenRouter</td></tr><tr><td>varies</td><td>Hub ke 100+ model, pay-per-use</td></tr><tr><td>Claude Code Pro</td><td>$20/bulan</td></tr><tr><td>5-hour quota Claude</td><td>Codex Plus</td></tr><tr><td>$20/bulan</td><td>5-hour quota GPT-5</td></tr></table><p>Strategi optimal: connect Kiro (free) + 1 cheap provider (GLM/DeepSeek) sebagai fallback. Total cost untuk personal agent: $0-2/bulan.</p>
+
+<div class="code-block"><pre><code>## Troubleshooting
+
+### Bot tidak konek ke 9router
+
+# Cek 9router running?
+curl http://127.0.0.1:20128/v1/models -H &quot;Authorization: Bearer $FREEMODEL_API_KEY&quot;
+# Should return JSON list of models
+</code></pre><button class="copy-btn"></button></div>
+
+<p>Kalo connection refused:</p>
+<div class="code-block"><pre><code>sudo systemctl status 9router
+sudo journalctl -u 9router -n 50
+
+### Response lambat
+
+# Cek tier mana yang dipake
+# Dashboard → Logs → melihat provider yang dipake
+</code></pre><button class="copy-btn"></button></div>
+
+<p>Kalo Kiro lambat (kadang queue), switch ke OpenCode Free sementara, atau bayar untuk Codex Plus / Claude Code Pro.</p>
+
+<h3>&quot;All providers failed&quot;</h3>
+
+<p>Berarti semua tier (subscription + cheap + free) udah quota habis atau down.</p>
+<p>Fix: 1. Cek dashboard, refresh token Kiro 2. Add provider baru 3. Atau switch model: <code>kr/auto</code> → <code>oc/claude-3.5-sonnet</code></p>
+
+<div class="code-block"><pre><code>### Token tracking inaccurate
+
+# Refresh quota di dashboard
+# Atau restart 9router:
+sudo systemctl restart 9router
+
+## Update 9router
+
+# npm version</code></pre><button class="copy-btn"></button></div>
+
+<p>npm update -g 9router</p>
+
+<div class="code-block"><pre><code># Docker version
+docker pull decolua/9router:latest
+docker stop 9router &amp;&amp; docker rm 9router
+# rerun docker run command
+
+# Source version
+cd ~/9router
+git pull
+npm install</code></pre><button class="copy-btn"></button></div>
+
+<p>npm run build</p>
+<div class="code-block"><pre><code>sudo systemctl restart 9router</code></pre><button class="copy-btn">Copy</button></div>
+<p></p>
+
+<h2>Resources</h2>
+
+<ul><li>Repo: https://github.com/decolua/9router</li></ul>
+
+<ul><li>Website: https://9router.com</li></ul>
+
+<ul><li>Docs: https://9router.com/docs</li></ul>
+
+<h2>Next step</h2>
+
+<ul><li>Connect Kiro AI sebagai backend → <a href="../kiro/" target="_blank">halaman Kiro</a></li></ul>
+
+<ul><li>Compare alternative backend → <a href="../alternatives/" target="_blank">halaman alternatives</a></li></ul></div></div></div>
+ <div class="feedback-widget">
+ <p>Apakah halaman ini membantu?</p>
+ <div class="feedback-btns">
+ <button class="feedback-btn yes">Ya, membantu</button>
+ <button class="feedback-btn no">Tidak</button>
+ </div>
+ </div>
+ <footer class="footer">
+ <div class="container">
+ <div class="footer-links"><a href="index.html">Beranda</a><a href="konsep/index.html">Konsep</a><a href="pilar/index.html">Pilar</a><a href="praktik/index.html">Praktik</a><a href="tutorial/index.html">Tutorial</a><a href="backend/index.html">Backend</a><a href="agents/index.html">AI Agents</a><a href="llm/index.html">LLM</a></div>
+ <div class="footer-social">
+ <a href="https://github.com/Mftrferdinand" target="_blank" class="github" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.5.5.09.66-.22.66-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02.8-.22 1.65-.33 2.5-.33.85 0 1.7.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.16.58.67.48A10.01 10.01 0 0022 12c0-5.52-4.48-10-10-10z"/></svg></a>
+ <a href="https://twitter.com" target="_blank" class="twitter" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+ <a href="https://instagram.com" target="_blank" class="instagram" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+ <a href="https://t.me/v1aesbot" target="_blank" class="telegram" aria-label="Telegram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.94 4.5l-3.2 15.07c-.24 1.06-.87 1.32-1.76.82l-4.87-3.59-2.35 2.26c-.26.26-.48.48-.98.48l.35-4.96 9.03-8.16c.39-.35-.09-.55-.61-.2L6.7 13.12l-4.8-1.5c-1.04-.32-1.06-1.04.22-1.54l18.77-7.24c.87-.32 1.63.2 1.35 1.66z"/></svg></a>
+ </div>
+ <p>HermesGuide &mdash; Panduan Hermes Agent</p>
+ </div>
+ </footer>
+ <script src="../../assets/js/main.js"></script>
+</body>
+</html>

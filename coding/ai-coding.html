@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+ <title>AI-Assisted Coding &mdash; HermesGuide</title>
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="../../assets/css/style.css?v=hermes-guide-v3">
+</head>
+<body>
+ <nav class="nav">
+ <div class="nav-left">
+ <a href="../index.html" class="nav-brand">
+ <div class="nav-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg></div>
+ <span class="nav-logo-text">Mftrferdinand<span>Docs</span></span>
+ </a>
+ </div>
+ <div class="nav-center"><a href="../index.html" class="nav-link"><span class="lang-id-inline">Beranda</span><span class="lang-en-inline">Home</span></a><a href="../konsep/index.html" class="nav-link"><span class="lang-id-inline">Konsep</span><span class="lang-en-inline">Concept</span></a><a href="../pilar/index.html" class="nav-link"><span class="lang-id-inline">Pilar</span><span class="lang-en-inline">Pillars</span></a><a href="../praktik/index.html" class="nav-link"><span class="lang-id-inline">Praktik</span><span class="lang-en-inline">Practice</span></a><a href="../tutorial/index.html" class="nav-link"><span class="lang-id-inline">Tutorial</span><span class="lang-en-inline">Tutorial</span></a><a href="../backend/index.html" class="nav-link"><span class="lang-id-inline">Backend</span><span class="lang-en-inline">Backend</span></a><a href="../agents/index.html" class="nav-link"><span class="lang-id-inline">AI Agents</span><span class="lang-en-inline">AI Agents</span></a><a href="../llm/index.html" class="nav-link"><span class="lang-id-inline">LLM</span><span class="lang-en-inline">LLM</span></a><a href="../prompt/index.html" class="nav-link"><span class="lang-id-inline">Prompt</span><span class="lang-en-inline">Prompt</span></a><a href="../automation/index.html" class="nav-link"><span class="lang-id-inline">Automation</span><span class="lang-en-inline">Automation</span></a><a href="../api/index.html" class="nav-link"><span class="lang-id-inline">API</span><span class="lang-en-inline">API</span></a><a href="../coding/index.html" class="nav-link active"><span class="lang-id-inline">Coding</span><span class="lang-en-inline">Coding</span></a><a href="../hermes/index.html" class="nav-link"><span class="lang-id-inline">Hermes</span><span class="lang-en-inline">Hermes</span></a><a href="../lampiran/index.html" class="nav-link"><span class="lang-id-inline">Lampiran</span><span class="lang-en-inline">Appendix</span></a></div>
+ <div class="nav-right">
+ <div class="nav-search" aria-label="Search">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span class="lang-id-inline">Cari</span><span class="lang-en-inline">Search</span>
+ <kbd>Ctrl K</kbd>
+ </div>
+ <button id="translate-btn" class="nav-toggle-btn" aria-label="Translate">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="lang-label" style="font-size:.7rem;font-weight:700;margin-left:.15rem;">EN</span>
+ </button>
+ <button id="theme-btn" class="nav-toggle-btn" aria-label="Theme">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+ </button>
+ <button class="nav-menu-btn" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+ </div>
+ </nav>
+ <div class="mega-menu">
+ <button class="mega-menu-close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+ <div class="mega-menu-grid"><div class="mega-menu-section"><h4>Dasar</h4><a href="../index.html">Beranda<span class="desc">Hero & overview</span></a><a href="../konsep/index.html">Konsep<span class="desc">Dasar-dasar AI & AI Agent</span></a><a href="../pilar/index.html">Pilar<span class="desc">5 pilar inti agent</span></a><a href="../praktik/index.html">Praktik<span class="desc">Studi kasus & implementasi</span></a></div><div class="mega-menu-section"><h4>Panduan</h4><a href="../tutorial/index.html">Tutorial<span class="desc">Panduan step-by-step</span></a><a href="../backend/index.html">Backend<span class="desc">Arsitektur server & integrasi</span></a><a href="../hermes/index.html">Hermes<span class="desc">Setup, config, Termux, Windows</span></a><a href="../lampiran/index.html">Lampiran<span class="desc">FAQ, changelog, resource</span></a></div><div class="mega-menu-section"><h4>AI & LLM</h4><a href="../agents/index.html">AI Agents<span class="desc">Penjelasan mendalam agent</span></a><a href="../llm/index.html">LLM<span class="desc">Dasar Large Language Model</span></a><a href="../prompt/index.html">Prompt<span class="desc">Teknik & strategi prompting</span></a><a href="../automation/index.html">Automation<span class="desc">Otomatisasi workflow</span></a></div><div class="mega-menu-section"><h4>Developer</h4><a href="../api/index.html">API<span class="desc">Dokumentasi referensi API</span></a><a href="../coding/index.html">Coding<span class="desc">Contoh & snippet implementasi</span></a></div></div>
+ </div>
+ <div class="search-overlay">
+ <div class="search-box">
+ <input type="text" placeholder="Cari dokumentasi..." />
+ <div class="search-results"></div>
+ </div>
+ </div>
+ <div class="page-title-bar"><h2><span class="lang-id-inline">AI-Assisted Coding</span><span class="lang-en-inline">AI-Assisted Coding</span></h2><div class="breadcrumb"><a href="../index.html"><span class="lang-id-inline">Beranda</span><span class="lang-en-inline">Home</span></a> / <a href="index.html"><span class="lang-id-inline">AI-Assisted Coding</span><span class="lang-en-inline">AI-Assisted Coding</span></a> / AI-Assisted Coding</div></div>
+ 
+ <div class="content-wrap"><div class="container container-narrow">
+ <div class="page-header"><h1><span class="lang-id-inline">AI-Assisted Coding</span><span class="lang-en-inline">AI-Assisted Coding</span></h1><div class="breadcrumb"><a href="../index.html"><span class="lang-id-inline">Beranda</span><span class="lang-en-inline">Home</span></a> / <a href="index.html"><span class="lang-id-inline">AI-Assisted Coding</span><span class="lang-en-inline">AI-Assisted Coding</span></a> / AI-Assisted Coding</div></div>
+ <div class="prose">
+<h2>Revolusi Coding dengan AI</h2>
+
+<p>AI-assisted coding bukan sekadar autocomplete yang lebih pintar. Ini adalah pergeseran fundamental dari &quot;menulis kode&quot; menjadi &quot;mengarahkan dan memvalidasi kode&quot;. Developer berubah dari penulis menjadi arsitek dan reviewer, sementara AI mengambil peran sebagai penulis eksekutor.</p>
+
+<p>Revolusi ini dimulai dengan GitHub Copilot pada 2021 yang menghadirkan inline completion berbasis LLM. Sejak itu, lanskap berkembang pesat: IDE AI-native (Cursor, Windsurf), agent CLI (Claude Code, Codex), hingga framework agent (Hermes) yang dapat menjalankan coding task secara otonom.</p>
+
+<h2>Empat Level AI Assistance</h2>
+
+<h3>Level 1: Autocomplete</h3>
+
+<p>AI melengkapi baris atau blok kode berikutnya berdasarkan konteks file aktif. Contoh: developer menulis <code>def sort_array(</code> dan AI melengkapi seluruh function body.</p>
+
+<div class="code-block"><pre><code># Developer menulis:
+def fibonacci(n):
+ # AI melengkapi otomatis:
+ if n &lt;= 1:
+ return n
+ return fibonacci(n-1) + fibonacci(n-2)</code></pre><button class="copy-btn"></button></div>
+
+<p>Produktivitas: 10-20% lebih cepat untuk tugas rutin. Cocok untuk boilerplate, pattern berulang, dan standard library calls.</p>
+
+<h3>Level 2: Inline Edit</h3>
+
+<p>Developer memilih blok kode dan memberikan instruksi natural language. AI mengedit blok tersebut sesuai instruksi.</p>
+
+<div class="code-block"><pre><code># Developer select blok kode, lalu ketik:
+&quot;Refactor ini untuk menggunakan list comprehension dan tambahkan error handling&quot;
+
+# AI mengubah:
+# Sebelum:
+results = []
+for item in items:
+ try:
+ results.append(process(item))
+ except Exception as e:
+ print(f&quot;Error: {e}&quot;)
+
+# Sesudah:
+results = []
+for item in items:
+ try:
+ results.append(process(item))
+ except Exception as e:
+ logger.error(f&quot;Failed to process item {item}: {e}&quot;)
+ continue</code></pre><button class="copy-btn"></button></div>
+
+<p>Produktivitas: 20-40% lebih cepat untuk refactoring dan transformasi kode.</p>
+
+<h3>Level 3: Chat-to-Code</h3>
+
+<p>Developer mendeskripsikan apa yang diinginkan dalam chat. AI menghasilkan kode lengkap dengan penjelasan.</p>
+
+<div class="code-block"><pre><code>User: &quot;Buatkan API endpoint untuk upload file dengan validation,
+ simpan ke S3, dan return URL. Pakai FastAPI.&quot;
+
+AI: [Menghasilkan 50+ baris kode lengkap dengan:
+ - File validation (type, size)
+ - S3 upload logic dengan boto3
+ - Error handling
+ - Response model
+ - Type hints]</code></pre><button class="copy-btn"></button></div>
+
+<p>Produktivitas: 40-60% lebih cepat untuk implementasi fitur baru.</p>
+
+<h3>Level 4: Autonomous Agent</h3>
+
+<p>AI membaca spec atau issue, menulis kode, menjalankan test, memperbaiki error, dan mengirim PR. Developer hanya review hasil akhir.</p>
+
+<div class="code-block"><pre><code>Agent: &quot;Saya akan menambahkan fitur pagination ke endpoint /users&quot;
+1. Membaca kode existing (router, model, schema)
+2. Menulis implementasi pagination
+3. Menjalankan test suite
+4. Test gagal: edge case empty page
+5. Memperbaiki kode
+6. Test lulus
+7. Membuat commit dan PR</code></pre><button class="copy-btn"></button></div>
+
+<p>Produktivitas: 5-10x untuk task well-defined. Hermes Agent, Claude Code, dan OpenAI Codex berada di level ini.</p>
+
+<h2>Produktivitas: Studi dan Metrik</h2>
+
+<p>Studi akademis dan industri menunjukkan dampak signifikan:</p>
+
+<table><tr><th>Studi</th><th>Metrik</th><th>Temuan</th></tr><tr><td>GitHub Copilot Study (2022)</td><td>Task completion speed</td><td>55% lebih cepat</td></tr><tr><td>Google (DORA Report 2023)</td><td>Code review throughput</td><td>+22% dengan AI</td></tr><tr><td>McKinsey (2023)</td><td>Time to prototype</td><td>2x lebih cepat</td></tr><tr><td>Stack Overflow Survey 2024</td><td>Developer satisfaction</td><td>72% melaporkan peningkatan produktivitas</td></tr><tr><td>Microsoft Research (2024)</td><td>Bug detection</td><td>30% lebih banyak bug ditemukan dengan AI review</td></tr></table>
+
+<p>Namun, peningkatan tidak merata. Tugas rutin (boilerplate, CRUD, test generation) mendapat boost tertinggi. Tugas kompleks (arsitektur sistem, optimasi low-level, domain logic spesifik) mendapat boost minimal.</p>
+
+<h2>Best Use Cases untuk AI Coding</h2>
+
+<ol><li><strong>Boilerplate generation</strong> &mdash; CRUD endpoint, DTO, mapper, config</li><li><strong>Test generation</strong> &mdash; Unit test, integration test, edge case identification</li><li><strong>Documentation</strong> &mdash; Docstring, API doc, README</li><li><strong>Refactoring</strong> &mdash; Modernisasi syntax, extract function, simplify logic</li><li><strong>Language translation</strong> &mdash; Python ke Go, JavaScript ke TypeScript</li><li><strong>Debugging</strong> &mdash; Analisis error, sarankan fix, jelaskan root cause</li><li><strong>Code review</strong> &mdash; Identifikasi bug, security issue, best practice violation</li></ol>
+
+<h2>Limitasi</h2>
+
+<ul><li><strong>Hallucination</strong> &mdash; AI dapat menghasilkan API/function yang tidak ada</li><li><strong>Context limitation</strong> &mdash; AI tidak melihat seluruh codebase (terbatas pada context window)</li><li><strong>Domain knowledge</strong> &mdash; Logic bisnis spesifik jarang ada di training data</li><li><strong>Security blindspot</strong> &mdash; AI tidak selalu mendeteksi vulnerability kompleks</li><li><strong>Performance</strong> &mdash; AI tidak mengoptimasi low-level performance (perlu profiling)</li></ul>
+
+<h2>Future Outlook</h2>
+
+<p>Tren yang sedang berkembang:</p>
+
+<ol><li><strong>Autonomous agent</strong> &mdash; AI yang dapat mengerjakan seluruh issue end-to-end</li><li><strong>Multi-file editing</strong> &mdash; AI yang memahami dan mengedit codebase besar</li><li><strong>Self-healing code</strong> &mdash; AI yang mendeteksi dan memperbaiki bug di production</li><li><strong>AI pair programming</strong> &mdash; Kolaborasi real-time antara developer dan AI</li><li><strong>Natural language deployment</strong> &mdash; Deploy dengan deskripsi bahasa natural</li></ol>
+
+<h2>Cara Integrasi AI ke Workflow Existing</h2>
+
+<h3>Tahap 1: Adoption (Minggu 1-2)</h3>
+
+<p>Mulai dengan autocomplete (Copilot atau Continue). Gunakan untuk boilerplate dan test generation. Jangan gunakan untuk logic kritis.</p>
+
+<h3>Tahap 2: Integration (Minggu 3-4)</h3>
+
+<p>Integrasikan chat-to-code untuk fitur baru. Gunakan AI untuk code review sebagai second opinion. Tetap review manual.</p>
+
+<h3>Tahap 3: Workflow Redesign (Bulan 2+)</h3>
+
+<p>Restrukturisasi workflow: spec -&gt; AI draft -&gt; human review -&gt; AI test -&gt; human verify -&gt; deploy. Manusia tetap di setiap checkpoint kritis.</p>
+
+<h3>Tahap 4: Autonomous (Bulan 3+)</h3>
+
+<p>Pilot autonomous agent untuk task well-defined. Monitor kualitas dan tingkatkan bertahap. Tetap pertahankan human review untuk production code.</p>
+</div></div></div>
+ <div class="feedback-widget">
+ <p>Apakah halaman ini membantu?</p>
+ <div class="feedback-btns">
+ <button class="feedback-btn yes">Ya, membantu</button>
+ <button class="feedback-btn no">Tidak</button>
+ </div>
+ </div>
+ <footer class="footer">
+ <div class="container">
+ <div class="footer-links"><a href="index.html">Beranda</a><a href="konsep/index.html">Konsep</a><a href="pilar/index.html">Pilar</a><a href="praktik/index.html">Praktik</a><a href="tutorial/index.html">Tutorial</a><a href="backend/index.html">Backend</a><a href="agents/index.html">AI Agents</a><a href="llm/index.html">LLM</a></div>
+ <div class="footer-social">
+ <a href="https://github.com/Mftrferdinand" target="_blank" class="github" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.5.5.09.66-.22.66-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02.8-.22 1.65-.33 2.5-.33.85 0 1.7.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.16.58.67.48A10.01 10.01 0 0022 12c0-5.52-4.48-10-10-10z"/></svg></a>
+ <a href="https://twitter.com" target="_blank" class="twitter" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+ <a href="https://instagram.com" target="_blank" class="instagram" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+ <a href="https://t.me/v1aesbot" target="_blank" class="telegram" aria-label="Telegram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.94 4.5l-3.2 15.07c-.24 1.06-.87 1.32-1.76.82l-4.87-3.59-2.35 2.26c-.26.26-.48.48-.98.48l.35-4.96 9.03-8.16c.39-.35-.09-.55-.61-.2L6.7 13.12l-4.8-1.5c-1.04-.32-1.06-1.04.22-1.54l18.77-7.24c.87-.32 1.63.2 1.35 1.66z"/></svg></a>
+ </div>
+ <p>HermesGuide &mdash; Panduan Hermes Agent</p>
+ </div>
+ </footer>
+ <script src="../../assets/js/main.js"></script>
+</body>
+</html>

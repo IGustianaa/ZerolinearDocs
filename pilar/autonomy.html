@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+ <title>Autonomy &mdash; HermesGuide</title>
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="../../assets/css/style.css?v=hermes-guide-v3">
+</head>
+<body>
+ <nav class="nav">
+ <div class="nav-left">
+ <a href="../index.html" class="nav-brand">
+ <div class="nav-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg></div>
+ <span class="nav-logo-text">Mftrferdinand<span>Docs</span></span>
+ </a>
+ </div>
+ <div class="nav-center"><a href="../index.html" class="nav-link"><span class="lang-id-inline">Beranda</span><span class="lang-en-inline">Home</span></a><a href="../konsep/index.html" class="nav-link"><span class="lang-id-inline">Konsep</span><span class="lang-en-inline">Concept</span></a><a href="../pilar/index.html" class="nav-link active"><span class="lang-id-inline">Pilar</span><span class="lang-en-inline">Pillars</span></a><a href="../praktik/index.html" class="nav-link"><span class="lang-id-inline">Praktik</span><span class="lang-en-inline">Practice</span></a><a href="../tutorial/index.html" class="nav-link"><span class="lang-id-inline">Tutorial</span><span class="lang-en-inline">Tutorial</span></a><a href="../backend/index.html" class="nav-link"><span class="lang-id-inline">Backend</span><span class="lang-en-inline">Backend</span></a><a href="../agents/index.html" class="nav-link"><span class="lang-id-inline">AI Agents</span><span class="lang-en-inline">AI Agents</span></a><a href="../llm/index.html" class="nav-link"><span class="lang-id-inline">LLM</span><span class="lang-en-inline">LLM</span></a><a href="../prompt/index.html" class="nav-link"><span class="lang-id-inline">Prompt</span><span class="lang-en-inline">Prompt</span></a><a href="../automation/index.html" class="nav-link"><span class="lang-id-inline">Automation</span><span class="lang-en-inline">Automation</span></a><a href="../api/index.html" class="nav-link"><span class="lang-id-inline">API</span><span class="lang-en-inline">API</span></a><a href="../coding/index.html" class="nav-link"><span class="lang-id-inline">Coding</span><span class="lang-en-inline">Coding</span></a><a href="../hermes/index.html" class="nav-link"><span class="lang-id-inline">Hermes</span><span class="lang-en-inline">Hermes</span></a><a href="../lampiran/index.html" class="nav-link"><span class="lang-id-inline">Lampiran</span><span class="lang-en-inline">Appendix</span></a></div>
+ <div class="nav-right">
+ <div class="nav-search" aria-label="Search">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span class="lang-id-inline">Cari</span><span class="lang-en-inline">Search</span>
+ <kbd>Ctrl K</kbd>
+ </div>
+ <button id="translate-btn" class="nav-toggle-btn" aria-label="Translate">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="lang-label" style="font-size:.7rem;font-weight:700;margin-left:.15rem;">EN</span>
+ </button>
+ <button id="theme-btn" class="nav-toggle-btn" aria-label="Theme">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+ </button>
+ <button class="nav-menu-btn" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+ </div>
+ </nav>
+ <div class="mega-menu">
+ <button class="mega-menu-close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+ <div class="mega-menu-grid"><div class="mega-menu-section"><h4>Dasar</h4><a href="../index.html">Beranda<span class="desc">Hero & overview</span></a><a href="../konsep/index.html">Konsep<span class="desc">Dasar-dasar AI & AI Agent</span></a><a href="../pilar/index.html">Pilar<span class="desc">5 pilar inti agent</span></a><a href="../praktik/index.html">Praktik<span class="desc">Studi kasus & implementasi</span></a></div><div class="mega-menu-section"><h4>Panduan</h4><a href="../tutorial/index.html">Tutorial<span class="desc">Panduan step-by-step</span></a><a href="../backend/index.html">Backend<span class="desc">Arsitektur server & integrasi</span></a><a href="../hermes/index.html">Hermes<span class="desc">Setup, config, Termux, Windows</span></a><a href="../lampiran/index.html">Lampiran<span class="desc">FAQ, changelog, resource</span></a></div><div class="mega-menu-section"><h4>AI & LLM</h4><a href="../agents/index.html">AI Agents<span class="desc">Penjelasan mendalam agent</span></a><a href="../llm/index.html">LLM<span class="desc">Dasar Large Language Model</span></a><a href="../prompt/index.html">Prompt<span class="desc">Teknik & strategi prompting</span></a><a href="../automation/index.html">Automation<span class="desc">Otomatisasi workflow</span></a></div><div class="mega-menu-section"><h4>Developer</h4><a href="../api/index.html">API<span class="desc">Dokumentasi referensi API</span></a><a href="../coding/index.html">Coding<span class="desc">Contoh & snippet implementasi</span></a></div></div>
+ </div>
+ <div class="search-overlay">
+ <div class="search-box">
+ <input type="text" placeholder="Cari dokumentasi..." />
+ <div class="search-results"></div>
+ </div>
+ </div>
+ <div class="page-title-bar"><h2><span class="lang-id-inline">Autonomy</span><span class="lang-en-inline">Autonomy</span></h2><div class="breadcrumb"><a href="../index.html"><span class="lang-id-inline">Beranda</span><span class="lang-en-inline">Home</span></a> / <a href="index.html"><span class="lang-id-inline">Autonomy</span><span class="lang-en-inline">Autonomy</span></a> / Autonomy</div></div>
+ 
+ <div class="content-wrap"><div class="container container-narrow">
+ <div class="page-header"><h1>Autonomy</h1><div class="breadcrumb"><a href="../index.html"><span class="lang-id-inline">Beranda</span><span class="lang-en-inline">Home</span></a> / <a href="index.html"><span class="lang-id-inline">Autonomy</span><span class="lang-en-inline">Autonomy</span></a> / Autonomy</div></div>
+ <div class="prose"><h1>4. Autonomy &amp; Risk-Gating</h1>
+
+<blockquote></blockquote>
+<p>Kapan agent auto-jalan, kapan konfirmasi dulu.</p>
+
+<div class="code-block"><pre><code>Ini pilar paling penting untuk agent dengan akses penuh. Salah set → agent bisa rugiin anda dalam 1 prompt.</code></pre><button class="copy-btn">Copy</button></div>
+
+<h2>Konsep dasar: 3-tier autonomy</h2>
+
+
+
+<p>Tier </p>
+<table><tr><th>Aspek</th><th>Deskripsi</th></tr><tr><td>Behavior</td><td>Contoh</td></tr></table><p> <strong>Low (auto)</strong> </p>
+<table><tr><th>Aspek</th><th>Deskripsi</th></tr><tr><td>Langsung jalan, hasil dikasih balik ke model</td><td>ls, cat, df, git status</td></tr></table><p> <strong>Medium (auto + log)</strong> </p>
+<table><tr><th>Aspek</th><th>Deskripsi</th></tr><tr><td>Langsung jalan, kabarin user setelah</td><td>apt install, git commit, post tweet</td></tr></table><p> <strong>High (konfirmasi)</strong> </p>
+<table><tr><th>Aspek</th><th>Deskripsi</th></tr><tr><td>Stop, minta konfirmasi user dulu</td><td>rm, transfer wallet, drop database</td></tr></table><h2>Implementasi: risk field di tool_use</h2>
+
+<p>Model wajib output <code>risk</code> di setiap tool_use:</p>
+<p>&lt;tool_use&gt;{</p>
+<p> &quot;name&quot;: &quot;run_in_terminal&quot;,</p>
+<p> &quot;arguments&quot;: {</p>
+<div class="code-block"><pre><code>&amp;quot;command&amp;quot;: &amp;quot;rm -rf /tmp/cache&amp;quot;,</code></pre><button class="copy-btn">Copy</button></div>
+<p> &quot;risk&quot;: &quot;high&quot;,</p>
+<p> &quot;explanation&quot;: &quot;Hapus cache folder&quot;</p>
+<p> }</p>
+<p>}&lt;/tool_use&gt;</p>
+<p></p>
+<p>Backend gating:</p>
+<div class="code-block"><pre><code>def execute_with_gating(call, chat_id):</code></pre><button class="copy-btn"></button></div>
+
+<p> cmd = call[&quot;arguments&quot;][&quot;command&quot;]</p>
+<p> risk = call[&quot;arguments&quot;].get(&quot;risk&quot;, &quot;high&quot;) # default high (safe-by-default)</p>
+
+<p> if risk == &quot;low&quot;:</p>
+<div class="code-block"><pre><code>return run_command(cmd) # silent auto</code></pre><button class="copy-btn">Copy</button></div>
+<div class="code-block"><pre><code>elif risk == &amp;quot;medium&amp;quot;:
+elif risk == &amp;quot;high&amp;quot;:</code></pre><button class="copy-btn">Copy</button></div>
+<div class="code-block"><pre><code>pending_commands[chat_id] = call</code></pre><button class="copy-btn">Copy</button></div>
+<p> send_to_user(f&quot;Mau jalanin: {cmd}\nBalas &#x27;ya&#x27; untuk lanjut, &#x27;no&#x27; untuk batal.&quot;)</p>
+<div class="code-block"><pre><code>return None # signal: butuh konfirmasi</code></pre><button class="copy-btn">Copy</button></div>
+<div class="code-block"><pre><code>else:
+return f&amp;quot;Unknown risk level: {risk}&amp;quot;</code></pre><button class="copy-btn">Copy</button></div>
+<p></p>
+
+<div class="code-block"><pre><code>## Yang harus ada di SOUL.md
+
+## AUTONOMY</code></pre><button class="copy-btn"></button></div>
+
+<p>Default: full control. Akun user = akun agent.</p>
+
+<p>3 level otonomi per aksi:</p>
+
+<p>Fully autonomous (langsung jalan):</p>
+<ul><li>Read-only: ls, cat, df, ps, git status, git log, curl GET, baca file</li><li>Write minor reversible: mkdir, touch, pip install, git clone, </li></ul>
+<div class="code-block"><pre><code>git add/commit/push, post tweet, reply, like, kirim message</code></pre><button class="copy-btn">Copy</button></div>
+<ul><li>Wallet read: cek balance, history, simulate transaction</li></ul>
+
+<p>Autonomous + kabarin user setelah:</p>
+<ul><li>Deploy service, restart service, install package besar</li><li>Create repo baru, create PR, merge PR</li><li>Transfer wallet ke address yang udah pernah dipake sebelumnya</li><li>Subscribe/follow akun baru di sosmed</li><li>Big-ticket apt upgrade</li></ul>
+
+<p>Wajib konfirmasi DULU sebelum eksekusi:</p>
+<ul><li>Transfer wallet ke address yang BELUM PERNAH dipake</li><li>Sell/swap crypto dengan nilai &gt;$50 equivalent</li><li>Delete repo, force push ke main, rebase branch shared</li><li>rm -rf, drop database, format disk, sudo reboot</li><li>Unfollow/block massal di sosmed</li><li>Delete email penting</li><li>Apapun yang tidak bisa di-undo</li></ul>
+
+<p>Risk field:</p>
+<ul><li>&quot;low&quot; = read-only atau write yang gampang di-undo</li><li>&quot;medium&quot; = write yang butuh effort untuk undo, tapi reversible</li><li>&quot;high&quot; = irreversible atau bisa rugi uang/akun</li></ul>
+
+<p>Sistem auto-run low/medium. High butuh user confirm.</p>
+<p></p>
+
+<h2>Cara menentukan risk</h2>
+
+<p>Pertanyaan kunci: <strong>&quot;Kalo command ini salah, gimana cara recoverynya?&quot;</strong></p>
+
+
+
+<p>Jawaban </p>
+<table><tr><th>Aspek</th><th>Deskripsi</th></tr><tr><td>Risk</td><td>Tidak ada efek, cuma baca</td></tr><tr><td>Low</td><td></td></tr></table><p> Bisa di-undo dengan 1 command lawan (rm <code>&lt;file&gt;</code> → <code>git restore</code>) </p>
+<table><tr><th>Aspek</th><th>Deskripsi</th></tr><tr><td>Medium</td><td>Butuh effort untuk recover (restore backup, kontak admin)</td></tr><tr><td>High</td><td>Tidak bisa recover sama sekali (data hilang, uang lewat)</td></tr><tr><td>High</td><td></td></tr></table><p>Contoh:</p>
+
+
+
+<p>Command </p>
+<table><tr><th>Aspek</th><th>Deskripsi</th></tr><tr><td>Risk</td><td>Alasan</td></tr></table><p> <code>ls -la</code> </p>
+<table><tr><th>Aspek</th><th>Deskripsi</th></tr><tr><td>low</td><td>Read-only</td></tr></table><p> <code>git log</code> </p>
+<table><tr><th>Aspek</th><th>Deskripsi</th></tr><tr><td>low</td><td>Read-only</td></tr></table><p> <code>mkdir foo</code> </p>
+<div class="code-block"><pre><code>medium
+medium
+Wallet butuh aturan khusus karena uang nyata.</code></pre><button class="copy-btn">Copy</button></div>
+<div class="code-block"><pre><code>## AUTONOMY — WALLET</code></pre><button class="copy-btn">Copy</button></div>
+
+<p>Auto-execute:</p>
+<ul><li>Cek balance (read-only)</li><li>Cek transaction history</li><li>Simulate transaction (eth_call)</li><li>Approve token untuk router yang udah whitelisted</li></ul>
+
+<p>Konfirmasi DULU:</p>
+<ul><li>Transfer apapun ke alamat yang BELUM PERNAH dipake sebelumnya</li><li>Transfer &gt;$X (atur threshold sesuai comfort anda)</li><li>Swap dengan slippage &gt;2%</li><li>Interact dengan contract baru yang belum di-audit</li><li>Approve unlimited token amount</li></ul>
+<p></p>
+<p>Verifikasi alamat tujuan:</p>
+<p># Pseudo</p>
+<div class="code-block"><pre><code>KNOWN_ADDRESSES = load_known_addresses() # alamat yang pernah dipake
+
+def is_safe_transfer(to_addr, amount_usd):</code></pre><button class="copy-btn"></button></div>
+
+<p> if to_addr not in KNOWN_ADDRESSES:</p>
+<div class="code-block"><pre><code>return False, &amp;quot;Alamat baru, butuh konfirmasi&amp;quot;</code></pre><button class="copy-btn">Copy</button></div>
+<p> if amount_usd &gt; 50:</p>
+<div class="code-block"><pre><code>return False, &amp;quot;Amount &amp;gt; $50, butuh konfirmasi&amp;quot;</code></pre><button class="copy-btn">Copy</button></div>
+<div class="code-block"><pre><code>return True, &quot;Auto-OK&quot;
+
+## Spesial: sosial media</code></pre><button class="copy-btn"></button></div>
+
+<p>Sosial media post irreversible (bisa di-delete, tapi udah ke-cache di luar).</p>
+<div class="code-block"><pre><code>## AUTONOMY — SOSMED</code></pre><button class="copy-btn">Copy</button></div>
+
+<p>Auto-execute:</p>
+<ul><li>Reply ke mention/DM yang udah ada konteks dari user</li><li>Like, retweet</li><li>Follow akun yang user explicit minta</li></ul>
+
+<p>Konfirmasi DULU:</p>
+<ul><li>Original post ke timeline publik</li><li>Massal action (unfollow 100 akun, block list)</li><li>Posting dengan konten sensitif (politik, finansial advice)</li><li>DM ke akun yang user belum pernah interaksi</li></ul>
+<p></p>
+
+<h2>Pattern konfirmasi yang efektif</h2>
+
+<p>Saat agent mendapat high-risk task, balasan harus:</p>
+
+<ul><li><strong>Sebutin command-nya verbatim</strong> (biar user bisa scan)</li></ul>
+
+<ul><li><strong>Sebutin alasan kenapa high-risk</strong></li></ul>
+
+<ul><li><strong>Cara konfirmasi yang clear</strong> (&quot;ya&quot;/&quot;no&quot;)</li></ul>
+
+<p>Contoh:</p>
+<div class="code-block"><pre><code>Mau jalanin: rm -rf /home/ubuntu/project-lama</code></pre><button class="copy-btn">Copy</button></div>
+
+<p>Risk: high (irreversible). Folder ini memiliki 245 file, total 1.2GB.</p>
+
+<p>Lanjut? Balas &quot;ya&quot; untuk hapus, atau apapun untuk batal.</p>
+<p></p>
+
+<div class="code-block"><pre><code>## Anti-patterns
+
+### ❌ Konfirmasi untuk semua hal</code></pre><button class="copy-btn"></button></div>
+
+<p>User: ls</p>
+<p>Agent: Mau saya jalankan ls? (y/n)</p>
+<p></p>
+<p>Konfirmasi cuma untuk high-risk. Low-risk auto.</p>
+
+<h3>❌ Auto-execute high-risk</h3>
+
+<p>User: bersihin akun lama</p>
+<p>Agent: [delete 20 repos tanpa konfirmasi]</p>
+<p></p>
+<p>Itu disaster waiting to happen.</p>
+
+<div class="code-block"><pre><code>### ❌ Risk yang tidak konsisten
+
+Hari ini `apt install` = low. Besok `apt install` = high. Membuat user bingung.</code></pre><button class="copy-btn"></button></div>
+
+<p>Set rule yang stable di SOUL.md, jangan ubah tiap minggu.</p>
+
+<h3>❌ Konfirmasi multi-step yang ribet</h3>
+
+<p>Agent: Mau jalanin command ini?</p>
+<p>User: ya</p>
+<p>Agent: Sebelum saya jalankan, apakah Anda ingin backup dulu?</p>
+<p>User: ya</p>
+<p>Agent: Backup ke mana?</p>
+<p></p>
+<p>1 konfirmasi cukup. Pre-action: pake default yang masuk akal. Post-action: kasih hasil.</p>
+
+<div class="code-block"><pre><code>## Audit logging</code></pre><button class="copy-btn"></button></div>
+
+<p>Untuk action yang medium/high, log:</p>
+<div class="code-block"><pre><code>def log_action(chat_id, command, result, risk):</code></pre><button class="copy-btn"></button></div>
+
+<div class="code-block"><pre><code>with open(&amp;quot;data/audit.log&amp;quot;, &amp;quot;a&amp;quot;) as f:
+f.write(f&amp;quot;{datetime.now().isoformat()} | chat:{chat_id} | risk:{risk} | cmd:{command[:200]} | ok:{result[:100]}\n&amp;quot;)</code></pre><button class="copy-btn">Copy</button></div>
+<p></p>
+<p>Audit log untuk:</p>
+
+<ul><li>Debugging kalo agent salah jalan</li></ul>
+
+<ul><li>Review periodik action agent</li></ul>
+
+<ul><li>Forensik kalo ada kejadian aneh</li></ul>
+
+<h2>Test risk-gating</h2>
+
+<p>Sebelum production, test minimal:</p>
+
+<ul><li><code>ls /</code> → expect: low, auto-execute</li></ul>
+
+<ul><li><code>git commit -m &quot;test&quot;</code> → expect: medium, auto-execute + log</li></ul>
+
+<ul><li><code>rm -rf /tmp/test</code> → expect: high, konfirmasi</li></ul>
+
+<ul><li>Custom command yang anda prediksi high-risk → expect: konfirmasi</li></ul>
+
+<p>Kalo agent salah klasifikasi risk, perketat instruksi di SOUL.md.</p></div></div></div>
+ <div class="feedback-widget">
+ <p>Apakah halaman ini membantu?</p>
+ <div class="feedback-btns">
+ <button class="feedback-btn yes">Ya, membantu</button>
+ <button class="feedback-btn no">Tidak</button>
+ </div>
+ </div>
+ <footer class="footer">
+ <div class="container">
+ <div class="footer-links"><a href="index.html">Beranda</a><a href="konsep/index.html">Konsep</a><a href="pilar/index.html">Pilar</a><a href="praktik/index.html">Praktik</a><a href="tutorial/index.html">Tutorial</a><a href="backend/index.html">Backend</a><a href="agents/index.html">AI Agents</a><a href="llm/index.html">LLM</a></div>
+ <div class="footer-social">
+ <a href="https://github.com/Mftrferdinand" target="_blank" class="github" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.5.5.09.66-.22.66-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02.8-.22 1.65-.33 2.5-.33.85 0 1.7.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.16.58.67.48A10.01 10.01 0 0022 12c0-5.52-4.48-10-10-10z"/></svg></a>
+ <a href="https://twitter.com" target="_blank" class="twitter" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+ <a href="https://instagram.com" target="_blank" class="instagram" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+ <a href="https://t.me/v1aesbot" target="_blank" class="telegram" aria-label="Telegram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.94 4.5l-3.2 15.07c-.24 1.06-.87 1.32-1.76.82l-4.87-3.59-2.35 2.26c-.26.26-.48.48-.98.48l.35-4.96 9.03-8.16c.39-.35-.09-.55-.61-.2L6.7 13.12l-4.8-1.5c-1.04-.32-1.06-1.04.22-1.54l18.77-7.24c.87-.32 1.63.2 1.35 1.66z"/></svg></a>
+ </div>
+ <p>HermesGuide &mdash; Panduan Hermes Agent</p>
+ </div>
+ </footer>
+ <script src="../../assets/js/main.js"></script>
+</body>
+</html>

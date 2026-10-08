@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+ <title>Best Practice &mdash; HermesGuide</title>
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="../../assets/css/style.css?v=hermes-guide-v3">
+</head>
+<body>
+ <div class="bg-canvas"></div>
+ <div class="bg-grid"></div>
+ <div class="particles"></div>
+ <nav class="nav">
+ <div class="nav-left">
+ <a href="../index.html" class="nav-brand">
+ <div class="nav-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg></div>
+ <span class="nav-logo-text">Mftrferdinand<span>Docs</span></span>
+ </a>
+ <div class="nav-links"><a href="../index.html" class="nav-link"><span class="lang-id-inline">Beranda</span><span class="lang-en-inline">Home</span></a><a href="../agents/index.html" class="nav-link"><span class="lang-id-inline">AI Agents</span><span class="lang-en-inline">AI Agents</span></a><a href="../llm/index.html" class="nav-link"><span class="lang-id-inline">LLM</span><span class="lang-en-inline">LLM</span></a><a href="../prompt/index.html" class="nav-link active"><span class="lang-id-inline">Prompt</span><span class="lang-en-inline">Prompt</span></a><a href="../automation/index.html" class="nav-link"><span class="lang-id-inline">Automation</span><span class="lang-en-inline">Automation</span></a><a href="../api/index.html" class="nav-link"><span class="lang-id-inline">API Providers</span><span class="lang-en-inline">API Providers</span></a><a href="../coding/index.html" class="nav-link"><span class="lang-id-inline">Coding</span><span class="lang-en-inline">Coding</span></a><a href="../hermes/index.html" class="nav-link"><span class="lang-id-inline">Hermes</span><span class="lang-en-inline">Hermes</span></a></div>
+ </div>
+ <div class="nav-right">
+ <button id="translate-btn" class="nav-translate" aria-label="Translate">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+ <span class="lang-label">EN</span>
+ </button>
+ <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+ </div>
+ </nav>
+ <div class="page-title-bar">
+ <h2><span class="lang-id-inline">Best Practice</span><span class="lang-en-inline">Best Practices</span></h2>
+ <div class="breadcrumb"><a href="../index.html"><span class="lang-id-inline">Beranda</span><span class="lang-en-inline">Home</span></a> / <a href="index.html"><span class="lang-id-inline">Best Practice</span><span class="lang-en-inline">Best Practices</span></a> / Best Practice</div>
+ </div>
+ 
+ <div class="content-wrap">
+ <div class="container container-narrow">
+ <div class="page-header">
+ <h1><span class="lang-id-inline">Best Practice</span><span class="lang-en-inline">Best Practices</span></h1>
+ <div class="breadcrumb"><a href="../index.html"><span class="lang-id-inline">Beranda</span><span class="lang-en-inline">Home</span></a> / <a href="index.html"><span class="lang-id-inline">Best Practice</span><span class="lang-en-inline">Best Practices</span></a> / Best Practice</div>
+ </div>
+ <div class="prose">
+ 
+<h2>10 Golden Rules of Prompt Engineering</h2>
+
+<h3>Rule 1: Clarity Over Cleverness</h3>
+<p>Tulis prompt yang jelas dan langsung, bukan yang &quot;pintar&quot; atau berpuisi. Model tidak terkesan dengan gaya bahasa — yang diproses adalah token dan struktur. &quot;Klasifikasi sentimen review berikut sebagai positif/negatif/netral&quot; lebih baik dari &quot;Bacalah jiwa pelanggan dari kata-kata berikut&quot;.</p>
+
+<h3>Rule 2: Show, Don&#x27;t Just Tell</h3>
+<p>Few-shot examples lebih efektif daripada deskripsi verbal yang panjang. Satu contoh input-output mengkomunikasikan format dengan lebih tepat daripada paragraf instruksi. Jika format output kompleks, 3 contoh lebih murah daripada 200 kata deskripsi.</p>
+
+<h3>Rule 3: Decompose Complex Tasks</h3>
+<p>Pecah tugas kompleks menjadi langkah-langkah yang terpisah. Alih-alih &quot;Analisis dokumen ini, rangkas, ekstrak entitas, klasifikasi, dan format sebagai JSON&quot;, gunakan pipeline: Step 1 ekstrak -&gt; Step 2 klasifikasi -&gt; Step 3 format. Setiap langkah lebih mudah diuji, debug, dan optimisasi.</p>
+
+<h3>Rule 4: Specify What NOT to Do</h3>
+<p>Negative instructions sama pentingnya dengan positive. &quot;Jangan menambahkan komentar di luar JSON&quot; mencegah model menambahkan teks penjelasan yang merusak parsing. &quot;Jangan menggunakan informasi di luar konteks yang diberikan&quot; mencegah halusinasi.</p>
+
+<h3>Rule 5: Control Output Length</h3>
+<p>Selalu tentukan panjang output yang diharapkan: jumlah kata, jumlah item, atau jumlah token. Tanpa batasan, model cenderung menghasilkan output yang lebih panjang dari yang diperlukan, membuang token dan biaya.</p>
+
+<h3>Rule 6: Use Delimiters for Structure</h3>
+<p>Gunakan penanda yang jelas untuk memisahkan komponen prompt: triple backticks, XML tags, atau delimiter kustom. Ini membantu model membedakan antara instruksi, konteks, dan data.</p>
+
+<div class="code-block"><pre><code>Instruksi: Ringkas teks di dalam &lt;document&gt; tags.
+
+&lt;document&gt;
+{konten_dokumen}
+&lt;/document&gt;
+
+Output dalam format:
+&lt;summary&gt;ringkasan&lt;/summary&gt;
+&lt;key_points&gt;point1; point2; point3&lt;/key_points&gt;</code></pre><button class="copy-btn"></button></div>
+
+<h3>Rule 7: Set the Right Temperature</h3>
+<p>Temperature mengontrol kreativitas output. Gunakan temperature 0 untuk tugas deterministik (klasifikasi, ekstraksi, parsing), 0.3-0.5 untuk summarization dan analisis, 0.7-0.9 untuk tugas kreatif. Jangan gunakan temperature tinggi untuk tugas yang membutuhkan konsistensi.</p>
+
+<h3>Rule 8: Test with Diverse Inputs</h3>
+<p>Jangan hanya menguji dengan input ideal. Untuk test suite yang mencakup: input kosong, input sangat panjang, input multilingual, input dengan karakter khusus, dan input adversarial. Prompt yang baik harus menangani edge case dengan graceful degradation.</p>
+
+<h3>Rule 9: Version Your Prompts</h3>
+<p>Prompt adalah kode. Simpan dalam version control, beri tag versi, dan dokumentasikan perubahan. Setiap perubahan prompt harus diuji terhadap regression test suite. &quot;Small tweak&quot; dapat mengubah perilaku secara tidak terduga.</p>
+
+<h3>Rule 10: Measure, Don&#x27;t Assume</h3>
+<p>Jangan mengandalkan intuisi untuk menilai kualitas prompt. Definisikan metrik evaluasi (accuracy, precision, recall, BLEU, ROUGE, atau custom), jalankan pada test set, dan bandingkan secara kuantitatif. Prompt yang &quot;terlihat lebih baik&quot; belum tentu lebih akurat.</p>
+
+<h2>Anti-Patterns</h2>
+
+<h3>Anti-Pattern 1: Prompt Everything</h3>
+<p>Mencoba menyelesaikan semua tugas dalam satu prompt raksasa. Ini menghasilkan output yang tidak konsisten dan sulit di-debug. <strong>Solusi:</strong> Pecah menjadi pipeline multi-step.</p>
+
+<h3>Anti-Pattern 2: Over-Engineering Prompts</h3>
+<p>Menambahkan constraint berlapis yang saling tumpang tindih. Setiap constraint tambahan meningkatkan kompleksitas dan dapat menyebabkan konflik. <strong>Solusi:</strong> Minimalisir, uji, lalu tambahkan hanya jika perlu.</p>
+
+<h3>Anti-Pattern 3: Copy-Paste Without Understanding</h3>
+<p>Menggunakan prompt dari internet tanpa memahami mengapa ia bekerja. <strong>Solusi:</strong> Pahami setiap komponen, uji pada data Anda sendiri, dan adaptasi ke konteks spesifik.</p>
+
+<h3>Anti-Pattern 4: No Fallback for LLM Failure</h3>
+<p>Tidak menangani kasus di mana model gagal atau menghasilkan output tidak valid. <strong>Solusi:</strong> Selalu implementasikan retry, fallback, dan output validation.</p>
+
+<h3>Anti-Pattern 5: Treating Prompts as Static</h3>
+<p>Prompt yang bekerja pada model versi lama mungkin tidak optimal pada versi baru. <strong>Solusi:</strong> Re-evaluate prompt saat model di-upgrade, dan maintain test suite yang dapat dijalankan ulang.</p>
+
+<h2>Prompt Testing Methodology</h2>
+
+<h3>Test Set Construction</h3>
+<p>Bangun test set yang representatif dengan minimal 50-100 contoh yang mencakup:</p>
+<ul><li><strong>Normal cases</strong> (70%): Input tipikal yang diharapkan</li><li><strong>Edge cases</strong> (20%): Input ekstrem, kosong, atau tidak standar</li><li><strong>Adversarial cases</strong> (10%): Input yang dirancang untuk menantang prompt</li></ul>
+
+<h3>Evaluation Metrics</h3>
+
+<table><tr><th>Metrik</th><th>Use Case</th><th>Cara Hitung</th></tr><tr><td>Exact Match</td><td>Klasifikasi, ekstraksi</td><td>Output == expected</td></tr><tr><td>F1 Score</td><td>NER, multi-label</td><td>Precision + recall</td></tr><tr><td>BLEU</td><td>Translation, generation</td><td>N-gram overlap</td></tr><tr><td>ROUGE</td><td>Summarization</td><td>Recall-oriented overlap</td></tr><tr><td>LLM-as-Judge</td><td>Open-ended output</td><td>Model kedua menilai</td></tr><tr><td>Human Eval</td><td>Final validation</td><td>Manual scoring</td></tr></table>
+
+<h3>Automated Testing Pipeline</h3>
+
+<div class="code-block"><pre><code>import json
+
+def run_prompt_tests(prompt_template, test_cases, model=&quot;gpt-4o&quot;):
+ results = []
+ for case in test_cases:
+ prompt = prompt_template.format(input=case[&quot;input&quot;])
+ output = call_llm(prompt, model=model, temperature=0)
+ 
+ result = {
+ &quot;test_id&quot;: case[&quot;id&quot;],
+ &quot;input&quot;: case[&quot;input&quot;],
+ &quot;expected&quot;: case[&quot;expected&quot;],
+ &quot;actual&quot;: output,
+ &quot;passed&quot;: evaluate(output, case[&quot;expected&quot;], 
+ case.get(&quot;eval_fn&quot;, &quot;exact_match&quot;)),
+ &quot;latency_ms&quot;: response.latency_ms,
+ &quot;tokens_in&quot;: count_tokens(prompt),
+ &quot;tokens_out&quot;: count_tokens(output),
+ }
+ results.append(result)
+ 
+ passed = sum(1 for r in results if r[&quot;passed&quot;])
+ print(f&quot;Pass rate: {passed}/{len(results)} &quot;
+ f&quot;({passed/len(results)*100:.1f}%)&quot;)
+ return results</code></pre><button class="copy-btn"></button></div>
+
+<h2>A/B Testing Prompts</h2>
+
+<p>A/B testing prompt adalah proses membandingkan dua atau lebih variasi prompt pada test set yang sama untuk menentukan mana yang berperforma lebih baik.</p>
+
+<h3>Proses A/B Testing</h3>
+
+<ol><li><strong>Definisikan hipotesis:</strong> &quot;Menambahkan few-shot example akan meningkatkan akurasi klasifikasi&quot;</li><li><strong>Kontrol (A):</strong> Prompt saat ini</li><li><strong>Treatment (B):</strong> Prompt dengan perubahan</li><li><strong>Sample size:</strong> Minimal 100 test cases untuk signifikansi statistik</li><li><strong>Jalankan:</strong> Kedua prompt pada test set yang sama, temperature 0</li><li><strong>Analisis:</strong> Bandingkan metrik (accuracy, F1, latency, cost)</li><li><strong>Statistical test:</strong> Chi-square untuk accuracy, t-test untuk latency</li></ol>
+
+<div class="code-block"><pre><code>from scipy import stats
+
+def ab_test(prompt_a_results, prompt_b_results):
+ a_correct = sum(1 for r in prompt_a_results if r[&quot;passed&quot;])
+ b_correct = sum(1 for r in prompt_b_results if r[&quot;passed&quot;])
+ 
+ # Chi-square test
+ contingency = [
+ [a_correct, len(prompt_a_results) - a_correct],
+ [b_correct, len(prompt_b_results) - b_correct],
+ ]
+ chi2, p_value = stats.chi2_contingency(contingency)[:2]
+ 
+ print(f&quot;Prompt A: {a_correct}/{len(prompt_a_results)} &quot;
+ f&quot;({a_correct/len(prompt_a_results)*100:.1f}%)&quot;)
+ print(f&quot;Prompt B: {b_correct}/{len(prompt_b_results)} &quot;
+ f&quot;({b_correct/len(prompt_b_results)*100:.1f}%)&quot;)
+ print(f&quot;P-value: {p_value:.4f}&quot;)
+ print(f&quot;Significant: {&#x27;Yes&#x27; if p_value &lt; 0.05 else &#x27;No&#x27;}&quot;)</code></pre><button class="copy-btn"></button></div>
+
+<h2>Prompt Versioning</h2>
+
+<h3>Versioning Strategy</h3>
+<ul><li><strong>Semantic versioning:</strong> MAJOR.MINOR.PATCH (breaking.change.fix)</li><li><strong>Branching:</strong> Main untuk production, feature branches untuk eksperimen</li><li><strong>Changelog:</strong> Dokumentasikan apa yang berubah dan mengapa</li></ul>
+
+<h3>Storage Structure</h3>
+
+<div class="code-block"><pre><code>prompts/
+ classification/
+ sentiment_v1.0.json # Initial version
+ sentiment_v1.1.json # Added few-shot
+ sentiment_v2.0.json # Breaking: new output schema
+ extraction/
+ entity_v1.0.json
+ ...</code></pre><button class="copy-btn"></button></div>
+
+<h3>Prompt Schema</h3>
+
+<div class="code-block"><pre><code>{
+ &quot;name&quot;: &quot;sentiment_classifier&quot;,
+ &quot;version&quot;: &quot;2.0.0&quot;,
+ &quot;model&quot;: &quot;gpt-4o&quot;,
+ &quot;temperature&quot;: 0,
+ &quot;system_prompt&quot;: &quot;Anda adalah classifier sentimen...&quot;,
+ &quot;user_template&quot;: &quot;Klasifikasi: {input}\nOutput:&quot;,
+ &quot;few_shot&quot;: [
+ {&quot;input&quot;: &quot;Bagus!&quot;, &quot;output&quot;: &quot;positif&quot;},
+ {&quot;input&quot;: &quot;Jelek&quot;, &quot;output&quot;: &quot;negatif&quot;}
+ ],
+ &quot;eval_metrics&quot;: [&quot;accuracy&quot;, &quot;f1_macro&quot;],
+ &quot;test_set&quot;: &quot;tests/sentiment_v2.json&quot;,
+ &quot;min_threshold&quot;: 0.90,
+ &quot;last_evaluated&quot;: &quot;2025-01-15&quot;,
+ &quot;changelog&quot;: &quot;v2.0: Changed output from &#x27;positive&#x27; to &#x27;positif&#x27;&quot;
+}</code></pre><button class="copy-btn"></button></div>
+
+<h2>Team Collaboration on Prompts</h2>
+
+<h3>Workflow Kolaborasi</h3>
+
+<ol><li><strong>Prompt library:</strong> Centralized repository untuk semua prompt yang disetujui</li><li><strong>Review process:</strong> Pull request untuk perubahan prompt, review oleh senior prompt engineer</li><li><strong>Documentation:</strong> Setiap prompt dilengkapi dengan: deskripsi, use case, test results, known limitations</li><li><strong>Ownership:</strong> Setiap prompt memiliki owner yang bertanggung jawab atas maintenance</li><li><strong>Onboarding:</strong> Prompt library sebagai dokumentasi untuk anggota tim baru</li></ol>
+
+<h3>Best Practices Tim</h3>
+<ul><li>Gunakan bahasa yang sama untuk prompt dan dokumentasi (konsistensi ID/EN)</li><li>Standarkan format prompt (system + instruction + context + format)</li><li>Bagikan few-shot examples yang terbukti efektif</li><li>Conduct prompt review sessions secara berkala</li></ul>
+
+<h2>Prompt Management Tools</h2>
+
+<h3>LangSmith</h3>
+<p>Platform dari LangChain untuk tracing, evaluasi, dan manajemen prompt. Fitur utama:</p>
+<ul><li><strong>Trace visualization:</strong> Lihat setiap langkah eksekusi dengan input/output</li><li><strong>Prompt Hub:</strong> Versioned prompt repository yang dapat dibagikan</li><li><strong>Evaluation framework:</strong> Automated testing dengan custom evaluators</li><li><strong>Dataset management:</strong> Simpan dan kelola test datasets</li><li><strong>Monitoring:</strong> Production tracing untuk observability real-time</li></ul>
+
+<h3>Promptfoo</h3>
+<p>CLI tool untuk testing dan evaluasi prompt. Open-source, mendukung multiple providers.</p>
+
+<div class="code-block"><pre><code># promptfooconfig.yaml
+prompts:
+ - file://prompts/sentiment_v2.txt
+ 
+providers:
+ - openai:gpt-4o
+ - openai:gpt-4o-mini
+ - anthropic:claude-3-5-sonnet
+
+tests:
+ - vars: {input: &quot;Sangat memuaskan!&quot;}
+ assert:
+ - type: contains
+ value: &quot;positif&quot;
+ - vars: {input: &quot;Rusak parah&quot;}
+ assert:
+ - type: contains
+ value: &quot;negatif&quot;</code></pre><button class="copy-btn"></button></div>
+
+<div class="code-block"><pre><code># Run evaluation
+npx promptfoo eval
+
+# View results in browser
+npx promptfoo view</code></pre><button class="copy-btn"></button></div>
+
+<h3>Perbandingan Tools</h3>
+
+<table><tr><th>Tool</th><th>Tipe</th><th>Fokus</th><th>Self-Host</th><th>Pricing</th></tr><tr><td>LangSmith</td><td>SaaS + Self-host</td><td>Full lifecycle</td><td>Ya (enterprise)</td><td>Free tier + paid</td></tr><tr><td>Promptfoo</td><td>CLI / Open-source</td><td>Testing &amp; eval</td><td>Ya (local)</td><td>Gratis</td></tr><tr><td>Weave</td><td>SaaS</td><td>Tracing + eval</td><td>Tidak</td><td>Free tier + paid</td></tr><tr><td>Helicone</td><td>SaaS + Self-host</td><td>Observability</td><td>Ya</td><td>Free tier + paid</td></tr><tr><td>Portkey</td><td>SaaS</td><td>Gateway + obs</td><td>Tidak</td><td>Free tier + paid</td></tr></table>
+
+<p>Pilihan tergantung kebutuhan: Promptfoo untuk CI/CD testing, LangSmith untuk full lifecycle management, Helicone untuk production observability.</p>
+
+ </div>
+ </div>
+ </div>
+
+ <footer class="footer">
+ <div class="container">
+ <div class="footer-social">
+ <a href="https://github.com/Mftrferdinand" target="_blank" class="github" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.5.5.09.66-.22.66-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02.8-.22 1.65-.33 2.5-.33.85 0 1.7.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.16.58.67.48A10.01 10.01 0 0022 12c0-5.52-4.48-10-10-10z"/></svg></a>
+ <a href="https://twitter.com" target="_blank" class="twitter" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+ <a href="https://instagram.com" target="_blank" class="instagram" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+ <a href="https://t.me/v1aesbot" target="_blank" class="telegram" aria-label="Telegram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.94 4.5l-3.2 15.07c-.24 1.06-.87 1.32-1.76.82l-4.87-3.59-2.35 2.26c-.26.26-.48.48-.98.48l.35-4.96 9.03-8.16c.39-.35-.09-.55-.61-.2L6.7 13.12l-4.8-1.5c-1.04-.32-1.06-1.04.22-1.54l18.77-7.24c.87-.32 1.63.2 1.35 1.66z"/></svg></a>
+ </div>
+ <p>HermesGuide &mdash; AI Insight &mdash; v6.0</p>
+ </div>
+ </footer>
+ <script src="../../assets/js/main.js"></script>
+</body>
+</html>

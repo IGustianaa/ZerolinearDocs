@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+ <title>Contoh Implementasi &mdash; HermesGuide</title>
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="../../assets/css/style.css?v=hermes-guide-v3">
+</head>
+<body>
+ <nav class="nav">
+ <div class="nav-left">
+ <a href="../index.html" class="nav-brand">
+ <div class="nav-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg></div>
+ <span class="nav-logo-text">Mftrferdinand<span>Docs</span></span>
+ </a>
+ </div>
+ <div class="nav-center"><a href="../index.html" class="nav-link"><span class="lang-id-inline">Beranda</span><span class="lang-en-inline">Home</span></a><a href="../konsep/index.html" class="nav-link"><span class="lang-id-inline">Konsep</span><span class="lang-en-inline">Concept</span></a><a href="../pilar/index.html" class="nav-link"><span class="lang-id-inline">Pilar</span><span class="lang-en-inline">Pillars</span></a><a href="../praktik/index.html" class="nav-link"><span class="lang-id-inline">Praktik</span><span class="lang-en-inline">Practice</span></a><a href="../tutorial/index.html" class="nav-link"><span class="lang-id-inline">Tutorial</span><span class="lang-en-inline">Tutorial</span></a><a href="../backend/index.html" class="nav-link"><span class="lang-id-inline">Backend</span><span class="lang-en-inline">Backend</span></a><a href="../agents/index.html" class="nav-link active"><span class="lang-id-inline">AI Agents</span><span class="lang-en-inline">AI Agents</span></a><a href="../llm/index.html" class="nav-link"><span class="lang-id-inline">LLM</span><span class="lang-en-inline">LLM</span></a><a href="../prompt/index.html" class="nav-link"><span class="lang-id-inline">Prompt</span><span class="lang-en-inline">Prompt</span></a><a href="../automation/index.html" class="nav-link"><span class="lang-id-inline">Automation</span><span class="lang-en-inline">Automation</span></a><a href="../api/index.html" class="nav-link"><span class="lang-id-inline">API</span><span class="lang-en-inline">API</span></a><a href="../coding/index.html" class="nav-link"><span class="lang-id-inline">Coding</span><span class="lang-en-inline">Coding</span></a><a href="../hermes/index.html" class="nav-link"><span class="lang-id-inline">Hermes</span><span class="lang-en-inline">Hermes</span></a><a href="../lampiran/index.html" class="nav-link"><span class="lang-id-inline">Lampiran</span><span class="lang-en-inline">Appendix</span></a></div>
+ <div class="nav-right">
+ <div class="nav-search" aria-label="Search">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span class="lang-id-inline">Cari</span><span class="lang-en-inline">Search</span>
+ <kbd>Ctrl K</kbd>
+ </div>
+ <button id="translate-btn" class="nav-toggle-btn" aria-label="Translate">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="lang-label" style="font-size:.7rem;font-weight:700;margin-left:.15rem;">EN</span>
+ </button>
+ <button id="theme-btn" class="nav-toggle-btn" aria-label="Theme">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+ </button>
+ <button class="nav-menu-btn" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+ </div>
+ </nav>
+ <div class="mega-menu">
+ <button class="mega-menu-close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+ <div class="mega-menu-grid"><div class="mega-menu-section"><h4>Dasar</h4><a href="../index.html">Beranda<span class="desc">Hero & overview</span></a><a href="../konsep/index.html">Konsep<span class="desc">Dasar-dasar AI & AI Agent</span></a><a href="../pilar/index.html">Pilar<span class="desc">5 pilar inti agent</span></a><a href="../praktik/index.html">Praktik<span class="desc">Studi kasus & implementasi</span></a></div><div class="mega-menu-section"><h4>Panduan</h4><a href="../tutorial/index.html">Tutorial<span class="desc">Panduan step-by-step</span></a><a href="../backend/index.html">Backend<span class="desc">Arsitektur server & integrasi</span></a><a href="../hermes/index.html">Hermes<span class="desc">Setup, config, Termux, Windows</span></a><a href="../lampiran/index.html">Lampiran<span class="desc">FAQ, changelog, resource</span></a></div><div class="mega-menu-section"><h4>AI & LLM</h4><a href="../agents/index.html">AI Agents<span class="desc">Penjelasan mendalam agent</span></a><a href="../llm/index.html">LLM<span class="desc">Dasar Large Language Model</span></a><a href="../prompt/index.html">Prompt<span class="desc">Teknik & strategi prompting</span></a><a href="../automation/index.html">Automation<span class="desc">Otomatisasi workflow</span></a></div><div class="mega-menu-section"><h4>Developer</h4><a href="../api/index.html">API<span class="desc">Dokumentasi referensi API</span></a><a href="../coding/index.html">Coding<span class="desc">Contoh & snippet implementasi</span></a></div></div>
+ </div>
+ <div class="search-overlay">
+ <div class="search-box">
+ <input type="text" placeholder="Cari dokumentasi..." />
+ <div class="search-results"></div>
+ </div>
+ </div>
+ <div class="page-title-bar"><h2><span class="lang-id-inline">Contoh Implementasi</span><span class="lang-en-inline">Implementation Examples</span></h2><div class="breadcrumb"><a href="../index.html"><span class="lang-id-inline">Beranda</span><span class="lang-en-inline">Home</span></a> / <a href="index.html"><span class="lang-id-inline">Contoh Implementasi</span><span class="lang-en-inline">Implementation Examples</span></a> / Contoh Implementasi</div></div>
+ 
+ <div class="content-wrap"><div class="container container-narrow">
+ <div class="page-header"><h1><span class="lang-id-inline">Contoh Implementasi</span><span class="lang-en-inline">Implementation Examples</span></h1><div class="breadcrumb"><a href="../index.html"><span class="lang-id-inline">Beranda</span><span class="lang-en-inline">Home</span></a> / <a href="index.html"><span class="lang-id-inline">Contoh Implementasi</span><span class="lang-en-inline">Implementation Examples</span></a> / Contoh Implementasi</div></div>
+ <div class="prose">
+<h2>Studi Kasus 1: Research Assistant</h2>
+
+<h3>Problem Statement</h3>
+
+<p>Tim analis membutuhkan sistem yang dapat menerima topik penelitian, secara otomatis mencari sumber terkini, membaca dan mengekstrak informasi kunci, dan menghasilkan laporan terstruktur dengan citations. Volume penelitian: 20-50 topik per minggu. Tanpa agen, setiap topik membutuhkan 2-4 jam kerja manual.</p>
+
+<h3>Arsitektur</h3>
+
+<p>Research Assistant menggunakan arsitektur single deliberative agent dengan planning (Plan-and-Execute) dan lima tools:</p>
+
+<ol><li><strong>web_search</strong> — Mencari artikel, paper, dan laporan terkait topik</li><li><strong>fetch_page</strong> — Mengambil konten halaman web untuk dibaca</li><li><strong>summarize</strong> — Merangkum teks panjang menjadi bullet points</li><li><strong>extract_entities</strong> — Mengekstrak nama, tanggal, angka, dan fakta kunci</li><li><strong>write_report</strong> — Menyusun laporan final dalam format Markdown</li></ol>
+
+<h3>Alur Eksekusi</h3>
+
+<div class="code-block"><pre><code>Input: &quot;Analisis dampak AI generatif terhadap industri media 2024-2025&quot;
+
+Step 1: Plan
+ - Search for recent articles on AI + media industry impact
+ - Search for industry reports (McKinsey, Deloitte, PwC)
+ - Fetch top 5 most relevant sources
+ - Extract key statistics and quotes
+ - Identify trends and counterarguments
+ - Write structured report with citations
+
+Step 2-6: Execute each sub-task
+ -&gt; web_search(&quot;AI generatif dampak industri media 2024 2025&quot;)
+ -&gt; web_search(&quot;generative AI media industry report 2024 McKinsey&quot;)
+ -&gt; fetch_page(url1), fetch_page(url2), ...
+ -&gt; summarize(content), extract_entities(content)
+ 
+Step 7: Synthesize
+ -&gt; write_report(findings, citations, format=&quot;markdown&quot;)</code></pre><button class="copy-btn"></button></div>
+
+<h3>Kode Snippet</h3>
+
+<div class="code-block"><pre><code>from langgraph.graph import StateGraph, END
+from typing import TypedDict
+
+class ResearchState(TypedDict):
+ topic: str
+ plan: list[str]
+ findings: list[dict]
+ report: str
+
+def plan_research(state):
+ prompt = f&quot;Create a research plan for: {state[&#x27;topic&#x27;]}. Output as JSON list of steps.&quot;
+ plan = llm.invoke(prompt)
+ return {&quot;plan&quot;: plan}
+
+def execute_step(state):
+ step = state[&quot;plan&quot;][0]
+ result = execute_with_tools(step, tools=[search, fetch, summarize])
+ return {
+ &quot;findings&quot;: state[&quot;findings&quot;] + [result],
+ &quot;plan&quot;: state[&quot;plan&quot;][1:]
+ }
+
+def should_continue(state):
+ if state[&quot;plan&quot;]:
+ return &quot;execute&quot;
+ return &quot;write_report&quot;
+
+workflow = StateGraph(ResearchState)
+workflow.add_node(&quot;plan&quot;, plan_research)
+workflow.add_node(&quot;execute&quot;, execute_step)
+workflow.add_node(&quot;write_report&quot;, generate_report)
+workflow.set_entry_point(&quot;plan&quot;)
+workflow.add_edge(&quot;plan&quot;, &quot;execute&quot;)
+workflow.add_conditional_edges(&quot;execute&quot;, should_continue)
+workflow.add_edge(&quot;write_report&quot;, END)
+
+app = workflow.compile()
+result = app.invoke({&quot;topic&quot;: &quot;AI impact on media industry&quot;, &quot;findings&quot;: [], &quot;report&quot;: &quot;&quot;})</code></pre><button class="copy-btn"></button></div>
+
+<h3>Hasil dan Metric</h3>
+
+<ul><li>Waktu per topik: 8-15 menit (vs 2-4 jam manual)</li><li>Akurasi citations: 92% (verified by human reviewer)</li><li>Cost per report: $0.05-0.20 (GPT-4o-mini untuk search, Claude Sonnet untuk writing)</li><li>Throughput: 50+ topik per hari dengan satu instance</li></ul>
+
+<h2>Studi Kasus 2: DevOps Monitor</h2>
+
+<h3>Problem Statement</h3>
+
+<p>Infrastruktur microservices dengan 200+ service membutuhkan monitoring 24/7. Tim on-call (5 orang) overwhelmed dengan 500+ alerts per hari, 80% false positive. Dibutuhkan agen yang dapat: memfilter noise, mengkategorikan alert, menjalankan remediasi otomatis untuk issue umum, dan escalate hanya yang membutuhkan manusia.</p>
+
+<h3>Arsitektur</h3>
+
+<p>DevOps Monitor adalah autonomous agent dengan level otonomi tinggi, berjalan melalui cron setiap 60 detik. Tools:</p>
+
+<ol><li><strong>query_metrics</strong> — Membaca Prometheus/Grafana metrics (CPU, memory, latency, error rate)</li><li><strong>query_logs</strong> — Mencari log entries dengan filter (ELK/Loki)</li><li><strong>run_command</strong> — Eksekusi shell command di server (dengan whitelist)</li><li><strong>scale_service</strong> — Scale up/down Kubernetes deployment</li><li><strong>restart_service</strong> — Restart pod atau container</li><li><strong>send_alert</strong> — Notify Slack/PagerDuty dengan severity dan context</li></ol>
+
+<h3>Autonomy Levels</h3>
+
+<table><tr><th>Level</th><th>Trigger</th><th>Action</th><th>Approval</th></tr><tr><td>L1: Detect</td><td>Metric anomaly</td><td>Log + classify</td><td>None</td></tr><tr><td>L2: Diagnose</td><td>L1 confirmed</td><td>Query logs, identify root cause</td><td>None</td></tr><tr><td>L3: Remediate</td><td>Known issue (DB connection, OOM, disk)</td><td>Auto-fix (restart, scale, clean)</td><td>None</td></tr><tr><td>L4: Escalate</td><td>Unknown or critical</td><td>Notify human with full context</td><td>Human</td></tr></table>
+
+<h3>Alur Eksekusi</h3>
+
+<div class="code-block"><pre><code>[CRON every 60s]
+1. query_metrics() -&gt; detect: api-gateway latency p99 &gt; 2000ms (threshold 500ms)
+2. Classify: Severity HIGH, service: api-gateway
+3. query_logs(&quot;api-gateway&quot;, &quot;ERROR&quot;, last_5_min) -&gt; found: &quot;DB connection pool exhausted&quot;
+4. Match known issue: &quot;DB connection pool exhaustion&quot;
+5. run_command(&quot;kubectl get pods -n api-gateway&quot;) -&gt; 3 pods, 2 unhealthy
+6. restart_service(&quot;api-gateway&quot;) -&gt; pods recreated
+7. query_metrics(after 30s) -&gt; latency p99 = 350ms (recovered)
+8. send_alert(slack, &quot;AUTO-RESOLVED: api-gateway latency&quot;, context, actions_taken)</code></pre><button class="copy-btn"></button></div>
+
+<h3>Guardrails</h3>
+
+<ul><li><strong>Action whitelist</strong> — Hanya restart, scale, dan clean cache. Tidak ada delete, deploy, atau config change.</li><li><strong>Max actions per hour</strong> — 10 remediasi maksimum. Jika lebih, escalate ke manusia.</li><li><strong>Rollback window</strong> — Setiap auto-fix dicatat. Jika metrik memburuk dalam 5 menit, rollback otomatis.</li><li><strong>Circuit breaker</strong> — Jika 3 remediasi berturut-turut gagal, agent berhenti dan menunggu intervensi.</li></ul>
+
+<h3>Hasil</h3>
+
+<ul><li>Alert noise berkurang 73% (500 -&gt; 135 per hari)</li><li>Auto-remediation success rate: 68% dari L3 issues</li><li>Mean time to resolution (MTTR): 45 menit -&gt; 8 menit</li><li>Tim on-call workload: turun 60%, fokus shift ke L4 issues</li></ul>
+
+<h2>Studi Kasus 3: Content Pipeline</h2>
+
+<h3>Problem Statement</h3>
+
+<p>Media company memproduksi 30-50 artikel per hari. Proses manual: research -&gt; draft -&gt; edit -&gt; SEO optimization -&gt; publish. Butuh pipeline multi-agent yang mengotomasi end-to-end dengan quality control.</p>
+
+<h3>Arsitektur Multi-Agent</h3>
+
+<p>Pipeline menggunakan 4 specialist agents dalam konfigurasi sequential:</p>
+
+<ol><li><strong>Researcher</strong> — Menerima topic brief, cari trending angles, kumpulkan data dan sources</li><li><strong>Writer</strong> — Susun draft 1500-2000 kata berdasarkan research findings, dengan tone dan style guidelines</li><li><strong>Editor</strong> — Review draft untuk factual accuracy, grammar, flow, dan brand voice. Berikan revision notes.</li><li><strong>Publisher</strong> — SEO optimize (meta description, headings, keywords), format untuk CMS, schedule publish.</li></ol>
+
+<h3>Implementasi dengan CrewAI</h3>
+
+<div class="code-block"><pre><code>from crewai import Agent, Task, Crew, Process
+
+researcher = Agent(
+ role=&quot;Content Researcher&quot;,
+ goal=&quot;Gather 5-7 authoritative sources and key data points for: {topic}&quot;,
+ backstory=&quot;Experienced journalist with expertise in data-driven storytelling.&quot;,
+ tools=[search_tool, scrape_tool, trend_tool],
+)
+
+writer = Agent(
+ role=&quot;Content Writer&quot;,
+ goal=&quot;Write a 1500-2000 word article from research findings.&quot;,
+ backstory=&quot;Senior writer with 10 years at major publications. Adapts tone to brand guidelines.&quot;,
+)
+
+editor = Agent(
+ role=&quot;Content Editor&quot;,
+ goal=&quot;Review for accuracy, grammar, flow, and brand voice. Provide specific revision notes.&quot;,
+ backstory=&quot;Former editor-in-chief. Meticulous about factual accuracy and readability.&quot;,
+)
+
+publisher = Agent(
+ role=&quot;SEO &amp; Publisher&quot;,
+ goal=&quot;Optimize for SEO and format for WordPress CMS.&quot;,
+ backstory=&quot;SEO specialist with technical content marketing expertise.&quot;,
+ tools=[seo_tool, cms_tool],
+)
+
+tasks = [
+ Task(description=&quot;Research {topic}&quot;, agent=researcher, expected_output=&quot;Research brief with 7 sources.&quot;),
+ Task(description=&quot;Write article from research.&quot;, agent=writer, expected_output=&quot;1500-word draft.&quot;),
+ Task(description=&quot;Edit and revise.&quot;, agent=editor, expected_output=&quot;Revised article + edit notes.&quot;),
+ Task(description=&quot;SEO optimize and publish.&quot;, agent=publisher, expected_output=&quot;Published article URL.&quot;),
+]
+
+crew = Crew(agents=[researcher, writer, editor, publisher], tasks=tasks, process=Process.sequential)
+result = crew.kickoff(inputs={&quot;topic&quot;: &quot;The future of quantum computing in 2025&quot;})</code></pre><button class="copy-btn"></button></div>
+
+<h3>Hasil dan Lessons Learned</h3>
+
+<ul><li>Produksi: 30-50 artikel/hari dengan 1 human reviewer (vs 5 writers sebelumnya)</li><li>Kualitas: 85% published tanpa major revision (human reviewer fokus pada factual check)</li><li>Cost per artikel: $0.30-0.80 (mix of GPT-4o-mini untuk research, Claude Sonnet untuk writing)</li><li>Time per artikel: 5-10 menit end-to-end (vs 2-4 jam manual)</li></ul>
+
+<h2>Pelajaran dari Implementasi</h2>
+
+<ol><li><strong>Mulai simple</strong> — Ketiga studi kasus dimulai dengan single agent, lalu evolve. Jangan langsung multi-agent.</li><li><strong>Tools adalah segalanya</strong> — Kualitas agen 70% ditentukan oleh kualitas tool definitions dan deskripsinya. Invest waktu di sini.</li><li><strong>Human-in-the-loop awal</strong> — Jalankan dengan approval setiap langkah dulu, pelajari failure modes, lalu tingkatkan otonomi bertahap.</li><li><strong>Observability critical</strong> — Log setiap reasoning, tool call, dan result. Tanpa ini, debugging mustahil.</li><li><strong>Cost monitoring</strong> — Setiap agen harus track token usage. Tanpa ini, biaya bisa meledak diam-diam.</li><li><strong>Fallback strategy</strong> — Selalu memiliki rencana ketika LLM atau tool gagal. Agent yang crash di tengah task harus bisa resume.</li></ol>
+</div></div></div>
+ <div class="feedback-widget">
+ <p>Apakah halaman ini membantu?</p>
+ <div class="feedback-btns">
+ <button class="feedback-btn yes">Ya, membantu</button>
+ <button class="feedback-btn no">Tidak</button>
+ </div>
+ </div>
+ <footer class="footer">
+ <div class="container">
+ <div class="footer-links"><a href="index.html">Beranda</a><a href="konsep/index.html">Konsep</a><a href="pilar/index.html">Pilar</a><a href="praktik/index.html">Praktik</a><a href="tutorial/index.html">Tutorial</a><a href="backend/index.html">Backend</a><a href="agents/index.html">AI Agents</a><a href="llm/index.html">LLM</a></div>
+ <div class="footer-social">
+ <a href="https://github.com/Mftrferdinand" target="_blank" class="github" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.5.5.09.66-.22.66-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02.8-.22 1.65-.33 2.5-.33.85 0 1.7.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.16.58.67.48A10.01 10.01 0 0022 12c0-5.52-4.48-10-10-10z"/></svg></a>
+ <a href="https://twitter.com" target="_blank" class="twitter" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+ <a href="https://instagram.com" target="_blank" class="instagram" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+ <a href="https://t.me/v1aesbot" target="_blank" class="telegram" aria-label="Telegram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.94 4.5l-3.2 15.07c-.24 1.06-.87 1.32-1.76.82l-4.87-3.59-2.35 2.26c-.26.26-.48.48-.98.48l.35-4.96 9.03-8.16c.39-.35-.09-.55-.61-.2L6.7 13.12l-4.8-1.5c-1.04-.32-1.06-1.04.22-1.54l18.77-7.24c.87-.32 1.63.2 1.35 1.66z"/></svg></a>
+ </div>
+ <p>HermesGuide &mdash; Panduan Hermes Agent</p>
+ </div>
+ </footer>
+ <script src="../../assets/js/main.js"></script>
+</body>
+</html>
